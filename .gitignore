@@ -1,0 +1,7 @@
+my_rpg
+*.o
+a.out
+report
+.vscode
+build
+*.a

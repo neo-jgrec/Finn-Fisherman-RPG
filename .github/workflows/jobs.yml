@@ -1,0 +1,106 @@
+name: rpg
+
+on:
+  push:
+    branches-ignore:
+      - ga-ignore-
+  pull_request:
+    branches-ignore:
+      - ga-ignore-
+
+env:
+  EXECUTABLES: "./my_rpg"
+  MIRROR_URL: git@github.com:EpitechPromo2027/B-MUL-200-REN-2-1-myrpg-morgan.largeot.git
+
+jobs:
+  utils:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Repository size
+        run: |
+          echo "::notice::Repository size: $(du -sh --exclude=.git . | cut -f1)"
+      - name: Number of files
+        run: |
+          echo "::notice::Number of files: $(find . -type f | wc -l)"
+      - name: Number of lines
+        run: |
+          echo "::notice::Number of lines: $(find . -type f -exec wc -l {} + | awk '{s+=$1} END {print s}')"
+  check_coding_style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+          sudo apt-get update
+      - name: Pull coding style docker image
+        run: |
+          docker pull ghcr.io/epitech/coding-style-checker:latest
+      - name: Run coding style
+        run: |
+          docker run --rm -i -v "$(pwd)":"/mnt/delivery" -v "$(pwd)":"/mnt/reports" ghcr.io/epitech/coding-style-checker:latest "/mnt/delivery" "/mnt/reports"
+      - name: Output coding style report
+        if: always()
+        shell: bash
+        run: |
+          is_error=false
+          cat coding-style-reports.log | while read line; do
+            file_error=$(echo "$line" | cut -d: -f1)
+            line_error=$(echo "$line" | cut -d: -f2)
+            error_type=$(echo "$line" | cut -d: -f3)
+            error=$(echo "$line" | cut -d: -f4)
+            title=$(echo "$error_type coding style error")
+            if [ "$error_type" != "MAJOR" ] && [ "$error_type" != "MINOR" ] && [ "$error_type" != "INFO" ]; then
+              continue
+            fi
+            echo "::error file=$file_error,line=$line_error,title=$title::$error"
+            is_error=true
+          done
+          if [ "$is_error" = true ]; then
+            exit 1
+          fi
+  check_program_compilation:
+    needs: check_coding_style
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compilation
+        timeout-minutes: 2
+        run: |
+          make
+      - name: Clean
+        if: always()
+        run: |
+          make clean
+      - name: Check if executable exists
+        if: always()
+        run: |
+          for executable in $(echo $EXECUTABLES | tr "," "\n"); do
+            is_exit=false
+            if [ ! -f $executable ]; then
+              echo "::error file=Makefile::Missing executable $executable"
+              is_exit=true
+            fi
+            if [ "$is_exit" = true ]; then
+              exit 1
+            fi
+          done
+  mirror:
+    needs: check_program_compilation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url:
+            ${{ env.MIRROR_URL }}
+          ssh_private_key:
+            ${{ secrets.GIT_SSH_PRIVATE_KEY }}
