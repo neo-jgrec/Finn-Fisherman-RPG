@@ -1,0 +1,12 @@
+<INVENTORY>
+    <ITEM>
+        <NAME>Item 1</NAME>
+        <DESCRIPTION>Item 1 Description</DESCRIPTION>
+        <PRICE>1.00</PRICE>
+    </ITEM>
+    <ITEM>
+        <NAME>Item 2</NAME>
+        <DESCRIPTION>Item 2 Description</DESCRIPTION>
+        <PRICE>2.00</PRICE>
+    </ITEM>
+</INVENTORY>

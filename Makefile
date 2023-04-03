@@ -11,6 +11,8 @@ NAME					=	my_rpg
 SRC 					:= $(shell find src/ -name '*.c' -type f \
 | xargs grep -L "int main")
 
+SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
