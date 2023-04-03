@@ -11,6 +11,11 @@
     #include <sys/queue.h>
     #include <malloc.h>
 
+    #define TAILQ_FOREACH_SAFE(var, head, field, tvar) \
+        for ((var) = TAILQ_FIRST((head)); \
+            (var) && ((tvar) = TAILQ_NEXT((var), field), 1); \
+            (var) = (tvar))
+
 typedef struct xml_node {
     char *name;
     char *value;
