@@ -14,6 +14,8 @@ SRC 					:=	src/main_loop.c \
 SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c
 
+SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
