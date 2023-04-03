@@ -1,12 +1,12 @@
 <INVENTORY>
-    <ITEM>
-        <NAME>Item 1</NAME>
+    <ITEM1>
+        <NAME>Le destructeur de monde</NAME>
         <DESCRIPTION>Item 1 Description</DESCRIPTION>
-        <PRICE>1.00</PRICE>
-    </ITEM>
-    <ITEM>
-        <NAME>Item 2</NAME>
+        <LEVEL>1</LEVEL>
+    </ITEM1>
+    <ITEM2>
+        <NAME>La maman de dilan</NAME>
         <DESCRIPTION>Item 2 Description</DESCRIPTION>
-        <PRICE>2.00</PRICE>
-    </ITEM>
+        <LEVEL>2</LEVEL>
+    </ITEM2>
 </INVENTORY>
