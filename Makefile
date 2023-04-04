@@ -25,7 +25,8 @@ CFLAGS					:=	-I include/ 							\
 							-I $(LIB_FOLDER)/include/				\
 							-I $(LIB_FOLDER)/my_printf/include/		\
 							-I $(LIB_FOLDER)/my_stdlib/include/		\
-							-I $(LIB_FOLDER)/my_arraylib/include/
+							-I $(LIB_FOLDER)/my_arraylib/include/	\
+
 
 WFLAGS					:=	-Wall -Wextra
 
@@ -36,19 +37,23 @@ TEST_SRC				=	tests/basics.c
 TEST_NAME				=	unit_tests
 BUILD_TESTS_DIR			=	$(BUILD_DIR)/tests
 TESTS_OBJ				=	$(TEST_SRC:%.c=$(BUILD_DIR)/%.o)
+CSFML 					= 	-lcsfml-window -lcsfml-graphics \
+							-lcsfml-system -lcsfml-audio -lm
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	@mkdir -p $(BUILD_DIR)
 	@make -s -C $(LIB_FOLDER)
-	@gcc -o $(NAME) $(OBJ) $(CFLAGS) $(WFLAGS) $(LDLIBS)\
+	@gcc -o $(NAME) $(OBJ) $(CFLAGS) $(WFLAGS) $(LDLIBS) \
+	$(CSFML) \
 	&& echo -e "\033[1;32m[OK]\033[0m" $(NAME)\
 	|| echo -e "\033[1;31m[KO]\033[0m" $(NAME)
 
 $(BUILD_DIR)/%.o:	%.c
 	@mkdir -p $(dir $@)
-	@gcc -c -o $@ $< $(CFLAGS) $(WFLAGS)\
+	@gcc -c -o $@ $< $(CFLAGS) $(WFLAGS) \
+	$(CSFML) \
 	&& echo -e "\033[1;32m[OK]\033[0m" $<\
 	|| echo -e "\033[1;31m[KO]\033[0m" $<
 
