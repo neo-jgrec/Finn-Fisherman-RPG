@@ -1,0 +1,161 @@
+<GAME>
+    <CHAMPIONS>
+    <!--liste des différents type de perso et leurs caractéristiques de base-->
+        <CHAMP1>
+            <NAME>Nemo</NAME>
+            <CLASS>Poisson clown</CLASS>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+        </CHAMP1> 
+        <CHAMP2>
+            <NAME>Dory</NAME>
+            <CLASS>Chirurgien bleu</CLASS>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+        </CHAMP2>
+        <CHAMP3>
+            <NAME>Thomas</NAME>
+            <CLASS>Poisson fraise</CLASS>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+        </CHAMP3>
+    </CHAMPIONS>
+    <ITEMS>
+    <!--liste des différents items du jeux (triés par classe)-->
+        <RUNES>
+            <ITEM1>
+                <NAME>Rune de pouvoir</NAME>
+                <STATS>
+                    <ATK>0</ATK>
+                    <DEF>0</DEF>
+                    <HEALTH>0</HEALTH>
+                    <SPD>0</SPD>
+                </STATS>
+                <DESCRIPTION>Cette rune des temps anciens augmente votre force de frappe.</DESCRIPTION>
+            </ITEM1>
+            <ITEM2>
+                <NAME>Rune de fortification</NAME>
+                <STATS>
+                    <ATK>0</ATK>
+                    <DEF>0</DEF>
+                    <HEALTH>0</HEALTH>
+                    <SPD>0</SPD>
+                </STATS>
+                <DESCRIPTION>Cette rune des temps anciens augmente votre défense.</DESCRIPTION>
+            </ITEM2>
+            <ITEM3>
+                <NAME>Rune d'immortalite</NAME>
+                <STATS>
+                    <ATK>0</ATK>
+                    <DEF>0</DEF>
+                    <HEALTH>0</HEALTH>
+                    <SPD>0</SPD>
+                </STATS>
+                <DESCRIPTION>Cette rune des temps anciens augmente votre capacite de vie.</DESCRIPTION>
+            </ITEM3>
+            <ITEM4>
+                <NAME>Rune d'eclair</NAME>
+                <STATS>
+                    <ATK>0</ATK>
+                    <DEF>0</DEF>
+                    <HEALTH>0</HEALTH>
+                    <SPD>0</SPD>
+                </STATS>
+                <DESCRIPTION>Cette rune des temps anciens augmente votre vitesse de déplacement.</DESCRIPTION>
+            </ITEM4>
+            <ITEM5>
+                <NAME>Poisson doré</NAME>
+                <STATS>
+                    <ATK>0</ATK>
+                    <DEF>0</DEF>
+                    <HEALTH>0</HEALTH>
+                    <SPD>0</SPD>
+                </STATS>
+                <DESCRIPTION>Ce poisson aux capacites etranges ameliore toutes vos statistiques.</DESCRIPTION>
+            </ITEM5>
+        </RUNES>
+        <RESSOURCES>
+            <ITEM1>
+                <NAME>Branche</NAME>
+                <DESCRIPTION>Juste une branche qui sert d'exemple</DESCRIPTION>
+            </ITEM1>
+        </RESSOURCES>
+    </ITEMS>
+    <ARMOR>
+    <!--Armure du personnage et stats-->
+        <CHESTPLATE>
+            <ASSETS>veste.png</ASSETS> <!--exemple d'asset-->
+            <NAMES>
+                <UP0>Morceau de tissus</UP0>
+                <UP1>Veste de fortune</UP1>
+                <UP2>Veste</UP2>
+                <UP3>Veste de competition</UP3>
+                <UP4>Veste magique</UP4>
+                <UP5>Veste demoniaque</UP5> <!--Utiliser des poissons (d'où l'adjectif demoniaque) pour l'upgrade + items à choisir-->
+            </NAMES>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+            <DESCRIPTION>La legende raconte que ce plastron au pouvoir unique peut annuler toute blessure.</DESCRIPTION>
+            <UPGRADE>0</UPGRADE>
+        </CHESTPLATE>
+        <BOOTS>
+            <ASSETS>plames.png</ASSETS>
+            <NAMES>
+                <UP0>Palmes en carton</UP0>
+                <UP1>Palmes de fortune</UP1>
+                <UP2>Palmes</UP2>
+                <UP3>Palmes de competition</UP3>
+                <UP4>Palmes magique</UP4>
+                <UP5>Palmes demoniaque</UP5> <!--Utiliser des poissons (d'où l'adjectif demoniaque) pour l'upgrade + items à choisir-->
+            </NAMES>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+            <DESCRIPTION>On dit que flash aurait porte ces palmes a ses debuts.</DESCRIPTION>
+            <UPGRADE>0</UPGRADE>
+        </BOOTS>
+        <FISHING_ROD>
+            <ASSETS>canne.png</ASSETS>
+            <NAMES>
+                <UP0>Baton a ficelle</UP0>
+                <UP1>Canne a peche de fortune</UP1>
+                <UP2>Canne a peche</UP2>
+                <UP3>Canne a peche de competition</UP3>
+                <UP4>Canne a peche magique</UP4>
+                <UP5>Canne a peche demoniaque</UP5> <!--Utiliser des poissons (d'où l'adjectif demoniaque) pour l'upgrade + items à choisir-->
+            </NAMES>
+            <STATS>
+                <ATK>0</ATK>
+                <DEF>0</DEF>
+                <HEALTH>0</HEALTH>
+                <SPD>0</SPD>
+            </STATS>
+            <DESCRIPTION>Plus qu'une simple canne, elle est l'extension meme de votre bras.</DESCRIPTION>
+            <UPGRADE>0</UPGRADE>
+        </FISHING_ROD>
+    </ARMOR>
+    <MOBS>
+    <!--Bestiaire du jeu avec mob/description (+stats)-->
+        <MOB1>
+        </MOB1>
+    </MOBS>
+</GAME>
