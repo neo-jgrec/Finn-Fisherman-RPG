@@ -8,8 +8,8 @@
 PROJECT_NAME			=	my_rpg
 NAME					=	my_rpg
 
-SRC 					:= $(shell find src/ -name '*.c' -type f \
-| xargs grep -L "int main")
+SRC 					:= 	src/player_controller.c \
+							src/player_manager.c
 
 MAIN 					= 	src/main.c
 

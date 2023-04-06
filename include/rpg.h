@@ -15,4 +15,14 @@
     #include <unistd.h>
     #include <stdio.h>
 
+    #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
+    #define SEC(time) ((float)(time) / 1000000)
+
+    typedef struct window_s {
+        sfEvent event;
+        sfRenderWindow *window;
+        sfClock *time;
+        float deltaT;
+    } window_t;
+
 #endif /* !_RPG_H__ */
