@@ -17,6 +17,7 @@
 
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
+
     typedef struct window_s {
         sfEvent event;
         sfRenderWindow *window;
