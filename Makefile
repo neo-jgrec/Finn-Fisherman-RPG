@@ -8,8 +8,11 @@
 PROJECT_NAME			=	my_rpg
 NAME					=	my_rpg
 
-SRC 					:= $(shell find src/ -name '*.c' -type f \
-| xargs grep -L "int main")
+SRC 					:=	src/main_loop.c \
+	src/rpg.c
+
+SRC						+=	src/init/init_rpg.c \
+	src/init/init_win.c
 
 MAIN 					= 	src/main.c
 

@@ -18,11 +18,21 @@
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
 
-    typedef struct window_s {
+    typedef struct win_t {
         sfEvent event;
-        sfRenderWindow *window;
+        sfRenderWindow *win;
         sfClock *time;
         float deltaT;
-    } window_t;
+    } win_t;
+
+    typedef struct rpg_s {
+        win_t *win;
+    } rpg_t;
+
+    int rpg(void);
+    int main_loop(win_t *win, rpg_t *rpg);
+
+    rpg_t *init_rpg(void);
+    win_t *init_win(void);
 
 #endif /* !_RPG_H__ */
