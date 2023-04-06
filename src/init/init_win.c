@@ -20,8 +20,4 @@ win_t *init_win(void)
     win->time = sfClock_create();
     win->deltaT = 0;
     return win;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8537b88 (feat(main_loop) main architecure)
