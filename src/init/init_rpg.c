@@ -14,4 +14,8 @@ rpg_t *init_rpg(void)
     if (rpg == NULL)
         return NULL;
     return rpg;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8537b88 (feat(main_loop) main architecure)
