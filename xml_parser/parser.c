@@ -15,7 +15,8 @@
 void read_value(xml_parser_t *parser, xml_node_t *node)
 {
     char *value_start = parser->buffer_ptr;
-    while (*parser->buffer_ptr != '<' && parser->buffer_ptr < parser->buffer_end)
+    while (*parser->buffer_ptr != '<'
+    && parser->buffer_ptr < parser->buffer_end)
         parser->buffer_ptr++;
     if (value_start == parser->buffer_ptr) {
         node->value = my_strdup("");
@@ -46,8 +47,8 @@ void parse_xml(xml_parser_t *parser)
     parser->root = parse_node(parser, 1);
 }
 
-
-char *get_value_by_tags(xml_node_t *root, char **tags) {
+char *get_value_by_tags(xml_node_t *root, char **tags)
+{
     if (!root || !tags || !*tags)
         return NULL;
 

@@ -13,10 +13,10 @@
     #include "mars.h"
 
     #define IS_WHITESPACE(c) (c == ' ' || c == '\t' || c == '\n' || c == '\r')
-
+    #define SEMICOLON ;
     #define TAILQ_FOREACH_SAFE(var, head, field, tvar) \
-        for ((var) = TAILQ_FIRST((head)); \
-            (var) && ((tvar) = TAILQ_NEXT((var), field), 1); \
+        for ((var) = TAILQ_FIRST((head))SEMICOLON \
+            (var) && ((tvar) = TAILQ_NEXT((var), field), 1)SEMICOLON \
             (var) = (tvar))
 
 typedef struct xml_node {

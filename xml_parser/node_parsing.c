@@ -48,8 +48,10 @@ xml_node_t *parse_node(xml_parser_t *parser, int is_root)
     set_node_name(parser, node);
     parser->buffer_ptr++;
     skip_whitespace(parser);
-    if (!is_root) read_value(parser, node);
-    else node->value = NULL;
+    if (!is_root)
+        read_value(parser, node);
+    else
+        node->value = NULL;
     skip_whitespace(parser);
     process_children(parser, node);
     parser->buffer_ptr += 2 + strlen(node->name) + 1;
