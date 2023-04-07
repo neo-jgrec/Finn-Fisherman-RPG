@@ -11,7 +11,6 @@ int rpg(void)
 {
     int ret = 0;
     rpg_t *rpg = init_rpg();
-
     rpg->win = init_win();
     rpg->puzzle = init_puzzle();
     rpg->asset = init_asset();

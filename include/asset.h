@@ -15,7 +15,7 @@
     typedef struct sprite_s {
         sfSprite *sp;
         sfTexture *tx;
-        int size;
+        sfVector2f size;
         int nb_frame;
     } sprite_t;
 
@@ -24,5 +24,7 @@
     } asset_t;
 
     asset_t *init_asset(void);
+    sprite_t *init_sprite(char *path,
+        sfVector2f size, int nb_frame, int scale);
 
 #endif /* !ASSET_H_ */

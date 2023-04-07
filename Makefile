@@ -16,7 +16,9 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c \
 	src/init/init_puzzle.c \
 	src/init/init_asset.c \
-	src/init/init_player.c
+	src/init/init_player.c \
+	src/init/init_loading.c \
+	src/init/init_sprite.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

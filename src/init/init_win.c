@@ -19,5 +19,6 @@ win_t *init_win(void)
     win->event = event;
     win->time = sfClock_create();
     win->deltaT = 0;
+    win->scene = LOADING;
     return win;
 }

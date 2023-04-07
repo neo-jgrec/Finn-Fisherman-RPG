@@ -19,6 +19,7 @@
     #include "puzzle.h"
     #include "asset.h"
     #include "player.h"
+    #include "loading.h"
 
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
