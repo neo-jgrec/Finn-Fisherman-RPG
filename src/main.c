@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-int main(int ac, char **av)
+int main(int ac, UNUSED char **av)
 {
     if (ac != 1)
         return 0;

@@ -19,7 +19,6 @@ static sfFloatRect *init_colliders(void)
 puzzle_t *init_puzzle(void)
 {
     puzzle_t *puzzle = malloc(sizeof(puzzle_t));
-    sfEvent event = {0};
 
     if (puzzle == NULL)
         return NULL;
