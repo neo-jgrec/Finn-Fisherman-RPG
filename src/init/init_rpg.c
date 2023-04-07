@@ -14,5 +14,4 @@ rpg_t *init_rpg(void)
     if (rpg == NULL)
         return NULL;
     return rpg;
-
 }

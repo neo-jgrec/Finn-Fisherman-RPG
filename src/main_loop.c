@@ -17,11 +17,10 @@ static void analyse_events(win_t *win)
 
 int main_loop(win_t *win, rpg_t *rpg)
 {
-    int i = 0;
-
     while (sfRenderWindow_isOpen(win->win)) {
-        sfRenderWindow_clear(win->win, sfGreen);
+        sfRenderWindow_clear(win->win, sfBlack);
         analyse_events(win);
+        sfRenderWindow_drawSprite(win->win, rpg->asset->player->sp, NULL);
         sfRenderWindow_display(win->win);
     }
     return 0;

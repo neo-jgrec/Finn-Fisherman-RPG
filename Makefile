@@ -9,10 +9,14 @@ PROJECT_NAME			=	my_rpg
 NAME					=	my_rpg
 
 SRC 					:=	src/main_loop.c \
-	src/rpg.c
+	src/rpg.c \
+	src/manage_player.c
 
 SRC						+=	src/init/init_rpg.c \
-	src/init/init_win.c
+	src/init/init_win.c \
+	src/init/init_puzzle.c \
+	src/init/init_asset.c \
+	src/init/init_player.c
 
 MAIN 					= 	src/main.c
 

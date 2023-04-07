@@ -13,6 +13,9 @@ int rpg(void)
     rpg_t *rpg = init_rpg();
 
     rpg->win = init_win();
+    rpg->puzzle = init_puzzle();
+    rpg->asset = init_asset();
+    rpg->player = init_player(rpg->asset);
     ret = main_loop(rpg->win, rpg);
     return ret;
 }

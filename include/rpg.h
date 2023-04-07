@@ -15,24 +15,25 @@
     #include <unistd.h>
     #include <stdio.h>
 
+    #include "win.h"
+    #include "puzzle.h"
+    #include "asset.h"
+    #include "player.h"
+
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
-
-    typedef struct win_t {
-        sfEvent event;
-        sfRenderWindow *win;
-        sfClock *time;
-        float deltaT;
-    } win_t;
+    #define VEC sfVector2f
 
     typedef struct rpg_s {
         win_t *win;
+        puzzle_t *puzzle;
+        asset_t *asset;
+        player_t *player;
     } rpg_t;
 
     int rpg(void);
     int main_loop(win_t *win, rpg_t *rpg);
 
     rpg_t *init_rpg(void);
-    win_t *init_win(void);
 
 #endif /* !_RPG_H__ */
