@@ -10,7 +10,6 @@
 
     #include <sys/queue.h>
     #include <malloc.h>
-<<<<<<< HEAD
     #include "mars.h"
 
     #define IS_WHITESPACE(c) (c == ' ' || c == '\t' || c == '\n' || c == '\r')
@@ -19,8 +18,6 @@
         for ((var) = TAILQ_FIRST((head)); \
             (var) && ((tvar) = TAILQ_NEXT((var), field), 1); \
             (var) = (tvar))
-=======
->>>>>>> 62e30ac (feat(main) first addition of xml_parsing)
 
 typedef struct xml_node {
     char *name;
