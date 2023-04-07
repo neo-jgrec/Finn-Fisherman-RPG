@@ -7,8 +7,9 @@
 
 #include "xml_parser.h"
 void skip_whitespace(xml_parser_t *parser);
+void read_value(xml_parser_t *parser, xml_node_t *node);
 
-static xml_node_t *create_new_node(xml_parser_t *parser)
+static xml_node_t *create_new_node(UNUSED xml_parser_t *parser)
 {
     xml_node_t *node = malloc(sizeof(xml_node_t));
     TAILQ_INIT(&node->children);
@@ -54,7 +55,7 @@ xml_node_t *parse_node(xml_parser_t *parser, int is_root)
         node->value = NULL;
     skip_whitespace(parser);
     process_children(parser, node);
-    parser->buffer_ptr += 2 + strlen(node->name) + 1;
+    parser->buffer_ptr += 2 + my_strlen(node->name) + 1;
     skip_whitespace(parser);
     return node;
 }
