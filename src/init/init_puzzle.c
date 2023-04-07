@@ -16,15 +16,17 @@ static sfFloatRect *init_colliders(void)
     return colliders;
 }
 
-puzzle_t *init_puzzle(void)
+void init_puzzle(rpg_t *rpg)
 {
     puzzle_t *puzzle = malloc(sizeof(puzzle_t));
 
     if (puzzle == NULL)
-        return NULL;
+        rpg->puzzle = NULL;
     puzzle->nb_colliders = 0;
     puzzle->colliders = NULL;
     puzzle->nb_colliders = 1;
     puzzle->colliders = init_colliders();
-    return puzzle;
+    rpg->puzzle = puzzle;
+    loading_screen(rpg, rpg->loading, 40, 1);
+
 }

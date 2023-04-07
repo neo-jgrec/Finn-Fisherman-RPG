@@ -7,18 +7,18 @@
 
 #include "rpg.h"
 
-win_t *init_win(void)
+void init_win(rpg_t *rpg)
 {
     win_t *win = malloc(sizeof(win_t));
     sfEvent event = {0};
 
     if (win == NULL)
-        return NULL;
+        rpg->win = NULL;
     win->win = sfRenderWindow_create((sfVideoMode){1920, 1080, 32},
         "THE RPG", sfFullscreen, NULL);
     win->event = event;
     win->time = sfClock_create();
     win->deltaT = 0;
     win->scene = LOADING;
-    return win;
+    rpg->win = win;
 }

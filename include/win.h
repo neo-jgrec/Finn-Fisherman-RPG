@@ -28,6 +28,6 @@
         scene_t scene;
     } win_t;
 
-    win_t *init_win(void);
+    void init_win(rpg_t *rpg);
 
 #endif /* !WIN_H_ */

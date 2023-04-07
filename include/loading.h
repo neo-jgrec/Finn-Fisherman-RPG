@@ -18,7 +18,9 @@
         int fish;
     } loading_t;
 
-    loading_t *init_loading(void);
-    void loading_screen(void);
+    void loading_screen(rpg_t *rpg, loading_t *loading,
+        int pourcentage, int next);
+
+    void init_loading(rpg_t *rpg);
 
 #endif /* !LOADING_H_ */

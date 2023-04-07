@@ -23,7 +23,7 @@
         sprite_t *player;
     } asset_t;
 
-    asset_t *init_asset(void);
+    void init_asset(rpg_t *rpg);
     sprite_t *init_sprite(char *path,
         sfVector2f size, int nb_frame, int scale);
 

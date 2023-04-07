@@ -22,7 +22,7 @@
         float cd_frame;
     } player_t;
 
-    player_t *init_player(asset_t *asset);
+    void init_player(asset_t *asset, rpg_t *rpg);
 
     void manage_player(win_t *win, player_t *player, rpg_t *rpg);
 

@@ -10,7 +10,8 @@ NAME					=	my_rpg
 
 SRC 					:=	src/main_loop.c \
 	src/rpg.c \
-	src/manage_player.c
+	src/manage_player.c \
+	src/loading_screen.c
 
 SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c \

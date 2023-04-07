@@ -15,18 +15,19 @@ static sprite_t **init_fishs(int nb)
         return NULL;
     for (int i = 0; i < nb; fishs[i] = NULL, i++);
     fishs[0] = init_sprite("assets/loading/fish_0.jpg",
-        (VEC){800, 450}, 1, 1);
+        (VEC){627, 381}, 1, 1);
     return fishs;
 }
 
-loading_t *init_loading(void)
+void init_loading(rpg_t *rpg)
 {
     loading_t *loading = malloc(sizeof(loading_t));
 
     if (loading == NULL)
-        return NULL;
+        rpg->loading = NULL;
     loading->nb_fish = 1;
     loading->fish = 0;
     loading->fishs = init_fishs(1);
-    return loading;
+    rpg->loading = loading;
+    loading_screen(rpg, rpg->loading, 20, 1);
 }

@@ -17,6 +17,6 @@
         int nb_colliders;
     } puzzle_t;
 
-    puzzle_t *init_puzzle(void);
+    void init_puzzle(rpg_t *rpg);
 
 #endif /* !PUZZLE_H_ */

@@ -31,6 +31,7 @@
         puzzle_t *puzzle;
         asset_t *asset;
         player_t *player;
+        loading_t *loading;
     } rpg_t;
 
     int rpg(void);
