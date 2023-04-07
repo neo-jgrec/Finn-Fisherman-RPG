@@ -62,7 +62,7 @@ void free_parser(xml_parser_t *parser);
 
 /**
  * @brief Initialize the parser thanks to a file
- * 
+ *
  * @param filename
  * @return xml_parser_t*
  */
