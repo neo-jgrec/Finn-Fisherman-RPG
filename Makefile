@@ -18,6 +18,8 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_asset.c \
 	src/init/init_player.c
 
+SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
