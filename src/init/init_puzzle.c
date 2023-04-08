@@ -4,7 +4,21 @@
 ** File description:
 ** init_puzzle
 */
+
 #include "rpg.h"
+
+static int **init_map(void)
+{
+    int **map = malloc(sizeof(int *) * 25);
+    for (int i = 0; i < 25; map[i] = NULL, i++);
+    for (int i = 0; i < 20; i++) {
+        map[i] = malloc(sizeof(int) * 25);
+        for (int j = 0; j < 25; map[i][j] = -1, j++);
+        for (int j = 0; j < 20; map[i][j] = 0, j++);
+    }
+    map[10][15] = 1;
+    return map;
+}
 
 static sfFloatRect *init_colliders(void)
 {
@@ -27,6 +41,8 @@ void init_puzzle(rpg_t *rpg)
     puzzle->colliders = NULL;
     puzzle->nb_colliders = 2;
     puzzle->colliders = init_colliders();
+    puzzle->map = init_map();
+    puzzle->tileset = &rpg->asset->tileset;
     rpg->puzzle = puzzle;
     loading_screen(rpg, rpg->loading, 40, 1);
 

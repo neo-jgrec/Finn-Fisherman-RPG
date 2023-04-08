@@ -13,7 +13,10 @@ void init_asset(rpg_t *rpg)
 
     if (asset == NULL)
         rpg->asset = NULL;
-    asset->player = init_sprite("assets/player/run.png", (VEC){32, 32}, 6, 3);
+    asset->player = init_sprite("assets/player/test.png", (VEC){32, 32}, 6, 3);
+    asset->tileset = init_sprite("assets/tileset/tiles.png",
+        (VEC){16, 16}, 14, 4);
+    sfSprite_setOrigin(asset->tileset.sp, (VEC){0, 0});
     rpg->asset = asset;
     loading_screen(rpg, rpg->loading, 60, 1);
 }

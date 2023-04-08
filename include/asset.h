@@ -21,6 +21,7 @@
 
     typedef struct asset_s {
         sprite_t player;
+        sprite_t tileset;
     } asset_t;
 
     void init_asset(rpg_t *rpg);

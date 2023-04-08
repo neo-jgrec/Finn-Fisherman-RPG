@@ -27,8 +27,8 @@ void manage_jump(player_t *player, rpg_t *rpg)
     jump_t *jump = &player->jump;
 
     set_jump_var(player, rpg, jump);
-    if (jump->ground_time < 0.2 && jump->press_time < 0.2)
-        jump->jump = 0.05;
+    if (jump->ground_time < 0.1 && jump->press_time < 0.1 && jump->jump < 0)
+        jump->jump = 0.2;
     if (jump->jump > 0) {
         move_player(player, (VEC){0, -jump->jump * rpg->win->deltaT * 10000});
         check_collision(player, rpg->puzzle, 0);

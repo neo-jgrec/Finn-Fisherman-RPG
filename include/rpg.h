@@ -38,6 +38,7 @@
 
     int rpg(void);
     int main_loop(win_t *win, rpg_t *rpg);
+    void draw(win_t *win, rpg_t *rpg);
 
     rpg_t *init_rpg(void);
 

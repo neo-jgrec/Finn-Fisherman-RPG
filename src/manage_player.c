@@ -10,7 +10,7 @@
 static void set_position(win_t *win, player_t *player, rpg_t *rpg)
 {
     if (player->jump.jump < 0) {
-        move_player(player, (VEC){0, 1 * win->deltaT * 1000});
+        move_player(player, (VEC){0, 1 * win->deltaT * 900});
         check_collision(player, rpg->puzzle, 0);
     }
     move_player(player, (VEC){player->hor * win->deltaT * 700, 0});
