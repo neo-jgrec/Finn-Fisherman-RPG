@@ -13,7 +13,6 @@ SRC 					:=	src/main_loop.c \
 	src/manage_player.c \
 	src/loading_screen.c \
 	src/check_input.c \
-	src/check_collision.c \
 	src/move_player.c \
 	src/manage_jump.c \
 	src/on_ground.c \
@@ -28,6 +27,9 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_loading.c \
 	src/init/init_sprite.c \
 	src/init/init_input.c
+
+SRC						+= src/collisions/add_collision.c \
+	src/collisions/check_collision.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

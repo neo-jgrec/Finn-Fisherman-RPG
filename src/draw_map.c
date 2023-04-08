@@ -7,13 +7,10 @@
 
 #include "rpg.h"
 
-void draw_map(win_t *win, puzzle_t *puzzle)
+static void draw_tiles(win_t *win, sprite_t *sp, int **map, int i)
 {
-    sprite_t *sp = puzzle->tileset;
-    int **map = puzzle->map;
-
-    for (int i = 0; map[i] != NULL; i++) {
-        for (int j = 0; map[i][j] != -1; j++) {
+    for (int j = 0; map[i][j] != -2; j++) {
+        if (map[i][j] != -1) {
             sfSprite_setTextureRect(sp->sp,
                 (sfIntRect){sp->size.x * (map[i][j] % sp->nb_frame),
                     sp->size.x * (map[i][j] / sp->nb_frame),
@@ -22,4 +19,13 @@ void draw_map(win_t *win, puzzle_t *puzzle)
             sfRenderWindow_drawSprite(win->win, sp->sp, NULL);
         }
     }
+}
+
+void draw_map(win_t *win, puzzle_t *puzzle)
+{
+    sprite_t *sp = puzzle->tileset;
+    int **map = puzzle->map;
+
+    for (int i = 0; map[i] != NULL; i++)
+        draw_tiles(win, sp, map, i);
 }
