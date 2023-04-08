@@ -20,6 +20,7 @@
         kv_t right;
         kv_t bot;
         kv_t top;
+        kv_t space;
     } input_t;
 
     void init_input(rpg_t *rpg);

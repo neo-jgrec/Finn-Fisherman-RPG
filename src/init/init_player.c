@@ -19,6 +19,10 @@ void init_player(asset_t *asset, rpg_t *rpg)
     player->sp = asset->player.sp;
     player->frame = (frame_t){asset->player.size.x,
         asset->player.nb_frame, 0.2f};
+    player->jump = (jump_t){0, 0, 0, 0};
+    player->hor = 0;
+    player->ver = 0;
+    player->grounded = 0;
     rpg->player = player;
     loading_screen(rpg, rpg->loading, 80, 1);
 

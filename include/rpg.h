@@ -22,8 +22,8 @@
     #include "loading.h"
     #include "input.h"
 
-    #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
+    #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
     #define UNUSED __attribute__((unused))
 

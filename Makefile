@@ -14,7 +14,9 @@ SRC 					:=	src/main_loop.c \
 	src/loading_screen.c \
 	src/check_input.c \
 	src/check_collision.c \
-	src/move_player.c
+	src/move_player.c \
+	src/manage_jump.c \
+	src/on_ground.c
 
 SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c \

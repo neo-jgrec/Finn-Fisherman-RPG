@@ -20,6 +20,7 @@
 
     void init_puzzle(rpg_t *rpg);
 
-    void check_collision(player_t *player, puzzle_t *puzzle);
+    void check_collision(player_t *player, puzzle_t *puzzle, int axe);
+    int on_ground(player_t *player, puzzle_t *puzzle);
 
 #endif /* !PUZZLE_H_ */

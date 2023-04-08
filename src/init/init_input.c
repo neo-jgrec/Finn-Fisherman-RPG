@@ -26,6 +26,7 @@ void init_input(rpg_t *rpg)
     input->left = init_key(sfKeyQ);
     input->right = init_key(sfKeyD);
     input->top = init_key(sfKeyZ);
+    input->space = init_key(sfKeySpace);
     rpg->input = input;
     loading_screen(rpg, rpg->loading, 100, 1);
 }

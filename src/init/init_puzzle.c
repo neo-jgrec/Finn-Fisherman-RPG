@@ -13,6 +13,7 @@ static sfFloatRect *init_colliders(void)
     if (colliders == NULL)
         return NULL;
     colliders[0] = (sfFloatRect){0, 700, 1900, 100};
+    colliders[1] = (sfFloatRect){800, 000, 10, 1000};
     return colliders;
 }
 
@@ -24,7 +25,7 @@ void init_puzzle(rpg_t *rpg)
         rpg->puzzle = NULL;
     puzzle->nb_colliders = 0;
     puzzle->colliders = NULL;
-    puzzle->nb_colliders = 1;
+    puzzle->nb_colliders = 2;
     puzzle->colliders = init_colliders();
     rpg->puzzle = puzzle;
     loading_screen(rpg, rpg->loading, 40, 1);
