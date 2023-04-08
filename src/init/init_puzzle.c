@@ -16,11 +16,31 @@ static int **init_map(void)
         for (int j = 0; j < 25; map[i][j] = -2, j++);
         for (int j = 0; j < 20; map[i][j] = -1, j++);
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 20; i++)
         map[i][15] = 1;
     for (int i = 0; i < 10; i++)
         map[i][14] = 2;
+    map[15][13] = 3;
+    map[16][13] = 4;
+    map[16][14] = 4;
     return map;
+}
+
+static sfFloatRect *add_colliders(sfFloatRect *colliders,
+    sfFloatRect rect, int *nb_col)
+{
+    sfFloatRect *new = NULL;
+
+    new = malloc(sizeof(sfFloatRect) * (*nb_col + 2));
+    if (new == NULL)
+        return NULL;
+    for (int i = 0; i < *nb_col + 2; new[i] = (sfFloatRect){0}, i++);
+    for (int i = 0; i < *nb_col; i++)
+        new[i] = colliders[i];
+    new[*nb_col] = rect;
+    *nb_col += 1;
+    free(colliders);
+    return new;
 }
 
 static void merge_colliders(sfFloatRect **colliders,
@@ -35,11 +55,12 @@ static void merge_colliders(sfFloatRect **colliders,
 
 static sfFloatRect *init_colliders(int *nb_col, int **map)
 {
-    sfFloatRect *colliders = malloc(sizeof(sfFloatRect));
+    sfFloatRect *colliders = malloc(sizeof(sfFloatRect) * 2);
 
     if (colliders == NULL)
         return NULL;
     colliders[0] = (sfFloatRect){0};
+    colliders[1] = (sfFloatRect){0};
     for (int i = 0; map[i] != NULL; i++) {
         merge_colliders(&colliders, nb_col, map, i);
     }
