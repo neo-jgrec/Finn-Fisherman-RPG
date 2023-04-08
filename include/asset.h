@@ -20,11 +20,11 @@
     } sprite_t;
 
     typedef struct asset_s {
-        sprite_t *player;
+        sprite_t player;
     } asset_t;
 
     void init_asset(rpg_t *rpg);
-    sprite_t *init_sprite(char *path,
+    sprite_t init_sprite(char *path,
         sfVector2f size, int nb_frame, int scale);
 
 #endif /* !ASSET_H_ */

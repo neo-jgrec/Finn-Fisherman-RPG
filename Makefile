@@ -11,7 +11,8 @@ NAME					=	my_rpg
 SRC 					:=	src/main_loop.c \
 	src/rpg.c \
 	src/manage_player.c \
-	src/loading_screen.c
+	src/loading_screen.c \
+	src/check_input.c
 
 SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c \
@@ -19,7 +20,8 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_asset.c \
 	src/init/init_player.c \
 	src/init/init_loading.c \
-	src/init/init_sprite.c
+	src/init/init_sprite.c \
+	src/init/init_input.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

@@ -20,6 +20,7 @@
     #include "asset.h"
     #include "player.h"
     #include "loading.h"
+    #include "input.h"
 
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SEC(time) ((float)(time) / 1000000)
@@ -32,6 +33,7 @@
         asset_t *asset;
         player_t *player;
         loading_t *loading;
+        input_t *input;
     } rpg_t;
 
     int rpg(void);

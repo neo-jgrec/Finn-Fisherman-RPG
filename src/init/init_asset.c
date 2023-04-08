@@ -16,5 +16,4 @@ void init_asset(rpg_t *rpg)
     asset->player = init_sprite("assets/player/run.png", (VEC){32, 32}, 6, 3);
     rpg->asset = asset;
     loading_screen(rpg, rpg->loading, 60, 1);
-
 }
