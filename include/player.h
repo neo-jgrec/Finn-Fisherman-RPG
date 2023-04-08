@@ -12,18 +12,27 @@
 
     typedef struct rpg_s rpg_t;
 
+    typedef struct frame_s {
+        int size;
+        int nb;
+        float cd;
+    } frame_t;
+
+    typedef struct stat_s {
+        int speed;
+    } stat_t;
+
     typedef struct player_s {
         sfSprite *sp;
         sfFloatRect rect;
         sfVector2f pos;
         sfClock *time;
-        int size;
-        int nb_frame;
-        float cd_frame;
+        frame_t frame;
     } player_t;
 
     void init_player(asset_t *asset, rpg_t *rpg);
 
     void manage_player(win_t *win, player_t *player, rpg_t *rpg);
+    void move_player(player_t *player, sfVector2f dir);
 
 #endif /* !_PLAYER_H__ */

@@ -14,12 +14,11 @@ void init_player(asset_t *asset, rpg_t *rpg)
     if (player == NULL)
         rpg->player = NULL;
     player->pos = (VEC){500, 500};
-    player->rect = (sfFloatRect){0};
+    player->rect = (sfFloatRect){0, 0, 64, 64};
     player->time = sfClock_create();
     player->sp = asset->player.sp;
-    player->size = asset->player.size.x;
-    player->nb_frame = asset->player.nb_frame;
-    player->cd_frame = 0.2f;
+    player->frame = (frame_t){asset->player.size.x,
+        asset->player.nb_frame, 0.2f};
     rpg->player = player;
     loading_screen(rpg, rpg->loading, 80, 1);
 

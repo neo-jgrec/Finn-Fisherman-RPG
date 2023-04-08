@@ -11,6 +11,7 @@
     #include "rpg.h"
 
     typedef struct rpg_s rpg_t;
+    typedef struct player_s player_t;
 
     typedef struct puzzle_s {
         sfFloatRect *colliders;
@@ -18,5 +19,7 @@
     } puzzle_t;
 
     void init_puzzle(rpg_t *rpg);
+
+    void check_collision(player_t *player, puzzle_t *puzzle);
 
 #endif /* !PUZZLE_H_ */

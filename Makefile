@@ -12,7 +12,9 @@ SRC 					:=	src/main_loop.c \
 	src/rpg.c \
 	src/manage_player.c \
 	src/loading_screen.c \
-	src/check_input.c
+	src/check_input.c \
+	src/check_collision.c \
+	src/move_player.c
 
 SRC						+=	src/init/init_rpg.c \
 	src/init/init_win.c \
