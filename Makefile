@@ -30,7 +30,9 @@ SRC						+=	src/player/manage_jump.c \
 	src/player/move_player.c \
 	src/player/on_ground.c
 
-SRC						+=	src/player/anim/set_anim.c
+SRC						+=	src/player/anim/set_anim.c \
+	src/player/anim/set_sprite.c \
+	src/player/anim/return_to_idle.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

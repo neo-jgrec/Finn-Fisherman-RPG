@@ -82,6 +82,6 @@ void init_puzzle(rpg_t *rpg)
     puzzle->colliders = init_colliders(&puzzle->nb_colliders, puzzle->map);
     puzzle->tileset = &rpg->asset->tileset;
     rpg->puzzle = puzzle;
-    loading_screen(rpg, rpg->loading, 40, 1);
+    loading_screen(rpg, rpg->loading, 70, 1);
 
 }

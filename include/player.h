@@ -12,6 +12,15 @@
 
     typedef struct rpg_s rpg_t;
 
+    typedef enum player_state_s {
+        IDLE,
+        RUN,
+        ROLL,
+        JUMP_1,
+        JUMP_2,
+        ATTACK
+    } p_state_t;
+
     typedef struct frame_s {
         int size;
         int nb;
@@ -32,6 +41,8 @@
     } jump_t;
 
     typedef struct player_s {
+        p_state_t state;
+        p_state_t prev_state;
         sfSprite *sp;
         sfFloatRect rect;
         sfVector2f pos;
@@ -40,6 +51,7 @@
         jump_t jump;
         int hor;
         int ver;
+        int dir;
         int grounded;
     } player_t;
 
@@ -51,5 +63,7 @@
 
     void set_animation(player_t *player, sprite_t sprite, int loop,
         void (*action)(rpg_t *));
+    void set_sprite(player_t *player, rpg_t *rpg);
+    void return_to_idle(rpg_t *rpg);
 
 #endif /* !_PLAYER_H__ */

@@ -17,11 +17,18 @@
         sfTexture *tx;
         sfVector2f size;
         int nb_frame;
+        float cd;
     } sprite_t;
 
     typedef struct player_anim_s {
         sprite_t run;
         sprite_t idle;
+        sprite_t death;
+        sprite_t attack_1;
+        sprite_t damage;
+        sprite_t jump_1;
+        sprite_t jump_2;
+        sprite_t roll;
     } pa_t;
 
     typedef struct asset_s {

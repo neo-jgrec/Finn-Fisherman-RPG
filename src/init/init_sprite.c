@@ -19,5 +19,6 @@ sprite_t init_sprite(char *path,
     sfSprite_setTexture(sprite.sp, sprite.tx, sfTrue);
     sprite.size = size;
     sprite.nb_frame = nb_frame;
+    sprite.cd = 0.1f;
     return sprite;
 }
