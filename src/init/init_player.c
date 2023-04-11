@@ -20,7 +20,7 @@ void init_player(asset_t *asset, rpg_t *rpg)
     player->time = 0;
     set_animation(player, asset->pa.idle, 1, NULL);
     player->jump = (jump_t){0, 2, 2};
-    player->roll = (roll_t){0, 1, 0};
+    player->roll = (roll_t){0, 1, 0, 0};
     player->hor = 0;
     player->ver = 0;
     player->grounded = 0;

@@ -43,6 +43,7 @@
         int save;
         int save_dir;
         float press_time;
+        float cd;
     } roll_t;
 
     typedef struct player_s {
