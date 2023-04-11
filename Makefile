@@ -25,6 +25,7 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_input.c
 
 SRC						+=	src/player/manage_jump.c \
+	src/player/manage_roll.c \
 	src/player/check_collision.c \
 	src/player/manage_player.c \
 	src/player/move_player.c \

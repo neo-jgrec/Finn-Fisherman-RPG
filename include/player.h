@@ -34,11 +34,16 @@
     } stat_t;
 
     typedef struct jump_s {
-        float jump;
         int save;
         float press_time;
         float ground_time;
     } jump_t;
+
+    typedef struct roll_s {
+        int save;
+        int save_dir;
+        float press_time;
+    } roll_t;
 
     typedef struct player_s {
         p_state_t state;
@@ -46,13 +51,15 @@
         sfSprite *sp;
         sfFloatRect rect;
         sfVector2f pos;
-        sfClock *time;
+        float time;
         frame_t frame;
         jump_t jump;
+        roll_t roll;
         int hor;
         int ver;
         int dir;
         int grounded;
+        float velocity;
     } player_t;
 
     void init_player(asset_t *asset, rpg_t *rpg);
@@ -60,6 +67,7 @@
     void manage_player(win_t *win, player_t *player, rpg_t *rpg);
     void move_player(player_t *player, sfVector2f dir);
     void manage_jump(player_t *player, rpg_t *rpg);
+    void manage_roll(player_t *player, rpg_t *rpg);
 
     void set_animation(player_t *player, sprite_t sprite, int loop,
         void (*action)(rpg_t *));

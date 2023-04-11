@@ -18,7 +18,8 @@ static pa_t init_pa(void)
     pa.jump_2 = init_sprite("assets/player/jump_2.png", (VEC){32, 32}, 6, 4);
     pa.jump_1.cd = 0.025;
     pa.jump_1.cd = 0.025;
-    pa.roll = init_sprite("assets/player/roll.png", (VEC){48, 48}, 8, 4);
+    pa.roll = init_sprite("assets/player/roll.png", (VEC){48, 24}, 8, 4);
+    pa.roll.cd = 0.03;
     pa.damage = init_sprite("assets/player/take_damage.png",
         (VEC){48, 48}, 3, 4);
     pa.attack_1 = init_sprite("assets/player/attack_1.png",
@@ -37,5 +38,5 @@ void init_asset(rpg_t *rpg)
         (VEC){16, 16}, 14, 4);
     sfSprite_setOrigin(asset->tileset.sp, (VEC){0, 0});
     rpg->asset = asset;
-    loading_screen(rpg, rpg->loading, 60, 1);
+    loading_screen(rpg, rpg->loading, 60, 0);
 }

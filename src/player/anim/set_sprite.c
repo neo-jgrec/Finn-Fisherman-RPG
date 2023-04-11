@@ -16,14 +16,14 @@ static void new_anim(player_t *player, asset_t *asset, p_state_t state)
     if (state == ATTACK)
         set_animation(player, asset->pa.attack_1, 0, NULL);
     if (state == ROLL)
-        set_animation(player, asset->pa.roll, 0, NULL);
+        set_animation(player, asset->pa.roll, 0, return_to_idle);
     if (state == JUMP_1)
         set_animation(player, asset->pa.jump_1, 0, NULL);
     if (state == JUMP_2)
         set_animation(player, asset->pa.jump_2, 0, NULL);
 }
 
-static void base_anim(player_t *player, rpg_t *rpg, p_state_t prev)
+static void base_anim(player_t *player)
 {
     if (player->grounded == 1) {
         if (player->hor == 0)
@@ -32,7 +32,7 @@ static void base_anim(player_t *player, rpg_t *rpg, p_state_t prev)
             player->state = RUN;
     }
     if (player->grounded == 0) {
-        if (player->jump.jump > 0)
+        if (player->velocity < 0)
             player->state = JUMP_1;
         else
             player->state = JUMP_2;
@@ -41,12 +41,10 @@ static void base_anim(player_t *player, rpg_t *rpg, p_state_t prev)
 
 static void change_anim(player_t *player, rpg_t *rpg)
 {
-    p_state_t prev = player->prev_state;
-
-    if (prev == IDLE || prev == RUN || prev == JUMP_1 || prev == JUMP_2)
-        base_anim(player, rpg, prev);
+    if (player->state != ROLL)
+        base_anim(player);
     if (player->prev_state != player->state) {
-        sfClock_restart(player->time);
+        player->time = 0;
         new_anim(player, rpg->asset, player->state);
     }
     player->prev_state = player->state;
@@ -59,7 +57,7 @@ void set_sprite(player_t *player, rpg_t *rpg)
     int time = 0;
 
     change_anim(player, rpg);
-    time = (int)(DELTAT(player->time) / frame.cd);
+    time = (int)(player->time / frame.cd);
     sfIntRect rect = (sfIntRect){time %
         frame.nb * frame.size, 0, frame.size, frame.size};
     if (frame.loop == 0 && time >= frame.nb)
