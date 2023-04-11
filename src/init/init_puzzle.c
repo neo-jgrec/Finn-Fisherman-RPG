@@ -23,6 +23,8 @@ static int **init_map(void)
     map[15][13] = 3;
     map[16][13] = 4;
     map[16][14] = 4;
+    map[15][12] = 4;
+    map[15][11] = 4;
     return map;
 }
 

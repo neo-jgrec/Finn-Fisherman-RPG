@@ -21,9 +21,8 @@ int main_loop(win_t *win, rpg_t *rpg)
     while (sfRenderWindow_isOpen(win->win)) {
         win->deltaT = DELTAT(win->time);
         sfClock_restart(win->time);
-        manage_player(win, rpg->player, rpg);
-        sfRenderWindow_clear(win->win, sfBlack);
         analyse_events(win, rpg);
+        manage_player(win, rpg->player, rpg);
         draw(win, rpg);
     }
     return 0;

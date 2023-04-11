@@ -9,7 +9,8 @@
 
 void draw(win_t *win, rpg_t *rpg)
 {
-    sfRenderWindow_drawSprite(win->win, rpg->asset->player.sp, NULL);
+    sfRenderWindow_clear(win->win, sfBlack);
+    sfRenderWindow_drawSprite(win->win, rpg->player->sp, NULL);
     draw_map(win, rpg->puzzle);
     sfRenderWindow_display(win->win);
 }

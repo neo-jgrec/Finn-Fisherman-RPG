@@ -19,8 +19,13 @@
         int nb_frame;
     } sprite_t;
 
+    typedef struct player_anim_s {
+        sprite_t run;
+        sprite_t idle;
+    } pa_t;
+
     typedef struct asset_s {
-        sprite_t player;
+        pa_t pa;
         sprite_t tileset;
     } asset_t;
 

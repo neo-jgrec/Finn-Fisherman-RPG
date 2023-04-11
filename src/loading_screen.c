@@ -21,7 +21,7 @@ void loading_screen(rpg_t *rpg, loading_t *loading,
     sfRenderWindow_drawSprite(rpg->win->win,
         sprite.sp, NULL);
     sfRenderWindow_display(rpg->win->win);
-    sfSleep(sfSeconds(0.01));
+    sfSleep(sfSeconds(0.1));
     if (next == 1)
         loading->fish += 1;
     if (loading->fish == loading->nb_fish)

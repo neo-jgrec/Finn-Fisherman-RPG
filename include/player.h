@@ -16,6 +16,8 @@
         int size;
         int nb;
         float cd;
+        int loop;
+        void (*action)(rpg_t *);
     } frame_t;
 
     typedef struct stat_s {
@@ -46,5 +48,8 @@
     void manage_player(win_t *win, player_t *player, rpg_t *rpg);
     void move_player(player_t *player, sfVector2f dir);
     void manage_jump(player_t *player, rpg_t *rpg);
+
+    void set_animation(player_t *player, sprite_t sprite, int loop,
+        void (*action)(rpg_t *));
 
 #endif /* !_PLAYER_H__ */

@@ -24,11 +24,13 @@ SRC						+=	src/init/init_rpg.c \
 	src/init/init_sprite.c \
 	src/init/init_input.c
 
-SRC						+= src/player/manage_jump.c \
+SRC						+=	src/player/manage_jump.c \
 	src/player/check_collision.c \
 	src/player/manage_player.c \
 	src/player/move_player.c \
 	src/player/on_ground.c
+
+SRC						+=	src/player/anim/set_anim.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 
