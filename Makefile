@@ -32,7 +32,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/move_player.c \
 							src/player/on_ground.c \
 							src/player/draw_player_hud.c \
-							src/player/manage_heal.c
+							src/player/manage_heal.c \
+							src/player/hit_player.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \

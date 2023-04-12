@@ -36,14 +36,17 @@ static void set_var(player_t *player, rpg_t *rpg)
 
 void manage_player(win_t *win, player_t *player, rpg_t *rpg)
 {
+    if (rpg->input->interact.press)
+        hit_player(rpg, 10);
     set_var(player, rpg);
     manage_heal(player, rpg);
-    if (player->state != HEALING) {
+    if (player->state != HEALING && player->state != HIT) {
         if (rpg->data->roll == 1)
             manage_roll(player, rpg);
         if (player->state != ROLL)
             manage_jump(player, rpg);
-        set_position(win, player, rpg);
     }
+    if (player->state != HEALING)
+        set_position(win, player, rpg);
     set_sprite(player, rpg);
 }

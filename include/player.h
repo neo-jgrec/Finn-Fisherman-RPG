@@ -19,7 +19,8 @@
         JUMP_1,
         JUMP_2,
         ATTACK,
-        HEALING
+        HEALING,
+        HIT
     } p_state_t;
 
     typedef struct frame_s {
@@ -51,6 +52,7 @@
     typedef struct health_s {
         int save_heal;
         float cd;
+        float damage_cd;
         float not_moving;
         sprite_t hud;
         sprite_t health_hud;
@@ -60,6 +62,11 @@
         int health;
         int potion;
     } health_t;
+
+    typedef struct attack_s {
+        int save;
+        int crit;
+    } attack_t;
 
     typedef struct player_s {
         p_state_t state;
@@ -72,6 +79,7 @@
         jump_t jump;
         roll_t roll;
         health_t health;
+        attack_t attack;
         int hor;
         int dir;
         int grounded;
@@ -93,5 +101,7 @@
     void return_to_idle(rpg_t *rpg);
 
     void draw_player_hud(player_t *player, rpg_t *rpg);
+
+    void hit_player(rpg_t *rpg, int damage);
 
 #endif /* !_PLAYER_H__ */

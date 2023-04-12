@@ -28,6 +28,7 @@ void init_input(rpg_t *rpg)
     input->jump = init_key(sfKeySpace);
     input->heal = init_key(sfKeyZ);
     input->interact = init_key(sfKeyE);
+    input->attack = init_key(sfKeyR);
     rpg->input = input;
     loading_screen(rpg, rpg->loading, 100, 1);
 }

@@ -34,6 +34,7 @@ static health_t init_charge(rpg_t *rpg)
     health.not_moving = 0;
     health.save_heal = 0;
     health.lvl_hud = init_lvl_text(rpg);
+    health.damage_cd = 0;
     return health;
 }
 
@@ -59,6 +60,7 @@ void init_player(asset_t *asset, rpg_t *rpg)
     set_animation(player, asset->pa.idle, 1, NULL);
     player->jump = (jump_t){0, 0, 2, 2};
     player->roll = (roll_t){0, 1, 0, 0};
+    player->attack = (attack_t){0, 0};
     player->health = init_charge(rpg);
     init_player_2(player);
     rpg->player = player;

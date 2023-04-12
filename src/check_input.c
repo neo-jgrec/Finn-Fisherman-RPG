@@ -22,6 +22,8 @@ static void switch_key(win_t *win, input_t *input, int press)
     switch_input(&input->left, code, press);
     switch_input(&input->jump, code, press);
     switch_input(&input->heal, code, press);
+    switch_input(&input->interact, code, press);
+    switch_input(&input->attack, code, press);
 }
 
 void check_input(win_t *win, input_t *input)

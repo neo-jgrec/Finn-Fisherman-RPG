@@ -9,13 +9,6 @@
     #define ENUM_H_
 
 typedef enum {
-    MENU_SCENE,
-    SETTINGS_SCENE,
-    GAME_SCENE,
-    EXIT
-} scene_t;
-
-typedef enum {
     MAIN_QUEST,
     BANANA_QUEST
 } current_quest_t;

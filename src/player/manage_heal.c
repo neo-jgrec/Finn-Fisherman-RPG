@@ -20,6 +20,7 @@ static void check_heal(player_t *player, rpg_t *rpg)
 
 void manage_heal(player_t *player, rpg_t *rpg)
 {
+    player->health.damage_cd += rpg->win->deltaT;
     player->health.not_moving += rpg->win->deltaT;
     player->health.cd += rpg->win->deltaT;
     if (player->hor != 0)
