@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2023
 ** rpg
 ** File description:
-** manage_attack
+** death_anim
 */
 
 #include "rpg.h"
 
-void manage_attack(player_t *playern, rpg_t *rpg)
+void death_anim(rpg_t *rpg)
 {
     return;
 }

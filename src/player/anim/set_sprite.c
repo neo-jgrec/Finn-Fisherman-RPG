@@ -7,6 +7,24 @@
 
 #include "rpg.h"
 
+static void new_anim_2(player_t *player, asset_t *asset, p_state_t state)
+{
+    if (state == HEALING)
+        set_animation(player, asset->pa.healing, 0, heal_anim);
+    if (state == HIT) {
+        if (player->health.health)
+            set_animation(player, asset->pa.damage, 0, return_to_idle);
+        else
+            set_animation(player, asset->pa.death, 0, death_anim);
+    }
+    if (state == ATTACK) {
+        if (player->attack.crit)
+            set_animation(player, asset->pa.attack_1, 0, return_to_idle);
+        else
+            set_animation(player, asset->pa.attack_2, 0, return_to_idle);
+    }
+}
+
 static void new_anim(player_t *player, asset_t *asset, p_state_t state)
 {
     if (state == IDLE)
@@ -21,14 +39,7 @@ static void new_anim(player_t *player, asset_t *asset, p_state_t state)
         set_animation(player, asset->pa.jump_1, 0, NULL);
     if (state == JUMP_2)
         set_animation(player, asset->pa.jump_2, 0, NULL);
-    if (state == HEALING)
-        set_animation(player, asset->pa.healing, 0, heal_anim);
-    if (state == HIT) {
-        if (player->health.health)
-            set_animation(player, asset->pa.damage, 0, return_to_idle);
-        else
-            set_animation(player, asset->pa.death, 0, return_to_idle);
-    }
+    new_anim_2(player, asset, state);
 }
 
 static void base_anim(player_t *player)
@@ -50,7 +61,7 @@ static void base_anim(player_t *player)
 static void change_anim(player_t *player, rpg_t *rpg)
 {
     if (player->state != ROLL && player->state != HEALING &&
-        player->state != HIT)
+        player->state != HIT && player->state != ATTACK)
         base_anim(player);
     if (player->prev_state != player->state) {
         player->time = 0;
