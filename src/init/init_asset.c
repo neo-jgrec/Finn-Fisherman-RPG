@@ -7,6 +7,20 @@
 
 #include "rpg.h"
 
+static void init_pa_2(pa_t *pa)
+{
+    pa->roll = init_sprite("assets/player/roll.png", (VEC){48, 48}, 8, 4);
+    pa->roll.cd = 0.03;
+    pa->damage = init_sprite("assets/player/take_damage.png",
+        (VEC){48, 48}, 3, 4);
+    pa->attack_1 = init_sprite("assets/player/attack_1.png",
+        (VEC){48, 48}, 5, 4);
+    pa->attack_1_2 = init_sprite("assets/player/attack_1_2.png",
+        (VEC){48, 48}, 5, 4);
+    pa->attack_2 = init_sprite("assets/player/attack_2.png",
+        (VEC){48, 48}, 4, 4);
+}
+
 static pa_t init_pa(void)
 {
     pa_t pa = {0};
@@ -19,16 +33,7 @@ static pa_t init_pa(void)
     pa.jump_2 = init_sprite("assets/player/jump_2.png", (VEC){48, 48}, 6, 4);
     pa.jump_1.cd = 0.025;
     pa.jump_1.cd = 0.025;
-    pa.roll = init_sprite("assets/player/roll.png", (VEC){48, 48}, 8, 4);
-    pa.roll.cd = 0.03;
-    pa.damage = init_sprite("assets/player/take_damage.png",
-        (VEC){48, 48}, 3, 4);
-    pa.attack_1 = init_sprite("assets/player/attack_1.png",
-        (VEC){48, 48}, 5, 4);
-    pa.attack_1_2 = init_sprite("assets/player/attack_1_2.png",
-        (VEC){48, 48}, 5, 4);
-    pa.attack_2 = init_sprite("assets/player/attack_2.png",
-        (VEC){48, 48}, 4, 4);
+    init_pa_2(&pa);
     return pa;
 }
 
