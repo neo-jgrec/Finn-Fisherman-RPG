@@ -54,7 +54,7 @@ char *get_value_by_tags(xml_node_t *root, char **tags)
 
     xml_node_t *child;
     TAILQ_FOREACH(child, &root->children, next) {
-        if (strcmp(child->name, *tags) == 0) {
+        if (my_strcmp(child->name, *tags) == 0) {
             if (*(tags + 1) == NULL) {
                 return child->value;
             } else {
