@@ -93,7 +93,9 @@
     void manage_jump(player_t *player, rpg_t *rpg);
     void manage_roll(player_t *player, rpg_t *rpg);
     void manage_heal(player_t *player, rpg_t *rpg);
+    void manage_attack(player_t *player, rpg_t *rpg);
     void heal_anim(rpg_t *rpg);
+    void death_anim(rpg_t *rpg);
 
     void set_animation(player_t *player, sprite_t sprite, int loop,
         void (*action)(rpg_t *));

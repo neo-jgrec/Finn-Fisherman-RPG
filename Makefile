@@ -13,7 +13,8 @@ SRC 					:=	src/main_loop.c \
 							src/loading_screen.c \
 							src/check_input.c \
 							src/draw_map.c \
-							src/draw.c
+							src/draw.c \
+							src/get_random.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -33,12 +34,15 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/on_ground.c \
 							src/player/draw_player_hud.c \
 							src/player/manage_heal.c \
-							src/player/hit_player.c
+							src/player/hit_player.c \
+							src/player/manage_attack.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
 							src/player/anim/return_to_idle.c \
-							src/player/anim/heal_anim.c
+							src/player/anim/heal_anim.c \
+							src/player/anim/death_anim.c \
+							src/player/anim/attack_anim.c
 
 SRC 					+= src/map_parser/map_parser.c
 

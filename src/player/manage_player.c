@@ -13,6 +13,8 @@ static void set_position(win_t *win, player_t *player, rpg_t *rpg)
 
     move_player(player, (VEC){0, 1 * win->deltaT * player->velocity});
     check_collision(player, rpg->puzzle, 0);
+    if (player->state == ATTACK)
+        return;
     if (player->state != ROLL)
         move_player(player, (VEC){player->hor * win->deltaT *
             rpg->data->speed, 0});
@@ -25,7 +27,8 @@ static void set_position(win_t *win, player_t *player, rpg_t *rpg)
 static void set_var(player_t *player, rpg_t *rpg)
 {
     player->time += rpg->win->deltaT;
-    player->hor = rpg->input->right.press - rpg->input->left.press;
+    if (player->state != ATTACK)
+        player->hor = rpg->input->right.press - rpg->input->left.press;
     player->grounded = on_ground(player, rpg->puzzle);
     if (player->grounded) {
         player->jump.nb = rpg->data->jump;
@@ -40,7 +43,9 @@ void manage_player(win_t *win, player_t *player, rpg_t *rpg)
         hit_player(rpg, 10);
     set_var(player, rpg);
     manage_heal(player, rpg);
-    if (player->state != HEALING && player->state != HIT) {
+    manage_attack(player, rpg);
+    if (player->state != HEALING && player->state != HIT &&
+        player->state != ATTACK) {
         if (rpg->data->roll == 1)
             manage_roll(player, rpg);
         if (player->state != ROLL)

@@ -14,6 +14,7 @@
     #include <stdlib.h>
     #include <unistd.h>
     #include <stdio.h>
+    #include <time.h>
 
     #include "win.h"
     #include "puzzle.h"
@@ -43,5 +44,7 @@
     void draw(win_t *win, rpg_t *rpg);
 
     rpg_t *init_rpg(void);
+
+    int my_random(int min, int max);
 
 #endif /* !_RPG_H__ */

@@ -25,6 +25,8 @@
         sprite_t idle;
         sprite_t death;
         sprite_t attack_1;
+        sprite_t attack_1_2;
+        sprite_t attack_2;
         sprite_t damage;
         sprite_t jump_1;
         sprite_t jump_2;

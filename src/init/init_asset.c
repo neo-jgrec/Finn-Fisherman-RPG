@@ -11,20 +11,24 @@ static pa_t init_pa(void)
 {
     pa_t pa = {0};
 
-    pa.idle = init_sprite("assets/player/idle.png", (VEC){32, 32}, 6, 4);
-    pa.healing = init_sprite("assets/player/healing.png", (VEC){32, 32}, 6, 4);
-    pa.run = init_sprite("assets/player/run.png", (VEC){32, 32}, 8, 4);
-    pa.death = init_sprite("assets/player/death.png", (VEC){32, 32}, 5, 4);
-    pa.jump_1 = init_sprite("assets/player/jump_1.png", (VEC){32, 32}, 6, 4);
-    pa.jump_2 = init_sprite("assets/player/jump_2.png", (VEC){32, 32}, 6, 4);
+    pa.idle = init_sprite("assets/player/idle.png", (VEC){48, 48}, 6, 4);
+    pa.healing = init_sprite("assets/player/healing.png", (VEC){48, 48}, 6, 4);
+    pa.run = init_sprite("assets/player/run.png", (VEC){48, 48}, 8, 4);
+    pa.death = init_sprite("assets/player/death.png", (VEC){48, 48}, 5, 4);
+    pa.jump_1 = init_sprite("assets/player/jump_1.png", (VEC){48, 48}, 6, 4);
+    pa.jump_2 = init_sprite("assets/player/jump_2.png", (VEC){48, 48}, 6, 4);
     pa.jump_1.cd = 0.025;
     pa.jump_1.cd = 0.025;
-    pa.roll = init_sprite("assets/player/roll.png", (VEC){48, 24}, 8, 4);
+    pa.roll = init_sprite("assets/player/roll.png", (VEC){48, 48}, 8, 4);
     pa.roll.cd = 0.03;
     pa.damage = init_sprite("assets/player/take_damage.png",
-        (VEC){32, 32}, 3, 4);
+        (VEC){48, 48}, 3, 4);
     pa.attack_1 = init_sprite("assets/player/attack_1.png",
-        (VEC){48, 48}, 10, 4);
+        (VEC){48, 48}, 5, 4);
+    pa.attack_1_2 = init_sprite("assets/player/attack_1_2.png",
+        (VEC){48, 48}, 5, 4);
+    pa.attack_2 = init_sprite("assets/player/attack_2.png",
+        (VEC){48, 48}, 4, 4);
     return pa;
 }
 
