@@ -30,7 +30,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/check_collision.c \
 							src/player/manage_player.c \
 							src/player/move_player.c \
-							src/player/on_ground.c
+							src/player/on_ground.c \
+							src/player/draw_player_hud.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \

@@ -47,6 +47,17 @@
         float cd;
     } roll_t;
 
+    typedef struct charge_s {
+        float cd;
+        float not_moving;
+        sprite_t hud;
+        sprite_t health_hud;
+        sprite_t potion_hud;
+        sprite_t xp_hud;
+        int health;
+        int potion;
+    } charge_t;
+
     typedef struct player_s {
         p_state_t state;
         p_state_t prev_state;
@@ -57,6 +68,7 @@
         frame_t frame;
         jump_t jump;
         roll_t roll;
+        charge_t charge;
         int hor;
         int ver;
         int dir;
@@ -75,5 +87,7 @@
         void (*action)(rpg_t *));
     void set_sprite(player_t *player, rpg_t *rpg);
     void return_to_idle(rpg_t *rpg);
+
+    void draw_player_hud(player_t *player, rpg_t *rpg);
 
 #endif /* !_PLAYER_H__ */
