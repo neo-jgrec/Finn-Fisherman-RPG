@@ -26,7 +26,11 @@ void manage_jump(player_t *player, rpg_t *rpg)
     jump_t *jump = &player->jump;
 
     set_jump_var(player, rpg, jump);
-    if (jump->ground_time < 0.12 && jump->press_time < 0.12) {
+    if ((jump->ground_time < 0.12 ||
+        (player->jump.nb != 0 && rpg->input->space.press))
+        && jump->press_time < 0.12) {
+        if (jump->ground_time >= 0.12)
+            player->jump.nb -= 1;
         player->velocity = -800;
         jump->press_time = 10;
     }

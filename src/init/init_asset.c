@@ -38,5 +38,5 @@ void init_asset(rpg_t *rpg)
         (VEC){16, 16}, 14, 4);
     sfSprite_setOrigin(asset->tileset.sp, (VEC){0, 0});
     rpg->asset = asset;
-    loading_screen(rpg, rpg->loading, 60, 0);
+    loading_screen(rpg, rpg->loading, 35, 0);
 }

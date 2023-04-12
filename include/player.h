@@ -34,6 +34,7 @@
     } stat_t;
 
     typedef struct jump_s {
+        int nb;
         int save;
         float press_time;
         float ground_time;

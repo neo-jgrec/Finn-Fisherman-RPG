@@ -9,31 +9,32 @@ PROJECT_NAME			=	my_rpg
 NAME					=	my_rpg
 
 SRC 					:=	src/main_loop.c \
-	src/rpg.c \
-	src/loading_screen.c \
-	src/check_input.c \
-	src/draw_map.c \
-	src/draw.c
+							src/rpg.c \
+							src/loading_screen.c \
+							src/check_input.c \
+							src/draw_map.c \
+							src/draw.c
 
 SRC						+=	src/init/init_rpg.c \
-	src/init/init_win.c \
-	src/init/init_puzzle.c \
-	src/init/init_asset.c \
-	src/init/init_player.c \
-	src/init/init_loading.c \
-	src/init/init_sprite.c \
-	src/init/init_input.c
+							src/init/init_win.c \
+							src/init/init_puzzle.c \
+							src/init/init_asset.c \
+							src/init/init_player.c \
+							src/init/init_loading.c \
+							src/init/init_sprite.c \
+							src/init/init_input.c \
+							src/init/init_data.c
 
 SRC						+=	src/player/manage_jump.c \
-	src/player/manage_roll.c \
-	src/player/check_collision.c \
-	src/player/manage_player.c \
-	src/player/move_player.c \
-	src/player/on_ground.c
+							src/player/manage_roll.c \
+							src/player/check_collision.c \
+							src/player/manage_player.c \
+							src/player/move_player.c \
+							src/player/on_ground.c
 
 SRC						+=	src/player/anim/set_anim.c \
-	src/player/anim/set_sprite.c \
-	src/player/anim/return_to_idle.c
+							src/player/anim/set_sprite.c \
+							src/player/anim/return_to_idle.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

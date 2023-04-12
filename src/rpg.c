@@ -15,6 +15,7 @@ int rpg(void)
     init_loading(rpg);
     init_asset(rpg);
     init_puzzle(rpg);
+    init_data(rpg);
     init_player(rpg->asset, rpg);
     init_input(rpg);
     ret = main_loop(rpg->win, rpg);
