@@ -39,8 +39,6 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/return_to_idle.c \
 							src/player/anim/heal_anim.c
 
-SRC 					+= src/map_parser/map_parser.c
-
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 
 MAIN 					= 	src/main.c
