@@ -14,4 +14,5 @@ SRC += 	src/string/manipulation/cleanstr.c		\
 		src/string/manipulation/strsplit.c		\
 		src/string/manipulation/strstr.c		\
 		src/string/manipulation/strremove.c	    \
-		src/string/manipulation/strcat_inf.c
+		src/string/manipulation/strcat_inf.c	\
+		src/string/manipulation/strtok.c
