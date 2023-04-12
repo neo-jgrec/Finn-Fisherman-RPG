@@ -7,20 +7,21 @@
 
 #include "rpg.h"
 
+static void switch_input(kv_t *input, sfKeyCode code, int press)
+{
+    if (code == input->code && input->press == press)
+        input->press = 1 - input->press;
+}
+
 static void switch_key(win_t *win, input_t *input, int press)
 {
     sfKeyCode code = win->event.key.code;
 
-    if (code == input->bot.code && input->bot.press == press)
-        input->bot.press = 1 - input->bot.press;
-    if (code == input->top.code && input->top.press == press)
-        input->top.press = 1 - input->top.press;
-    if (code == input->left.code && input->left.press == press)
-        input->left.press = 1 - input->left.press;
-    if (code == input->right.code && input->right.press == press)
-        input->right.press = 1 - input->right.press;
-    if (code == input->space.code && input->space.press == press)
-        input->space.press = 1 - input->space.press;
+    switch_input(&input->roll, code, press);
+    switch_input(&input->right, code, press);
+    switch_input(&input->left, code, press);
+    switch_input(&input->jump, code, press);
+    switch_input(&input->heal, code, press);
 }
 
 void check_input(win_t *win, input_t *input)

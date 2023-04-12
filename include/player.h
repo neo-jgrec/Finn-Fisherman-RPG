@@ -18,7 +18,8 @@
         ROLL,
         JUMP_1,
         JUMP_2,
-        ATTACK
+        ATTACK,
+        HEALING
     } p_state_t;
 
     typedef struct frame_s {
@@ -47,16 +48,18 @@
         float cd;
     } roll_t;
 
-    typedef struct charge_s {
+    typedef struct health_s {
+        int save_heal;
         float cd;
         float not_moving;
         sprite_t hud;
         sprite_t health_hud;
         sprite_t potion_hud;
         sprite_t xp_hud;
+        sfText *lvl_hud;
         int health;
         int potion;
-    } charge_t;
+    } health_t;
 
     typedef struct player_s {
         p_state_t state;
@@ -68,9 +71,8 @@
         frame_t frame;
         jump_t jump;
         roll_t roll;
-        charge_t charge;
+        health_t health;
         int hor;
-        int ver;
         int dir;
         int grounded;
         float velocity;
@@ -82,6 +84,8 @@
     void move_player(player_t *player, sfVector2f dir);
     void manage_jump(player_t *player, rpg_t *rpg);
     void manage_roll(player_t *player, rpg_t *rpg);
+    void manage_heal(player_t *player, rpg_t *rpg);
+    void heal_anim(rpg_t *rpg);
 
     void set_animation(player_t *player, sprite_t sprite, int loop,
         void (*action)(rpg_t *));

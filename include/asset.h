@@ -29,6 +29,7 @@
         sprite_t jump_1;
         sprite_t jump_2;
         sprite_t roll;
+        sprite_t healing;
     } pa_t;
 
     typedef struct asset_s {

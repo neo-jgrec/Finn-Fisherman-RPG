@@ -22,11 +22,12 @@ void init_input(rpg_t *rpg)
 
     if (input == NULL)
         rpg->input = NULL;
-    input->bot = init_key(sfKeyS);
+    input->roll = init_key(sfKeyS);
     input->left = init_key(sfKeyQ);
     input->right = init_key(sfKeyD);
-    input->top = init_key(sfKeyZ);
-    input->space = init_key(sfKeySpace);
+    input->jump = init_key(sfKeySpace);
+    input->heal = init_key(sfKeyZ);
+    input->interact = init_key(sfKeyE);
     rpg->input = input;
     loading_screen(rpg, rpg->loading, 100, 1);
 }

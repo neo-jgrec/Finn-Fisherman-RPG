@@ -12,6 +12,7 @@ static pa_t init_pa(void)
     pa_t pa = {0};
 
     pa.idle = init_sprite("assets/player/idle.png", (VEC){32, 32}, 6, 4);
+    pa.healing = init_sprite("assets/player/healing.png", (VEC){32, 32}, 6, 4);
     pa.run = init_sprite("assets/player/run.png", (VEC){32, 32}, 8, 4);
     pa.death = init_sprite("assets/player/death.png", (VEC){16, 16}, 5, 4);
     pa.jump_1 = init_sprite("assets/player/jump_1.png", (VEC){32, 32}, 6, 4);

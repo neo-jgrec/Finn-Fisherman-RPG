@@ -7,29 +7,39 @@
 
 #include "rpg.h"
 
-static charge_t init_charge(UNUSED rpg_t *rpg)
+sfText *init_lvl_text(rpg_t *rpg)
 {
-    charge_t charge = {0};
+    sfText *text = sfText_create();
+    sfText_setFont(text, rpg->win->font);
+    sfText_setCharacterSize(text, 16);
+    sfText_setColor(text, sfBlack);
+    return text;
+}
 
-    charge.potion_hud = init_sprite("assets/player/hud/potion.png",
+static health_t init_charge(rpg_t *rpg)
+{
+    health_t health = {0};
+
+    health.potion_hud = init_sprite("assets/player/hud/potion.png",
         (VEC){20, 4}, 1, 4);
-    charge.health_hud = init_sprite("assets/player/hud/health.png",
+    health.health_hud = init_sprite("assets/player/hud/health.png",
         (VEC){20, 4}, 1, 4);
-    charge.hud = init_sprite("assets/player/hud/hud.png",
+    health.hud = init_sprite("assets/player/hud/hud.png",
         (VEC){33, 10}, 1, 4);
-    charge.xp_hud = init_sprite("assets/player/hud/xp.png",
+    health.xp_hud = init_sprite("assets/player/hud/xp.png",
         (VEC){33, 10}, 1, 4);
-    charge.health = 20;
-    charge.potion = 1;
-    charge.cd = 0;
-    charge.not_moving = 0;
-    return charge;
+    health.health = 20;
+    health.potion = 2;
+    health.cd = 0;
+    health.not_moving = 0;
+    health.save_heal = 0;
+    health.lvl_hud = init_lvl_text(rpg);
+    return health;
 }
 
 static void init_player_2(player_t *player)
 {
     player->hor = 0;
-    player->ver = 0;
     player->grounded = 0;
     player->dir = 1;
     player->velocity = 0;
@@ -49,7 +59,7 @@ void init_player(asset_t *asset, rpg_t *rpg)
     set_animation(player, asset->pa.idle, 1, NULL);
     player->jump = (jump_t){0, 0, 2, 2};
     player->roll = (roll_t){0, 1, 0, 0};
-    player->charge = init_charge(rpg);
+    player->health = init_charge(rpg);
     init_player_2(player);
     rpg->player = player;
     loading_screen(rpg, rpg->loading, 80, 0);

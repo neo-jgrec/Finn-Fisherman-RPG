@@ -18,9 +18,10 @@
     typedef struct input_s {
         kv_t left;
         kv_t right;
-        kv_t bot;
-        kv_t top;
-        kv_t space;
+        kv_t roll;
+        kv_t jump;
+        kv_t heal;
+        kv_t interact;
     } input_t;
 
     void init_input(rpg_t *rpg);

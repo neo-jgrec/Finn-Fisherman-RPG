@@ -10,9 +10,9 @@
 static void set_roll_var(player_t *player, rpg_t *rpg, roll_t *roll)
 {
     if (roll->save == 0 &&
-        roll->save != rpg->input->bot.press)
+        roll->save != rpg->input->roll.press)
         roll->press_time = 0;
-    roll->save = rpg->input->bot.press;
+    roll->save = rpg->input->roll.press;
     roll->save_dir = player->dir;
     roll->press_time += rpg->win->deltaT;
     roll->cd += rpg->win->deltaT;

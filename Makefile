@@ -31,11 +31,13 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/manage_player.c \
 							src/player/move_player.c \
 							src/player/on_ground.c \
-							src/player/draw_player_hud.c
+							src/player/draw_player_hud.c \
+							src/player/manage_heal.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
-							src/player/anim/return_to_idle.c
+							src/player/anim/return_to_idle.c \
+							src/player/anim/heal_anim.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

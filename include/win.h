@@ -26,6 +26,7 @@
         sfClock *time;
         float deltaT;
         scene_t scene;
+        sfFont *font;
     } win_t;
 
     void init_win(rpg_t *rpg);
