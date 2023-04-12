@@ -9,5 +9,5 @@
 
 void manage_attack(player_t *playern, rpg_t *rpg)
 {
-    
+    return;
 }
