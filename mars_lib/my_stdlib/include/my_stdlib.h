@@ -208,13 +208,4 @@
     */
     char *my_strcat_inf(int nb, ...);
 
-    /**
-     * @brief strtok : split a string into an array of string
-     *
-     * @param str - string to split
-     * @param delim - delimiter
-     * @return char*
-     */
-    char *my_strtok(char *str, const char *delim);
-
 #endif /* !STDLIB_H_ */
