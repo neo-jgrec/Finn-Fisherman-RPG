@@ -14,7 +14,8 @@ SRC 					:=	src/main_loop.c \
 							src/check_input.c \
 							src/draw_map.c \
 							src/draw.c \
-							src/get_random.c
+							src/get_random.c \
+							src/scene_manager.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -44,7 +45,9 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/death_anim.c \
 							src/player/anim/attack_anim.c
 
-SRC 					+= src/map_parser/map_parser.c
+SRC 					+= 	src/map_parser/map_parser.c
+
+SRC						+= 	src/menu/menu_loop.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
 

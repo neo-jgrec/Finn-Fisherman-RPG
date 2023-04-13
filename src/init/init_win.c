@@ -20,7 +20,7 @@ void init_win(rpg_t *rpg)
     win->event = event;
     win->time = sfClock_create();
     win->deltaT = 0;
-    win->scene = LOADING;
+    win->scene = MENU;
     win->font = sfFont_createFromFile("assets/AwasetePowder.ttf");
     rpg->win = win;
 }
