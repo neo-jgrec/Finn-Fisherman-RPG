@@ -23,6 +23,7 @@
     #include "loading.h"
     #include "input.h"
     #include "data.h"
+    #include "menu.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -37,6 +38,7 @@
         player_t *player;
         loading_t *loading;
         input_t *input;
+        menu_t *menu;
     } rpg_t;
 
     int rpg(void);
