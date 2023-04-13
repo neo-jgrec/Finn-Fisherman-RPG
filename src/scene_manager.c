@@ -14,7 +14,6 @@ void scene_manager(rpg_t *rpg)
             case NONE:                                  break;
             case GAME: main_loop(rpg->win, rpg);        break;
             case MENU: menu_loop(rpg->win, rpg);        break;
-            case LOADING: loading_loop(rpg->win, rpg);  break;
         }
     }
 }
