@@ -64,6 +64,8 @@ SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/update_xml.c \
 							xml_parser/utils.c
 
+SRC						+= 	src/menu/menu_loop.c
+
 SRC 					+=	src/utils/is_rect_hover.c
 
 MAIN 					= 	src/main.c
