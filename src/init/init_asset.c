@@ -14,11 +14,9 @@ static void init_pa_2(pa_t *pa)
     pa->damage = init_sprite("assets/player/take_damage.png",
         (VEC){48, 48}, 3, 4);
     pa->attack_1 = init_sprite("assets/player/attack_1.png",
-        (VEC){48, 48}, 5, 4);
-    pa->attack_1_2 = init_sprite("assets/player/attack_1_2.png",
-        (VEC){48, 48}, 5, 4);
+        (VEC){48, 48}, 6, 4);
     pa->attack_2 = init_sprite("assets/player/attack_2.png",
-        (VEC){48, 48}, 4, 4);
+        (VEC){48, 48}, 3, 4);
 }
 
 static pa_t init_pa(void)
