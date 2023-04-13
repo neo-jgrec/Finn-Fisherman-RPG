@@ -50,7 +50,13 @@ SRC 					+= 	src/map_parser/map_parser.c
 
 SRC						+= 	src/menu/menu_loop.c
 
-SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
+SRC 					+=	xml_parser/edit_value.c \
+							xml_parser/free.c \
+							xml_parser/init.c \
+							xml_parser/node_parsing.c \
+							xml_parser/parser.c \
+							xml_parser/update_xml.c \
+							xml_parser/utils.c
 
 MAIN 					= 	src/main.c
 
