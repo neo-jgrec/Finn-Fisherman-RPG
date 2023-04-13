@@ -17,7 +17,8 @@
 
         NONE,
         GAME,
-        LOADING
+        LOADING,
+        MENU
 
     } scene_t;
 
