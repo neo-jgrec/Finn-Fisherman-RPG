@@ -46,7 +46,6 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/death_anim.c \
 							src/player/anim/attack_anim.c
 
-<<<<<<< HEAD
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
 							src/window/switch_style.c
