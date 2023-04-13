@@ -19,9 +19,9 @@ static void new_anim_2(player_t *player, asset_t *asset, p_state_t state)
     }
     if (state == ATTACK) {
         if (player->attack.crit)
-            set_animation(player, asset->pa.attack_1, 0, return_to_idle);
+            set_animation(player, asset->pa.attack_2, 0, attack_anim);
         else
-            set_animation(player, asset->pa.attack_2, 0, return_to_idle);
+            set_animation(player, asset->pa.attack_1, 0, attack_anim);
     }
 }
 
