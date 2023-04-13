@@ -46,7 +46,15 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/death_anim.c \
 							src/player/anim/attack_anim.c
 
+<<<<<<< HEAD
 SRC 					+= 	src/map_parser/map_parser.c
+=======
+SRC						+=	src/window/cam_management.c \
+							src/window/switch_size.c \
+							src/window/switch_style.c
+
+SRC 					+= src/map_parser/map_parser.c
+>>>>>>> cb9d6d8 (feat(switch_style) switch style with F11)
 
 SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\

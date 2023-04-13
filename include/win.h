@@ -11,6 +11,7 @@
     #include "rpg.h"
 
     typedef struct rpg_s rpg_t;
+    typedef struct player_s player_t;
 
     typedef enum scene_e {
 
@@ -28,8 +29,15 @@
         float deltaT;
         scene_t scene;
         sfFont *font;
+        sfVector2u size;
+        int win_size;
+        int win_style;
+        int save_key;
     } win_t;
 
     void init_win(rpg_t *rpg);
+    void cam_management(player_t *player, win_t *win, rpg_t *rpg);
+    void switch_size(win_t *win);
+    void switch_style(win_t *win);
 
 #endif /* !WIN_H_ */
