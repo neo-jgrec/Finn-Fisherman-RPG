@@ -13,8 +13,6 @@ void manage_attack(player_t *player, rpg_t *rpg)
         player->attack.save != rpg->input->attack.press &&
         player->roll.cd > 0.1) {
         player->state = ATTACK;
-        if (player->velocity < 0)
-            player->velocity = 0;
         if (my_random(0, 100) < rpg->data->crit_chance)
             player->attack.crit = 1;
         else

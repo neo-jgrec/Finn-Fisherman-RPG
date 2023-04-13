@@ -20,6 +20,7 @@ static int **init_map(void)
         map[i][15] = 1;
     for (int i = 0; i < 10; i++)
         map[i][14] = 2;
+    map[0][0] = 15;
     map[15][13] = 3;
     map[16][13] = 4;
     map[16][14] = 4;
