@@ -19,6 +19,7 @@ int rpg(void)
     init_input(rpg);
     init_fishing(rpg);
     init_menu(rpg);
+    init_fishing(rpg);
     scene_manager(rpg);
-    return 0;
+    return ret;
 }

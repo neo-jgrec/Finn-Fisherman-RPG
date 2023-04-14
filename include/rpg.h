@@ -44,6 +44,8 @@
         entity_t **monsters;
         loading_t *loading;
         input_t *input;
+        menu_t *menu;
+        fishing_t *fishing;
     } rpg_t;
 
     int rpg(void);
