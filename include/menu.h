@@ -18,12 +18,18 @@
 
     #include "buttons.h"
 
+typedef enum main_menu_scene {
+    MAIN_MENU,
+    SETTINGS_MENU,
+    SAVES_MENU
+} main_menu_scene_t;
+
 typedef struct menu_s {
     sfText *text;
     sfFont *font;
     sfRectangleShape *bg;
     sfMusic *music;
-    bool is_save;
+    main_menu_scene_t scene;
     TAILQ_HEAD(buttons, button_s) buttons;
 } menu_t;
 

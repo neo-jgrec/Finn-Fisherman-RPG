@@ -51,12 +51,11 @@ SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
 							src/window/switch_style.c
 
-SRC 					+= src/map_parser/map_parser.c
-=======
 SRC 					+= 	src/map_parser/map_parser.c
 
-SRC						+= 	src/menu/menu_loop.c
->>>>>>> 3772300 (feat(main) scene manager architechture)
+SRC						+= 	src/menu/menu_loop.c		\
+							src/menu/buttons/manager.c	\
+							src/menu/buttons/functions.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \
