@@ -14,8 +14,9 @@
     typedef struct fishing_s {
         float clock;
         bool state;
-        sprite_t *font;
-        sprite_t *fish;
+        sprite_t font;
+        sprite_t fish;
+        sfVector2f pos_fish;
         sfFloatRect rect_fish;
         sfRectangleShape *fish_bar;
     } fishing_t;
