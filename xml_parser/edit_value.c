@@ -9,10 +9,10 @@
 
 void update_value_by_tags(xml_node_t *root, char **tags, const char *new_value)
 {
+    xml_node_t *child;
+
     if (!root || !tags || !*tags)
         return;
-
-    xml_node_t *child;
     TAILQ_FOREACH(child, &root->children, next) {
         if (my_strcmp(child->name, *tags) == 0) {
             (*(tags + 1) == NULL) ? ({
