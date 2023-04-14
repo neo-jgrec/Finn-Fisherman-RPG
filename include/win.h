@@ -11,13 +11,14 @@
     #include "rpg.h"
 
     typedef struct rpg_s rpg_t;
-    typedef struct player_s player_t;
+    typedef struct entity_s entity_t;
 
     typedef enum scene_e {
 
         NONE,
         GAME,
-        LOADING
+        LOADING,
+        MENU
 
     } scene_t;
 
@@ -35,7 +36,7 @@
     } win_t;
 
     void init_win(rpg_t *rpg);
-    void cam_management(player_t *player, win_t *win, rpg_t *rpg);
+    void cam_management(entity_t *player, win_t *win, rpg_t *rpg);
     void switch_size(win_t *win);
     void switch_style(win_t *win);
 

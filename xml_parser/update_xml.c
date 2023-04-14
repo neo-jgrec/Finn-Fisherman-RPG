@@ -9,27 +9,31 @@
 
 void write_node_value(FILE *file, xml_node_t *node)
 {
+    size_t value_len;
+
     if (node->value) {
-        size_t value_len = my_strlen(node->value);
+        value_len = my_strlen(node->value);
         fwrite(node->value, sizeof(char), value_len, file);
     }
 }
 
 void write_node(FILE *file, xml_node_t *node)
 {
+    xml_node_t *child;
+    size_t name_len;
+
     if (node->name) {
-        size_t name_len = my_strlen(node->name);
+        name_len = my_strlen(node->name);
         fwrite("<", sizeof(char), 1, file);
         fwrite(node->name, sizeof(char), name_len, file);
         fwrite(">", sizeof(char), 1, file);
     }
     write_node_value(file, node);
-    xml_node_t *child;
     TAILQ_FOREACH(child, &node->children, next) {
         write_node(file, child);
     }
     if (node->name) {
-        size_t name_len = my_strlen(node->name);
+        name_len = my_strlen(node->name);
         fwrite("</", sizeof(char), 2, file);
         fwrite(node->name, sizeof(char), name_len, file);
         fwrite(">", sizeof(char), 1, file);

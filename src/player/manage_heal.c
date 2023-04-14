@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void check_heal(player_t *player, rpg_t *rpg)
+static void check_heal(entity_t *player, rpg_t *rpg)
 {
     if (player->state != HEALING &&
         player->health.save_heal != rpg->input->heal.press
@@ -18,7 +18,7 @@ static void check_heal(player_t *player, rpg_t *rpg)
     }
 }
 
-void manage_heal(player_t *player, rpg_t *rpg)
+void manage_heal(entity_t *player, rpg_t *rpg)
 {
     player->health.damage_cd += rpg->win->deltaT;
     player->health.not_moving += rpg->win->deltaT;

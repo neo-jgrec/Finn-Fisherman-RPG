@@ -77,4 +77,8 @@ xml_parser_t *init_parser(char *filename);
  */
 xml_node_t *parse_node(xml_parser_t *parser, int is_root);
 
+char *get_value_by_tags(xml_node_t *root, char **tags);
+
+void parse_xml(xml_parser_t *parser);
+
 #endif /* !XML_PARSER_H_ */

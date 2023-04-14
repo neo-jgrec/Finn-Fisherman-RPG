@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-int on_ground(player_t *player, puzzle_t *puzzle)
+int on_ground(entity_t *player, puzzle_t *puzzle)
 {
     sfFloatRect rect = {player->rect.left, player->rect.top + 64, 48, 1};
 

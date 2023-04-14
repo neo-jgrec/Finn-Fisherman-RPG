@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void manage_attack(player_t *player, rpg_t *rpg)
+void manage_attack(entity_t *player, rpg_t *rpg)
 {
     if (player->state != ATTACK &&
         player->attack.save != rpg->input->attack.press &&

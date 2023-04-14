@@ -16,33 +16,43 @@
     #include <stdio.h>
     #include <time.h>
 
+    #include "mars.h"
+    #include "xml_parser.h"
     #include "win.h"
     #include "puzzle.h"
     #include "asset.h"
+    #include "entity.h"
     #include "player.h"
+    #include "monster.h"
     #include "loading.h"
     #include "input.h"
     #include "data.h"
+    #include "menu.h"
+    #include "mars.h"
     #include "fishing.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
-    #define UNUSED __attribute__((unused))
 
     typedef struct rpg_s {
         win_t *win;
         puzzle_t *puzzle;
         data_t *data;
         asset_t *asset;
-        player_t *player;
+        entity_t *player;
+        entity_t **monsters;
         loading_t *loading;
         input_t *input;
-        fishing_t *fishing;
     } rpg_t;
 
     int rpg(void);
+
     int main_loop(win_t *win, rpg_t *rpg);
+    void menu_loop(win_t *win, rpg_t *rpg);
+
+    void scene_manager(rpg_t *rpg);
+
     void draw(win_t *win, rpg_t *rpg);
 
     rpg_t *init_rpg(void);
