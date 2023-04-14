@@ -12,7 +12,7 @@ void quit_button(rpg_t *rpg)
     sfRenderWindow_close(rpg->win->win);
 }
 
-void settings_button(rpg_t *rpg)
+void settings_button( UNUSED rpg_t *rpg)
 {
     return;
 }
