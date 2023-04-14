@@ -26,6 +26,7 @@ void menu_loop(win_t *win, rpg_t *rpg)
     if (rpg->menu->scene == MAIN_MENU) {
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
+        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg, NULL);
         button_manager(button, win, rpg);
         sfRenderWindow_display(win->win);
     }

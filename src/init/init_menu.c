@@ -38,23 +38,21 @@ static void init_buttons(menu_t *menu)
 void init_menu(rpg_t *rpg)
 {
     menu_t *menu = malloc(sizeof(menu_t));
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/Inter-Medium.ttf");
-    sfRectangleShape *bg = sfRectangleShape_create();
+    menu->text = sfText_create();
+    menu->font  = sfFont_createFromFile("assets/Inter-Medium.ttf");
+    menu->bg = sfRectangleShape_create();
 
-    if (menu == NULL)
-        rpg->menu = NULL;
-    sfText_setString(text, "THE RPG");
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 100);
-    sfText_setPosition(text, (sfVector2f){500, 100});
-    sfRectangleShape_setSize(bg, (sfVector2f){1920, 1080});
-    sfRectangleShape_setFillColor(bg, sfBlack);
+    sfText_setString(menu->text, "THE RPG");
+    sfText_setFont(menu->text, menu->font);
+    sfText_setCharacterSize(menu->text, 100);
+    sfText_setPosition(menu->text, (sfVector2f){500, 100});
+    sfRectangleShape_setPosition(menu->bg, (sfVector2f){0, 0});
+    sfRectangleShape_setSize(menu->bg, (sfVector2f){
+        sfRenderWindow_getSize(rpg->win->win).x, sfRenderWindow_getSize(rpg->win->win).y});
+    sfRectangleShape_setTexture(menu->bg, sfTexture_createFromFile("assets/menu/bg.png",
+    NULL), sfTrue);
     TAILQ_INIT(&menu->buttons);
     init_buttons(menu);
     menu->scene = MAIN_MENU;
-    menu->text = text;
-    menu->font = font;
-    menu->bg = bg;
     rpg->menu = menu;
 }
