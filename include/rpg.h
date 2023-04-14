@@ -21,7 +21,9 @@
     #include "win.h"
     #include "puzzle.h"
     #include "asset.h"
+    #include "entity.h"
     #include "player.h"
+    #include "monster.h"
     #include "loading.h"
     #include "input.h"
     #include "data.h"
@@ -35,7 +37,8 @@
         puzzle_t *puzzle;
         data_t *data;
         asset_t *asset;
-        player_t *player;
+        entity_t *player;
+        entity_t **monsters;
         loading_t *loading;
         input_t *input;
     } rpg_t;

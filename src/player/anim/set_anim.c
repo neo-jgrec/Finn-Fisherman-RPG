@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void set_animation(player_t *player, sprite_t sp, int loop,
+void set_animation(entity_t *player, sprite_t sp, int loop,
     void (*action)(rpg_t *))
 {
     player->sp = sp.sp;

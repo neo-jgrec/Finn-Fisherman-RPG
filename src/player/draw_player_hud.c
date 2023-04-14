@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void draw_lvl_hud(player_t *player, rpg_t *rpg)
+static void draw_lvl_hud(entity_t *player, rpg_t *rpg)
 {
     char str[2] = {0};
 
@@ -20,7 +20,7 @@ static void draw_lvl_hud(player_t *player, rpg_t *rpg)
         player->health.lvl_hud, NULL);
 }
 
-static void draw_health_hud(player_t *player, rpg_t *rpg)
+static void draw_health_hud(entity_t *player, rpg_t *rpg)
 {
     sfIntRect health_rect = {0, 0,
         (int)(player->health.health_hud.size.x *
@@ -33,7 +33,7 @@ static void draw_health_hud(player_t *player, rpg_t *rpg)
         player->health.health_hud.sp, NULL);
 }
 
-static void draw_potion_hud(player_t *player, rpg_t *rpg)
+static void draw_potion_hud(entity_t *player, rpg_t *rpg)
 {
     sfIntRect potion_rect = {0, 0, player->health.potion * 4, 4};
 
@@ -44,7 +44,7 @@ static void draw_potion_hud(player_t *player, rpg_t *rpg)
         player->health.potion_hud.sp, NULL);
 }
 
-static void draw_xp_hud(player_t *player, rpg_t *rpg)
+static void draw_xp_hud(entity_t *player, rpg_t *rpg)
 {
     sfIntRect xp_rect = {0, 0,
         (int)(player->health.xp_hud.size.x *
@@ -57,7 +57,7 @@ static void draw_xp_hud(player_t *player, rpg_t *rpg)
         player->health.xp_hud.sp, NULL);
 }
 
-void draw_player_hud(player_t *player, rpg_t *rpg)
+void draw_player_hud(entity_t *player, rpg_t *rpg)
 {
     if (player->health.cd > 0.5)
         return;

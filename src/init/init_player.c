@@ -38,7 +38,7 @@ static health_t init_charge(rpg_t *rpg)
     return health;
 }
 
-static void init_player_2(player_t *player)
+static void init_player_2(entity_t *player)
 {
     player->hor = 0;
     player->grounded = 0;
@@ -48,10 +48,11 @@ static void init_player_2(player_t *player)
 
 void init_player(asset_t *asset, rpg_t *rpg)
 {
-    player_t *player = malloc(sizeof(player_t));
+    entity_t *player = malloc(sizeof(entity_t));
 
     if (player == NULL)
         rpg->player = NULL;
+    player->id = PLAYER;
     player->state = IDLE;
     player->prev_state = IDLE;
     player->pos = (VEC){500, 0};
@@ -62,6 +63,7 @@ void init_player(asset_t *asset, rpg_t *rpg)
     player->roll = (roll_t){0, 1, 0, 0};
     player->attack = (attack_t){0, 0};
     player->health = init_charge(rpg);
+    player->next = NULL;
     init_player_2(player);
     rpg->player = player;
     loading_screen(rpg, rpg->loading, 80, 0);

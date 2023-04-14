@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void set_jump_var(player_t *player, rpg_t *rpg, jump_t *jump)
+static void set_jump_var(entity_t *player, rpg_t *rpg, jump_t *jump)
 {
     if (player->grounded)
         jump->ground_time = 0;
@@ -21,7 +21,7 @@ static void set_jump_var(player_t *player, rpg_t *rpg, jump_t *jump)
     jump->press_time += rpg->win->deltaT;
 }
 
-void manage_jump(player_t *player, rpg_t *rpg)
+void manage_jump(entity_t *player, rpg_t *rpg)
 {
     jump_t *jump = &player->jump;
 

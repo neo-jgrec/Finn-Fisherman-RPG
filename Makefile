@@ -49,6 +49,9 @@ SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
 							src/window/switch_style.c
 
+SRC 					+=  src/monsters/add_monster.c \
+							src/monsters/init_monster_1.c
+
 SRC 					+= src/map_parser/map_parser.c
 
 SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)

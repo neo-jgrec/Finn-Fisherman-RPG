@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void set_position(win_t *win, player_t *player, rpg_t *rpg)
+static void set_position(win_t *win, entity_t *player, rpg_t *rpg)
 {
     player->velocity += 2500 * win->deltaT;
 
@@ -24,7 +24,7 @@ static void set_position(win_t *win, player_t *player, rpg_t *rpg)
     check_collision(player, rpg->puzzle, 1);
 }
 
-static void set_var(player_t *player, rpg_t *rpg)
+static void set_var(entity_t *player, rpg_t *rpg)
 {
     player->time += rpg->win->deltaT;
     if (player->state != ATTACK)
@@ -37,7 +37,7 @@ static void set_var(player_t *player, rpg_t *rpg)
     }
 }
 
-void manage_player(win_t *win, player_t *player, rpg_t *rpg)
+void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
     if (rpg->input->interact.press)
         hit_player(rpg, 10);
