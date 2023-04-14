@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void move_player(player_t *player, sfVector2f dir)
+void move_player(entity_t *player, sfVector2f dir)
 {
     player->pos.y += dir.y;
     player->pos.x += dir.x;

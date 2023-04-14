@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void death_anim(rpg_t *rpg)
+void death_anim(UNUSED rpg_t *rpg)
 {
     return;
 }

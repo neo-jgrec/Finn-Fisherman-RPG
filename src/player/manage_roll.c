@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void set_roll_var(player_t *player, rpg_t *rpg, roll_t *roll)
+static void set_roll_var(entity_t *player, rpg_t *rpg, roll_t *roll)
 {
     if (roll->save == 0 &&
         roll->save != rpg->input->roll.press)
@@ -18,7 +18,7 @@ static void set_roll_var(player_t *player, rpg_t *rpg, roll_t *roll)
     roll->cd += rpg->win->deltaT;
 }
 
-void manage_roll(player_t *player, rpg_t *rpg)
+void manage_roll(entity_t *player, rpg_t *rpg)
 {
     roll_t *roll = &player->roll;
 

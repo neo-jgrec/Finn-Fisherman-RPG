@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void check_collision(player_t *player, puzzle_t *puzzle, int axe)
+void check_collision(entity_t *player, puzzle_t *puzzle, int axe)
 {
     sfFloatRect rect = {0};
     int i = 0;

@@ -16,10 +16,14 @@
     #include <stdio.h>
     #include <time.h>
 
+    #include "mars.h"
+    #include "xml_parser.h"
     #include "win.h"
     #include "puzzle.h"
     #include "asset.h"
+    #include "entity.h"
     #include "player.h"
+    #include "monster.h"
     #include "loading.h"
     #include "input.h"
     #include "data.h"
@@ -29,14 +33,14 @@
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
-    #define UNUSED __attribute__((unused))
 
     typedef struct rpg_s {
         win_t *win;
         puzzle_t *puzzle;
         data_t *data;
         asset_t *asset;
-        player_t *player;
+        entity_t *player;
+        entity_t **monsters;
         loading_t *loading;
         input_t *input;
         menu_t *menu;

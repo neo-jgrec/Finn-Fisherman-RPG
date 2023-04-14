@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void cam_management(player_t *player, win_t *win, rpg_t *rpg)
+void cam_management(entity_t *player, win_t *win, UNUSED rpg_t *rpg)
 {
     sfView *view = sfView_createFromRect(
         (sfFloatRect){player->pos.x - win->size.x / 2,
