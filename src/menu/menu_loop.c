@@ -6,8 +6,9 @@
 */
 
 #include "rpg.h"
+#include <sys/queue.h>
 
-void button_manager(button_t *button, win_t *win, rpg_t *rpg);
+void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list);
 
 static void event_manager(win_t *win, UNUSED rpg_t *rpg)
 {
@@ -21,13 +22,11 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
 
 void menu_loop(win_t *win, rpg_t *rpg)
 {
-    button_t *button = NULL;
-
     if (rpg->menu->scene == MAIN_MENU) {
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg, NULL);
-        button_manager(button, win, rpg);
+        button_manager(win, rpg, &(rpg->menu->buttons));
         sfRenderWindow_display(win->win);
     }
 }

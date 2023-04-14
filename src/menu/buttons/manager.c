@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include <sys/queue.h>
 
 static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
 {
@@ -40,11 +41,12 @@ static void change_button_style(button_t *button)
     }
 }
 
-void button_manager(button_t *button, win_t *win, rpg_t *rpg)
+void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list)
 {
     sfText *text = sfText_create();
+    button_t *button = NULL;
 
-    TAILQ_FOREACH(button, &rpg->menu->buttons, next) {
+    TAILQ_FOREACH(button, button_list, next) {
         button_state(win->win, button, rpg);
         change_button_style(button);
         sfText_setString(text, button->name);
