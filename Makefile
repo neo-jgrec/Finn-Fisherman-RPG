@@ -48,7 +48,9 @@ SRC						+=	src/player/anim/set_anim.c \
 
 SRC 					+= 	src/map_parser/map_parser.c
 
-SRC						+= 	src/menu/menu_loop.c
+SRC						+= 	src/menu/menu_loop.c		\
+							src/menu/buttons/manager.c	\
+							src/menu/buttons/functions.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \

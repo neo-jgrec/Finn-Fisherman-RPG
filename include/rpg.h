@@ -24,6 +24,7 @@
     #include "input.h"
     #include "data.h"
     #include "menu.h"
+    #include "mars.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
