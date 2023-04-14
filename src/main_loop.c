@@ -21,15 +21,13 @@ static void analyse_events(win_t *win, rpg_t *rpg)
 
 int main_loop(win_t *win, rpg_t *rpg)
 {
-    while (sfRenderWindow_isOpen(win->win)) {
-        win->deltaT = DELTAT(win->time);
-        if (win->deltaT > 0.1)
-            win->deltaT = 0;
-        sfClock_restart(win->time);
-        analyse_events(win, rpg);
-        manage_player(win, rpg->player, rpg);
-        cam_management(rpg->player, win, rpg);
-        draw(win, rpg);
-    }
+    win->deltaT = DELTAT(win->time);
+    if (win->deltaT > 0.1)
+        win->deltaT = 0;
+    sfClock_restart(win->time);
+    analyse_events(win, rpg);
+    manage_player(win, rpg->player, rpg);
+    cam_management(rpg->player, win, rpg);
+    draw(win, rpg);
     return 0;
 }

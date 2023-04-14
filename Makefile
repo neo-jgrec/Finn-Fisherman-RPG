@@ -14,7 +14,8 @@ SRC 					:=	src/main_loop.c \
 							src/check_input.c \
 							src/draw_map.c \
 							src/draw.c \
-							src/get_random.c
+							src/get_random.c \
+							src/scene_manager.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -25,7 +26,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_sprite.c \
 							src/init/init_input.c \
 							src/init/init_data.c \
-							src/init/init_map.c
+							src/init/init_map.c \
+							src/init/init_menu.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -49,12 +51,21 @@ SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
 							src/window/switch_style.c
 
-SRC 					+=  src/monsters/add_monster.c \
-							src/monsters/init_monster_1.c
+SRC 					+= 	src/map_parser/map_parser.c
 
-SRC 					+= src/map_parser/map_parser.c
+SRC						+= 	src/menu/menu_loop.c		\
+							src/menu/buttons/manager.c	\
+							src/menu/buttons/functions.c
 
-SRC 					+=	$(shell find xml_parser/ -name '*.c' -type f)
+SRC 					+=	xml_parser/edit_value.c \
+							xml_parser/free.c \
+							xml_parser/init.c \
+							xml_parser/node_parsing.c \
+							xml_parser/parser.c \
+							xml_parser/update_xml.c \
+							xml_parser/utils.c
+
+SRC 					+=	src/utils/is_rect_hover.c
 
 MAIN 					= 	src/main.c
 
