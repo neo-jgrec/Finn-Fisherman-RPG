@@ -18,6 +18,7 @@ int rpg(void)
     init_data(rpg);
     init_player(rpg->asset, rpg);
     init_input(rpg);
+    init_fishing(rpg);
     ret = main_loop(rpg->win, rpg);
     return ret;
 }

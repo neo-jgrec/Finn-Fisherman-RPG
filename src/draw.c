@@ -13,5 +13,6 @@ void draw(win_t *win, rpg_t *rpg)
     sfRenderWindow_drawSprite(win->win, rpg->player->sp, NULL);
     draw_map(win, rpg->puzzle);
     draw_player_hud(rpg->player, rpg);
+    play_fishing_game(win, rpg->fishing);
     sfRenderWindow_display(win->win);
 }
