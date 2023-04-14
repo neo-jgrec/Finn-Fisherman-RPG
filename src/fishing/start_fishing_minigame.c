@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void calculate_display_position(fishing_t *game, player_t *player)
+static void calculate_display_position(fishing_t *game, entity_t *player)
 {
     game->pos_fish.x = player->pos.x + 700;
     game->pos_fish.y = player->pos.y;
@@ -17,7 +17,7 @@ static void calculate_display_position(fishing_t *game, player_t *player)
     sfSprite_setPosition(game->fish.sp, game->pos_fish);
 }
 
-void play_fishing_game(win_t *win, fishing_t *game, player_t *player)
+void play_fishing_game(win_t *win, fishing_t *game, entity_t *player)
 {
     if (!game->state) {
         calculate_display_position(game, player);

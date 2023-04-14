@@ -23,6 +23,6 @@
 
     void init_fishing(rpg_t *rpg);
 
-    void play_fishing_game(win_t *win, fishing_t *game, player_t *player);
+    void play_fishing_game(win_t *win, fishing_t *game, entity_t *player);
 
 #endif /* !FISHING_ */
