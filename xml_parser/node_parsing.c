@@ -12,6 +12,7 @@ void read_value(xml_parser_t *parser, xml_node_t *node);
 static xml_node_t *create_new_node(UNUSED xml_parser_t *parser)
 {
     xml_node_t *node = malloc(sizeof(xml_node_t));
+
     TAILQ_INIT(&node->children);
     return node;
 }
@@ -19,6 +20,7 @@ static xml_node_t *create_new_node(UNUSED xml_parser_t *parser)
 static void set_node_name(xml_parser_t *parser, xml_node_t *node)
 {
     char *name_start = parser->buffer_ptr;
+
     while (*parser->buffer_ptr != '>'
     && parser->buffer_ptr < parser->buffer_end)
         parser->buffer_ptr++;
@@ -28,6 +30,7 @@ static void set_node_name(xml_parser_t *parser, xml_node_t *node)
 static void add_child(xml_parser_t *parser, xml_node_t *parent)
 {
     xml_node_t *child = parse_node(parser, 0);
+
     if (child)
         TAILQ_INSERT_TAIL(&parent->children, child, next);
 }
@@ -42,9 +45,10 @@ static void process_children(xml_parser_t *parser, xml_node_t *node)
 
 xml_node_t *parse_node(xml_parser_t *parser, int is_root)
 {
+    xml_node_t *node = create_new_node(parser);
+
     if (parser->buffer_ptr >= parser->buffer_end)
         return NULL;
-    xml_node_t *node = create_new_node(parser);
     parser->buffer_ptr++;
     set_node_name(parser, node);
     parser->buffer_ptr++;
