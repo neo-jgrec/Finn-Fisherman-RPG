@@ -28,8 +28,7 @@ int **map_parsing(const char *src)
         map[row][col] = my_atoi(token) - 1;
     }
     for (int i = 0; i < (rows + 2) - 1; map[i][(cols + 2) - 1] = -2, i++);
-    map[(rows + 2) - 2][(cols + 2) - 2] = -2;
-    map[(rows + 2) - 1] = NULL;
+    map[rows] = NULL;
     free(map_copy);
     return map;
 }
