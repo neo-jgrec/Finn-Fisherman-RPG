@@ -29,6 +29,7 @@
     #include "data.h"
     #include "menu.h"
     #include "mars.h"
+    #include "fishing.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -44,6 +45,7 @@
         loading_t *loading;
         input_t *input;
         menu_t *menu;
+        fishing_t *fishing;
     } rpg_t;
 
     int rpg(void);

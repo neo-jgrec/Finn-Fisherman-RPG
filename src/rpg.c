@@ -17,7 +17,9 @@ int rpg(void)
     init_data(rpg);
     init_player(rpg->asset, rpg);
     init_input(rpg);
+    init_fishing(rpg);
     init_menu(rpg);
+    init_fishing(rpg);
     scene_manager(rpg);
     return 0;
 }

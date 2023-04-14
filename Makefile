@@ -27,7 +27,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_input.c \
 							src/init/init_data.c \
 							src/init/init_map.c \
-							src/init/init_menu.c
+							src/init/init_menu.c \
+							src/init/init_fishing.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -46,6 +47,8 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/heal_anim.c \
 							src/player/anim/death_anim.c \
 							src/player/anim/attack_anim.c
+
+SRC						+=	src/fishing/start_fishing_minigame.c
 
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \

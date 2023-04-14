@@ -8,7 +8,7 @@
 #include "rpg.h"
 
 sprite_t init_sprite(char *path,
-    VEC size, int nb_frame, int scale)
+    VEC size, int nb_frame, float scale)
 {
     sprite_t sprite = {0};
 
