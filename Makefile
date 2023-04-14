@@ -24,7 +24,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_loading.c \
 							src/init/init_sprite.c \
 							src/init/init_input.c \
-							src/init/init_data.c
+							src/init/init_data.c \
+							src/init/init_map.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \

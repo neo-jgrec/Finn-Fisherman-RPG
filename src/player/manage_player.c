@@ -13,7 +13,7 @@ static void set_position(win_t *win, player_t *player, rpg_t *rpg)
 
     move_player(player, (VEC){0, 1 * win->deltaT * player->velocity});
     check_collision(player, rpg->puzzle, 0);
-    if (player->state == ATTACK)
+    if ((player->state == ATTACK && player->grounded))
         return;
     if (player->state != ROLL)
         move_player(player, (VEC){player->hor * win->deltaT *

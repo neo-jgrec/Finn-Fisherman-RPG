@@ -16,6 +16,8 @@
     #include <stdio.h>
     #include <time.h>
 
+    #include "mars.h"
+    #include "xml_parser.h"
     #include "win.h"
     #include "puzzle.h"
     #include "asset.h"
@@ -27,7 +29,6 @@
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
-    #define UNUSED __attribute__((unused))
 
     typedef struct rpg_s {
         win_t *win;

@@ -15,16 +15,15 @@ static void draw_tiles(win_t *win, sprite_t *sp, int **map, int i)
                 (sfIntRect){sp->size.x * (map[i][j] % sp->nb_frame),
                     sp->size.x * (map[i][j] / sp->nb_frame),
                     sp->size.x, sp->size.x});
-            sfSprite_setPosition(sp->sp, (VEC){i * 64, j * 64});
+            sfSprite_setPosition(sp->sp, (VEC){j * 64, i * 64});
             sfRenderWindow_drawSprite(win->win, sp->sp, NULL);
         }
     }
 }
 
-void draw_map(win_t *win, puzzle_t *puzzle)
+void draw_map(win_t *win, puzzle_t *puzzle, int **map)
 {
     sprite_t *sp = puzzle->tileset;
-    int **map = puzzle->map;
 
     for (int i = 0; map[i] != NULL; i++)
         draw_tiles(win, sp, map, i);

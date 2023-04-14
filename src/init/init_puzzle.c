@@ -7,27 +7,27 @@
 
 #include "rpg.h"
 
-static int **init_map(void)
-{
-    int **map = malloc(sizeof(int *) * 25);
-    for (int i = 0; i < 25; map[i] = NULL, i++);
-    for (int i = 0; i < 20; i++) {
-        map[i] = malloc(sizeof(int) * 25);
-        for (int j = 0; j < 25; map[i][j] = -2, j++);
-        for (int j = 0; j < 20; map[i][j] = -1, j++);
-    }
-    for (int i = 0; i < 20; i++)
-        map[i][15] = 1;
-    for (int i = 0; i < 10; i++)
-        map[i][14] = 2;
-    map[0][0] = 15;
-    map[15][13] = 3;
-    map[16][13] = 4;
-    map[16][14] = 4;
-    map[15][12] = 4;
-    map[15][11] = 4;
-    return map;
-}
+// static int **init_map(void)
+// {
+//     int **map = malloc(sizeof(int *) * 25);
+//     for (int i = 0; i < 25; map[i] = NULL, i++);
+//     for (int i = 0; i < 20; i++) {
+//         map[i] = malloc(sizeof(int) * 25);
+//         for (int j = 0; j < 25; map[i][j] = -2, j++);
+//         for (int j = 0; j < 20; map[i][j] = -1, j++);
+//     }
+//     for (int i = 0; i < 20; i++)
+//         map[i][15] = 1;
+//     for (int i = 0; i < 10; i++)
+//         map[i][14] = 2;
+//     map[0][0] = 15;
+//     map[15][13] = 3;
+//     map[16][13] = 4;
+//     map[16][14] = 4;
+//     map[15][12] = 4;
+//     map[15][11] = 4;
+//     return map;
+// }
 
 static sfFloatRect *add_colliders(sfFloatRect *colliders,
     sfFloatRect rect, int *nb_col)
@@ -52,7 +52,7 @@ static void merge_colliders(sfFloatRect **colliders,
     for (int j = 0; map[i][j] != -2; j++) {
         if (map[i][j] != -1)
             *colliders = add_colliders(*colliders,
-                (sfFloatRect){i * 64, j * 64, 64, 64}, nb_col);
+                (sfFloatRect){j * 64, i * 64, 64, 64}, nb_col);
     }
 }
 
@@ -79,10 +79,9 @@ void init_puzzle(rpg_t *rpg)
     puzzle->nb_colliders = 0;
     puzzle->colliders = NULL;
     puzzle->nb_colliders = 0;
-    puzzle->map = init_map();
+    init_map("assets/map/map_1.xml", puzzle);
     puzzle->colliders = init_colliders(&puzzle->nb_colliders, puzzle->map);
     puzzle->tileset = &rpg->asset->tileset;
     rpg->puzzle = puzzle;
     loading_screen(rpg, rpg->loading, 40, 0);
-
 }
