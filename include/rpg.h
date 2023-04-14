@@ -23,6 +23,8 @@
     #include "loading.h"
     #include "input.h"
     #include "data.h"
+    #include "menu.h"
+    #include "mars.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -37,10 +39,16 @@
         player_t *player;
         loading_t *loading;
         input_t *input;
+        menu_t *menu;
     } rpg_t;
 
     int rpg(void);
+
     int main_loop(win_t *win, rpg_t *rpg);
+    void menu_loop(win_t *win, rpg_t *rpg);
+
+    void scene_manager(rpg_t *rpg);
+
     void draw(win_t *win, rpg_t *rpg);
 
     rpg_t *init_rpg(void);
