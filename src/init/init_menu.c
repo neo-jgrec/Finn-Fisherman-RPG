@@ -48,8 +48,10 @@ void init_menu(rpg_t *rpg)
     sfText_setPosition(menu->text, (sfVector2f){500, 100});
     sfRectangleShape_setPosition(menu->bg, (sfVector2f){0, 0});
     sfRectangleShape_setSize(menu->bg, (sfVector2f){
-        sfRenderWindow_getSize(rpg->win->win).x, sfRenderWindow_getSize(rpg->win->win).y});
-    sfRectangleShape_setTexture(menu->bg, sfTexture_createFromFile("assets/menu/bg.png",
+        sfRenderWindow_getSize(rpg->win->win).x,
+        sfRenderWindow_getSize(rpg->win->win).y});
+    sfRectangleShape_setTexture(menu->bg,
+    sfTexture_createFromFile("assets/menu/bg.png",
     NULL), sfTrue);
     TAILQ_INIT(&menu->buttons);
     init_buttons(menu);
