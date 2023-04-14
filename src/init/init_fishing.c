@@ -21,6 +21,26 @@ static sfRectangleShape *init_rect_bar(rpg_t *rpg)
     return (rectangle);
 }
 
+static sprite_t init_fish(fishing_t *fishing)
+{
+    sprite_t fish = init_sprite("assets/fishing/fish.png",
+    (sfVector2f){150, 100}, 1, 0.5);
+
+    sfSprite_setOrigin(fish.sp, (sfVector2f){75, 50});
+    sfSprite_setPosition(fish.sp, fishing->pos_fish);
+    return (fish);
+}
+
+static sprite_t init_font(fishing_t *fishing)
+{
+    sprite_t font = init_sprite("assets/fishing/f_bar.png",
+    (sfVector2f){60, 800}, 1, 1);
+
+    sfSprite_setOrigin(font.sp, (sfVector2f){30, 400});
+    sfSprite_setPosition(font.sp, fishing->pos_fish);
+    return (font);
+}
+
 void init_fishing(rpg_t *rpg)
 {
     fishing_t *fishing = NULL;
@@ -29,13 +49,10 @@ void init_fishing(rpg_t *rpg)
         rpg->fishing = NULL;
         return;
     }
-    fishing->fish = init_sprite("assets/fishing/fish.png",
-    (sfVector2f){150, 100}, 1, 0.5);
     fishing->pos_fish = (sfVector2f){rpg->win->size.x / 2,
     rpg->win->size.y / 2};
-    sfSprite_setOrigin(fishing->fish.sp, (sfVector2f){75, 50});
-    sfSprite_setPosition(fishing->fish.sp, fishing->pos_fish);
-    sfVector2f pos = sfSprite_getPosition(fishing->fish.sp);
+    fishing->fish = init_fish(fishing);
+    fishing->font = init_font(fishing);
     fishing->fish_bar = init_rect_bar(rpg);
     fishing->state = false;
     fishing->clock = 0;
