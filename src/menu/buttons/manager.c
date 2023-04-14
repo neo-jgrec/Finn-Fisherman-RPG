@@ -14,7 +14,7 @@ static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
     sfVector2f button_size = sfRectangleShape_getSize(button->shape);
 
     if (is_rect_hover(mouse_pos, button_pos, button_size)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft) && button->action) {
             button->state = CLICKED_BUTTON;
             button->action(rpg);
         } else
