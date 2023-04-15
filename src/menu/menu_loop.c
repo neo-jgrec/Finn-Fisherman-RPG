@@ -31,7 +31,7 @@ static void settings_menu(win_t *win, rpg_t *rpg)
             else if (rpg->win->win_style == 0 && my_strcmp(button->name, "FULLSCREEN") == 0)
                 button->name = "WINDOWED";
         }
-        button_manager(win, rpg, &(rpg->menu->settings_buttons));
+        button_manager(win, rpg, (struct buttons *)&(rpg->menu->settings_buttons));
         sfRenderWindow_display(win->win);
     }
 }
