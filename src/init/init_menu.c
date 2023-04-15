@@ -14,6 +14,10 @@ void play_button(rpg_t *rpg);
 void back_button(rpg_t *rpg);
 void res_button(rpg_t *rpg);
 
+void res_1600_button(rpg_t *rpg);
+void res_1920_button(rpg_t *rpg);
+void res_800_button(rpg_t *rpg);
+
 static void init_buttons(menu_t *menu)
 {
     TAILQ_INIT(&menu->buttons);
@@ -40,15 +44,15 @@ static void init_buttons(menu_t *menu)
 
 static void init_button_res_settings(menu_t *menu)
 {
-    TAILQ_INIT(&menu->res_buttons);
     button_t *button = malloc(sizeof(button_t));
     char *buttons_names[] = {"1600x900", "1920x1080", "800x600"};
-    void *buttons_functions[] = {NULL, NULL, NULL};
-    sfVector2f buttons_pos[] = {{1900 / 2 - 100, 10}, {1900 / 2 - 100, 70}, {1900 / 2 - 100, 130}};
+    void *buttons_functions[] = {res_1600_button, res_1920_button,
+    res_800_button};
+    sfVector2f buttons_pos[] = {{1900 - 550, 70}, {1900 - 550, 130},
+    {1900 - 550, 190}};
     sfVector2f buttons_size[] = {{200, 50}, {200, 50}, {200, 50}};
-    size_t nb_buttons = sizeof(buttons_names) / sizeof(char *);
 
-    for (size_t i = 0; i < nb_buttons; i++) {
+    for (size_t i = 0; i < 3; i++) {
         button = malloc(sizeof(button_t));
         button->name = buttons_names[i];
         button->action = buttons_functions[i];
@@ -70,10 +74,8 @@ static void init_button_settings(menu_t *menu)
     void *buttons_functions[] = {back_button, NULL, NULL, res_button};
     sfVector2f buttons_pos[] = {{10, 10}, {100, 300}, {100, 400}, {100, 500}};
     sfVector2f buttons_size[] = {{200, 50}, {200, 50}, {200, 50}, {200, 50}};
-    size_t nb_buttons = sizeof(buttons_names) / sizeof(char *);
 
-    for (size_t i = 0; i < nb_buttons; i++) {
-        button = malloc(sizeof(button_t));
+    for (size_t i = 0; i < 4; i++, button = malloc(sizeof(button_t))) {
         button->name = buttons_names[i];
         button->action = buttons_functions[i];
         button->pos = buttons_pos[i];
@@ -84,6 +86,7 @@ static void init_button_settings(menu_t *menu)
         sfRectangleShape_setSize(button->shape, button->size);
         TAILQ_INSERT_TAIL(&menu->settings_buttons, button, next);
     }
+    TAILQ_INIT(&menu->res_buttons);
     init_button_res_settings(menu);
 }
 
