@@ -24,6 +24,13 @@ static void settings_menu(win_t *win, rpg_t *rpg)
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg, NULL);
+        button_t *button = NULL;
+        TAILQ_FOREACH(button, &(rpg->menu->settings_buttons), next) {
+            if (rpg->win->win_style == 1 && my_strcmp(button->name, "WINDOWED") == 0)
+                button->name = "FULLSCREEN";
+            else if (rpg->win->win_style == 0 && my_strcmp(button->name, "FULLSCREEN") == 0)
+                button->name = "WINDOWED";
+        }
         button_manager(win, rpg, &(rpg->menu->settings_buttons));
         sfRenderWindow_display(win->win);
     }
