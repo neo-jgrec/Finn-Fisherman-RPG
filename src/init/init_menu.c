@@ -39,7 +39,7 @@ void init_menu(rpg_t *rpg)
 {
     menu_t *menu = malloc(sizeof(menu_t));
     menu->text = sfText_create();
-    menu->font  = sfFont_createFromFile("assets/Inter-Medium.ttf");
+    menu->font = sfFont_createFromFile("assets/Inter-Medium.ttf");
     menu->bg = sfRectangleShape_create();
 
     sfText_setString(menu->text, "THE RPG");
