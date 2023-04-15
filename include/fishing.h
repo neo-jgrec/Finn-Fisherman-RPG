@@ -16,10 +16,12 @@
     #include "rpg.h"
 
     typedef struct fishing_s {
+        float speed_mov;
         float clock_game;
         float clock_bar;
         float clock_keep;
         float clock_fish;
+        int rand_mov;
         int time_move_bar;
         int state_bar_moving;
         int res_fishing;

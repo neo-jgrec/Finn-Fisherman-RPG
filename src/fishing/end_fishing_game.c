@@ -22,6 +22,7 @@ void end_game(fishing_t *game, win_t *win)
 
     if (fish_is_out_of_zone(game)) {
         game->state = false;
+        game->bar_moving = false;
         game->clock_game = 0;
         game->clock_keep = 0;
         game->res_fishing = -1;
@@ -30,6 +31,7 @@ void end_game(fishing_t *game, win_t *win)
     if (game->fish_zone_pos.y <= game->end_game_pos.y ||
     game->clock_keep > 30) {
         game->state = false;
+        game->bar_moving = false;
         game->clock_game = 0;
         game->clock_keep = 0;
         game->res_fishing = 1;

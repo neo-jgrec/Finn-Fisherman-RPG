@@ -72,5 +72,7 @@ void init_fishing(rpg_t *rpg)
     fishing->clock_fish = 0;
     fishing->clock_keep = 0;
     fishing->res_fishing = 0;
+    fishing->rand_mov = 0;
+    fishing->speed_mov = 0;
     rpg->fishing = fishing;
 }

@@ -9,6 +9,9 @@
 
 static void calculate_display_position(fishing_t *game, entity_t *player)
 {
+    int speed = my_random(1, 3);
+    float f_part = 0;
+
     game->game_pos.x = player->pos.x + 700;
     game->game_pos.y = player->pos.y;
     sfSprite_setPosition(game->font.sp, game->game_pos);
@@ -20,6 +23,9 @@ static void calculate_display_position(fishing_t *game, entity_t *player)
     game->fish_zone_pos = game->start_game_pos;
     sfRectangleShape_setPosition(game->fish_bar, game->fish_zone_pos);
     sfSprite_setPosition(game->fish.sp, game->fish_pos);
+    game->speed_mov = speed;
+    f_part = (float)my_random(1, 25);
+    game->speed_mov += f_part / 100;
 }
 
 static void draw_sprites(win_t *win, fishing_t *game)
@@ -37,8 +43,9 @@ rpg_t *rpg)
         calculate_display_position(game, player);
         return;
     }
-    make_fish_move(rpg, game);
+    printf("speed = %f\n", game->speed_mov);
     make_keep_zone_move(win, game);
+    make_fish_move(rpg, game);
     change_zone_color(game);
     draw_sprites(win, game);
     end_game(game, win);

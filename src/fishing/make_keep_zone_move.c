@@ -12,7 +12,7 @@ static void move_down(fishing_t *game, win_t *win)
     game->clock_bar += win->deltaT;
 
     if (game->clock_bar < game->time_move_bar){
-        game->fish_zone_pos.y += 1.5;
+        game->fish_zone_pos.y += game->speed_mov;
         if (game->fish_zone_pos.y > game->start_game_pos.y)
             game->fish_zone_pos.y = game->start_game_pos.y;
     } else {
@@ -28,7 +28,7 @@ static void move_up(fishing_t *game, win_t *win)
     game->clock_bar += win->deltaT;
 
     if (game->clock_bar < game->time_move_bar){
-        game->fish_zone_pos.y -= 1.5;
+        game->fish_zone_pos.y -= game->speed_mov;
         if (game->fish_zone_pos.y < game->end_game_pos.y)
             game->fish_zone_pos.y = game->end_game_pos.y;
     } else {
