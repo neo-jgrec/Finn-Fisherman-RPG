@@ -26,6 +26,7 @@ static void switch_key(win_t *win, input_t *input, int press)
     switch_input(&input->attack, code, press);
     switch_input(&input->fish_up, code, press);
     switch_input(&input->fish_down, code, press);
+    switch_input(&input->fish_game, code, press);
 }
 
 void check_input(win_t *win, input_t *input)

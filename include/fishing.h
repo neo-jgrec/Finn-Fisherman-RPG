@@ -11,6 +11,8 @@
     #define sfLightGreen sfColor_fromRGB(197, 255, 0)
     #define sfYellow sfColor_fromRGB(255, 228, 0)
     #define sfOrange sfColor_fromRGB(255, 89, 0)
+    #define FISHING_GAME !game || !game->info || !game->fish || \
+!game->font || !game->zone
 
     #include <stdbool.h>
     #include "rpg.h"

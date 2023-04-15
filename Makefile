@@ -53,7 +53,8 @@ SRC						+=	src/fishing/start_fishing_minigame.c \
 							src/fishing/make_keep_zone_move.c \
 							src/fishing/move_fish.c \
 							src/fishing/change_zone_color.c	\
-							src/fishing/end_fishing_game.c
+							src/fishing/end_fishing_game.c	\
+							src/fishing/free_fishing.c
 
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \

@@ -40,8 +40,10 @@ static void draw_sprites(win_t *win, fishing_t *game)
 void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
 rpg_t *rpg)
 {
-    if (!game->fish || !game->font || !game->zone)
+    if (FISHING_GAME)
         return;
+    if (rpg->input->fish_game.press && !game->info->game_state)
+        game->info->game_state = true;
     if (!game->info->game_state) {
         calculate_game_info(game, player);
         return;
