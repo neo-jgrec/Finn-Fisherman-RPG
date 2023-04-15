@@ -12,7 +12,12 @@
     #include "rpg.h"
 
     typedef struct fishing_s {
-        float clock;
+        float clock_game;
+        float clock_bar;
+        int time_move_bar;
+        int state_bar_moving;
+        bool bar_moving;
+        float clock_fish;
         bool state;
         sfVector2f game_pos;
         sfVector2f end_game_pos;

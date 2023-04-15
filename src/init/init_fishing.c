@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static sfRectangleShape *init_rect_bar(rpg_t *rpg)
+static sfRectangleShape *init_rect_bar(rpg_t *rpg, fishing_t *game)
 {
     sfRectangleShape *rectangle = sfRectangleShape_create();
 
@@ -18,6 +18,10 @@ static sfRectangleShape *init_rect_bar(rpg_t *rpg)
     rpg->win->size.x / 2, rpg->win->size.y / 2});
     sfRectangleShape_setOrigin(rectangle, (sfVector2f){15, 50});
     sfRectangleShape_setFillColor(rectangle, sfGreen);
+    game->bar_moving = false;
+    game->clock_bar = 0;
+    game->state_bar_moving = 0;
+    game->time_move_bar = 0;
     return (rectangle);
 }
 
@@ -62,8 +66,9 @@ void init_fishing(rpg_t *rpg)
     init_pos(fishing, rpg);
     fishing->fish = init_fish(fishing);
     fishing->font = init_font(fishing);
-    fishing->fish_bar = init_rect_bar(rpg);
+    fishing->fish_bar = init_rect_bar(rpg, fishing);
     fishing->state = false;
-    fishing->clock = 0;
+    fishing->clock_game = 0;
+    fishing->clock_fish = 0;
     rpg->fishing = fishing;
 }

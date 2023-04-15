@@ -34,7 +34,7 @@ static void end_game(fishing_t *game)
 {
     if (game->fish_zone_pos.y <= game->end_game_pos.y) {
         game->state = false;
-        game->clock = 0;
+        game->clock_game = 0;
     }
 }
 
