@@ -87,4 +87,6 @@
         struct entity_s *next;
     } entity_t;
 
+    void set_position(win_t *win, entity_t *player, rpg_t *rpg);
+
 #endif /* !ENTITY_H_ */
