@@ -15,7 +15,8 @@ SRC 					:=	src/main_loop.c \
 							src/draw_map.c \
 							src/draw.c \
 							src/get_random.c \
-							src/scene_manager.c
+							src/scene_manager.c \
+							src/set_position.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -67,6 +68,11 @@ SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/parser.c \
 							xml_parser/update_xml.c \
 							xml_parser/utils.c
+
+SRC						+=	src/monsters/add_monster.c \
+							src/monsters/init_monster_1.c \
+							src/monsters/draw_monsters.c \
+							src/monsters/manage_monster.c
 
 SRC 					+=	src/utils/is_rect_hover.c
 
