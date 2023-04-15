@@ -30,14 +30,6 @@ static void draw_sprites(win_t *win, fishing_t *game)
     sfRenderWindow_drawSprite(win->win, game->fish.sp, NULL);
 }
 
-static void end_game(fishing_t *game)
-{
-    if (game->fish_zone_pos.y <= game->end_game_pos.y) {
-        game->state = false;
-        game->clock_game = 0;
-    }
-}
-
 void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
 rpg_t *rpg)
 {
@@ -48,5 +40,5 @@ rpg_t *rpg)
     make_fish_move(rpg, game);
     make_keep_zone_move(win, game);
     draw_sprites(win, game);
-    end_game(game);
+    end_game(game, win);
 }

@@ -50,7 +50,8 @@ SRC						+=	src/player/anim/set_anim.c \
 
 SRC						+=	src/fishing/start_fishing_minigame.c \
 							src/fishing/make_keep_zone_move.c \
-							src/fishing/move_fish.c
+							src/fishing/move_fish.c \
+							src/fishing/end_fishing_game.c
 
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \

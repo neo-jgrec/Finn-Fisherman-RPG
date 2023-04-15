@@ -14,10 +14,12 @@
     typedef struct fishing_s {
         float clock_game;
         float clock_bar;
+        float clock_keep;
+        float clock_fish;
         int time_move_bar;
         int state_bar_moving;
+        int res_fishing;
         bool bar_moving;
-        float clock_fish;
         bool state;
         sfVector2f game_pos;
         sfVector2f end_game_pos;
@@ -35,5 +37,6 @@
     rpg_t *rpg);
     void make_keep_zone_move(win_t *win, fishing_t *game);
     void make_fish_move(rpg_t *rpg, fishing_t *game);
+    void end_game(fishing_t *game, win_t *win);
 
 #endif /* !FISHING_ */
