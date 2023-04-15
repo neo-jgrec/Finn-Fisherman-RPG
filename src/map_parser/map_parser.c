@@ -13,7 +13,7 @@ static const char *delimiter = ",\n";
 int **map_parsing(const char *src)
 {
     int rows = 0, cols = 0, row = -1, col = 0, i;
-    char *token, *map_copy = strdup(src);
+    char *token, *map_copy = my_strdup(src);
     int **map;
 
     for (i = 0; src[i] != '\0'; rows = (src[i] == '\n') ? rows + 1 : rows, i++)
