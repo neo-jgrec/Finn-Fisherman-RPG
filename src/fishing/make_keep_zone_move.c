@@ -9,53 +9,53 @@
 
 static void move_down(fishing_t *game, win_t *win)
 {
-    game->clock_bar += win->deltaT;
+    game->zone->clock_zone += win->deltaT;
 
-    if (game->clock_bar < game->time_move_bar){
-        game->fish_zone_pos.y += game->speed_mov;
-        if (game->fish_zone_pos.y > game->start_game_pos.y)
-            game->fish_zone_pos.y = game->start_game_pos.y;
+    if (game->zone->clock_zone < game->zone->time_move_zone){
+        game->zone->pos_zone.y += game->zone->speed_zone;
+        if (game->zone->pos_zone.y > game->font->pos_bot.y)
+            game->zone->pos_zone.y = game->font->pos_bot.y;
     } else {
-        game->clock_bar = 0;
-        game->bar_moving = false;
-        game->time_move_bar = 0;
-        game->state_bar_moving = 0;
+        game->zone->clock_zone = 0;
+        game->zone->zone_moving = false;
+        game->zone->time_move_zone = 0;
+        game->zone->direction_zone = 0;
     }
 }
 
 static void move_up(fishing_t *game, win_t *win)
 {
-    game->clock_bar += win->deltaT;
+    game->zone->clock_zone += win->deltaT;
 
-    if (game->clock_bar < game->time_move_bar){
-        game->fish_zone_pos.y -= game->speed_mov;
-        if (game->fish_zone_pos.y < game->end_game_pos.y)
-            game->fish_zone_pos.y = game->end_game_pos.y;
+    if (game->zone->clock_zone < game->zone->time_move_zone){
+        game->zone->pos_zone.y -= game->zone->speed_zone;
+        if (game->zone->pos_zone.y < game->font->pos_top.y)
+            game->zone->pos_zone.y = game->font->pos_top.y;
     } else {
-        game->clock_bar = 0;
-        game->bar_moving = false;
-        game->time_move_bar = 0;
-        game->state_bar_moving = 0;
+        game->zone->clock_zone = 0;
+        game->zone->zone_moving = false;
+        game->zone->time_move_zone = 0;
+        game->zone->direction_zone = 0;
     }
 }
 
 static void make_random_move(fishing_t *game, win_t *win)
 {
-    if (game->bar_moving == false) {
-        game->state_bar_moving = (rand() % 3) + 1;
-        game->time_move_bar = (rand() % 1) + 1;
-        game->bar_moving = true;
+    if (!game->zone->zone_moving) {
+        game->zone->direction_zone = (rand() % 2) + 1;
+        game->zone->time_move_zone = (rand() % 1) + 1;
+        game->zone->zone_moving = true;
     }
-    if (game->state_bar_moving == 2)
+    if (game->zone->direction_zone == 2)
         move_down(game, win);
     else
         move_up(game, win);
-    sfRectangleShape_setPosition(game->fish_bar, game->fish_zone_pos);
+    sfRectangleShape_setPosition(game->zone->zone, game->zone->pos_zone);
 }
 
 void make_keep_zone_move(win_t *win, fishing_t *game)
 {
-    game->clock_game += win->deltaT;
-    if (game->clock_game > 0.02)
+    game->info->clock_game += win->deltaT;
+    if (game->info->clock_game > 0.02)
         make_random_move(game, win);
 }

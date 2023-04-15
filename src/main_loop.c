@@ -17,7 +17,7 @@ static void analyse_events(win_t *win, rpg_t *rpg)
             switch_style(win);
         if (win->event.type == sfEvtKeyPressed &&
             win->event.key.code == sfKeyP)
-            rpg->fishing->state = true;
+            rpg->fishing->info->game_state = true;
         check_input(win, rpg->input);
     }
 }
