@@ -31,7 +31,9 @@
 
     void init_fishing(rpg_t *rpg);
 
-    void play_fishing_game(win_t *win, fishing_t *game, entity_t *player);
+    void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
+    rpg_t *rpg);
     void make_keep_zone_move(win_t *win, fishing_t *game);
+    void make_fish_move(rpg_t *rpg, fishing_t *game);
 
 #endif /* !FISHING_ */

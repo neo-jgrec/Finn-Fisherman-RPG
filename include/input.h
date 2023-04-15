@@ -23,6 +23,8 @@
         kv_t heal;
         kv_t interact;
         kv_t attack;
+        kv_t fish_up;
+        kv_t fish_down;
     } input_t;
 
     void init_input(rpg_t *rpg);

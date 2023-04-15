@@ -38,12 +38,14 @@ static void end_game(fishing_t *game)
     }
 }
 
-void play_fishing_game(win_t *win, fishing_t *game, entity_t *player)
+void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
+rpg_t *rpg)
 {
     if (!game->state) {
         calculate_display_position(game, player);
         return;
     }
+    make_fish_move(rpg, game);
     make_keep_zone_move(win, game);
     draw_sprites(win, game);
     end_game(game);
