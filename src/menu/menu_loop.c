@@ -26,15 +26,18 @@ static void settings_menu(win_t *win, rpg_t *rpg)
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg, NULL);
         button_t *button = NULL;
         TAILQ_FOREACH(button, &(rpg->menu->settings_buttons), next) {
-            if (rpg->win->win_style == 1 && my_strcmp(button->name, "WINDOWED") == 0)
+            if (rpg->win->win_style == 1
+                && !my_strcmp(button->name, "WINDOWED"))
                 button->name = "FULLSCREEN";
-            else if (rpg->win->win_style == 0 && my_strcmp(button->name, "FULLSCREEN") == 0) {
+            if (rpg->win->win_style == 0
+                && !my_strcmp(button->name, "FULLSCREEN"))
                 button->name = "WINDOWED";
-            }
         }
         if (rpg->win->win_style == 1)
-            button_manager(win, rpg, (struct buttons *)&(rpg->menu->res_buttons));
-        button_manager(win, rpg, (struct buttons *)&(rpg->menu->settings_buttons));
+            button_manager(win, rpg,
+                (struct buttons *)&(rpg->menu->res_buttons));
+        button_manager(win, rpg,
+            (struct buttons *)&(rpg->menu->settings_buttons));
         sfRenderWindow_display(win->win);
     }
 }
