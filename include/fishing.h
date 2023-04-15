@@ -8,6 +8,10 @@
 #ifndef FISHING_
     #define FISHING_
 
+    #define sfLightGreen sfColor_fromRGB(197, 255, 0)
+    #define sfYellow sfColor_fromRGB(255, 228, 0)
+    #define sfOrange sfColor_fromRGB(255, 89, 0)
+
     #include <stdbool.h>
     #include "rpg.h"
 
@@ -37,6 +41,7 @@
     rpg_t *rpg);
     void make_keep_zone_move(win_t *win, fishing_t *game);
     void make_fish_move(rpg_t *rpg, fishing_t *game);
+    void change_zone_color(fishing_t *game);
     void end_game(fishing_t *game, win_t *win);
 
 #endif /* !FISHING_ */

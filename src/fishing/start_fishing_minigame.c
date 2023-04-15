@@ -39,6 +39,7 @@ rpg_t *rpg)
     }
     make_fish_move(rpg, game);
     make_keep_zone_move(win, game);
+    change_zone_color(game);
     draw_sprites(win, game);
     end_game(game, win);
 }
