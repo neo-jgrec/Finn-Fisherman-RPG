@@ -15,7 +15,7 @@ void init_win(rpg_t *rpg)
     if (win == NULL)
         rpg->win = NULL;
     win->win = sfRenderWindow_create((sfVideoMode){1600, 900, 32},
-        "THE RPG", sfDefaultStyle, NULL);
+        "THE RPG", sfClose, NULL);
     sfRenderWindow_setFramerateLimit(win->win, 60);
     win->event = event;
     win->time = sfClock_create();

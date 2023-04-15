@@ -11,6 +11,9 @@ void settings_button(rpg_t *rpg);
 void quit_button(rpg_t *rpg);
 void play_button(rpg_t *rpg);
 
+void back_button(rpg_t *rpg);
+void res_button(rpg_t *rpg);
+
 static void init_buttons(menu_t *menu)
 {
     button_t *button = malloc(sizeof(button_t));
@@ -35,6 +38,30 @@ static void init_buttons(menu_t *menu)
     }
 }
 
+static void init_button_settings(menu_t *menu)
+{
+    button_t *button = malloc(sizeof(button_t));
+    char *buttons_names[] = {"<- BACK", "SOUND", "MUSIC", "FULLSCREEN"};
+    void *buttons_functions[] = {back_button, NULL, NULL, res_button};
+    sfVector2f buttons_pos[] = {{10, 10}, {100, 300}, {100, 400}, {100, 500}};
+    sfVector2f buttons_size[] = {{200, 50}, {200, 50}, {200, 50}, {200, 50}};
+    size_t nb_buttons = sizeof(buttons_names) / sizeof(char *);
+
+    for (size_t i = 0; i < nb_buttons; i++) {
+        button = malloc(sizeof(button_t));
+        button->name = buttons_names[i];
+        button->action = buttons_functions[i];
+        button->pos = buttons_pos[i];
+        button->size = buttons_size[i];
+        button->state = IDLE_BUTTON;
+        button->shape = sfRectangleShape_create();
+        sfRectangleShape_setPosition(button->shape, button->pos);
+        sfRectangleShape_setSize(button->shape, button->size);
+        sfRectangleShape_setFillColor(button->shape, sfWhite);
+        TAILQ_INSERT_TAIL(&menu->settings_buttons, button, next);
+    }
+}
+
 void init_menu(rpg_t *rpg)
 {
     menu_t *menu = malloc(sizeof(menu_t));
@@ -54,7 +81,9 @@ void init_menu(rpg_t *rpg)
     sfTexture_createFromFile("assets/menu/bg.png",
     NULL), sfTrue);
     TAILQ_INIT(&menu->buttons);
+    TAILQ_INIT(&menu->settings_buttons);
     init_buttons(menu);
+    init_button_settings(menu);
     menu->scene = MAIN_MENU;
     rpg->menu = menu;
 }

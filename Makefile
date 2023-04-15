@@ -58,7 +58,8 @@ SRC 					+= 	src/map_parser/map_parser.c
 
 SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\
-							src/menu/buttons/functions.c
+							src/menu/buttons/functions.c \
+							src/menu/buttons/functions_settings.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \
