@@ -23,6 +23,7 @@
         kv_t heal;
         kv_t interact;
         kv_t attack;
+        kv_t fish_game;
         kv_t fish_up;
         kv_t fish_down;
     } input_t;

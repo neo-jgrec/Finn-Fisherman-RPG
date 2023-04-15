@@ -79,12 +79,11 @@ static game_info_t *init_game_info(void)
 
 void init_fishing(rpg_t *rpg)
 {
-    fishing_t *game = NULL;
+    fishing_t *game = malloc(sizeof(fishing_t));
 
-    if (!(game = malloc(sizeof(fishing_t)))) {
-        rpg->fishing = NULL;
+    rpg->fishing = NULL;
+    if (!game)
         return;
-    }
     game->info = init_game_info();
     game->font = init_font();
     game->fish = init_fish(game);
