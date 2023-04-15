@@ -12,7 +12,7 @@ static void move_fish_up(win_t * win, fishing_t *game)
     game->clock_fish += win->deltaT;
 
     if (game->clock_fish > 0.002){
-        game->fish_pos.y -= 1.5;
+        game->fish_pos.y -= game->speed_mov;
         if (game->fish_pos.y < game->end_game_pos.y)
             game->fish_pos.y = game->end_game_pos.y;
         sfSprite_setPosition(game->fish.sp, game->fish_pos);
@@ -25,7 +25,7 @@ static void move_fish_down(win_t * win, fishing_t *game)
     game->clock_fish += win->deltaT;
 
     if (game->clock_fish > 0.002){
-        game->fish_pos.y += 1.5;
+        game->fish_pos.y += game->speed_mov;
         if (game->fish_pos.y > game->start_game_pos.y)
             game->fish_pos.y = game->start_game_pos.y;
         sfSprite_setPosition(game->fish.sp, game->fish_pos);

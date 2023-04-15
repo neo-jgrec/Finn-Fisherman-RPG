@@ -8,14 +8,20 @@
 #ifndef FISHING_
     #define FISHING_
 
+    #define sfLightGreen sfColor_fromRGB(197, 255, 0)
+    #define sfYellow sfColor_fromRGB(255, 228, 0)
+    #define sfOrange sfColor_fromRGB(255, 89, 0)
+
     #include <stdbool.h>
     #include "rpg.h"
 
     typedef struct fishing_s {
+        float speed_mov;
         float clock_game;
         float clock_bar;
         float clock_keep;
         float clock_fish;
+        int rand_mov;
         int time_move_bar;
         int state_bar_moving;
         int res_fishing;
@@ -37,6 +43,7 @@
     rpg_t *rpg);
     void make_keep_zone_move(win_t *win, fishing_t *game);
     void make_fish_move(rpg_t *rpg, fishing_t *game);
+    void change_zone_color(fishing_t *game);
     void end_game(fishing_t *game, win_t *win);
 
 #endif /* !FISHING_ */
