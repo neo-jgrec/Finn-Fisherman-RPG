@@ -15,6 +15,7 @@
 void read_value(xml_parser_t *parser, xml_node_t *node)
 {
     char *value_start = parser->buffer_ptr;
+
     while (*parser->buffer_ptr != '<'
     && parser->buffer_ptr < parser->buffer_end)
         parser->buffer_ptr++;
@@ -27,11 +28,11 @@ void read_value(xml_parser_t *parser, xml_node_t *node)
 void parse_xml(xml_parser_t *parser)
 {
     FILE *file = fopen(parser->filename, "r");
-    if (!file)
-        return;
     size_t buffer_size = 4096;
-    parser->buffer = malloc(buffer_size);
     size_t bytes_read_total = 0, bytes_read_current = 0;
+
+    if (!file) return;
+    parser->buffer = malloc(buffer_size);
     while ((bytes_read_current = fread(parser->buffer + bytes_read_total,
     1, buffer_size - bytes_read_total, file)) > 0) {
         bytes_read_total += bytes_read_current;

@@ -13,7 +13,7 @@ static const char *delimiter = ",\n";
 int **map_parsing(const char *src)
 {
     int rows = 0, cols = 0, row = -1, col = 0, i;
-    char *token, *map_copy = strdup(src);
+    char *token, *map_copy = my_strdup(src);
     int **map;
 
     for (i = 0; src[i] != '\0'; rows = (src[i] == '\n') ? rows + 1 : rows, i++)
@@ -28,8 +28,7 @@ int **map_parsing(const char *src)
         map[row][col] = my_atoi(token) - 1;
     }
     for (int i = 0; i < (rows + 2) - 1; map[i][(cols + 2) - 1] = -2, i++);
-    map[(rows + 2) - 2][(cols + 2) - 2] = -2;
-    map[(rows + 2) - 1] = NULL;
+    map[rows] = NULL;
     free(map_copy);
     return map;
 }

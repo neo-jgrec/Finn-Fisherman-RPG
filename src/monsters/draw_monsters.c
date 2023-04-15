@@ -17,8 +17,6 @@ void draw_monsters(rpg_t *rpg)
 {
     entity_t **monsters = rpg->monsters;
 
-    if (monsters == NULL)
-        return;
     for (entity_t *node = *monsters; node; node = node->next) {
         manage_monster(rpg->win, node, rpg);
         set_anim(node, rpg);
