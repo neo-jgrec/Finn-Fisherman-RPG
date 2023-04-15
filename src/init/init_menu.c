@@ -7,6 +7,32 @@
 
 #include "rpg.h"
 
+static const char* fragmentShader = "\
+uniform sampler2D texture;\
+uniform vec2 resolution;\
+uniform float blurRadius;\
+\
+void main()\
+{\
+    vec2 texCoord = vec2(gl_FragCoord.x,\
+    resolution.y - gl_FragCoord.y) / resolution.xy;\
+    vec4 color = vec4(0.0);\
+    float totalWeight = 0.0;\
+    \
+    for (float x = -blurRadius; x <= blurRadius; x += 1.0)\
+    {\
+        for (float y = -blurRadius; y <= blurRadius; y += 1.0)\
+        {\
+            vec2 offset = vec2(x, y) / resolution.xy;\
+            float weight = exp(-dot(offset, offset) * 5.0);\
+            color += texture2D(texture, texCoord + offset) * weight;\
+            totalWeight += weight;\
+        }\
+    }\
+    \
+    gl_FragColor = color / totalWeight;\
+}";
+
 void settings_button(rpg_t *rpg);
 void quit_button(rpg_t *rpg);
 void play_button(rpg_t *rpg);
@@ -90,6 +116,19 @@ static void init_button_settings(menu_t *menu)
     init_button_res_settings(menu);
 }
 
+static sfRenderStates *init_blur_renderstate(void)
+{
+    sfShader *shader = sfShader_createFromMemory(NULL, NULL, fragmentShader);
+    sfShader_setVec2Uniform(shader, "resolution", (sfVector2f){1600, 900});
+    sfShader_setFloatUniform(shader, "blurRadius", 10);
+    sfRenderStates *states = malloc(sizeof(sfRenderStates) * 10);
+    states->shader = shader;
+    states->transform = sfTransform_Identity;
+    states->texture = NULL;
+    states->blendMode = sfBlendAlpha;
+    return states;
+}
+
 void init_menu(rpg_t *rpg)
 {
     menu_t *menu = malloc(sizeof(menu_t));
@@ -97,14 +136,13 @@ void init_menu(rpg_t *rpg)
     menu->font = sfFont_createFromFile("assets/Inter-Medium.ttf");
     menu->bg = sfRectangleShape_create();
 
+    menu->render_states = init_blur_renderstate();
     sfText_setString(menu->text, "THE RPG");
     sfText_setFont(menu->text, menu->font);
     sfText_setCharacterSize(menu->text, 100);
     sfText_setPosition(menu->text, (sfVector2f){500, 100});
     sfRectangleShape_setPosition(menu->bg, (sfVector2f){0, 0});
-    sfRectangleShape_setSize(menu->bg, (sfVector2f){
-        sfRenderWindow_getSize(rpg->win->win).x,
-        sfRenderWindow_getSize(rpg->win->win).y});
+    sfRectangleShape_setSize(menu->bg, (sfVector2f){1600, 900});
     sfRectangleShape_setTexture(menu->bg,
     sfTexture_createFromFile("assets/menu/bg.png",
     NULL), sfTrue);

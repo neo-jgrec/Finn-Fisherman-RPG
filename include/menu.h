@@ -24,12 +24,18 @@ typedef enum main_menu_scene {
     SAVES_MENU
 } main_menu_scene_t;
 
+typedef struct saves_menu_s {
+    char **saves;
+    int selected;
+} saves_menu_t;
+
 typedef struct menu_s {
     sfText *text;
     sfFont *font;
     sfRectangleShape *bg;
     sfMusic *music;
     main_menu_scene_t scene;
+    sfRenderStates *render_states;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(saves_buttons, button_s) res_buttons;
