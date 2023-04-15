@@ -46,6 +46,7 @@
         input_t *input;
         menu_t *menu;
         fishing_t *fishing;
+        parallax_t *font;
     } rpg_t;
 
     int rpg(void);
