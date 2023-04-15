@@ -32,6 +32,7 @@ typedef struct menu_s {
     main_menu_scene_t scene;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
+    TAILQ_HEAD(saves_buttons, button_s) res_buttons;
 } menu_t;
 
 void init_menu(rpg_t *rpg);
