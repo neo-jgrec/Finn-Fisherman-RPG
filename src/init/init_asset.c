@@ -10,7 +10,7 @@
 static void init_pa_2(pa_t *pa)
 {
     pa->roll = init_sprite("assets/player/roll.png", (VEC){48, 48}, 8, 4);
-    pa->roll.cd = 0.03;
+    pa->roll.cd = 0.04;
     pa->damage = init_sprite("assets/player/take_damage.png",
         (VEC){48, 48}, 3, 4);
     pa->attack_1 = init_sprite("assets/player/attack_1.png",

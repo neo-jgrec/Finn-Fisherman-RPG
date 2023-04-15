@@ -12,6 +12,7 @@ void manage_attack(entity_t *player, rpg_t *rpg)
     if (player->state != ATTACK &&
         player->attack.save != rpg->input->attack.press &&
         player->roll.cd > 0.1) {
+        player->hor = rpg->input->right.press - rpg->input->left.press;
         player->state = ATTACK;
         if (my_random(0, 100) < rpg->data->crit_chance)
             player->attack.crit = 1;
