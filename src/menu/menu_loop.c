@@ -24,6 +24,8 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
 static void settings_menu(win_t *win, rpg_t *rpg)
 {
     if (rpg->menu->scene == SETTINGS_MENU) {
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 500.0);
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 0.5);
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
@@ -46,6 +48,8 @@ static void settings_menu(win_t *win, rpg_t *rpg)
 void menu_loop(win_t *win, rpg_t *rpg)
 {
     if (rpg->menu->scene == MAIN_MENU) {
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 1.0);
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 1.0);
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,

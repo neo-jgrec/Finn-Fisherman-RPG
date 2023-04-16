@@ -7,32 +7,6 @@
 
 #include "rpg.h"
 
-static const char* fragmentShader = "\
-uniform sampler2D texture;\
-uniform vec2 resolution;\
-uniform float blurRadius;\
-\
-void main()\
-{\
-    vec2 texCoord = vec2(gl_FragCoord.x,\
-    resolution.y - gl_FragCoord.y) / resolution.xy;\
-    vec4 color = vec4(0.0);\
-    float totalWeight = 0.0;\
-    \
-    for (float x = -blurRadius; x <= blurRadius; x += 1.0)\
-    {\
-        for (float y = -blurRadius; y <= blurRadius; y += 1.0)\
-        {\
-            vec2 offset = vec2(x, y) / resolution.xy;\
-            float weight = exp(-dot(offset, offset) * 5.0);\
-            color += texture2D(texture, texCoord + offset) * weight;\
-            totalWeight += weight;\
-        }\
-    }\
-    \
-    gl_FragColor = color / totalWeight;\
-}";
-
 void settings_button(rpg_t *rpg);
 void quit_button(rpg_t *rpg);
 void play_button(rpg_t *rpg);
@@ -123,6 +97,8 @@ static sfRenderStates *init_blur_renderstate(menu_t *menu)
     sfShader_setFloatUniform(menu->bg_shader, "time", 0);
     sfShader_setVec2Uniform(menu->bg_shader, "resolution",
     (sfVector2f){1920, 1080});
+    sfShader_setFloatUniform(menu->bg_shader, "blur", 1.0);
+    sfShader_setFloatUniform(menu->bg_shader, "brightness", 1.0);
     sfRenderStates *states = malloc(sizeof(sfRenderStates) * 10);
     states->shader = menu->bg_shader;
     states->transform = sfTransform_Identity;
