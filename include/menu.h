@@ -35,6 +35,7 @@ typedef struct menu_s {
     sfRectangleShape *bg;
     sfMusic *music;
     main_menu_scene_t scene;
+    sfShader *bg_shader;
     sfRenderStates *render_states;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;

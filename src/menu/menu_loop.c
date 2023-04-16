@@ -13,6 +13,8 @@ char **read_dir(char *folder);
 
 static void event_manager(win_t *win, UNUSED rpg_t *rpg)
 {
+    sfShader_setFloatUniform(rpg->menu->bg_shader, "time",
+    DELTAT(rpg->win->time));
     while (sfRenderWindow_pollEvent(win->win, &win->event)) {
         if (win->event.type == sfEvtClosed)
             sfRenderWindow_close(win->win);
@@ -46,7 +48,8 @@ void menu_loop(win_t *win, rpg_t *rpg)
     if (rpg->menu->scene == MAIN_MENU) {
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
-        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg, NULL);
+        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
+        rpg->menu->render_states);
         button_manager(win, rpg, &(rpg->menu->buttons));
         sfRenderWindow_display(win->win);
     }

@@ -16,7 +16,6 @@ void res_button(rpg_t *rpg)
 {
     if (rpg->win->win_style == 1) {
         sfRenderWindow_close(rpg->win->win);
-        // fullscreen window
         rpg->win->win = sfRenderWindow_create((sfVideoMode){1920, 1080, 32},
             "THE RPG", 0, NULL);
         sfRenderWindow_setFramerateLimit(rpg->win->win, 60);
