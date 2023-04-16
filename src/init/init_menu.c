@@ -90,6 +90,23 @@ static void init_button_settings(menu_t *menu)
     init_button_res_settings(menu);
 }
 
+static sfRenderStates *init_blur_renderstate(menu_t *menu)
+{
+    menu->bg_shader = sfShader_createFromFile(NULL, NULL,
+    "assets/menu/menu.frag");
+    sfShader_setFloatUniform(menu->bg_shader, "time", 0);
+    sfShader_setVec2Uniform(menu->bg_shader, "resolution",
+    (sfVector2f){1920, 1080});
+    sfShader_setFloatUniform(menu->bg_shader, "blur", 1.0);
+    sfShader_setFloatUniform(menu->bg_shader, "brightness", 1.0);
+    sfRenderStates *states = malloc(sizeof(sfRenderStates) * 10);
+    states->shader = menu->bg_shader;
+    states->transform = sfTransform_Identity;
+    states->texture = NULL;
+    states->blendMode = sfBlendAlpha;
+    return states;
+}
+
 void init_menu(rpg_t *rpg)
 {
     menu_t *menu = malloc(sizeof(menu_t));
@@ -97,17 +114,14 @@ void init_menu(rpg_t *rpg)
     menu->font = sfFont_createFromFile("assets/Inter-Medium.ttf");
     menu->bg = sfRectangleShape_create();
 
+    menu->render_states = init_blur_renderstate(menu);
     sfText_setString(menu->text, "THE RPG");
     sfText_setFont(menu->text, menu->font);
     sfText_setCharacterSize(menu->text, 100);
     sfText_setPosition(menu->text, (sfVector2f){500, 100});
     sfRectangleShape_setPosition(menu->bg, (sfVector2f){0, 0});
-    sfRectangleShape_setSize(menu->bg, (sfVector2f){
-        sfRenderWindow_getSize(rpg->win->win).x,
-        sfRenderWindow_getSize(rpg->win->win).y});
-    sfRectangleShape_setTexture(menu->bg,
-    sfTexture_createFromFile("assets/menu/bg.png",
-    NULL), sfTrue);
+    sfRectangleShape_setSize(menu->bg, (sfVector2f){1600, 900});
+    sfRectangleShape_setFillColor(menu->bg, sfWhite);
     init_buttons(menu);
     init_button_settings(menu);
     menu->scene = MAIN_MENU;

@@ -59,6 +59,7 @@
         menu_t *menu;
         fishing_t *fishing;
         float music_volume;
+        float sound_volume;
     } rpg_t;
 
     int rpg(void);

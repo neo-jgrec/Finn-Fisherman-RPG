@@ -81,7 +81,8 @@ SRC						+=	src/monsters/add_monster.c \
 							src/monsters/draw_monsters.c \
 							src/monsters/manage_monster.c
 
-SRC 					+=	src/utils/is_rect_hover.c
+SRC 					+=	src/utils/is_rect_hover.c	\
+							src/utils/read_folder.c
 
 MAIN 					= 	src/main.c
 
