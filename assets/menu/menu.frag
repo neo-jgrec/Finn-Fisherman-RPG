@@ -1,5 +1,3 @@
-precision mediump float;
-
 uniform float time;
 uniform vec2 resolution;
 uniform float blur;
@@ -73,23 +71,16 @@ vec3 scene(vec2 uv) {
 }
 
 vec3 blur_sample(vec2 uv) {
-	const float kernel[9] = float[](
-	1.0 / 16.0, 2.0 / 16.0, 1.0 / 16.0,
-	2.0 / 16.0, 4.0 / 16.0, 2.0 / 16.0,
-	1.0 / 16.0, 2.0 / 16.0, 1.0 / 16.0
-	);
-	vec3 color = vec3(0.0);
-	vec2 offset = 1.0 / resolution;
-	int i = 0;
-
-	for (int y = -1; y <= 1; y++) {
-		for (int x = -1; x <= 1; x++) {
-			vec2 sample_uv = uv + vec2(float(x) * offset.x, float(y) * offset.y) * blur;
-			color += scene(sample_uv) * kernel[i];
-			i++;
-		}
-	}
-	return color;
+    vec3 color = vec3(0.0);
+    float total = 0.0;
+    for (float x = -blur; x <= blur; x += 1.0) {
+        for (float y = -blur; y <= blur; y += 1.0) {
+            vec2 offset = vec2(x, y) / resolution.xy;
+            color += scene(uv + offset);
+            total += 1.0;
+        }
+    }
+    return color / total;
 }
 
 void main() {

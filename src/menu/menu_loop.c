@@ -24,7 +24,7 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
 static void settings_menu(win_t *win, rpg_t *rpg)
 {
     if (rpg->menu->scene == SETTINGS_MENU) {
-        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 500.0);
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 5.0);
         sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 0.5);
         event_manager(win, rpg);
         sfRenderWindow_clear(win->win, sfBlack);
