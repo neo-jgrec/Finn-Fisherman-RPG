@@ -34,7 +34,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
-							src/init/init_shroom.c
+							src/init/init_shroom.c	\
+							src/init/init_saves.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -74,7 +75,8 @@ SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\
 							src/menu/buttons/functions.c \
 							src/menu/buttons/functions_settings.c \
-							src/menu/buttons/functions_res.c
+							src/menu/buttons/functions_res.c	\
+							src/menu/saves.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \

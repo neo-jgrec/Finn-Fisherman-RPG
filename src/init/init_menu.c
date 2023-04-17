@@ -7,6 +7,8 @@
 
 #include "rpg.h"
 
+void parse_saves(menu_t *menu);
+
 void settings_button(rpg_t *rpg);
 void quit_button(rpg_t *rpg);
 void play_button(rpg_t *rpg);
@@ -117,8 +119,6 @@ void init_menu(rpg_t *rpg)
     menu->render_states = init_blur_renderstate(menu);
     sfText_setString(menu->text, "THE RPG");
     sfText_setFont(menu->text, menu->font);
-    sfText_setCharacterSize(menu->text, 100);
-    sfText_setPosition(menu->text, (sfVector2f){500, 100});
     sfRectangleShape_setPosition(menu->bg, (sfVector2f){0, 0});
     sfRectangleShape_setSize(menu->bg, (sfVector2f){1600, 900});
     sfRectangleShape_setFillColor(menu->bg, sfWhite);
@@ -126,5 +126,6 @@ void init_menu(rpg_t *rpg)
     TAILQ_INIT(&menu->settings_buttons);
     init_button_settings(menu);
     menu->scene = MAIN_MENU;
+    parse_saves(menu);
     rpg->menu = menu;
 }

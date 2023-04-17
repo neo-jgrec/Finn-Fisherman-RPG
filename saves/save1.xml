@@ -1,5 +1,6 @@
 <GAME>
     <SAVEEXISTS>1</SAVEEXISTS>
+    <SAVENAME>save1</SAVENAME>
     <CHAMPIONS>
         <CHAMP1>
             <NAME>Nemo</NAME>
