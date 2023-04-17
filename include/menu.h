@@ -22,7 +22,9 @@
     #define TEXT_SIZE_LEN(str, char_size) (my_strlen(str) * char_size / 4) * 3
     #define TEXT_SIZE_HEIGHT(char_size) (char_size * 1.5)
 
-    #define ALPHA_WHITE (sfColor){255, 255, 255, 200}
+    #define ALPHA_WHITE (sfColor) {\
+    255, 255, 255, 200\
+    }
 
 typedef enum main_menu_scene {
     MAIN_MENU,
@@ -50,6 +52,7 @@ typedef struct menu_s {
     sfShader *bg_shader;
     sfRenderStates *render_states;
     save_menu_t **saves;
+    sfShader *shader;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(res_buttons, button_s) res_buttons;

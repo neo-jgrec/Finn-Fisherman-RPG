@@ -34,8 +34,7 @@ void saves_menu(win_t *win, rpg_t *rpg)
                 ALPHA_WHITE);
             sfRenderWindow_drawRectangleShape(win->win,
                 rpg->menu->saves[i]->button->shape, NULL);
-        }
-        sfText_setString(rpg->menu->text, "SAVES");
+        } sfText_setString(rpg->menu->text, "SAVES");
         sfText_setCharacterSize(rpg->menu->text, 50);
         sfText_setPosition(rpg->menu->text, (sfVector2f){sfRenderWindow_getSize
             (win->win).x / 2 - TEXT_SIZE_LEN("SAVES", 50) / 2, 50});

@@ -17,8 +17,8 @@ static void re_set_res_button_pos(rpg_t *rpg)
     button_t *button;
 
     TAILQ_FOREACH(button, &rpg->menu->res_buttons, next) {
-        button->pos = (sfVector2f)
-            {sfRenderWindow_getSize(rpg->win->win).x - 210, button->pos.y};
+        button->pos = (sfVector2f){\
+        sfRenderWindow_getSize(rpg->win->win).x - 210, button->pos.y};
         sfRectangleShape_setPosition(button->shape, button->pos);
     }
 }
