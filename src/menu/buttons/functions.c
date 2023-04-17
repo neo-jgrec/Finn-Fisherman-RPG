@@ -19,5 +19,5 @@ void settings_button(rpg_t *rpg)
 
 void play_button(rpg_t *rpg)
 {
-    rpg->win->scene = GAME;
+    rpg->menu->scene = SAVES_MENU;
 }
