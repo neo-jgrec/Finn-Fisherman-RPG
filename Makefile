@@ -16,7 +16,8 @@ SRC 					:=	src/main_loop.c \
 							src/draw.c \
 							src/get_random.c \
 							src/scene_manager.c \
-							src/set_position.c
+							src/set_position.c \
+							src/dist.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -29,7 +30,10 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_data.c \
 							src/init/init_map.c \
 							src/init/init_menu.c \
-							src/init/init_fishing.c
+							src/init/init_fishing.c \
+							src/init/init_monster_asset.c \
+							src/init/init_skeleton.c \
+							src/init/init_eye.c \
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -78,9 +82,14 @@ SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/utils.c
 
 SRC						+=	src/monsters/add_monster.c \
-							src/monsters/init_monster_1.c \
 							src/monsters/draw_monsters.c \
-							src/monsters/manage_monster.c
+							src/monsters/manage_monster.c \
+							
+SRC						+=	src/monsters/skeleton/manage_skeleton.c \
+							src/monsters/skeleton/set_sprite_skeleton.c \
+							
+SRC						+=	src/monsters/eye/manage_eye.c \
+							src/monsters/eye/set_sprite_eye.c
 
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c

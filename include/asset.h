@@ -33,8 +33,22 @@
         sprite_t healing;
     } pa_t;
 
+    typedef struct monster_anim_s {
+        sprite_t run;
+        sprite_t idle;
+        sprite_t death;
+        sprite_t attack_1;
+        sprite_t attack_2;
+        sprite_t attack_3;
+        sprite_t shield;
+        sprite_t damage;
+    } ma_t;
+
     typedef struct asset_s {
         pa_t pa;
+        ma_t ma_skeleton;
+        ma_t ma_shroom;
+        ma_t ma_eye;
         sprite_t tileset;
     } asset_t;
 

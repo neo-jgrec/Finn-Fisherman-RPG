@@ -9,8 +9,11 @@
 
 void move_player(entity_t *player, sfVector2f dir)
 {
+    if (player->id != PLAYER && dir.y > 10)
+        dir.y = 10;
     player->pos.y += dir.y;
     player->pos.x += dir.x;
-    player->rect = (sfFloatRect){player->pos.x - 24,
-        player->pos.y - 32, 48, 64};
+    player->rect = (sfFloatRect){player->pos.x - (player->rect.width / 2),
+        player->pos.y - (player->rect.height / 2),
+        player->rect.width, player->rect.height};
 }

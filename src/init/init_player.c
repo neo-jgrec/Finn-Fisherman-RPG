@@ -56,7 +56,7 @@ void init_player(asset_t *asset, rpg_t *rpg)
     player->state = IDLE;
     player->prev_state = IDLE;
     player->pos = (VEC){500, 0};
-    player->rect = (sfFloatRect){0, 0, 64, 64};
+    player->rect = (sfFloatRect){0, 0, 48, 64};
     player->time = 0;
     set_animation(player, asset->pa.idle, 1, NULL);
     player->jump = (jump_t){0, 0, 2, 2};

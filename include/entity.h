@@ -21,10 +21,12 @@
         HIT
     } p_state_e;
 
-    typedef enum id_s {
+    typedef enum id_entity_s {
         PLAYER,
-        MONSTER_1
-    } id_e;
+        SKELETON,
+        EYE,
+        SHROOM
+    } id_entity;
 
     typedef struct frame_s {
         int size;
@@ -68,7 +70,7 @@
     } attack_t;
 
     typedef struct entity_s {
-        id_e id;
+        id_entity id;
         p_state_e state;
         p_state_e prev_state;
         sfSprite *sp;

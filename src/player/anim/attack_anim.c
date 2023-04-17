@@ -23,7 +23,7 @@ static void player_attack(rpg_t *rpg, entity_t *player)
     }
 }
 
-static void monster_1_attack(rpg_t *rpg, entity_t *monster)
+static void SKELETON_attack(rpg_t *rpg, entity_t *monster)
 {
     sfFloatRect intersection = {0};
     sfFloatRect rect = {monster->pos.x, monster->pos.y - 16, 48, 32};
@@ -41,7 +41,7 @@ void attack_anim(rpg_t *rpg, entity_t *entity)
 {
     if (entity->id == PLAYER)
         player_attack(rpg, entity);
-    if (entity->id == MONSTER_1)
-        monster_1_attack(rpg, entity);
+    if (entity->id == SKELETON)
+        SKELETON_attack(rpg, entity);
     return_to_idle(rpg, entity);
 }

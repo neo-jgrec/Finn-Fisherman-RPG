@@ -13,7 +13,6 @@
     typedef struct rpg_s rpg_t;
 
     typedef struct loading_s {
-        sprite_t you_dead;
         sprite_t *fishs;
         int nb_fish;
         int fish;

@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void flip(entity_t *player, rpg_t *rpg)
+void flip(entity_t *player)
 {
     VEC scale = sfSprite_getScale(player->sp);
 

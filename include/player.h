@@ -27,7 +27,7 @@
     void set_animation(entity_t *player, sprite_t sprite, int loop,
         void (*action)(rpg_t *, entity_t *entity));
     void set_sprite(entity_t *player, rpg_t *rpg);
-    void flip(entity_t *player, rpg_t *rpg);
+    void flip(entity_t *player);
     void return_to_idle(rpg_t *rpg, entity_t *entity);
 
     void draw_player_hud(entity_t *player, rpg_t *rpg);
