@@ -87,5 +87,6 @@ void set_sprite(entity_t *player, rpg_t *rpg)
         frame.action(rpg, player);
     sfSprite_setPosition(player->sp, player->pos);
     sfSprite_setTextureRect(player->sp, rect);
-    flip(player, rpg);
+    if (!(player->health.health <= 0))
+        flip(player, rpg);
 }

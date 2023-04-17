@@ -32,6 +32,6 @@
 
     void draw_player_hud(entity_t *player, rpg_t *rpg);
 
-    void hit_player(rpg_t *rpg, int damage);
+    void hit_player(rpg_t *rpg, int damage, entity_t *entity);
 
 #endif /* !_PLAYER_H__ */

@@ -23,7 +23,7 @@ static void set_var(entity_t *player, rpg_t *rpg)
 void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
     if (rpg->input->interact.press)
-        hit_player(rpg, 10);
+        hit_player(rpg, 90, rpg->player);
     set_var(player, rpg);
     manage_heal(player, rpg);
     manage_attack(player, rpg);

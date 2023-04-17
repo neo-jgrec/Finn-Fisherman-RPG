@@ -21,4 +21,5 @@ void init_monster_1(rpg_t *rpg, entity_t *monster, VEC pos)
     monster->roll = (roll_t){0};
     monster->attack = (attack_t){0, 0};
     monster->health = (health_t){0};
+    monster->health.health = 500;
 }

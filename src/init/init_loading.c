@@ -27,6 +27,8 @@ void init_loading(rpg_t *rpg)
 
     if (loading == NULL)
         rpg->loading = NULL;
+    loading->you_dead = init_sprite("assets/you_died.png",
+        (VEC){1920, 1080}, 1, 1);
     loading->nb_fish = 2;
     loading->fish = 0;
     loading->fishs = init_fishs(loading->nb_fish);

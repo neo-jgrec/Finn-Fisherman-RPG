@@ -15,7 +15,7 @@ void init_data(rpg_t *rpg)
         rpg->puzzle = NULL;
     data->max_potion = 2;
     data->heal_power = 75;
-    data->max_health = 100;
+    data->max_health = 200;
     data->speed = 400;
     data->damage = 50;
     data->crit_chance = 50;

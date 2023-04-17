@@ -28,7 +28,7 @@ static health_t init_charge(rpg_t *rpg)
         (VEC){33, 10}, 1, 4);
     health.xp_hud = init_sprite("assets/player/hud/xp.png",
         (VEC){33, 10}, 1, 4);
-    health.health = 20;
+    health.health = 200;
     health.potion = 2;
     health.cd = 0;
     health.not_moving = 0;
