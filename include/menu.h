@@ -18,6 +18,9 @@
 
     #include "buttons.h"
 
+    #define TEXT_SIZE_LEN(str, char_size) (my_strlen(str) * char_size / 4) * 3
+    #define TEXT_SIZE_HEIGHT(char_size) (char_size * 1.5)
+
 typedef enum main_menu_scene {
     MAIN_MENU,
     SETTINGS_MENU,
