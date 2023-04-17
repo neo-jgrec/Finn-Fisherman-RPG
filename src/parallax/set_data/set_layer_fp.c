@@ -27,7 +27,7 @@ static size_t count_files(char *folder_fp)
     if (stream == NULL)
         return nb;
     while ((files = readdir(stream))) {
-        if (is_valid_layer(files))
+        if (is_valid_layer(files) != -1)
             nb++;
     }
     closedir(stream);
@@ -46,7 +46,7 @@ static char *get_complete_path(struct dirent *file, char *folder_fp)
     c_path = malloc(sizeof(char) * (ffp_len + fn_len + sup));
     if (c_path == NULL)
         return NULL;
-    for (size_t i = 0; i <= ffp_len + fn_len + sup; i++)
+    for (size_t i = 0; i < ffp_len + fn_len + sup; i++)
         c_path[i] = '\0';
     c_path = my_strcat(c_path, folder_fp);
     if (folder_fp[ffp_len - 1] != '/')

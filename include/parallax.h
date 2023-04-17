@@ -15,8 +15,11 @@
     // DEFINES
 
     #define CAVE "./assets/parallax/cave"
+    #define WIN_X rpg->win->size.x
+    #define WIN_Y rpg->win->size.x
     #define FILEPATHS back->layers_fp
     #define NB_FILES back->nb_files
+    #define LAY_SPRITES back->layrs_sprites
 
     // STRUCT
 
@@ -31,10 +34,12 @@ typedef struct parallax_system {
 
     void set_layer_fp(parallax_t *back, char *folder_fp);
     void set_layer_speed(parallax_t *back);
-    void set_layer_sprites(parallax_t *back);
+    void set_layer_sprites(rpg_t *rpg, entity_t *player, parallax_t *back);
 
-    void init_parallax(rpg_t *rpg, char *folder_fp);
+    void init_parallax(entity_t *player, rpg_t *rpg, char *folder_fp);
 
     // DISPLAY
+
+    void draw_background(win_t *win, rpg_t *rpg);
 
 #endif /* !PARALLAX_H */

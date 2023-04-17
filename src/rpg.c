@@ -13,7 +13,6 @@ int rpg(void)
     rpg_t *rpg = init_rpg();
 
     init_win(rpg);
-    init_parallax(rpg, CAVE);
     init_loading(rpg);
     init_asset(rpg);
     init_puzzle(rpg);
@@ -25,6 +24,7 @@ int rpg(void)
     rpg->monsters = &monster;
     add_monster(rpg, MONSTER_1, (VEC){500, 0});
     init_fishing(rpg);
+    init_parallax(rpg->player, rpg, CAVE);
     scene_manager(rpg);
     return 0;
 }

@@ -89,6 +89,8 @@ SRC						+=	src/parallax/set_data/set_layer_speed.c	\
 							src/parallax/set_data/set_layer_fp.c	\
 							src/parallax/set_data/set_layer_sprite.c
 
+SRC						+=	src/parallax/display/draw_parallax.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
