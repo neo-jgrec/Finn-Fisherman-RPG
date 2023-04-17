@@ -9,6 +9,7 @@
 
 void init_monster_1(rpg_t *rpg, entity_t *monster, VEC pos)
 {
+    monster->dir = 1;
     monster->id = MONSTER_1;
     monster->state = IDLE;
     monster->prev_state = IDLE;

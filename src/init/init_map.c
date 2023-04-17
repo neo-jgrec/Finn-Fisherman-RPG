@@ -7,6 +7,22 @@
 
 #include "rpg.h"
 
+static sfVector2f init_spawn(xml_parser_t *parser)
+{
+    int x = 0;
+    int y = 0;
+    char *buff_x = NULL;
+    char *buff_y = NULL;
+
+    buff_x = get_value_by_tags(parser->root,
+        (char *[]){"SPAWN", "X", NULL});
+    x = my_atoi(buff_x);
+    buff_y = get_value_by_tags(parser->root,
+        (char *[]){"SPAWN", "Y", NULL});
+    y = my_atoi(buff_y);
+    return (VEC){x, y};
+}
+
 int init_map(char *path, puzzle_t *puzzle)
 {
     xml_parser_t *parser = init_parser(path);
@@ -23,6 +39,7 @@ int init_map(char *path, puzzle_t *puzzle)
     puzzle->map = map_parsing(map);
     puzzle->background = map_parsing(background);
     puzzle->foreground = map_parsing(foreground);
+    puzzle->spawn = init_spawn(parser);
     free_parser(parser);
     return 0;
 }

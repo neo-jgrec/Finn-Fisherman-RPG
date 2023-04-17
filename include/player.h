@@ -20,14 +20,15 @@
     void manage_roll(entity_t *player, rpg_t *rpg);
     void manage_heal(entity_t *player, rpg_t *rpg);
     void manage_attack(entity_t *player, rpg_t *rpg);
-    void heal_anim(rpg_t *rpg);
-    void death_anim(rpg_t *rpg);
-    void attack_anim(rpg_t *rpg);
+    void heal_anim(rpg_t *rpg, entity_t *entity);
+    void death_anim(rpg_t *rpg, entity_t *entity);
+    void attack_anim(rpg_t *rpg, entity_t *entity);
 
     void set_animation(entity_t *player, sprite_t sprite, int loop,
-        void (*action)(rpg_t *));
+        void (*action)(rpg_t *, entity_t *entity));
     void set_sprite(entity_t *player, rpg_t *rpg);
-    void return_to_idle(rpg_t *rpg);
+    void flip(entity_t *player, rpg_t *rpg);
+    void return_to_idle(rpg_t *rpg, entity_t *entity);
 
     void draw_player_hud(entity_t *player, rpg_t *rpg);
 

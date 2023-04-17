@@ -31,7 +31,7 @@
         int nb;
         float cd;
         int loop;
-        void (*action)(rpg_t *);
+        void (*action)(rpg_t *, entity_t *);
     } frame_t;
 
     typedef struct jump_s {

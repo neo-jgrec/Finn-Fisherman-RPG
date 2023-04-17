@@ -15,9 +15,9 @@ int rpg(void)
     init_win(rpg);
     init_loading(rpg);
     init_asset(rpg);
+    init_player(rpg->asset, rpg);
     init_puzzle(rpg);
     init_data(rpg);
-    init_player(rpg->asset, rpg);
     init_input(rpg);
     init_fishing(rpg);
     init_menu(rpg);

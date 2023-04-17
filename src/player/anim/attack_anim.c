@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void attack_anim(rpg_t *rpg)
+void attack_anim(rpg_t *rpg, entity_t *entity)
 {
-    return_to_idle(rpg);
+    return_to_idle(rpg, entity);
 }

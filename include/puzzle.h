@@ -21,6 +21,7 @@
         int **map;
         int **background;
         int **foreground;
+        sfVector2f spawn;
     } puzzle_t;
 
     void init_puzzle(rpg_t *rpg);

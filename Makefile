@@ -47,7 +47,8 @@ SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/return_to_idle.c \
 							src/player/anim/heal_anim.c \
 							src/player/anim/death_anim.c \
-							src/player/anim/attack_anim.c
+							src/player/anim/attack_anim.c \
+							src/player/anim/flip_sprite.c
 
 SRC						+=	src/fishing/start_fishing_minigame.c \
 							src/fishing/make_keep_zone_move.c \
