@@ -10,6 +10,7 @@
 void draw(win_t *win, rpg_t *rpg)
 {
     sfRenderWindow_clear(win->win, sfBlack);
+    sfRenderWindow_drawSprite(win->win, rpg->font->back_spt, NULL);
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     set_sprite(rpg->player, rpg);
