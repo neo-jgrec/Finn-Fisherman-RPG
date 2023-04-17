@@ -10,6 +10,18 @@
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
+    #include <SFML/Audio.h>
+    #include <SFML/Network.h>
+    #include <SFML/Config.h>
+    #include <SFML/Window/Export.h>
+    #include <SFML/Window/Types.h>
+    #include <SFML/Window/VideoMode.h>
+    #include <SFML/Window/Window.h>
+    #include <SFML/Window/WindowHandle.h>
+    #include <SFML/Window/Event.h>
+    #include <SFML/Window/Joystick.h>
+    #include <SFML/Window/Keyboard.h>
+
     #include <math.h>
     #include <stdlib.h>
     #include <unistd.h>
@@ -48,6 +60,8 @@
         menu_t *menu;
         fishing_t *fishing;
         parallax_t *font;
+        float music_volume;
+        float sound_volume;
     } rpg_t;
 
     int rpg(void);

@@ -6,73 +6,87 @@
 */
 
 #include "rpg.h"
+#include <assert.h>
 
-static sfRectangleShape *init_rect_bar(rpg_t *rpg, fishing_t *game)
+static fish_t *init_fish(fishing_t *game)
 {
-    sfRectangleShape *rectangle = sfRectangleShape_create();
+    fish_t *fish = malloc(sizeof(fish_t));
 
-    if (rectangle == NULL)
+    if (!fish || !game->font)
         return (NULL);
-    sfRectangleShape_setSize(rectangle, (sfVector2f){30, 100});
-    sfRectangleShape_setPosition(rectangle, (sfVector2f){
-    rpg->win->size.x / 2, rpg->win->size.y / 2});
-    sfRectangleShape_setOrigin(rectangle, (sfVector2f){15, 50});
-    sfRectangleShape_setFillColor(rectangle, sfGreen);
-    game->bar_moving = false;
-    game->clock_bar = 0;
-    game->state_bar_moving = 0;
-    game->time_move_bar = 0;
-    return (rectangle);
-}
-
-static sprite_t init_fish(fishing_t *fishing)
-{
-    sprite_t fish = init_sprite("assets/fishing/fish.png",
+    fish->fish = init_sprite("assets/fishing/fish.png",
     (sfVector2f){150, 100}, 1, 0.5);
-
-    sfSprite_setOrigin(fish.sp, (sfVector2f){75, 50});
-    sfSprite_setPosition(fish.sp, fishing->game_pos);
+    fish->pos_fish = game->font->pos_font;
+    sfSprite_setOrigin(fish->fish.sp, (sfVector2f){75, 50});
+    sfSprite_setPosition(fish->fish.sp, game->font->pos_font);
+    fish->clock_fish = 0;
+    fish->speed_fish = 0;
     return (fish);
 }
 
-static sprite_t init_font(fishing_t *fishing)
+static zone_t *init_zone(fishing_t *game)
 {
-    sprite_t font = init_sprite("assets/fishing/f_bar.png",
-    (sfVector2f){60, 800}, 1, 1);
+    zone_t *zone = malloc(sizeof(zone_t));
 
-    sfSprite_setOrigin(font.sp, (sfVector2f){30, 400});
-    sfSprite_setPosition(font.sp, fishing->game_pos);
+    if (!zone || !game->font)
+        return (NULL);
+    zone->zone = sfRectangleShape_create();
+    if (!zone->zone)
+        return (NULL);
+    zone->pos_zone = game->font->pos_font;
+    sfRectangleShape_setSize(zone->zone, (sfVector2f){30, 100});
+    sfRectangleShape_setPosition(zone->zone, zone->pos_zone);
+    sfRectangleShape_setOrigin(zone->zone, (sfVector2f){15, 50});
+    sfRectangleShape_setFillColor(zone->zone, sfGreen);
+    zone->zone_moving = false;
+    zone->time_move_zone = 0;
+    zone->direction_zone = 0;
+    zone->clock_zone = 0;
+    zone->speed_zone = 0;
+    return (zone);
+}
+
+static font_t *init_font(void)
+{
+    font_t *font = malloc(sizeof(font_t));
+
+    if (!font)
+        return (NULL);
+    font->font = init_sprite("assets/fishing/f_bar.png",
+    (sfVector2f){60, 800}, 1, 1);
+    font->pos_font = (sfVector2f){0, 0};
+    sfSprite_setOrigin(font->font.sp, (sfVector2f){30, 400});
+    sfSprite_setPosition(font->font.sp, font->pos_font);
+    font->pos_bot = font->pos_font;
+    font->pos_top = font->pos_font;
     return (font);
 }
 
-static void init_pos(fishing_t *fishing, rpg_t *rpg)
+static game_info_t *init_game_info(void)
 {
-    fishing->game_pos = (sfVector2f){rpg->win->size.x / 2,
-    rpg->win->size.y / 2};
-    fishing->start_game_pos = fishing->game_pos;
-    fishing->end_game_pos = fishing->game_pos;
-    fishing->fish_zone_pos = fishing->game_pos;
-    fishing->fish_pos = fishing->game_pos;
+    game_info_t *game = malloc(sizeof(game_info_t));
+
+    if (!game)
+        return (NULL);
+    game->clock_game = 0;
+    game->clock_keep_time = 0;
+    game->game_state = false;
+    game->game_time = 20;
+    game->res_fishing = 0;
+    game->game_start = 0;
+    return (game);
 }
 
 void init_fishing(rpg_t *rpg)
 {
-    fishing_t *fishing = NULL;
+    fishing_t *game = malloc(sizeof(fishing_t));
 
-    if (!(fishing = malloc(sizeof(fishing_t)))) {
-        rpg->fishing = NULL;
+    rpg->fishing = NULL;
+    if (!game)
         return;
-    }
-    init_pos(fishing, rpg);
-    fishing->fish = init_fish(fishing);
-    fishing->font = init_font(fishing);
-    fishing->fish_bar = init_rect_bar(rpg, fishing);
-    fishing->state = false;
-    fishing->clock_game = 0;
-    fishing->clock_fish = 0;
-    fishing->clock_keep = 0;
-    fishing->res_fishing = 0;
-    fishing->rand_mov = 0;
-    fishing->speed_mov = 0;
-    rpg->fishing = fishing;
+    game->info = init_game_info();
+    game->font = init_font();
+    game->fish = init_fish(game);
+    game->zone = init_zone(game);
+    rpg->fishing = game;
 }

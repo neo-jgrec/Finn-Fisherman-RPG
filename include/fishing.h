@@ -11,30 +11,50 @@
     #define sfLightGreen sfColor_fromRGB(197, 255, 0)
     #define sfYellow sfColor_fromRGB(255, 228, 0)
     #define sfOrange sfColor_fromRGB(255, 89, 0)
+    #define FISHING_GAME !game || !game->info || !game->fish || \
+!game->font || !game->zone
 
     #include <stdbool.h>
     #include "rpg.h"
 
-    typedef struct fishing_s {
-        float speed_mov;
-        float clock_game;
-        float clock_bar;
-        float clock_keep;
+    typedef struct fish_s {
+        float speed_fish;
         float clock_fish;
-        int rand_mov;
-        int time_move_bar;
-        int state_bar_moving;
-        int res_fishing;
-        bool bar_moving;
-        bool state;
-        sfVector2f game_pos;
-        sfVector2f end_game_pos;
-        sfVector2f start_game_pos;
-        sfVector2f fish_pos;
-        sfVector2f fish_zone_pos;
-        sprite_t font;
+        sfVector2f pos_fish;
         sprite_t fish;
-        sfRectangleShape *fish_bar;
+    } fish_t;
+
+    typedef struct keep_zone_s {
+        float speed_zone;
+        float clock_zone;
+        int time_move_zone;
+        int direction_zone;
+        bool zone_moving;
+        sfVector2f pos_zone;
+        sfRectangleShape *zone;
+    } zone_t;
+
+    typedef struct font_s {
+        sfVector2f pos_top;
+        sfVector2f pos_bot;
+        sfVector2f pos_font;
+        sprite_t font;
+    } font_t;
+
+    typedef struct fish_info_s {
+        bool game_state;
+        float clock_game;
+        float clock_keep_time;
+        float game_start;
+        int game_time;
+        int res_fishing;
+    } game_info_t;
+
+    typedef struct fishing_s {
+        fish_t *fish;
+        zone_t *zone;
+        font_t *font;
+        game_info_t *info;
     } fishing_t;
 
     void init_fishing(rpg_t *rpg);

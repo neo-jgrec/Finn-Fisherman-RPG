@@ -54,7 +54,8 @@ SRC						+=	src/fishing/start_fishing_minigame.c \
 							src/fishing/make_keep_zone_move.c \
 							src/fishing/move_fish.c \
 							src/fishing/change_zone_color.c	\
-							src/fishing/end_fishing_game.c
+							src/fishing/end_fishing_game.c	\
+							src/fishing/free_fishing.c
 
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
@@ -64,7 +65,9 @@ SRC 					+= 	src/map_parser/map_parser.c
 
 SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\
-							src/menu/buttons/functions.c
+							src/menu/buttons/functions.c \
+							src/menu/buttons/functions_settings.c \
+							src/menu/buttons/functions_res.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \
@@ -79,7 +82,8 @@ SRC						+=	src/monsters/add_monster.c \
 							src/monsters/draw_monsters.c \
 							src/monsters/manage_monster.c
 
-SRC 					+=	src/utils/is_rect_hover.c
+SRC 					+=	src/utils/is_rect_hover.c	\
+							src/utils/read_folder.c
 
 MAIN 					= 	src/main.c
 

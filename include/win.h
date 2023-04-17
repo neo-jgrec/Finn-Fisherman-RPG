@@ -17,10 +17,15 @@
 
         NONE,
         GAME,
-        LOADING,
         MENU
 
     } scene_t;
+
+    static const sfVector2u allowed_win_size[3] = {
+        {1600, 900},
+        {1920, 1080},
+        {800, 450}
+    };
 
     typedef struct win_s {
         sfEvent event;
