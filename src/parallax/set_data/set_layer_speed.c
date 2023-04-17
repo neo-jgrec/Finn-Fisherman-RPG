@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void set_layer_speed(parallax_t *back)
+void set_layer_speed(UNUSED parallax_t *back)
 {
     return;
 }

@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void set_layer_sprites(parallax_t *back)
+void set_layer_sprites(UNUSED parallax_t *back)
 {
     return;
 }

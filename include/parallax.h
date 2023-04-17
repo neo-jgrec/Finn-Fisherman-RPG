@@ -12,10 +12,17 @@
 
     #include "rpg.h"
 
-    #define CAVE "assets/parallax/cave"
+    // DEFINES
+
+    #define CAVE "./assets/parallax/cave"
+    #define FILEPATHS back->layers_fp
+    #define NB_FILES back->nb_files
+
+    // STRUCT
 
 typedef struct parallax_system {
     char **layers_fp;
+    size_t nb_files;
     size_t *layers_speed;
     sprite_t *layrs_sprites;
 } parallax_t;
