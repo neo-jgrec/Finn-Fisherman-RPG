@@ -5,16 +5,18 @@
 ** init_parallax
 */
 
+#include <sys/types.h>
+#include <dirent.h>
 #include "rpg.h"
-#include "parallax.h"
 
-void init_parallax(rpg_t *rpg)
+void init_parallax(rpg_t *rpg, char *folder_fp)
 {
     rpg->font = malloc(sizeof(parallax_t));
 
-    rpg->font->back_txt = sfTexture_createFromFile("assets/parallax/desert/layer0.png", NULL);
-    rpg->font->back_spt = sfSprite_create();
-
-    sfSprite_setTexture(rpg->font->back_spt, rpg->font->back_txt, sfTrue);
+    if (rpg->font == NULL)
+        return;
+    set_layer_fp(rpg->font, folder_fp);
+    set_layer_speed(rpg->font);
+    set_layer_sprites(rpg->font);
     return;
 }

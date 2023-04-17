@@ -85,6 +85,10 @@ SRC						+=	src/monsters/add_monster.c \
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
+SRC						+=	src/parallax/set_data/set_layer_speed.c	\
+							src/parallax/set_data/set_layer_fp.c	\
+							src/parallax/set_data/set_layer_sprite.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
