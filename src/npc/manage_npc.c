@@ -12,5 +12,6 @@ void manage_npc(entity_t *player, win_t *win, npc_t *npc)
     if (!npc)
         return;
     verify_state_npc(player, npc);
+    animate_npc(npc, win);
     display_npc_lst(win, npc);
 }
