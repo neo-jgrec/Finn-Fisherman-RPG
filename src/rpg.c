@@ -21,6 +21,7 @@ int rpg(void)
     init_input(rpg);
     init_fishing(rpg);
     init_menu(rpg);
+    init_npc(rpg);
     rpg->monsters = &monster;
     add_monster(rpg, SKELETON, (VEC){500, 400});
     add_monster(rpg, SHROOM, (VEC){1400, 400});
