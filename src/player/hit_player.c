@@ -7,13 +7,13 @@
 
 #include "rpg.h"
 
-void hit_player(rpg_t *rpg, int damage)
+void hit_player(UNUSED rpg_t *rpg, int damage, entity_t *entity)
 {
-    if (rpg->player->state != HIT && rpg->player->health.damage_cd > 1) {
-        rpg->player->state = HIT;
-        rpg->player->health.damage_cd = 0;
-        rpg->player->health.health -= damage;
-        if (rpg->player->health.health < 0)
-            rpg->player->health.health = 0;
+    if (entity->state != HIT && entity->health.damage_cd > 1) {
+        entity->state = HIT;
+        entity->health.damage_cd = 0;
+        entity->health.health -= damage;
+        if (entity->health.health < 0)
+            entity->health.health = 0;
     }
 }

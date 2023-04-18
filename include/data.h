@@ -24,6 +24,7 @@
         int lvl;
         int xp;
         int xp_to_lvl_up;
+        char ***inventory;
     } data_t;
 
     void init_data(rpg_t *rpg);

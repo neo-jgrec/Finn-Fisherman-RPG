@@ -7,9 +7,9 @@
 
 #include "rpg.h"
 
-void return_to_idle(rpg_t *rpg)
+void return_to_idle(rpg_t *rpg, entity_t *entity)
 {
-    rpg->player->roll.cd = 0;
-    rpg->player->hor = rpg->input->right.press - rpg->input->left.press;
-    rpg->player->state = IDLE;
+    entity->roll.cd = 0;
+    entity->hor = rpg->input->right.press - rpg->input->left.press;
+    entity->state = IDLE;
 }
