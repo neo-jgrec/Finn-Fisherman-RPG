@@ -22,8 +22,10 @@ static void set_var(entity_t *player, rpg_t *rpg)
 
 void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
+    check_spikes_collision(rpg, player, rpg->puzzle);
+    check_monster_collision(rpg, player);
     if (rpg->input->interact.press)
-        hit_player(rpg, 10);
+        hit_player(rpg, 90, rpg->player);
     set_var(player, rpg);
     manage_heal(player, rpg);
     manage_attack(player, rpg);

@@ -9,6 +9,7 @@
 
 void scene_manager(rpg_t *rpg)
 {
+    sfRenderWindow_setFramerateLimit(rpg->win->win, 60);
     while (sfRenderWindow_isOpen(rpg->win->win)) {
         switch (rpg->win->scene) {
             case NONE:                                  break;

@@ -8,7 +8,7 @@
 #include "rpg.h"
 
 void set_animation(entity_t *player, sprite_t sp, int loop,
-    void (*action)(rpg_t *))
+    void (*action)(rpg_t *, entity_t *entity))
 {
     player->sp = sp.sp;
     player->frame = (frame_t){sp.size.x, sp.nb_frame, sp.cd, loop, action};

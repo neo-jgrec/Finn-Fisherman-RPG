@@ -18,20 +18,23 @@
         JUMP_2,
         ATTACK,
         HEALING,
-        HIT
+        HIT,
+        SHIELD
     } p_state_e;
 
-    typedef enum id_s {
+    typedef enum id_entity_s {
         PLAYER,
-        MONSTER_1
-    } id_e;
+        SKELETON,
+        EYE,
+        SHROOM
+    } id_entity;
 
     typedef struct frame_s {
         int size;
         int nb;
         float cd;
         int loop;
-        void (*action)(rpg_t *);
+        void (*action)(rpg_t *, entity_t *);
     } frame_t;
 
     typedef struct jump_s {
@@ -68,7 +71,7 @@
     } attack_t;
 
     typedef struct entity_s {
-        id_e id;
+        id_entity id;
         p_state_e state;
         p_state_e prev_state;
         sfSprite *sp;

@@ -74,5 +74,6 @@
     rpg_t *init_rpg(void);
 
     int my_random(int min, int max);
+    float get_dist(VEC pos_1, VEC pos_2);
 
 #endif /* !_RPG_H__ */
