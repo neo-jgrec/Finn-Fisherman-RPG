@@ -35,7 +35,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
-							src/init/init_shroom.c
+							src/init/init_shroom.c	\
+							src/init/init_saves.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -81,7 +82,10 @@ SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\
 							src/menu/buttons/functions.c \
 							src/menu/buttons/functions_settings.c \
-							src/menu/buttons/functions_res.c
+							src/menu/buttons/functions_res.c	\
+							src/menu/saves.c \
+							src/menu/button_save_manager.c	\
+							src/menu/buttons/saves_action.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \
@@ -138,6 +142,9 @@ TESTS_OBJ				=	$(TEST_SRC:%.c=$(BUILD_DIR)/%.o)
 CSFML 					= 	-lcsfml-window -lcsfml-graphics \
 							-lcsfml-system -lcsfml-audio -lm
 
+default:
+	@$(MAKE) -j all --no-print-directory
+
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
@@ -180,7 +187,9 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo -e "\033[1;31m[DELETED]\033[0m" $(NAME)
 
-re:	fclean all
+re:
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) -j all --no-print-directory
 
 tests_run:	CFLAGS += -lcriterion --coverage
 tests_run:	re
