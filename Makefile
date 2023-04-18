@@ -38,7 +38,10 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_shroom.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
-						    src/init/npc/init_npc_sprites.c \
+							src/init/npc/init_priest.c	\
+							src/init/npc/init_chef.c	\
+							src/init/npc/init_alchemist.c	\
+						    src/init/npc/init_npc_sprites.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
