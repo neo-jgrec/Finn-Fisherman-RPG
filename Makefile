@@ -31,6 +31,10 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_map.c \
 							src/init/init_menu.c \
 							src/init/init_fishing.c	\
+							src/init/init_npc.c
+
+SRC						+=  src/init/npc/init_merchant.c	\
+						    src/init/npc/init_npc_sprites.c	\
 							src/init/init_npc.c	\
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
