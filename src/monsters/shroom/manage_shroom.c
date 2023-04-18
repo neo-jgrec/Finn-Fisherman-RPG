@@ -11,7 +11,6 @@ static void set_position_shroom(win_t *win,
     entity_t *player, rpg_t *rpg)
 {
     player->velocity += 2500 * win->deltaT;
-    
     move_player(player, (VEC){0, 1 * win->deltaT * player->velocity});
     check_collision(player, rpg->puzzle, 0);
     if (((player->state == HIT || player->state == ATTACK) &&

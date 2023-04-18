@@ -87,10 +87,10 @@ SRC 					+=	xml_parser/edit_value.c \
 SRC						+=	src/monsters/add_monster.c \
 							src/monsters/draw_monsters.c \
 							src/monsters/manage_monster.c \
-							
+
 SRC						+=	src/monsters/skeleton/manage_skeleton.c \
 							src/monsters/skeleton/set_sprite_skeleton.c \
-							
+
 SRC						+=	src/monsters/eye/manage_eye.c \
 							src/monsters/eye/set_sprite_eye.c
 
