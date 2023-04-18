@@ -29,7 +29,11 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_data.c \
 							src/init/init_map.c \
 							src/init/init_menu.c \
-							src/init/init_fishing.c
+							src/init/init_fishing.c	\
+							src/init/init_npc.c
+
+SRC						+=  src/init/npc/init_merchant.c	\
+						    src/init/npc/init_npc_sprites.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
