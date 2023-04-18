@@ -179,7 +179,7 @@ $(BUILD_DIR)/%.o:	%.c
 	&& echo -e "\033[1;32m[OK]\033[0m" $<\
 	|| echo -e "\033[1;31m[KO]\033[0m" $<
 
-debug:	CFLAGS += -g3
+debug:	CFLAGS += -g3 -ggdb -g
 debug:	re
 
 clean:
@@ -206,7 +206,11 @@ fclean: clean
 
 re:
 	@$(MAKE) fclean --no-print-directory
-	@$(MAKE) -j all --no-print-directory
+	if [ "$(MAKECMDGOALS)" = "debug" ]; then\
+		$(MAKE) all --no-print-directory;\
+	else\
+		$(MAKE) -j all --no-print-directory;\
+	fi
 
 tests_run:	CFLAGS += -lcriterion --coverage
 tests_run:	re
