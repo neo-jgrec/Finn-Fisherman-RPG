@@ -19,9 +19,10 @@ static ma_t init_ma_skeleton(void)
         (VEC){150, 150}, 4, 2);
     ma.shield = init_sprite("assets/monsters/Skeleton/Shield.png",
         (VEC){150, 150}, 4, 2);
-    ma.shield.cd = 0.8f;
+    ma.shield.cd = 0.7f;
     ma.damage = init_sprite("assets/monsters/Skeleton/Hit.png",
         (VEC){150, 150}, 4, 2);
+    ma.damage.cd = 0.05;
     ma.run = init_sprite("assets/monsters/Skeleton/Walk.png",
         (VEC){150, 150}, 4, 2);
     return ma;
@@ -40,6 +41,7 @@ static ma_t init_ma_eye(void)
         (VEC){150, 150}, 4, 3);
     ma.damage = init_sprite("assets/monsters/Eye/Hit.png",
         (VEC){150, 150}, 4, 3);
+    ma.damage.cd = 0.05;
     return ma;
 }
 

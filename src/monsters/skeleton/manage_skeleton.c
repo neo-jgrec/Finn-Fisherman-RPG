@@ -14,7 +14,8 @@ static void set_position_skeleton(win_t *win,
     
     move_player(player, (VEC){0, 1 * win->deltaT * player->velocity});
     check_collision(player, rpg->puzzle, 0);
-    if (((player->state == HIT || player->state == ATTACK) &&
+    if (((player->state == HIT || player->state == ATTACK ||
+        player->state == SHIELD) &&
         player->grounded))
         return;
     move_player(player, (VEC){player->hor * win->deltaT *
@@ -34,9 +35,10 @@ static void monster_dir(entity_t *monster, rpg_t *rpg)
         monster->hor = -1;
     if (dist < -70)
         monster->hor = 1;
-    if (monster->state != ATTACK && monster->state != HIT &&
+    if (monster->state != ATTACK && monster->state != SHIELD &&
+        monster->state != HIT &&
         dist < 70 && dist > -70 && monster->roll.cd > 0.3)
-        monster->state = ATTACK;
+        monster->state = ((my_random(0, 2) != 0) ? ATTACK : SHIELD);
 }
 
 void set_var_skeleton(entity_t *monster, rpg_t *rpg)

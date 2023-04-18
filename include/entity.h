@@ -18,7 +18,8 @@
         JUMP_2,
         ATTACK,
         HEALING,
-        HIT
+        HIT,
+        SHIELD
     } p_state_e;
 
     typedef enum id_entity_s {

@@ -23,7 +23,8 @@ int rpg(void)
     init_menu(rpg);
     rpg->monsters = &monster;
     add_monster(rpg, SKELETON, (VEC){500, 400});
-    add_monster(rpg, EYE, (VEC){700, 400});
+    add_monster(rpg, SKELETON, (VEC){1400, 400});
+    //add_monster(rpg, EYE, (VEC){700, 400});
     init_fishing(rpg);
     scene_manager(rpg);
     return 0;

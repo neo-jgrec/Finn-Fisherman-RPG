@@ -15,12 +15,6 @@ static void new_anim_2(entity_t *player, asset_t *asset, p_state_e state)
         else
             set_animation(player, asset->ma_skeleton.death, 0, death_anim);
     }
-    if (state == ATTACK) {
-        if (player->attack.crit)
-            set_animation(player, asset->ma_skeleton.attack_1, 0, attack_anim);
-        else
-            set_animation(player, asset->ma_skeleton.attack_1, 0, attack_anim);
-    }
 }
 
 static void new_anim(entity_t *player, asset_t *asset, p_state_e state)
@@ -30,7 +24,9 @@ static void new_anim(entity_t *player, asset_t *asset, p_state_e state)
     if (state == RUN)
         set_animation(player, asset->ma_skeleton.run, 1, NULL);
     if (state == ATTACK)
-        set_animation(player, asset->ma_skeleton.attack_1, 0, NULL);
+        set_animation(player, asset->ma_skeleton.attack_1, 0, attack_anim);
+    if (state == SHIELD)
+        set_animation(player, asset->ma_skeleton.shield, 0, return_to_idle);
     new_anim_2(player, asset, state);
 }
 
@@ -46,8 +42,8 @@ static void base_anim(entity_t *player)
 
 static void change_anim(entity_t *player, rpg_t *rpg)
 {
-    if (player->state != ROLL && player->state != HEALING &&
-        player->state != HIT && player->state != ATTACK)
+    if (player->state != HIT &&
+        player->state != ATTACK && player->state != SHIELD)
         base_anim(player);
     if (player->prev_state != player->state) {
         player->time = 0;
