@@ -31,7 +31,8 @@ static void change_button_style(button_t *button, rpg_t *rpg)
         case HOVER_BUTTON:
             break;
         case CLICKED_BUTTON:
-            button->action(rpg);
+            if (button->action)
+                button->action(rpg);
             break;
     }
 }
