@@ -25,6 +25,16 @@ void read_value(xml_parser_t *parser, xml_node_t *node)
         node->value = my_strndup(value_start, parser->buffer_ptr - value_start);
 }
 
+static void realloc_buffer(xml_parser_t *parser, size_t bytes_read_total,
+size_t buffer_size)
+{
+    void *tmp = memset(malloc(buffer_size), 0, buffer_size);
+
+    my_memcpy(tmp, parser->buffer, bytes_read_total);
+    free(parser->buffer);
+    parser->buffer = tmp;
+}
+
 void parse_xml(xml_parser_t *parser)
 {
     FILE *file = fopen(parser->filename, "r");
@@ -32,12 +42,13 @@ void parse_xml(xml_parser_t *parser)
     size_t bytes_read_total = 0, bytes_read_current = 0;
 
     if (!file) return;
-    parser->buffer = malloc(sizeof(char) * buffer_size * 100);
+    parser->buffer = malloc(buffer_size);
     while ((bytes_read_current = fread(parser->buffer + bytes_read_total,
     1, buffer_size - bytes_read_total, file)) > 0) {
         bytes_read_total += bytes_read_current;
         if (bytes_read_total == buffer_size) {
             buffer_size *= 2;
+            realloc_buffer(parser, bytes_read_total, buffer_size);
         }
     }
     fclose(file);
