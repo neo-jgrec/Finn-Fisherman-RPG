@@ -25,7 +25,7 @@ UNUSED rpg_t *rpg)
     }
 }
 
-static void change_button_style(button_t *button)
+static void change_button_style(button_t *button, rpg_t *rpg)
 {
     switch (button->state) {
         case IDLE_BUTTON:
@@ -37,14 +37,15 @@ static void change_button_style(button_t *button)
             break;
         case CLICKED_BUTTON:
             sfRectangleShape_setOutlineColor(button->shape, sfRed);
+            button->action(rpg);
             break;
     }
 }
 
-void button_manager_save(win_t *win, UNUSED rpg_t *rpg)
+void button_manager_save(win_t *win, rpg_t *rpg)
 {
     for (size_t i = 0; i < 3; i++) {
         button_state(win->win, rpg->menu->saves[i]->button, rpg);
-        change_button_style(rpg->menu->saves[i]->button);
+        change_button_style(rpg->menu->saves[i]->button, rpg);
     }
 }
