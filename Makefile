@@ -131,6 +131,9 @@ TESTS_OBJ				=	$(TEST_SRC:%.c=$(BUILD_DIR)/%.o)
 CSFML 					= 	-lcsfml-window -lcsfml-graphics \
 							-lcsfml-system -lcsfml-audio -lm
 
+default:
+	@$(MAKE) -j all --no-print-directory
+
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
