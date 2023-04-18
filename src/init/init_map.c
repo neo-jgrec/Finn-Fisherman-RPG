@@ -23,6 +23,15 @@ static sfVector2f init_spawn(xml_parser_t *parser)
     return (VEC){x, y};
 }
 
+static void init_map_2(xml_parser_t *parser, puzzle_t *puzzle)
+{
+    char *death = NULL;
+
+    death = get_value_by_tags(parser->root,
+        (char *[]){"DEATH", NULL});
+    puzzle->death = map_parsing(death);
+}
+
 int init_map(char *path, puzzle_t *puzzle)
 {
     xml_parser_t *parser = init_parser(path);
@@ -40,6 +49,7 @@ int init_map(char *path, puzzle_t *puzzle)
     puzzle->background = map_parsing(background);
     puzzle->foreground = map_parsing(foreground);
     puzzle->spawn = init_spawn(parser);
+    init_map_2(parser, puzzle);
     free_parser(parser);
     return 0;
 }

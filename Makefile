@@ -46,7 +46,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/manage_heal.c \
 							src/player/hit_player.c \
 							src/player/manage_attack.c \
-							src/player/check_monster_collision.c
+							src/player/check_monster_collision.c \
+							src/player/check_spikes_collision.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \

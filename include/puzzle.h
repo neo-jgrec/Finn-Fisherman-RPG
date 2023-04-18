@@ -16,11 +16,14 @@
 
     typedef struct puzzle_s {
         sfFloatRect *colliders;
+        sfFloatRect *spikes;
         sprite_t *tileset;
         int nb_colliders;
+        int nb_spikes;
         int **map;
         int **background;
         int **foreground;
+        int **death;
         sfVector2f spawn;
     } puzzle_t;
 

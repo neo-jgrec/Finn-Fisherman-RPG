@@ -13,7 +13,7 @@ static ma_t init_ma_skeleton(void)
 
     ma.attack_1 = init_sprite("assets/monsters/Skeleton/Attack.png",
         (VEC){150, 150}, 8, 3);
-    ma.attack_1.cd = 0.04f;
+    ma.attack_1.cd = 0.06f;
     ma.death = init_sprite("assets/monsters/Skeleton/Death.png",
         (VEC){150, 150}, 4, 3);
     ma.idle = init_sprite("assets/monsters/Skeleton/Idle.png",
@@ -52,7 +52,7 @@ static ma_t init_ma_shroom(void)
 
     ma.attack_1 = init_sprite("assets/monsters/Mushroom/Attack_1.png",
         (VEC){150, 150}, 8, 3);
-    ma.attack_1.cd = 0.04f;
+    ma.attack_1.cd = 0.06f;
     ma.death = init_sprite("assets/monsters/Mushroom/Death.png",
         (VEC){150, 150}, 4, 3);
     ma.idle = init_sprite("assets/monsters/Mushroom/Idle.png",

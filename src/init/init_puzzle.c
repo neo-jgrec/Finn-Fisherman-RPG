@@ -58,8 +58,10 @@ void init_puzzle(rpg_t *rpg)
     puzzle->nb_colliders = 0;
     puzzle->colliders = NULL;
     puzzle->nb_colliders = 0;
+    puzzle->nb_spikes = 0;
     init_map("assets/map/map_1.xml", puzzle);
     puzzle->colliders = init_colliders(&puzzle->nb_colliders, puzzle->map);
+    puzzle->spikes = init_colliders(&puzzle->nb_spikes, puzzle->death);
     puzzle->tileset = &rpg->asset->tileset;
     rpg->player->pos = puzzle->spawn;
     rpg->puzzle = puzzle;
