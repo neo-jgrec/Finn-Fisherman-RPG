@@ -16,6 +16,8 @@ void draw_monsters(rpg_t *rpg)
             set_sprite_skeleton(node, rpg);
         if (node->id == EYE)
             set_sprite_eye(node, rpg);
+        if (node->id == SHROOM)
+            set_sprite_shroom(node, rpg);
         sfRenderWindow_drawSprite(rpg->win->win,
             node->sp, NULL);
     }

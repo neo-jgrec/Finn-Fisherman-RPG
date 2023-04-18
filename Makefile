@@ -34,6 +34,7 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
+							src/init/init_shroom.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -44,7 +45,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/draw_player_hud.c \
 							src/player/manage_heal.c \
 							src/player/hit_player.c \
-							src/player/manage_attack.c
+							src/player/manage_attack.c \
+							src/player/check_monster_collision.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
@@ -90,6 +92,9 @@ SRC						+=	src/monsters/skeleton/manage_skeleton.c \
 							
 SRC						+=	src/monsters/eye/manage_eye.c \
 							src/monsters/eye/set_sprite_eye.c
+
+SRC						+=	src/monsters/shroom/manage_shroom.c \
+							src/monsters/shroom/set_sprite_shroom.c
 
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c

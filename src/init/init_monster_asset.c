@@ -12,19 +12,20 @@ static ma_t init_ma_skeleton(void)
     ma_t ma = {0};
 
     ma.attack_1 = init_sprite("assets/monsters/Skeleton/Attack.png",
-        (VEC){150, 150}, 8, 2);
+        (VEC){150, 150}, 8, 3);
+    ma.attack_1.cd = 0.04f;
     ma.death = init_sprite("assets/monsters/Skeleton/Death.png",
-        (VEC){150, 150}, 4, 2);
+        (VEC){150, 150}, 4, 3);
     ma.idle = init_sprite("assets/monsters/Skeleton/Idle.png",
-        (VEC){150, 150}, 4, 2);
+        (VEC){150, 150}, 4, 3);
     ma.shield = init_sprite("assets/monsters/Skeleton/Shield.png",
-        (VEC){150, 150}, 4, 2);
-    ma.shield.cd = 0.7f;
+        (VEC){150, 150}, 4, 3);
+    ma.shield.cd = 0.6f;
     ma.damage = init_sprite("assets/monsters/Skeleton/Hit.png",
-        (VEC){150, 150}, 4, 2);
+        (VEC){150, 150}, 4, 3);
     ma.damage.cd = 0.05;
     ma.run = init_sprite("assets/monsters/Skeleton/Walk.png",
-        (VEC){150, 150}, 4, 2);
+        (VEC){150, 150}, 4, 3);
     return ma;
 }
 
@@ -48,7 +49,22 @@ static ma_t init_ma_eye(void)
 static ma_t init_ma_shroom(void)
 {
     ma_t ma = {0};
-    
+
+    ma.attack_1 = init_sprite("assets/monsters/Mushroom/Attack_1.png",
+        (VEC){150, 150}, 8, 3);
+    ma.attack_1.cd = 0.04f;
+    ma.death = init_sprite("assets/monsters/Mushroom/Death.png",
+        (VEC){150, 150}, 4, 3);
+    ma.idle = init_sprite("assets/monsters/Mushroom/Idle.png",
+        (VEC){150, 150}, 4, 3);
+    ma.damage = init_sprite("assets/monsters/Mushroom/Hit.png",
+        (VEC){150, 150}, 4, 3);
+    ma.damage.cd = 0.05;
+    ma.run = init_sprite("assets/monsters/Mushroom/Run.png",
+        (VEC){150, 150}, 4, 3);
+    ma.attack_2 = init_sprite("assets/monsters/Mushroom/Attack_2.png",
+        (VEC){150, 150}, 8, 3);
+    ma.attack_1.cd = 0.04f;
     return ma;
 }
 

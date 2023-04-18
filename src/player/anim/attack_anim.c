@@ -39,10 +39,10 @@ static void skeleton_attack(rpg_t *rpg, entity_t *monster)
 {
     sfFloatRect intersection = {0};
     sfFloatRect rect = {monster->pos.x,
-        monster->pos.y - monster->rect.height / 2, 80, monster->rect.height};
+        monster->pos.y - monster->rect.height / 2, 95, monster->rect.height};
 
     if (monster->dir == -1)
-        rect.left -= 80;
+        rect.left -= 95;
     if (sfFloatRect_intersects(&rpg->player->rect,
         &rect, &intersection) == sfTrue) {
         hit_player(rpg, 40, rpg->player);

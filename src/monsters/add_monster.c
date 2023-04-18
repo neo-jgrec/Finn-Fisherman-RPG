@@ -18,6 +18,8 @@ void add_monster(rpg_t *rpg, id_entity id, VEC pos)
         init_skeleton(rpg, monster, pos);
     if (id == EYE)
         init_eye(rpg, monster, pos);
+    if (id == SHROOM)
+        init_shroom(rpg, monster, pos);
     monster->next = *monsters;
     *monsters = monster;
 }
