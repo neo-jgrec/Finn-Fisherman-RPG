@@ -39,8 +39,13 @@ SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
-							src/init/init_shroom.c	\
-							src/init/init_saves.c
+							src/init/init_shroom.c
+
+SRC						+=  src/init/npc/init_merchant.c	\
+							src/init/npc/init_priest.c	\
+							src/init/npc/init_chef.c	\
+							src/init/npc/init_alchemist.c	\
+						    src/init/npc/init_npc_sprites.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
