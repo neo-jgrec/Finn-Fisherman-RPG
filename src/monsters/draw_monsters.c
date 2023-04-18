@@ -7,19 +7,17 @@
 
 #include "rpg.h"
 
-static void set_anim(entity_t *monster, rpg_t *rpg)
-{
-    sfSprite_setPosition(monster->sp, monster->pos);
-    sfRenderWindow_drawSprite(rpg->win->win, monster->sp, NULL);
-}
-
 void draw_monsters(rpg_t *rpg)
 {
     entity_t **monsters = rpg->monsters;
 
     for (entity_t *node = *monsters; node; node = node->next) {
-        manage_monster(rpg->win, node, rpg);
-        set_anim(node, rpg);
+        if (node->id == SKELETON)
+            set_sprite_skeleton(node, rpg);
+        if (node->id == EYE)
+            set_sprite_eye(node, rpg);
+        if (node->id == SHROOM)
+            set_sprite_shroom(node, rpg);
         sfRenderWindow_drawSprite(rpg->win->win,
             node->sp, NULL);
     }

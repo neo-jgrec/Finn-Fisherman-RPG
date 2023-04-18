@@ -73,23 +73,20 @@ static void change_anim(entity_t *player, rpg_t *rpg)
 void set_sprite(entity_t *player, rpg_t *rpg)
 {
     frame_t frame = player->frame;
-    VEC scale = sfSprite_getScale(player->sp);
     int time = 0;
+    sfIntRect rect = {0};
 
     change_anim(player, rpg);
     time = (int)(player->time / frame.cd);
-    sfIntRect rect = (sfIntRect){time %
+    rect = (sfIntRect){time %
         frame.nb * frame.size, 0, frame.size, frame.size};
     if (frame.loop == 0 && time >= frame.nb)
         rect = (sfIntRect){(frame.nb - 1) *
             frame.size, 0, frame.size, frame.size};
     if (frame.loop == 0 && time > frame.nb && frame.action != NULL)
-        frame.action(rpg);
+        frame.action(rpg, player);
     sfSprite_setPosition(player->sp, player->pos);
     sfSprite_setTextureRect(player->sp, rect);
-    if (player->hor == 1)
-        player->dir = 1;
-    if (player->hor == -1)
-        player->dir = -1;
-    sfSprite_setScale(player->sp, (VEC){player->dir * fabs(scale.x), scale.y});
+    if (!(player->health.health <= 0))
+        flip(player);
 }

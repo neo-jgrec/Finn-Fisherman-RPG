@@ -13,9 +13,10 @@ void draw(win_t *win, rpg_t *rpg)
     draw_background(win, rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
+    draw_map(win, rpg->puzzle, rpg->puzzle->death);
+    draw_monsters(rpg);
     set_sprite(rpg->player, rpg);
     sfRenderWindow_drawSprite(win->win, rpg->player->sp, NULL);
-    draw_monsters(rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->foreground);
     draw_player_hud(rpg->player, rpg);
     draw_forground(win, rpg);
