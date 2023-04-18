@@ -11,10 +11,10 @@
 
 static void add_stats(save_menu_t *save, xml_parser_t *parser)
 {
-    save->level = get_value_by_tags(parser->root, ((char *[]){"LEVEL", NULL}));
-    save->name = get_value_by_tags(parser->root,
-    ((char *[]){"SAVENAME", NULL}));
-    save->is_write = (save->name != NULL);
+    save->name = get_value_by_tags(parser->root, ((char *[]){"SAVENAME", NULL}));
+    char *tmp = get_value_by_tags(parser->root,
+    ((char *[]){"SAVEEXISTS", NULL}));
+    save->is_write = (tmp != NULL);
 }
 
 void parse_saves(menu_t *menu)
@@ -22,10 +22,10 @@ void parse_saves(menu_t *menu)
     char *saves[] = {"saves/save1.xml", "saves/save2.xml", "saves/save3.xml"};
     size_t i = 0;
     menu->saves = malloc(sizeof(save_menu_t *) * 300);
-    sfVector2f *size[] = {&(sfVector2f){700, 185}, &(sfVector2f){700, 185},
-    &(sfVector2f){700, 185}};
-    sfVector2f *pos[] = {&(sfVector2f){1600 / 2 - 350, 200},
-    &(sfVector2f){1600 / 2 - 350, 425}, &(sfVector2f){1600 / 2 - 350, 650}};
+    sfVector2f size[] = {(sfVector2f){700, 185}, (sfVector2f){700, 185},
+    (sfVector2f){700, 185}};
+    sfVector2f pos[] = {(sfVector2f){1600 / 2 - 350, 200},
+    (sfVector2f){1600 / 2 - 350, 425}, (sfVector2f){1600 / 2 - 350, 650}};
 
     for (; i < 3; i++) {
         menu->saves[i] = malloc(sizeof(save_menu_t));
@@ -35,8 +35,8 @@ void parse_saves(menu_t *menu)
         parse_xml(menu->saves[i]->parser);
         add_stats(menu->saves[i], menu->saves[i]->parser);
         menu->saves[i]->button->shape = sfRectangleShape_create();
-        sfRectangleShape_setSize(menu->saves[i]->button->shape, *size[i]);
-        sfRectangleShape_setPosition(menu->saves[i]->button->shape, *pos[i]);
+        sfRectangleShape_setSize(menu->saves[i]->button->shape, size[i]);
+        sfRectangleShape_setPosition(menu->saves[i]->button->shape, pos[i]);
     }
     menu->saves[i] = NULL;
 }
