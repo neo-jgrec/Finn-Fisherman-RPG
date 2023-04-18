@@ -6,23 +6,41 @@
 */
 
 #include "rpg.h"
+#include <sys/syscall.h>
+
+static void rm_file(char *path)
+{
+    FILE *file = fopen(path, "w");
+
+    fclose(file);
+}
 
 static void button_state(sfRenderWindow *win, button_t *button,
-UNUSED rpg_t *rpg)
+size_t nb_button, rpg_t *rpg)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);
 
     if (is_rect_hover(mouse_pos, sfRectangleShape_getPosition(button->shape),
-    sfRectangleShape_getSize(button->shape))
+        sfRectangleShape_getSize(button->shape))
         && sfMouse_isButtonPressed(sfMouseLeft)) {
         button->state = CLICKED_BUTTON;
-    } else if (is_rect_hover(mouse_pos,
-    sfRectangleShape_getPosition(button->shape),
-    sfRectangleShape_getSize(button->shape))) {
-        button->state = HOVER_BUTTON;
-    } else {
-        button->state = IDLE_BUTTON;
+        return;
     }
+    if (is_rect_hover(mouse_pos, sfRectangleShape_getPosition(button->shape),
+        sfRectangleShape_getSize(button->shape))
+        && sfMouse_isButtonPressed(sfMouseMiddle)) {
+        button->state = IDLE_BUTTON;
+        rm_file(rpg->menu->saves[nb_button]->save_file);
+        rpg->menu->saves[nb_button]->save_file = NULL;
+        rpg->menu->saves[nb_button]->is_write = false;
+        return;
+    }
+    if (is_rect_hover(mouse_pos, sfRectangleShape_getPosition(button->shape),
+        sfRectangleShape_getSize(button->shape))) {
+        button->state = HOVER_BUTTON;
+        return;
+    }
+    button->state = IDLE_BUTTON;
 }
 
 static void change_button_style(button_t *button, rpg_t *rpg)
@@ -46,7 +64,7 @@ static void change_button_style(button_t *button, rpg_t *rpg)
 void button_manager_save(win_t *win, rpg_t *rpg)
 {
     for (size_t i = 0; i < 3; i++) {
-        button_state(win->win, rpg->menu->saves[i]->button, rpg);
+        button_state(win->win, rpg->menu->saves[i]->button, i, rpg);
         change_button_style(rpg->menu->saves[i]->button, rpg);
     }
 }
