@@ -10,7 +10,7 @@
 static void init_sprite_info(npc_lt *alchemist, sfVector2f pos)
 {
     SP_ALCHEMIST = init_sprite("assets/npc/Alchemist.png",
-    (sfVector2f){512, 192}, 1, 1);
+    (sfVector2f){64, 64}, 1, 3.5);
     alchemist->sprite_info.pos_npc = pos;
     sfSprite_setPosition(SP_ALCHEMIST.sp, pos);
     alchemist->sprite_info.pos_anim = (sfIntRect){0, 0, 64,64};

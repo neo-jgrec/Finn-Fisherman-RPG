@@ -10,7 +10,7 @@
 static void init_sprite_info(npc_lt *chef, sfVector2f pos)
 {
     SP_CHEF = init_sprite("assets/npc/Chef.png",
-    (sfVector2f){1088, 192}, 1, 1);
+    (sfVector2f){64, 64}, 1, 3.5);
     chef->sprite_info.pos_npc = pos;
     sfSprite_setPosition(SP_CHEF.sp, pos);
     chef->sprite_info.pos_anim = (sfIntRect){0, 0, 64,64};

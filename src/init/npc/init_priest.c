@@ -10,7 +10,7 @@
 static void init_sprite_info(npc_lt *priest, sfVector2f pos)
 {
     SP_PRIEST = init_sprite("assets/npc/Priest.png",
-    (sfVector2f){1216, 192}, 1, 1);
+    (sfVector2f){64, 64}, 1, 3.5);
     priest->sprite_info.pos_npc = pos;
     sfSprite_setPosition(SP_PRIEST.sp, pos);
     priest->sprite_info.pos_anim = (sfIntRect){0, 0, 64,64};

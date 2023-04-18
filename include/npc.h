@@ -51,8 +51,14 @@
     } npc_t;
 
     void init_merchant(npc_l *lst_merchant, char *name, sfVector2f pos);
+    void init_priest(npc_l *lst_priest, char *name, sfVector2f pos);
+    void init_alchemist(npc_l *lst_alchemist, char *name, sfVector2f pos);
+    void init_chef(npc_l *lst_chef, char *name, sfVector2f pos);
     void init_npc_sprites(npc_t *npc);
-
     void init_npc(rpg_t *rpg);
+
+    void verify_state_npc(entity_t *player, npc_t *npc);
+    void display_npc_lst(win_t *win, npc_t *npc);
+    void manage_npc(entity_t *player, win_t *win, npc_t *npc);
 
 #endif /* !NPC_ */

@@ -9,5 +9,5 @@
 
 void init_npc_sprites(npc_t *npc)
 {
-    init_merchant(npc->merchant, "Martin", (sfVector2f){500, 600});
+    init_merchant(npc->merchant, "Martin", (sfVector2f){500, 585});
 }

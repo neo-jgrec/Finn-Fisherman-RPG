@@ -57,4 +57,5 @@ void init_npc(rpg_t *rpg)
     if (!npc)
         return;
     init_npc_sprites(npc);
+    rpg->npc = npc;
 }

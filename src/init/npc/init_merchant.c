@@ -10,10 +10,11 @@
 static void init_sprite_info(npc_lt *merchant, sfVector2f pos)
 {
     SP_MERCHANT = init_sprite("assets/npc/Merchant.png",
-    (sfVector2f){960, 192}, 1, 1);
+    (sfVector2f){64, 64}, 1, 3.5);
     merchant->sprite_info.pos_npc = pos;
-    sfSprite_setPosition(SP_MERCHANT.sp, pos);
     merchant->sprite_info.pos_anim = (sfIntRect){0, 0, 64,64};
+    sfSprite_setTextureRect(SP_MERCHANT.sp, merchant->sprite_info.pos_anim);
+    sfSprite_setPosition(SP_MERCHANT.sp, merchant->sprite_info.pos_npc);
 }
 
 static npc_lt *get_merchant_info(char *name, sfVector2f pos,

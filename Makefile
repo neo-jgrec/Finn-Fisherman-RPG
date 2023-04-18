@@ -104,6 +104,10 @@ SRC						+=	src/monsters/eye/manage_eye.c \
 SRC						+=	src/monsters/shroom/manage_shroom.c \
 							src/monsters/shroom/set_sprite_shroom.c
 
+SRC						+=  src/npc/manage_npc.c \
+							src/npc/display_npc.c \
+							src/npc/verify_state_npc.c
+
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
