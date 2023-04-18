@@ -32,13 +32,12 @@ void parse_xml(xml_parser_t *parser)
     size_t bytes_read_total = 0, bytes_read_current = 0;
 
     if (!file) return;
-    parser->buffer = malloc(buffer_size);
+    parser->buffer = malloc(sizeof(char) * buffer_size * 100);
     while ((bytes_read_current = fread(parser->buffer + bytes_read_total,
     1, buffer_size - bytes_read_total, file)) > 0) {
         bytes_read_total += bytes_read_current;
         if (bytes_read_total == buffer_size) {
             buffer_size *= 2;
-            parser->buffer = my_realloc(parser->buffer, buffer_size);
         }
     }
     fclose(file);
