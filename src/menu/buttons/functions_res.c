@@ -19,6 +19,7 @@ void res_1600_button(rpg_t *rpg)
         button->pos = (sfVector2f){1600 - 210, button->pos.y};
         sfRectangleShape_setPosition(button->shape, button->pos);
     }
+    rpg->win->size = (sfVector2u){1600, 900};
     rpg->win->win_style = 1;
 }
 
@@ -34,6 +35,7 @@ void res_1920_button(rpg_t *rpg)
         button->pos = (sfVector2f){1920 - 210, button->pos.y};
         sfRectangleShape_setPosition(button->shape, button->pos);
     }
+    rpg->win->size = (sfVector2u){1920, 1080};
     rpg->win->win_style = 1;
 }
 
@@ -49,5 +51,6 @@ void res_800_button(rpg_t *rpg)
         button->pos = (sfVector2f){800 - 210, button->pos.y};
         sfRectangleShape_setPosition(button->shape, button->pos);
     }
+    rpg->win->size = (sfVector2u){800, 600};
     rpg->win->win_style = 1;
 }
