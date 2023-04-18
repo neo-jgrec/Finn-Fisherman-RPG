@@ -39,16 +39,16 @@ void res_1920_button(rpg_t *rpg)
     rpg->win->win_style = 1;
 }
 
-void res_800_button(rpg_t *rpg)
+void res_1280_button(rpg_t *rpg)
 {
     sfRenderWindow_close(rpg->win->win);
-    rpg->win->win = sfRenderWindow_create((sfVideoMode){800, 600, 32},
+    rpg->win->win = sfRenderWindow_create((sfVideoMode){1280, 720, 32},
         "THE RPG", sfClose, NULL);
     sfRenderWindow_setFramerateLimit(rpg->win->win, 60);
-    sfRectangleShape_setSize(rpg->menu->bg, (sfVector2f){800, 600});
+    sfRectangleShape_setSize(rpg->menu->bg, (sfVector2f){1280, 720});
     button_t *button = NULL;
     TAILQ_FOREACH(button, &rpg->menu->res_buttons, next) {
-        button->pos = (sfVector2f){800 - 210, button->pos.y};
+        button->pos = (sfVector2f){1280 - 210, button->pos.y};
         sfRectangleShape_setPosition(button->shape, button->pos);
     }
     rpg->win->size = (sfVector2u){800, 600};
