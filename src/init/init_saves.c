@@ -24,7 +24,6 @@ static void add_stats(save_menu_t *save, xml_parser_t *parser, char *filename)
     ((char *[]){"SAVENAME", NULL}));
     save->is_write = (save->name != NULL);
     save->button->name = save->name;
-    save->button->action = (void*)launch_game;
 }
 
 static bool is_file_exist(const char *filename)
@@ -46,6 +45,7 @@ static button_t *init_button(sfVector2f size, sfVector2f pos)
     sfRectangleShape_setSize(button->shape, size);
     sfRectangleShape_setPosition(button->shape, pos);
     button->name = NULL;
+    button->action = (void*)&launch_game;
     return button;
 }
 
