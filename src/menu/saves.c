@@ -31,7 +31,8 @@ static void display_save(win_t *win, rpg_t *rpg)
         sfText_setString(rpg->menu->text, rpg->menu->saves[i]->is_write ?
             rpg->menu->saves[i]->name : "EMPTY");
         sfText_setCharacterSize(rpg->menu->text, 50);
-        sfText_setPosition(rpg->menu->text, (sfVector2f){sfRectangleShape_getPosition
+        sfText_setPosition(rpg->menu->text, (sfVector2f)
+            {sfRectangleShape_getPosition
             (rpg->menu->saves[i]->button->shape).x + sfRectangleShape_getSize
             (rpg->menu->saves[i]->button->shape).x / 2 - TEXT_SIZE_LEN(
             rpg->menu->saves[i]->is_write ? rpg->menu->saves[i]->name :
