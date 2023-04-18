@@ -38,30 +38,33 @@ static bool is_file_exist(const char *filename)
     return false;
 }
 
-static void init_button(button_t *button, sfVector2f size, sfVector2f pos)
+static button_t *init_button(sfVector2f size, sfVector2f pos)
 {
+    button_t *button = malloc(sizeof(button_t));
+
     button->shape = sfRectangleShape_create();
     sfRectangleShape_setSize(button->shape, size);
     sfRectangleShape_setPosition(button->shape, pos);
+    button->name = NULL;
+    return button;
 }
 
 void parse_saves(menu_t *menu)
 {
     char *saves[] = {"saves/save1.xml", "saves/save2.xml", "saves/save3.xml"};
     size_t i = 0;
-    menu->saves = malloc(sizeof(save_menu_t *) * 3);
+    menu->saves = malloc(sizeof(save_menu_t *) * 4);
 
     for (; i < 3; i++) {
         menu->saves[i] = malloc(sizeof(save_menu_t));
-        menu->saves[i]->button = malloc(sizeof(button_t));
         menu->saves[i]->save_file = saves[i];
+        menu->saves[i]->button = init_button(size_array[i], pos_array[i]);
         if (!is_file_exist(saves[i])) {
             menu->saves[i]->is_write = false;
             menu->saves[i]->name = NULL;
             continue;
         }
         add_stats(menu->saves[i], menu->saves[i]->parser, saves[i]);
-        init_button(menu->saves[i]->button, size_array[i], pos_array[i]);
     }
     menu->saves[i] = NULL;
 }
