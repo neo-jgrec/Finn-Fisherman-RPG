@@ -173,7 +173,9 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo -e "\033[1;31m[DELETED]\033[0m" $(NAME)
 
-re:	fclean all
+re:
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) -j all --no-print-directory
 
 tests_run:	CFLAGS += -lcriterion --coverage
 tests_run:	re
