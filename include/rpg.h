@@ -60,6 +60,7 @@
         menu_t *menu;
         fishing_t *fishing;
         parallax_t *font;
+        parallax_t *font_cpy;
         float music_volume;
         float sound_volume;
     } rpg_t;

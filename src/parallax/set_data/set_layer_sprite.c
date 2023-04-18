@@ -11,19 +11,19 @@
 
 static void set_sprt_in_struct(rpg_t *rpg, entity_t *player, parallax_t *back)
 {
-    VEC file;
+    sfVector2u file;
     VEC origin;
     VEC position;
-    VEC scale;
 
     for (size_t i = 0; i < NB_FILES; i++) {
-        file = (VEC){384, 216};
         LAY_SPRITES[i].tx = sfTexture_createFromFile(FILEPATHS[i], NULL);
+        file = sfTexture_getSize(LAY_SPRITES[i].tx);
+        back->size = file;
         LAY_SPRITES[i].sp = sfSprite_create();
-        scale = (VEC){WIN_X / file.x + 2, WIN_Y / file.y + 3};
+        back->scale = (VEC){WIN_X / file.x + 3, WIN_Y / file.y + 3};
         origin = (VEC){file.x / 2, file.y / 2 - 50};
         position = (VEC){player->pos.x, player->pos.y};
-        sfSprite_setScale(LAY_SPRITES[i].sp, scale);
+        sfSprite_setScale(LAY_SPRITES[i].sp, back->scale);
         sfSprite_setOrigin(LAY_SPRITES[i].sp, origin);
         sfSprite_setPosition(LAY_SPRITES[i].sp, position);
         sfSprite_setTexture(LAY_SPRITES[i].sp, LAY_SPRITES[i].tx, sfTrue);
@@ -40,6 +40,9 @@ void set_layer_sprites(rpg_t *rpg, entity_t *player, parallax_t *back)
     LAY_SPRITES = malloc(sizeof(sprite_t) * NB_FILES);
     if (LAY_SPRITES == NULL)
         return;
+    back->is_moved = false;
+    back->pos_x = player->pos.x;
+    back->pos_y = player->pos.y;
     set_sprt_in_struct(rpg, player, back);
     return;
 }

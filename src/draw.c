@@ -18,6 +18,7 @@ void draw(win_t *win, rpg_t *rpg)
     draw_monsters(rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->foreground);
     draw_player_hud(rpg->player, rpg);
+    draw_forground(win, rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
     sfRenderWindow_display(win->win);
 }

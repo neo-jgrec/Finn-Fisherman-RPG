@@ -20,6 +20,7 @@
     #define FILEPATHS back->layers_fp
     #define NB_FILES back->nb_files
     #define LAY_SPRITES back->layrs_sprites
+    #define VEC sfVector2f
 
     // STRUCT
 
@@ -28,6 +29,11 @@ typedef struct parallax_system {
     size_t nb_files;
     size_t *layers_speed;
     sprite_t *layrs_sprites;
+    ssize_t pos_y;
+    ssize_t pos_x;
+    bool is_moved;
+    sfVector2u size;
+    sfVector2f scale;
 } parallax_t;
 
     // INIT PARALLAX
@@ -41,5 +47,6 @@ typedef struct parallax_system {
     // DISPLAY
 
     void draw_background(win_t *win, rpg_t *rpg);
+    void draw_forground(win_t *win, rpg_t *rpg);
 
 #endif /* !PARALLAX_H */
