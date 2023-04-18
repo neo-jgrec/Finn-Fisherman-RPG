@@ -15,9 +15,8 @@ static void add_stats(save_menu_t *save, xml_parser_t *parser)
 {
     save->name = get_value_by_tags(parser->root,
     ((char *[]){"SAVENAME", NULL}));
-    char *tmp = get_value_by_tags(parser->root,
-    ((char *[]){"SAVEEXISTS", NULL}));
-    save->is_write = (tmp != NULL);
+    save->is_write = (save->name != NULL);
+    save->button->name = save->name;
     save->button->action = (void*)launch_game;
 }
 

@@ -37,6 +37,7 @@ static void change_button_style(button_t *button, rpg_t *rpg)
             break;
         case CLICKED_BUTTON:
             sfRectangleShape_setOutlineColor(button->shape, sfRed);
+            rpg->menu->selected_save = button->name;
             button->action(rpg);
             break;
     }
