@@ -1,0 +1,17 @@
+<QUEST>
+    <Q_NAME>Chaussette Noyee</Q_NAME>
+        <PNJ>Martin</PNJ>
+            <Q_LORE>
+                <STATE>Not Started</STATE>
+                    <DIALOGUE>Mince ! Comment je vais faire !
+                    Je ne trouve plus ma chaussete preferee !
+                    C'est la chaussette que ma maman m'a offert pour mes 4 ans.
+                    J'ai besoins que tu m'aide, elle se trouve surement dans le lac.
+                    Accepte tu de m'aider a trouver ma chaussette ?</DIALOGUE>
+                    <REQUIREMENT>Chaussette de Martin</REQUIREMENT>
+                    <DIALOGUE1>Merci beaucoup aventurier!
+                    Tu me retire une epine du pied.
+                    </DIALOGUE1>
+                <DIALOGUE_FINISH>Merci d'avoir retrouvé ma chaussette</DIALOGUE_FINISH>
+            </Q_LORE>
+</QUEST>

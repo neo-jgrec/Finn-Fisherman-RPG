@@ -42,6 +42,7 @@
     #include "menu.h"
     #include "mars.h"
     #include "fishing.h"
+    #include "npc.h"
     #include "parallax.h"
 
     #define SEC(time) ((float)(time) / 1000000)
@@ -59,8 +60,6 @@
         input_t *input;
         menu_t *menu;
         fishing_t *fishing;
-        parallax_t *font;
-        parallax_t *font_cpy;
         float music_volume;
         float sound_volume;
     } rpg_t;
