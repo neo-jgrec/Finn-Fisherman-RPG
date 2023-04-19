@@ -9,7 +9,7 @@
 
 void set_layer_speed(parallax_t *back)
 {
-    size_t multiplicator = NB_FILES / 2;
+    double multiplicator = NB_FILES / 2;
 
     if (FILEPATHS == NULL)
         return;
