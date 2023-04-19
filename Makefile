@@ -32,6 +32,7 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_menu.c \
 							src/init/init_fishing.c	\
 							src/init/init_npc.c	\
+							src/init/init_parallax.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
@@ -115,6 +116,17 @@ SRC						+=  src/npc/manage_npc.c \
 
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
+
+SRC						+=	src/parallax/set_data/set_layer_speed.c	\
+							src/parallax/set_data/set_layer_fp.c	\
+							src/parallax/set_data/set_layer_sprite.c	\
+							src/parallax/set_data/set_cpy_pos.c
+
+SRC						+=	src/parallax/display/draw_forgrounds.c	\
+							src/parallax/display/draw_backgrounds.c
+
+SRC						+=	src/parallax/handle_parallax/handle_rparallax.c \
+							src/parallax/handle_parallax/handle_lparallax.c
 
 MAIN 					= 	src/main.c
 

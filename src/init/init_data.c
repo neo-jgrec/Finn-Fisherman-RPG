@@ -19,7 +19,7 @@ void init_data(rpg_t *rpg)
     data->speed = 400;
     data->damage = 50;
     data->crit_chance = 50;
-    data->jump = 6;
+    data->jump = 100;
     data->roll = 1;
     data->fishing = 1;
     data->attack = 1;
