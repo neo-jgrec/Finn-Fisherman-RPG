@@ -30,11 +30,19 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_data.c \
 							src/init/init_map.c \
 							src/init/init_menu.c \
-							src/init/init_fishing.c \
+							src/init/init_fishing.c	\
+							src/init/init_npc.c	\
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
-							src/init/init_shroom.c
+							src/init/init_shroom.c	\
+							src/init/init_saves.c
+
+SRC						+=  src/init/npc/init_merchant.c	\
+							src/init/npc/init_priest.c	\
+							src/init/npc/init_chef.c	\
+							src/init/npc/init_alchemist.c	\
+						    src/init/npc/init_npc_sprites.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -74,7 +82,10 @@ SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\
 							src/menu/buttons/functions.c \
 							src/menu/buttons/functions_settings.c \
-							src/menu/buttons/functions_res.c
+							src/menu/buttons/functions_res.c	\
+							src/menu/saves.c \
+							src/menu/button_save_manager.c	\
+							src/menu/buttons/saves_action.c
 
 SRC 					+=	xml_parser/edit_value.c \
 							xml_parser/free.c \
@@ -96,6 +107,11 @@ SRC						+=	src/monsters/eye/manage_eye.c \
 
 SRC						+=	src/monsters/shroom/manage_shroom.c \
 							src/monsters/shroom/set_sprite_shroom.c
+
+SRC						+=  src/npc/manage_npc.c \
+							src/npc/display_npc.c \
+							src/npc/verify_state_npc.c	\
+							src/npc/animate_npc.c
 
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
@@ -126,6 +142,9 @@ BUILD_TESTS_DIR			=	$(BUILD_DIR)/tests
 TESTS_OBJ				=	$(TEST_SRC:%.c=$(BUILD_DIR)/%.o)
 CSFML 					= 	-lcsfml-window -lcsfml-graphics \
 							-lcsfml-system -lcsfml-audio -lm
+
+default:
+	@$(MAKE) -j all --no-print-directory
 
 all:	$(NAME)
 
@@ -169,7 +188,9 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo -e "\033[1;31m[DELETED]\033[0m" $(NAME)
 
-re:	fclean all
+re:
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) -j all --no-print-directory
 
 tests_run:	CFLAGS += -lcriterion --coverage
 tests_run:	re

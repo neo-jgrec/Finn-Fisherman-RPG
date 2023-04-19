@@ -17,9 +17,14 @@
     #include <stdbool.h>
 
     #include "buttons.h"
+    #include "xml_parser.h"
 
     #define TEXT_SIZE_LEN(str, char_size) (my_strlen(str) * char_size / 4) * 3
     #define TEXT_SIZE_HEIGHT(char_size) (char_size * 1.5)
+
+    #define ALPHA_WHITE (sfColor) {\
+    255, 255, 255, 200\
+    }
 
 typedef enum main_menu_scene {
     MAIN_MENU,
@@ -27,22 +32,30 @@ typedef enum main_menu_scene {
     SAVES_MENU
 } main_menu_scene_t;
 
-typedef struct saves_menu_s {
-    char **saves;
-    int selected;
-} saves_menu_t;
+typedef struct save_menu_s {
+    char *save_file;
+    int is_write;
+    char *name;
+    char *class;
+    char *level;
+    char *xp;
+    char *gold;
+    xml_parser_t *parser;
+    button_t *button;
+} save_menu_t;
 
 typedef struct menu_s {
     sfText *text;
     sfFont *font;
     sfRectangleShape *bg;
-    sfMusic *music;
     main_menu_scene_t scene;
     sfShader *bg_shader;
     sfRenderStates *render_states;
+    save_menu_t **saves;
+    sfShader *shader;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
-    TAILQ_HEAD(saves_buttons, button_s) res_buttons;
+    TAILQ_HEAD(res_buttons, button_s) res_buttons;
 } menu_t;
 
 void init_menu(rpg_t *rpg);
