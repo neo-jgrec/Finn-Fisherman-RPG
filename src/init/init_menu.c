@@ -18,7 +18,7 @@ void res_button(rpg_t *rpg);
 
 void res_1600_button(rpg_t *rpg);
 void res_1920_button(rpg_t *rpg);
-void res_800_button(rpg_t *rpg);
+void res_1280_button(rpg_t *rpg);
 
 static void init_buttons(menu_t *menu)
 {
@@ -47,9 +47,9 @@ static void init_buttons(menu_t *menu)
 static void init_button_res_settings(menu_t *menu)
 {
     button_t *button = malloc(sizeof(button_t));
-    char *buttons_names[] = {"1600x900", "1920x1080", "800x600"};
+    char *buttons_names[] = {"1600x900", "1920x1080", "1280x720"};
     void *buttons_functions[] = {res_1600_button, res_1920_button,
-    res_800_button};
+    res_1280_button};
     sfVector2f buttons_pos[] = {{1350, 70}, {1350, 130}, {1350, 190}};
     sfVector2f buttons_size[] = {{TEXT_SIZE_LEN(buttons_names[0], 30),
     30}, {TEXT_SIZE_LEN(buttons_names[1], 30), 30},

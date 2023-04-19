@@ -62,6 +62,7 @@
         npc_t *npc;
         float music_volume;
         float sound_volume;
+        char *save_path;
     } rpg_t;
 
     int rpg(void);

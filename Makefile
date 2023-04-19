@@ -116,6 +116,8 @@ SRC						+=  src/npc/manage_npc.c \
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
+SRC 					+=	src/saves/create_save.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
@@ -163,8 +165,8 @@ $(BUILD_DIR)/%.o:	%.c
 	&& echo -e "\033[1;32m[OK]\033[0m" $<\
 	|| echo -e "\033[1;31m[KO]\033[0m" $<
 
-debug:	CFLAGS += -g3
-debug:	re
+debug: CFLAGS += -g -O0
+debug: fclean all
 
 clean:
 	@make -s -C $(LIB_FOLDER) clean
@@ -190,7 +192,7 @@ fclean: clean
 
 re:
 	@$(MAKE) fclean --no-print-directory
-	@$(MAKE) -j all --no-print-directory
+	@$(MAKE) default --no-print-directory
 
 tests_run:	CFLAGS += -lcriterion --coverage
 tests_run:	re
