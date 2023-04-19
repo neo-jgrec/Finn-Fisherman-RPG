@@ -22,6 +22,9 @@ void res_1600_button(rpg_t *rpg);
 void res_1920_button(rpg_t *rpg);
 void res_1280_button(rpg_t *rpg);
 
+const void *buttons_functions_settings[] = {back_button, sound_button,
+    music_button, res_button};
+
 static void init_buttons(menu_t *menu)
 {
     TAILQ_INIT(&menu->buttons);
@@ -74,15 +77,13 @@ static void init_button_settings(menu_t *menu)
 {
     button_t *button = malloc(sizeof(button_t));
     char *buttons_names[] = {"<-", "SOUND - 20%", "MUSIC - 20%", "FULLSCREEN"};
-    void *buttons_functions[] = {back_button, sound_button, music_button,
-    res_button};
     sfVector2f buttons_pos[] = {{10, 10}, {100, 300}, {100, 400}, {100, 500}};
     sfVector2f buttons_size[] = {{TEXT_SIZE_LEN(buttons_names[0], 30), 30},
     {TEXT_SIZE_LEN(buttons_names[1], 30), 30}, {TEXT_SIZE_LEN(buttons_names[2],
     30), 30}, {TEXT_SIZE_LEN(buttons_names[3], 30), 30}};
     for (size_t i = 0; i < 4; i++, button = malloc(sizeof(button_t))) {
         button->name = buttons_names[i];
-        button->action = buttons_functions[i];
+        button->action = buttons_functions_settings[i];
         button->pos = buttons_pos[i];
         button->size = buttons_size[i];
         button->state = IDLE_BUTTON;
