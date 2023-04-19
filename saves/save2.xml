@@ -1,0 +1,22 @@
+<GAME>
+    <SAVENAME>saves/save2</SAVENAME>
+    <LOCATION>0</LOCATION>
+    <STARTED>0</STARTED><
+    <STATS>
+        <POTION>
+            <MAX_POTION>2</MAX_POTION>
+            <HEALTH_POWER>75</HEALTH_POWER>
+        </POTION>
+        <MAX_HEALTH>200</MAX_HEALTH>
+        <SPEED>400</SPEED>
+        <DAMAGE>50</DAMAGE>
+        <CRIT_CHANCE>30</CRIT_CHANCE>
+        <JUMP>1</JUMP>
+        <ROLL>1</ROLL>
+        <FISHING>1</FISHING>
+        <ATTACK>1</ATTACK>
+        <LEVEL>1</LEVEL>
+        <EXP>0</EXP>
+        <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>
+    </STATS>
+</GAME>
