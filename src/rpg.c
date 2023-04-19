@@ -27,6 +27,7 @@ int rpg(void)
     add_monster(rpg, SHROOM, (VEC){1400, 400});
     add_monster(rpg, EYE, (VEC){700, 400});
     init_fishing(rpg);
+    init_parallax(rpg->player, rpg, CAVE);
     scene_manager(rpg);
     return 0;
 }
