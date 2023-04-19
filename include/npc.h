@@ -14,6 +14,9 @@
     #define SP_PRIEST priest->sprite_info.sprite_npc
     #define NPC_SP npc->sprite_info.sprite_npc.sp
     #define NPC_RECT npc->sprite_info.pos_anim
+    #define SP_ALCHEMIST alchemist->sprite_info.sprite_npc
+    #define SP_CHEF chef->sprite_info.sprite_npc
+    #define SP_PRIEST priest->sprite_info.sprite_npc
 
     #include "rpg.h"
 
