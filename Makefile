@@ -132,6 +132,8 @@ SRC						+=  src/npc/manage_npc.c \
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
+SRC 					+=	src/saves/create_save.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build

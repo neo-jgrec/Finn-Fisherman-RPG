@@ -8,6 +8,13 @@
 #include "rpg.h"
 #include <sys/syscall.h>
 
+static void rm_save(char *name)
+{
+    FILE *file = fopen(name, "w");
+
+    fclose(file);
+}
+
 static void button_state(sfRenderWindow *win, button_t *button)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);

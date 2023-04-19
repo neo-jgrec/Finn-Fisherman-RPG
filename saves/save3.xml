@@ -1,7 +1,7 @@
 <GAME>
-    <SAVENAME>Not Link</SAVENAME>
+    <SAVENAME>saves/save3</SAVENAME>
     <LOCATION>0</LOCATION>
-    <STARTED>1</STARTED>
+    <STARTED>0</STARTED><
     <STATS>
         <POTION>
             <MAX_POTION>2</MAX_POTION>

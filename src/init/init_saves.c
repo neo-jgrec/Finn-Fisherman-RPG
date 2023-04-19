@@ -8,8 +8,10 @@
 #include "rpg.h"
 #include <assert.h>
 #include "xml_parser.h"
+#include <fcntl.h>
 
 void launch_game(rpg_t *rpg);
+void create_default_save_file(char *filename, char *save_name);
 
 sfVector2f size_array[] = {(sfVector2f){700, 185}, (sfVector2f){700, 185},
 (sfVector2f){700, 185}};
@@ -22,7 +24,8 @@ static void add_stats(save_menu_t *save, xml_parser_t *parser, char *filename)
     parse_xml(parser);
     save->name = get_value_by_tags(parser->root,
     ((char *[]){"SAVENAME", NULL}));
-    save->is_write = (save->name != NULL);
+    save->is_write = (get_value_by_tags(parser->root,
+    ((char *[]){"STARTED", NULL}))[0] == '1') ? true : false;
     save->button->name = save->name;
 }
 
@@ -54,6 +57,7 @@ void parse_saves(menu_t *menu)
     char *saves[] = {"saves/save1.xml", "saves/save2.xml", "saves/save3.xml"};
     size_t i = 0;
     menu->saves = malloc(sizeof(save_menu_t *) * 4);
+    char *tmp = malloc(sizeof(char) * 16);
 
     for (; i < 3; i++) {
         menu->saves[i] = malloc(sizeof(save_menu_t));
@@ -62,7 +66,8 @@ void parse_saves(menu_t *menu)
         if (!is_file_exist(saves[i])) {
             menu->saves[i]->is_write = false;
             menu->saves[i]->name = NULL;
-            continue;
+            tmp = my_strremove(saves[i], ".xml");
+            create_default_save_file(saves[i], tmp);
         }
         add_stats(menu->saves[i], menu->saves[i]->parser, saves[i]);
     }
