@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include "mars.h"
 
 void back_button(rpg_t *rpg)
 {
@@ -30,4 +31,32 @@ void res_button(rpg_t *rpg)
         {sfRenderWindow_getSize(rpg->win->win).x,
         sfRenderWindow_getSize(rpg->win->win).y});
     re_set_res_button_pos(rpg);
+}
+
+void sound_button(rpg_t *rpg)
+{
+    button_t *button;
+
+    rpg->sound_volume = (rpg->sound_volume + 10 > 100)
+    ? 0 : rpg->sound_volume + 10;
+    TAILQ_FOREACH(button, &rpg->menu->settings_buttons, next) {
+        if (my_strncmp(button->name, "SOUND", 5) == 0) {
+            button->name = my_strcat_inf(3, "SOUND - ",
+                my_itoa(rpg->sound_volume), "%");
+        }
+    }
+}
+
+void music_button(rpg_t *rpg)
+{
+    button_t *button;
+
+    rpg->music_volume = (rpg->music_volume + 10 > 100)
+    ? 0 : rpg->music_volume + 10;
+    TAILQ_FOREACH(button, &rpg->menu->settings_buttons, next) {
+        if (my_strncmp(button->name, "MUSIC", 5) == 0) {
+            button->name = my_strcat_inf(3, "MUSIC - ",
+                my_itoa(rpg->music_volume), "%");
+        }
+    }
 }

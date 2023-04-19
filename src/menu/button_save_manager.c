@@ -8,6 +8,8 @@
 #include "rpg.h"
 #include <sys/syscall.h>
 
+void create_default_save_file(char *filename, char *save_name);
+
 static void rm_save(char *name)
 {
     FILE *file = fopen(name, "w");

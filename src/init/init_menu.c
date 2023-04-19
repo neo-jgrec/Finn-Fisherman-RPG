@@ -15,6 +15,8 @@ void play_button(rpg_t *rpg);
 
 void back_button(rpg_t *rpg);
 void res_button(rpg_t *rpg);
+void sound_button(rpg_t *rpg);
+void music_button(rpg_t *rpg);
 
 void res_1600_button(rpg_t *rpg);
 void res_1920_button(rpg_t *rpg);
@@ -71,8 +73,9 @@ static void init_button_res_settings(menu_t *menu)
 static void init_button_settings(menu_t *menu)
 {
     button_t *button = malloc(sizeof(button_t));
-    char *buttons_names[] = {"<- BACK", "SOUND", "MUSIC", "FULLSCREEN"};
-    void *buttons_functions[] = {back_button, NULL, NULL, res_button};
+    char *buttons_names[] = {"<-", "SOUND - 20%", "MUSIC - 20%", "FULLSCREEN"};
+    void *buttons_functions[] = {back_button, sound_button, music_button,
+    res_button};
     sfVector2f buttons_pos[] = {{10, 10}, {100, 300}, {100, 400}, {100, 500}};
     sfVector2f buttons_size[] = {{TEXT_SIZE_LEN(buttons_names[0], 30), 30},
     {TEXT_SIZE_LEN(buttons_names[1], 30), 30}, {TEXT_SIZE_LEN(buttons_names[2],
