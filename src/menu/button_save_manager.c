@@ -6,23 +6,31 @@
 */
 
 #include "rpg.h"
+#include <sys/syscall.h>
 
-static void button_state(sfRenderWindow *win, button_t *button,
-UNUSED rpg_t *rpg)
+static void rm_save(char *name)
+{
+    FILE *file = fopen(name, "w");
+
+    fclose(file);
+}
+
+static void button_state(sfRenderWindow *win, button_t *button)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);
 
     if (is_rect_hover(mouse_pos, sfRectangleShape_getPosition(button->shape),
-    sfRectangleShape_getSize(button->shape))
+        sfRectangleShape_getSize(button->shape))
         && sfMouse_isButtonPressed(sfMouseLeft)) {
         button->state = CLICKED_BUTTON;
-    } else if (is_rect_hover(mouse_pos,
-    sfRectangleShape_getPosition(button->shape),
-    sfRectangleShape_getSize(button->shape))) {
-        button->state = HOVER_BUTTON;
-    } else {
-        button->state = IDLE_BUTTON;
+        return;
     }
+    if (is_rect_hover(mouse_pos, sfRectangleShape_getPosition(button->shape),
+        sfRectangleShape_getSize(button->shape))) {
+        button->state = HOVER_BUTTON;
+        return;
+    }
+    button->state = IDLE_BUTTON;
 }
 
 static void change_button_style(button_t *button, rpg_t *rpg)
@@ -37,6 +45,7 @@ static void change_button_style(button_t *button, rpg_t *rpg)
             break;
         case CLICKED_BUTTON:
             sfRectangleShape_setOutlineColor(button->shape, sfRed);
+            rpg->menu->selected_save = button->name;
             button->action(rpg);
             break;
     }
@@ -45,7 +54,13 @@ static void change_button_style(button_t *button, rpg_t *rpg)
 void button_manager_save(win_t *win, rpg_t *rpg)
 {
     for (size_t i = 0; i < 3; i++) {
-        button_state(win->win, rpg->menu->saves[i]->button, rpg);
+        button_state(win->win, rpg->menu->saves[i]->button);
         change_button_style(rpg->menu->saves[i]->button, rpg);
+        if (rpg->menu->saves[i]->button->state == HOVER_BUTTON
+            && sfKeyboard_isKeyPressed(sfKeyR)) {
+            rpg->menu->saves[i]->is_write = false;
+            rpg->menu->saves[i]->name = NULL;
+            rpg->menu->saves[i]->button->name = NULL;
+        }
     }
 }

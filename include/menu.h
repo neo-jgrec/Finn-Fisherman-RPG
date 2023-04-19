@@ -52,7 +52,7 @@ typedef struct menu_s {
     sfShader *bg_shader;
     sfRenderStates *render_states;
     save_menu_t **saves;
-    sfShader *shader;
+    char *selected_save;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(res_buttons, button_s) res_buttons;

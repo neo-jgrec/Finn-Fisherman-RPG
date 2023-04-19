@@ -7,11 +7,8 @@
 
 #include "rpg.h"
 
-int rpg(void)
+static void init_rpg_parts(rpg_t *rpg)
 {
-    entity_t *monster = NULL;
-    rpg_t *rpg = init_rpg();
-
     init_win(rpg);
     init_loading(rpg);
     init_asset(rpg);
@@ -22,8 +19,18 @@ int rpg(void)
     init_fishing(rpg);
     init_menu(rpg);
     init_npc(rpg);
+    init_song(rpg);
+}
+
+int rpg(void)
+{
+    entity_t *monster = NULL;
+    rpg_t *rpg = init_rpg();
+
+    init_rpg_parts(rpg);
     rpg->monsters = &monster;
     init_fishing(rpg);
+    init_parallax(rpg->player, rpg, CAVE);
     scene_manager(rpg);
     return 0;
 }

@@ -20,6 +20,9 @@
     typedef struct fish_s {
         float speed_fish;
         float clock_fish;
+        int time_move_fish;
+        int direction_fish;
+        bool fish_moving;
         sfVector2f pos_fish;
         sprite_t fish;
     } fish_t;
@@ -27,9 +30,6 @@
     typedef struct keep_zone_s {
         float speed_zone;
         float clock_zone;
-        int time_move_zone;
-        int direction_zone;
-        bool zone_moving;
         sfVector2f pos_zone;
         sfRectangleShape *zone;
     } zone_t;
@@ -61,8 +61,8 @@
 
     void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
     rpg_t *rpg);
-    void make_keep_zone_move(win_t *win, fishing_t *game);
-    void make_fish_move(rpg_t *rpg, fishing_t *game);
+    void make_keep_zone_move(rpg_t *rpg, fishing_t *game);
+    void make_fish_move(win_t *win, fishing_t *game);
     void change_zone_color(fishing_t *game);
     void end_game(fishing_t *game, win_t *win, rpg_t *rpg);
 

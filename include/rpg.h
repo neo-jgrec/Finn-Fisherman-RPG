@@ -42,7 +42,9 @@
     #include "menu.h"
     #include "mars.h"
     #include "fishing.h"
+    #include "parallax.h"
     #include "npc.h"
+    #include "song.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -59,9 +61,13 @@
         input_t *input;
         menu_t *menu;
         fishing_t *fishing;
+        parallax_t *font;
+        parallax_t *font_cpy;
         npc_t *npc;
+        music_t *music;
         float music_volume;
         float sound_volume;
+        char *save_path;
     } rpg_t;
 
     int rpg(void);
