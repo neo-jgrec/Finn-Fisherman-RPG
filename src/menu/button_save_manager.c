@@ -12,6 +12,7 @@ static void rm_save(char *name)
 {
     FILE *file = fopen(name, "w");
 
+    create_default_save_file(name, name);
     fclose(file);
 }
 
@@ -58,6 +59,7 @@ void button_manager_save(win_t *win, rpg_t *rpg)
         change_button_style(rpg->menu->saves[i]->button, rpg);
         if (rpg->menu->saves[i]->button->state == HOVER_BUTTON
             && sfKeyboard_isKeyPressed(sfKeyR)) {
+            rm_save(rpg->menu->saves[i]->save_file);
             rpg->menu->saves[i]->is_write = false;
             rpg->menu->saves[i]->name = NULL;
             rpg->menu->saves[i]->button->name = NULL;

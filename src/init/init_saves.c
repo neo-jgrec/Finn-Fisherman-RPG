@@ -12,6 +12,7 @@
 
 void launch_game(rpg_t *rpg);
 void create_default_save_file(char *filename, char *save_name);
+bool are_tags_in_file(char *filename);
 
 sfVector2f size_array[] = {(sfVector2f){700, 185}, (sfVector2f){700, 185},
 (sfVector2f){700, 185}};
@@ -63,7 +64,7 @@ void parse_saves(menu_t *menu)
         menu->saves[i] = malloc(sizeof(save_menu_t));
         menu->saves[i]->save_file = saves[i];
         menu->saves[i]->button = init_button(size_array[i], pos_array[i]);
-        if (!is_file_exist(saves[i])) {
+        if (!is_file_exist(saves[i]) || !are_tags_in_file(saves[i])) {
             menu->saves[i]->is_write = false;
             menu->saves[i]->name = NULL;
             tmp = my_strremove(saves[i], ".xml");

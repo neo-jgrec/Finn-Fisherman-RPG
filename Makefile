@@ -120,7 +120,8 @@ SRC						+=  src/npc/manage_npc.c \
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
-SRC 					+=	src/saves/create_save.c
+SRC 					+=	src/saves/create_save.c		\
+							src/saves/check.c
 
 SRC						+=	src/parallax/set_data/set_layer_speed.c	\
 							src/parallax/set_data/set_layer_fp.c	\
