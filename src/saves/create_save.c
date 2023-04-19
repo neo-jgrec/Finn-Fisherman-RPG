@@ -8,9 +8,11 @@
 #include "rpg.h"
 #include <fcntl.h>
 
-static char *my_strreplace(const char *str_to_edit, char *str_to_replace, char *str_to_put)
+static char *my_strreplace(const char *str_to_edit,
+char *str_to_replace, char *str_to_put)
 {
-    char *str = malloc(sizeof(char) * (my_strlen(str_to_edit) + my_strlen(str_to_put) + 1));
+    char *str = malloc(sizeof(char) * (my_strlen(str_to_edit) +
+my_strlen(str_to_put) + 1));
     char *tmp = str;
     char *tmp2 = (char*)str_to_edit;
     char *tmp3 = str_to_replace;
