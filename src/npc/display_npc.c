@@ -18,8 +18,10 @@ static void display_npc(win_t *win, npc_l *lst)
     }
 }
 
-void display_npc_lst(win_t *win, npc_t *npc)
+void draw_npc_lst(win_t *win, npc_t *npc)
 {
+    if (!npc)
+        return;
     if (npc->alchemist->head)
         display_npc(win, npc->alchemist);
     if (npc->chef->head)

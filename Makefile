@@ -37,7 +37,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
 							src/init/init_shroom.c	\
-							src/init/init_saves.c
+							src/init/init_saves.c	\
+							src/init/init_song.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -78,6 +79,8 @@ SRC						+=	src/window/cam_management.c \
 							src/window/switch_style.c
 
 SRC 					+= 	src/map_parser/map_parser.c
+
+SRC						+=	src/song/manage_song.c
 
 SRC						+= 	src/menu/menu_loop.c		\
 							src/menu/buttons/manager.c	\

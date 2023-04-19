@@ -8,22 +8,6 @@
 #include "rpg.h"
 #include <assert.h>
 
-static fish_t *init_fish(fishing_t *game)
-{
-    fish_t *fish = malloc(sizeof(fish_t));
-
-    if (!fish || !game->font)
-        return (NULL);
-    fish->fish = init_sprite("assets/fishing/fish.png",
-    (sfVector2f){150, 100}, 1, 0.5);
-    fish->pos_fish = game->font->pos_font;
-    sfSprite_setOrigin(fish->fish.sp, (sfVector2f){75, 50});
-    sfSprite_setPosition(fish->fish.sp, game->font->pos_font);
-    fish->clock_fish = 0;
-    fish->speed_fish = 0;
-    return (fish);
-}
-
 static zone_t *init_zone(fishing_t *game)
 {
     zone_t *zone = malloc(sizeof(zone_t));
@@ -38,12 +22,29 @@ static zone_t *init_zone(fishing_t *game)
     sfRectangleShape_setPosition(zone->zone, zone->pos_zone);
     sfRectangleShape_setOrigin(zone->zone, (sfVector2f){15, 50});
     sfRectangleShape_setFillColor(zone->zone, sfGreen);
-    zone->zone_moving = false;
-    zone->time_move_zone = 0;
-    zone->direction_zone = 0;
     zone->clock_zone = 0;
     zone->speed_zone = 0;
     return (zone);
+}
+
+static fish_t *init_fish(fishing_t *game)
+{
+    fish_t *fish = malloc(sizeof(fish_t));
+
+
+    if (!fish || !game->font)
+        return (NULL);
+    fish->fish = init_sprite("assets/fishing/fish.png",
+    (sfVector2f){150, 100}, 1, 0.5);
+    fish->pos_fish = game->font->pos_font;
+    sfSprite_setOrigin(fish->fish.sp, (sfVector2f){75, 50});
+    sfSprite_setPosition(fish->fish.sp, game->font->pos_font);
+    fish->fish_moving = false;
+    fish->time_move_fish = 0;
+    fish->direction_fish = 0;
+    fish->clock_fish = 0;
+    fish->speed_fish = 0;
+    return (fish);
 }
 
 static font_t *init_font(void)

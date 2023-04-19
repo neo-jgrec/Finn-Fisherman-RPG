@@ -12,7 +12,7 @@ void draw(win_t *win, rpg_t *rpg)
     sfRenderWindow_clear(win->win, sfBlack);
     draw_backgrounds(win, rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
-    manage_npc(rpg->player, win, rpg->npc);
+    draw_npc_lst(win, rpg->npc);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     draw_map(win, rpg->puzzle, rpg->puzzle->death);
     draw_monsters(rpg);
