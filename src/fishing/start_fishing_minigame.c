@@ -42,7 +42,7 @@ rpg_t *rpg)
 {
     if (FISHING_GAME)
         return;
-    if (rpg->input->fish_game.press && !game->info->game_state)
+    if (player->health.fish_cd < 0 && player->state == FISHING)
         game->info->game_state = true;
     if (!game->info->game_state) {
         calculate_game_info(game, player);
@@ -57,5 +57,5 @@ rpg_t *rpg)
     make_fish_move(rpg, game);
     change_zone_color(game);
     draw_sprites(win, game);
-    end_game(game, win);
+    end_game(game, win, rpg);
 }

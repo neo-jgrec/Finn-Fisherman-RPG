@@ -7,23 +7,6 @@
 
 #include "rpg.h"
 
-static sfFloatRect *add_colliders(sfFloatRect *colliders,
-    sfFloatRect rect, int *nb_col)
-{
-    sfFloatRect *new = NULL;
-
-    new = malloc(sizeof(sfFloatRect) * (*nb_col + 2));
-    if (new == NULL)
-        return NULL;
-    for (int i = 0; i < *nb_col + 2; new[i] = (sfFloatRect){0}, i++);
-    for (int i = 0; i < *nb_col; i++)
-        new[i] = colliders[i];
-    new[*nb_col] = rect;
-    *nb_col += 1;
-    free(colliders);
-    return new;
-}
-
 static void merge_colliders(sfFloatRect **colliders,
     int *nb_col, int **map, int i)
 {
@@ -36,16 +19,23 @@ static void merge_colliders(sfFloatRect **colliders,
 
 static sfFloatRect *init_colliders(int *nb_col, int **map)
 {
-    sfFloatRect *colliders = malloc(sizeof(sfFloatRect) * 2);
+    sfFloatRect *colliders = NULL;
 
-    if (colliders == NULL)
-        return NULL;
-    colliders[0] = (sfFloatRect){0};
-    colliders[1] = (sfFloatRect){0};
-    for (int i = 0; map[i] != NULL; i++) {
+    for (int i = 0; map[i] != NULL; i++)
         merge_colliders(&colliders, nb_col, map, i);
-    }
     return colliders;
+}
+
+static void init_null(puzzle_t *puzzle)
+{
+    puzzle->colliders = NULL;
+    puzzle->death = NULL;
+    puzzle->fish_spot = NULL;
+    puzzle->nb_colliders = 0;
+    puzzle->nb_colliders = 0;
+    puzzle->nb_fish_spot = 0;
+    puzzle->nb_spikes = 0;
+    puzzle->spawn = (VEC){0};
 }
 
 void init_puzzle(rpg_t *rpg)
@@ -54,11 +44,7 @@ void init_puzzle(rpg_t *rpg)
 
     if (puzzle == NULL)
         rpg->puzzle = NULL;
-    puzzle->spawn = (VEC){500, 400};
-    puzzle->nb_colliders = 0;
-    puzzle->colliders = NULL;
-    puzzle->nb_colliders = 0;
-    puzzle->nb_spikes = 0;
+    init_null(puzzle);
     init_map("assets/map/map_1.xml", puzzle);
     puzzle->colliders = init_colliders(&puzzle->nb_colliders, puzzle->map);
     puzzle->spikes = init_colliders(&puzzle->nb_spikes, puzzle->death);

@@ -9,6 +9,7 @@
 
 void death_anim(rpg_t *rpg, entity_t *entity)
 {
+    entity->velocity = 0;
     if (entity->id == PLAYER) {
         entity->state = IDLE;
         entity->health.health = rpg->data->player_stat.max_health;

@@ -17,7 +17,10 @@ SRC 					:=	src/main_loop.c \
 							src/get_random.c \
 							src/scene_manager.c \
 							src/set_position.c \
-							src/dist.c
+							src/dist.c \
+							src/a_stw.c \
+							src/free_stw.c \
+							src/add_collider.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -36,7 +39,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
 							src/init/init_shroom.c	\
-							src/init/init_saves.c
+							src/init/init_saves.c \
+							src/init/init_fish_spot.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -51,11 +55,14 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/move_player.c \
 							src/player/on_ground.c \
 							src/player/draw_player_hud.c \
+							src/player/draw_button_hud.c \
 							src/player/manage_heal.c \
 							src/player/hit_player.c \
 							src/player/manage_attack.c \
 							src/player/check_monster_collision.c \
-							src/player/check_spikes_collision.c
+							src/player/check_spikes_collision.c \
+							src/player/check_fishing_spot.c \
+							src/player/manage_fishing.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \

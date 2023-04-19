@@ -77,5 +77,9 @@
 
     int my_random(int min, int max);
     float get_dist(VEC pos_1, VEC pos_2);
+    void a_freestw(char **stw);
+    char **a_mkstw(char *str, char *sep);
+    sfFloatRect *add_colliders(sfFloatRect *colliders,
+        sfFloatRect rect, int *nb_col);
 
 #endif /* !_RPG_H__ */

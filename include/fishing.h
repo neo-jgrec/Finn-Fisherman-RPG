@@ -64,6 +64,6 @@
     void make_keep_zone_move(win_t *win, fishing_t *game);
     void make_fish_move(rpg_t *rpg, fishing_t *game);
     void change_zone_color(fishing_t *game);
-    void end_game(fishing_t *game, win_t *win);
+    void end_game(fishing_t *game, win_t *win, rpg_t *rpg);
 
 #endif /* !FISHING_ */

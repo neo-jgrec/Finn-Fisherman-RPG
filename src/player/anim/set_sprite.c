@@ -39,6 +39,8 @@ static void new_anim(entity_t *player, asset_t *asset, p_state_e state)
         set_animation(player, asset->pa.jump_1, 0, NULL);
     if (state == JUMP_2)
         set_animation(player, asset->pa.jump_2, 0, NULL);
+    if (state == FISHING)
+        set_animation(player, asset->pa.fishing, 1, NULL);
     new_anim_2(player, asset, state);
 }
 
@@ -61,7 +63,8 @@ static void base_anim(entity_t *player)
 static void change_anim(entity_t *player, rpg_t *rpg)
 {
     if (player->state != ROLL && player->state != HEALING &&
-        player->state != HIT && player->state != ATTACK)
+        player->state != HIT && player->state != ATTACK &&
+        player->state != FISHING)
         base_anim(player);
     if (player->prev_state != player->state) {
         player->time = 0;
@@ -87,6 +90,6 @@ void set_sprite(entity_t *player, rpg_t *rpg)
         frame.action(rpg, player);
     sfSprite_setPosition(player->sp, player->pos);
     sfSprite_setTextureRect(player->sp, rect);
-    if (!(player->health.health <= 0))
+    if (player->health.health > 0 && player->state != FISHING)
         flip(player);
 }

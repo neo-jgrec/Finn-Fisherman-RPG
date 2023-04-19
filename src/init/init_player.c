@@ -7,13 +7,22 @@
 
 #include "rpg.h"
 
-sfText *init_lvl_text(rpg_t *rpg)
+static sfText *init_lvl_text(rpg_t *rpg)
 {
     sfText *text = sfText_create();
     sfText_setFont(text, rpg->win->font);
     sfText_setCharacterSize(text, 16);
     sfText_setColor(text, sfBlack);
     return text;
+}
+
+static void init_charge_2(health_t *health)
+{
+    health->on_fish_spot = 0;
+    health->interaction_zone = 0;
+    health->button_f = init_sprite("assets/player/hud/button_F.png",
+        (VEC){16, 16}, 1, 2);
+    health->fish_cd = 0;
 }
 
 static health_t init_charge(rpg_t *rpg)
@@ -35,6 +44,7 @@ static health_t init_charge(rpg_t *rpg)
     health.save_heal = 0;
     health.lvl_hud = init_lvl_text(rpg);
     health.damage_cd = 0;
+    init_charge_2(&health);
     return health;
 }
 

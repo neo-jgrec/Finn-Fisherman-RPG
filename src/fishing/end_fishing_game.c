@@ -16,11 +16,12 @@ static bool fish_is_out_of_zone(fishing_t *game)
     return (false);
 }
 
-void end_game(fishing_t *game, win_t *win)
+void end_game(fishing_t *game, win_t *win, rpg_t *rpg)
 {
     game->info->clock_keep_time += win->deltaT;
 
     if (fish_is_out_of_zone(game)) {
+        rpg->player->state = IDLE;
         game->info->game_state = false;
         game->zone->zone_moving = false;
         game->info->clock_game = 0;
@@ -30,6 +31,7 @@ void end_game(fishing_t *game, win_t *win)
         return;
     }
     if (game->info->clock_keep_time > game->info->game_time) {
+        rpg->player->state = IDLE;
         game->info->game_state = false;
         game->zone->zone_moving = false;
         game->info->clock_game = 0;
