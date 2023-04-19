@@ -12,18 +12,26 @@ static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);
 
-    if (is_rect_hover(mouse_pos, button->pos, button->size)
-    && (rpg->win->event.type == sfEvtMouseButtonPressed)) {
-        button->state = CLICKED_BUTTON;
-        if (rpg->win->event.type == sfEvtMouseButtonReleased)
-            button->state = HOVER_BUTTON;
-    } else if (is_rect_hover(mouse_pos, button->pos, button->size)) {
-        button->state = HOVER_BUTTON;
-    } else
+    if (button->state == CLICKED_BUTTON
+    && !sfMouse_isButtonPressed(sfMouseLeft)) {
         button->state = IDLE_BUTTON;
+        if (button->action)
+            button->action(rpg);
+        return;
+    }
+    if (is_rect_hover(mouse_pos, button->pos, button->size)
+        && sfMouse_isButtonPressed(sfMouseLeft)) {
+        button->state = CLICKED_BUTTON;
+        return;
+    }
+    if (is_rect_hover(mouse_pos, button->pos, button->size)) {
+        button->state = HOVER_BUTTON;
+        return;
+    }
+    button->state = IDLE_BUTTON;
 }
 
-static void change_button_style(button_t *button, rpg_t *rpg)
+static void change_button_style(button_t *button, UNUSED rpg_t *rpg)
 {
     switch (button->state) {
         case IDLE_BUTTON:
@@ -31,8 +39,6 @@ static void change_button_style(button_t *button, rpg_t *rpg)
         case HOVER_BUTTON:
             break;
         case CLICKED_BUTTON:
-            if (button->action)
-                button->action(rpg);
             break;
     }
 }
@@ -43,6 +49,7 @@ void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list)
     button_t *button = NULL;
 
     TAILQ_FOREACH(button, button_list, next) {
+        sfText_setStyle(text, sfTextRegular);
         button_state(win->win, button, rpg);
         change_button_style(button, rpg);
         sfText_setString(text, button->name);

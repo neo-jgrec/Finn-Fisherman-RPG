@@ -217,4 +217,12 @@
      */
     char *my_strtok(char *str, const char *delim);
 
+    /**
+     * @brief Convert an integer to a string
+     *
+     * @param nb
+     * @return char*
+     */
+    char *my_itoa(int nb);
+
 #endif /* !STDLIB_H_ */

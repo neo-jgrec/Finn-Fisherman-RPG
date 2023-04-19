@@ -46,10 +46,10 @@ static void settings_menu(win_t *win, rpg_t *rpg)
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
             rpg->menu->render_states);
         res_button_switch(rpg);
-        (rpg->win->win_style == 1) ? button_manager(win, rpg,
-            (struct buttons *)&(rpg->menu->res_buttons)) : 0;
-        button_manager(win, rpg,
-            (struct buttons *)&(rpg->menu->settings_buttons));
+            (rpg->win->win_style == 1) ? button_manager(win, rpg,
+                (struct buttons *)&(rpg->menu->res_buttons)) : 0;
+            button_manager(win, rpg,
+                (struct buttons *)&(rpg->menu->settings_buttons));
         sfText_setString(rpg->menu->text, "SETTINGS");
         sfText_setCharacterSize(rpg->menu->text, 50);
         sfText_setPosition(rpg->menu->text, (sfVector2f){sfRenderWindow_getSize
