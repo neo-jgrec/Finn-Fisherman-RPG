@@ -11,7 +11,8 @@ int manage_fishing(entity_t *player, rpg_t *rpg)
 {
     player->health.fish_cd -= rpg->win->deltaT;
     if (rpg->input->interact.press &&
-        player->health.on_fish_spot) {
+        player->health.on_fish_spot &&
+        player->grounded) {
         player->state = FISHING;
         rpg->input->interact.press = 0;
         player->dir = 1;
