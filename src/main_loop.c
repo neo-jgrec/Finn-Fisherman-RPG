@@ -26,8 +26,10 @@ int main_loop(win_t *win, rpg_t *rpg)
         win->deltaT = 0;
     sfClock_restart(win->time);
     analyse_events(win, rpg);
+    manage_song(rpg);
     manage_player(win, rpg->player, rpg);
     manage_monster(win, rpg);
+    manage_npc(rpg->player, win, rpg->npc);
     cam_management(rpg->player, win, rpg);
     draw(win, rpg);
     return 0;

@@ -63,7 +63,7 @@
     void init_npc(rpg_t *rpg);
 
     void verify_state_npc(entity_t *player, npc_t *npc);
-    void display_npc_lst(win_t *win, npc_t *npc);
+    void draw_npc_lst(win_t *win, npc_t *npc);
     void manage_npc(entity_t *player, win_t *win, npc_t *npc);
     void animate_npc(npc_t *npc, win_t *win);
 

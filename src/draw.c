@@ -10,8 +10,9 @@
 void draw(win_t *win, rpg_t *rpg)
 {
     sfRenderWindow_clear(win->win, sfBlack);
+    draw_backgrounds(win, rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
-    manage_npc(rpg->player, win, rpg->npc);
+    draw_npc_lst(win, rpg->npc);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     draw_map(win, rpg->puzzle, rpg->puzzle->death);
     draw_monsters(rpg);
@@ -19,6 +20,7 @@ void draw(win_t *win, rpg_t *rpg)
     sfRenderWindow_drawSprite(win->win, rpg->player->sp, NULL);
     draw_map(win, rpg->puzzle, rpg->puzzle->foreground);
     draw_player_hud(rpg->player, rpg);
+    draw_forgrounds(win, rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
     sfRenderWindow_display(win->win);
 }

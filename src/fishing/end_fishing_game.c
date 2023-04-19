@@ -22,7 +22,7 @@ void end_game(fishing_t *game, win_t *win)
 
     if (fish_is_out_of_zone(game)) {
         game->info->game_state = false;
-        game->zone->zone_moving = false;
+        game->fish->fish_moving = false;
         game->info->clock_game = 0;
         game->info->clock_keep_time = 0;
         game->info->game_start = 0;
@@ -31,7 +31,7 @@ void end_game(fishing_t *game, win_t *win)
     }
     if (game->info->clock_keep_time > game->info->game_time) {
         game->info->game_state = false;
-        game->zone->zone_moving = false;
+        game->fish->fish_moving = false;
         game->info->clock_game = 0;
         game->info->clock_keep_time = 0;
         game->info->game_start = 0;

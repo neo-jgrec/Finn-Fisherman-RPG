@@ -24,10 +24,10 @@ static void calculate_game_info(fishing_t *game, entity_t *player)
     sfSprite_setPosition(game->fish->fish.sp, game->fish->pos_fish);
     sfRectangleShape_setPosition(game->zone->zone, game->zone->pos_zone);
     sfRectangleShape_setFillColor(game->zone->zone, sfGreen);
-    game->zone->speed_zone = speed;
+    game->fish->speed_fish = speed;
     f_part = (float)my_random(1, 25);
-    game->zone->speed_zone += f_part / 100;
-    game->fish->speed_fish = game->zone->speed_zone + 0.2;
+    game->fish->speed_fish += f_part / 100;
+    game->zone->speed_zone = game->fish->speed_fish + 0.2;
 }
 
 static void draw_sprites(win_t *win, fishing_t *game)
@@ -53,8 +53,8 @@ rpg_t *rpg)
         draw_sprites(win, game);
         return;
     }
-    make_keep_zone_move(win, game);
-    make_fish_move(rpg, game);
+    make_fish_move(win, game);
+    make_keep_zone_move(rpg, game);
     change_zone_color(game);
     draw_sprites(win, game);
     end_game(game, win);
