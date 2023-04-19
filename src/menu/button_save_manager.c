@@ -8,8 +8,7 @@
 #include "rpg.h"
 #include <sys/syscall.h>
 
-static void button_state(sfRenderWindow *win, button_t *button,
-size_t nb_button, rpg_t *rpg)
+static void button_state(sfRenderWindow *win, button_t *button)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);
 
@@ -48,7 +47,7 @@ static void change_button_style(button_t *button, rpg_t *rpg)
 void button_manager_save(win_t *win, rpg_t *rpg)
 {
     for (size_t i = 0; i < 3; i++) {
-        button_state(win->win, rpg->menu->saves[i]->button, i, rpg);
+        button_state(win->win, rpg->menu->saves[i]->button);
         change_button_style(rpg->menu->saves[i]->button, rpg);
         if (rpg->menu->saves[i]->button->state == HOVER_BUTTON
             && sfKeyboard_isKeyPressed(sfKeyR)) {
