@@ -38,7 +38,7 @@ void sound_button(rpg_t *rpg)
     button_t *button;
 
     rpg->sound_volume = (rpg->sound_volume + 10 > 100)
-    ? 0 : rpg->sound_volume + 10;
+    ? 10 : rpg->sound_volume + 10;
     TAILQ_FOREACH(button, &rpg->menu->settings_buttons, next) {
         if (my_strncmp(button->name, "SOUND", 5) == 0) {
             button->name = my_strcat_inf(3, "SOUND - ",
@@ -52,7 +52,7 @@ void music_button(rpg_t *rpg)
     button_t *button;
 
     rpg->music_volume = (rpg->music_volume + 10 > 100)
-    ? 0 : rpg->music_volume + 10;
+    ? 10 : rpg->music_volume + 10;
     TAILQ_FOREACH(button, &rpg->menu->settings_buttons, next) {
         if (my_strncmp(button->name, "MUSIC", 5) == 0) {
             button->name = my_strcat_inf(3, "MUSIC - ",

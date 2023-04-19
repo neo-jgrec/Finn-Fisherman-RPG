@@ -12,7 +12,8 @@ static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(win);
 
-    if (button->state == CLICKED_BUTTON && !sfMouse_isButtonPressed(sfMouseLeft)) {
+    if (button->state == CLICKED_BUTTON
+    && !sfMouse_isButtonPressed(sfMouseLeft)) {
         button->state = IDLE_BUTTON;
         if (button->action)
             button->action(rpg);
@@ -30,7 +31,7 @@ static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
     button->state = IDLE_BUTTON;
 }
 
-static void change_button_style(button_t *button, rpg_t *rpg)
+static void change_button_style(button_t *button, UNUSED rpg_t *rpg)
 {
     switch (button->state) {
         case IDLE_BUTTON:
@@ -48,6 +49,7 @@ void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list)
     button_t *button = NULL;
 
     TAILQ_FOREACH(button, button_list, next) {
+        sfText_setStyle(text, sfTextRegular);
         button_state(win->win, button, rpg);
         change_button_style(button, rpg);
         sfText_setString(text, button->name);
