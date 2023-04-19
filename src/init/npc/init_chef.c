@@ -35,7 +35,7 @@ npc_l *lst_chef)
     return (chef);
 }
 
-void init_chef(npc_l *lst_chef, char *name, sfVector2f pos)
+void init_chef(npc_l *lst_chef, char *name, sfVector2f pos, rpg_t *rpg)
 {
     npc_lt *chef = get_chef_info(name, pos, lst_chef);
 
@@ -49,4 +49,5 @@ void init_chef(npc_l *lst_chef, char *name, sfVector2f pos)
         lst_chef->tail = chef;
     }
     lst_chef->size++;
+    add_quest_to_lst(rpg, name);
 }

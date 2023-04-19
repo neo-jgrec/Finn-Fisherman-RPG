@@ -35,7 +35,7 @@ npc_l *lst_priest)
     return (priest);
 }
 
-void init_priest(npc_l *lst_priest, char *name, sfVector2f pos)
+void init_priest(npc_l *lst_priest, char *name, sfVector2f pos, rpg_t *rpg)
 {
     npc_lt *priest = get_priest_info(name, pos, lst_priest);
 
@@ -49,4 +49,5 @@ void init_priest(npc_l *lst_priest, char *name, sfVector2f pos)
         lst_priest->tail = priest;
     }
     lst_priest->size++;
+    add_quest_to_lst(rpg, name);
 }
