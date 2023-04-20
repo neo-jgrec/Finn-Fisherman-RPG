@@ -32,14 +32,13 @@ static void init_map_2(xml_parser_t *parser, puzzle_t *puzzle)
     puzzle->death = map_parsing(death);
 }
 
-int init_map(char *path, puzzle_t *puzzle)
+int init_map(puzzle_t *puzzle)
 {
-    xml_parser_t *parser = init_parser(path);
+    xml_parser_t *parser = puzzle->parser;
     char *map = NULL;
     char *foreground = NULL;
     char *background = NULL;
 
-    parse_xml(parser);
     map = get_value_by_tags(parser->root, (char *[]){"MAP", NULL});
     foreground = get_value_by_tags(parser->root,
         (char *[]){"FOREGROUND", NULL});
@@ -51,6 +50,6 @@ int init_map(char *path, puzzle_t *puzzle)
     puzzle->spawn = init_spawn(parser);
     init_map_2(parser, puzzle);
     init_fish_spot(puzzle, parser);
-    free_parser(parser);
+    init_sign(puzzle, parser);
     return 0;
 }

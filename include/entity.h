@@ -68,6 +68,7 @@
         int health;
         int potion;
         float fish_cd;
+        int sign;
     } health_t;
 
     typedef struct attack_s {

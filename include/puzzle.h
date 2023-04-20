@@ -14,14 +14,27 @@
     typedef struct entity_s entity_t;
     typedef struct sprite_s sprite_t;
 
+    UNUSED static char *map_list[2] = {
+        "assets/map/map_1.xml",
+        "assets/map/map_2.xml"
+    };
+
+    typedef struct sign_s {
+        sfFloatRect rect;
+        int map;
+    } sign_t;
+
     typedef struct puzzle_s {
+        xml_parser_t *parser;
         sfFloatRect *colliders;
         sfFloatRect *spikes;
         sfFloatRect *fish_spot;
+        sign_t *sign;
         sprite_t *tileset;
         int nb_colliders;
         int nb_spikes;
         int nb_fish_spot;
+        int nb_sign;
         int **map;
         int **background;
         int **foreground;
@@ -30,12 +43,14 @@
     } puzzle_t;
 
     void init_puzzle(rpg_t *rpg);
+    void free_puzzle(puzzle_t *puzzle);
 
     void check_collision(entity_t *player, puzzle_t *puzzle, int axe);
     int on_ground(entity_t *player, puzzle_t *puzzle);
     void draw_map(win_t *win, puzzle_t *puzzle, int **map);
-    int init_map(char *path, puzzle_t *puzzle);
+    int init_map(puzzle_t *puzzle);
     int **map_parsing(const char *src);
     void init_fish_spot(puzzle_t *puzzle, xml_parser_t *parser);
+    void init_sign(puzzle_t *puzzle, xml_parser_t *parser);
 
 #endif /* !PUZZLE_H_ */
