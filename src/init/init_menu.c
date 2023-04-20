@@ -20,7 +20,6 @@ void music_button(rpg_t *rpg);
 
 void res_1600_button(rpg_t *rpg);
 void res_1920_button(rpg_t *rpg);
-void res_1280_button(rpg_t *rpg);
 
 const void *buttons_functions_settings[] = {back_button, sound_button,
     music_button, res_button};
@@ -52,15 +51,13 @@ static void init_buttons(menu_t *menu)
 static void init_button_res_settings(menu_t *menu)
 {
     button_t *button = malloc(sizeof(button_t));
-    char *buttons_names[] = {"1600x900", "1920x1080", "1280x720"};
-    void *buttons_functions[] = {res_1600_button, res_1920_button,
-    res_1280_button};
+    char *buttons_names[] = {"1600x900", "1920x1080"};
+    void *buttons_functions[] = {res_1600_button, res_1920_button};
     sfVector2f buttons_pos[] = {{1350, 70}, {1350, 130}, {1350, 190}};
     sfVector2f buttons_size[] = {{TEXT_SIZE_LEN(buttons_names[0], 30),
-    30}, {TEXT_SIZE_LEN(buttons_names[1], 30), 30},
-    {TEXT_SIZE_LEN(buttons_names[2], 30), 30}};
+    30}, {TEXT_SIZE_LEN(buttons_names[1], 30), 30}};
 
-    for (size_t i = 0; i < 3; i++, button = malloc(sizeof(button_t))) {
+    for (size_t i = 0; i < 2; i++, button = malloc(sizeof(button_t))) {
         button->name = buttons_names[i];
         button->action = buttons_functions[i];
         button->pos = buttons_pos[i];

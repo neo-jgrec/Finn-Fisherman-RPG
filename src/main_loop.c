@@ -7,6 +7,9 @@
 
 #include "rpg.h"
 
+void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list);
+void replace_elements_in_game_menus(rpg_t *rpg);
+
 static void analyse_events(win_t *win, rpg_t *rpg)
 {
     while (sfRenderWindow_pollEvent(win->win, &win->event)) {
@@ -22,9 +25,6 @@ static void analyse_events(win_t *win, rpg_t *rpg)
                 ? INVENTORY_PANEL : NONE_PANEL;
         check_input(win, rpg->input);
     }
-    sfRectangleShape_setPosition(rpg->menu->in_game_menu->bg,
-        (sfVector2f){(rpg->player->pos.x - rpg->win->size.x / 1.5 / 2),
-        (rpg->player->pos.y - rpg->win->size.y / 1.5 / 2)});
 }
 
 int main_loop(win_t *win, rpg_t *rpg)
@@ -39,7 +39,8 @@ int main_loop(win_t *win, rpg_t *rpg)
         manage_npc(rpg, rpg->npc);
         cam_management(rpg->player, win, rpg);
         manage_parall(rpg->player, rpg->parall, win);
-    }
+    } else
+        replace_elements_in_game_menus(rpg);
     draw(win, rpg);
     return 0;
 }
