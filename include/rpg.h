@@ -68,8 +68,8 @@
         npc_t *npc;
         quest_t *quests;
         music_t *music;
-        float music_volume;
-        float sound_volume;
+        int music_volume;
+        int sound_volume;
         char *save_path;
     } rpg_t;
 

@@ -17,10 +17,7 @@ char *my_itoa(int nb)
         sign = -1;
         nb *= -1;
     }
-    for (; nb > 0; i++) {
-        str[i] = nb % 10 + '0';
-        nb /= 10;
-    }
+    for (; nb > 0; str[i] = nb % 10 + '0', nb /= 10, i++);
     if (sign == -1) {
         str[i] = '-';
         i++;
