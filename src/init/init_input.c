@@ -33,5 +33,5 @@ void init_input(rpg_t *rpg)
     input->fish_down = init_key(sfKeyDown);
     input->fish_game = init_key(sfKeyP);
     rpg->input = input;
-    loading_screen(rpg, rpg->loading, 100, 1);
+    loading_screen(rpg, rpg->loading, 100, 0);
 }

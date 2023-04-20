@@ -30,6 +30,8 @@ void init_loading(rpg_t *rpg)
     loading->nb_fish = 2;
     loading->fish = 0;
     loading->fishs = init_fishs(loading->nb_fish);
+    loading->youdead = init_sprite("assets/youdied.png",
+        (VEC){1920, 1080}, 1, 1);
     rpg->loading = loading;
     loading_screen(rpg, rpg->loading, 20, 0);
 }

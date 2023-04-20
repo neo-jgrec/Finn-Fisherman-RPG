@@ -70,7 +70,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/check_monster_collision.c \
 							src/player/check_spikes_collision.c \
 							src/player/check_fishing_spot.c \
-							src/player/manage_fishing.c
+							src/player/manage_fishing.c \
+							src/player/draw_youdead.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
