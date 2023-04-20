@@ -23,7 +23,7 @@ static void manage_this_parall(entity_t *player,
     dist = parall->pos[i].x - player->pos.x;
     if (dist < 0)
         dist = -dist;
-    if (dist > parall->layers[i].size.x * 4)
+    if (dist > parall->layers[i].size.x * 5)
         parall->pos[i].x = player->pos.x;
 }
 
