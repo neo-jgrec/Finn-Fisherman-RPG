@@ -25,5 +25,4 @@ void loading_screen(rpg_t *rpg, loading_t *loading,
         loading->fish += 1;
     if (loading->fish == loading->nb_fish)
         loading->fish = 0;
-    sfSleep(sfSeconds(0.2));
 }
