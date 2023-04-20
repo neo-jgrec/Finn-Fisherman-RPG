@@ -20,6 +20,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_menu(rpg);
     init_npc(rpg);
     init_song(rpg);
+    init_parall(rpg->player, rpg, 0);
 }
 
 int rpg(void)
@@ -30,7 +31,6 @@ int rpg(void)
     init_rpg_parts(rpg);
     rpg->monsters = &monster;
     init_fishing(rpg);
-    init_parallax(rpg->player, rpg, CAVE);
     scene_manager(rpg);
     return 0;
 }

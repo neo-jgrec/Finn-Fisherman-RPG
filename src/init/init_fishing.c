@@ -72,7 +72,7 @@ static game_info_t *init_game_info(void)
     game->clock_game = 0;
     game->clock_keep_time = 0;
     game->game_state = false;
-    game->game_time = 20;
+    game->game_time = 0;
     game->res_fishing = 0;
     game->game_start = 0;
     return (game);

@@ -16,8 +16,10 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
     sfShader_setFloatUniform(rpg->menu->bg_shader, "time",
     DELTAT(rpg->win->time));
     while (sfRenderWindow_pollEvent(win->win, &win->event)) {
-        if (win->event.type == sfEvtClosed)
+        if (win->event.type == sfEvtClosed) {
             sfRenderWindow_close(win->win);
+            rpg->win->scene = NONE;
+        }
         if (win->event.type == sfEvtKeyPressed &&
             win->event.key.code == sfKeyEscape)
             rpg->menu->scene = MAIN_MENU;

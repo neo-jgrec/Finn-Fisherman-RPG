@@ -31,6 +31,7 @@ int main_loop(win_t *win, rpg_t *rpg)
     manage_monster(win, rpg);
     manage_npc(rpg->player, win, rpg->npc);
     cam_management(rpg->player, win, rpg);
+    manage_parall(rpg->player, rpg->parall, win);
     draw(win, rpg);
     return 0;
 }

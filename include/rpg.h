@@ -61,8 +61,7 @@
         input_t *input;
         menu_t *menu;
         fishing_t *fishing;
-        parallax_t *font;
-        parallax_t *font_cpy;
+        parall_t *parall;
         npc_t *npc;
         music_t *music;
         float music_volume;

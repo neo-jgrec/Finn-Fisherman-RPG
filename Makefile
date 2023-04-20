@@ -35,14 +35,14 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_menu.c \
 							src/init/init_fishing.c	\
 							src/init/init_npc.c	\
-							src/init/init_parallax.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
 							src/init/init_shroom.c	\
 							src/init/init_saves.c \
 							src/init/init_fish_spot.c \
-							src/init/init_song.c
+							src/init/init_song.c \
+							src/init/init_parall.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -129,16 +129,8 @@ SRC 					+=	src/utils/is_rect_hover.c	\
 
 SRC 					+=	src/saves/create_save.c
 
-SRC						+=	src/parallax/set_data/set_layer_speed.c	\
-							src/parallax/set_data/set_layer_fp.c	\
-							src/parallax/set_data/set_layer_sprite.c	\
-							src/parallax/set_data/set_cpy_pos.c
-
-SRC						+=	src/parallax/display/draw_forgrounds.c	\
-							src/parallax/display/draw_backgrounds.c
-
-SRC						+=	src/parallax/handle_parallax/handle_rparallax.c \
-							src/parallax/handle_parallax/handle_lparallax.c
+SRC						+=	src/parallax/draw_parall.c \
+							src/parallax/manage_parall.c
 
 MAIN 					= 	src/main.c
 
