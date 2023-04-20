@@ -43,7 +43,7 @@ static void add_sign(puzzle_t *puzzle, char *sign)
     pos.top = my_atoi(stw[1]) * 64;
     map = my_atoi(stw[2]);
     pos.height = 64;
-    pos.width = 128;
+    pos.width = 192;
     puzzle->sign = add_signt(puzzle->sign,
         pos, &(puzzle->nb_sign), map);
     a_freestw(stw);
