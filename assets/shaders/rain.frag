@@ -4,6 +4,7 @@ uniform vec2 u_resolution;
 uniform float u_time;
 uniform sampler2D u_texture;
 uniform float u_velocity;
+uniform float n_drops;
 
 float random1d(float dt) {
     float c = 43758.5453;
@@ -27,11 +28,10 @@ vec4 fish_color(vec2 pixel, vec2 pos, vec2 size) {
 }
 
 void main() {
-    const float n_drops = 20.0;
     float fall_time = 0.7;
     float life_time = fall_time + 0.5;
     vec2 velocity = vec2(0.5 * u_resolution.x, -0.9 * u_resolution.y) / fall_time * u_velocity;
-    vec2 fish_size = vec2(70.0, 70.0); // adjust the fish size as needed
+    vec2 fish_size = vec2(70.0, 70.0);
     vec4 pixel_color = vec4(0.0);
 
     for (float i = 0.0; i < n_drops; ++i) {

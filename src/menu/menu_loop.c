@@ -69,12 +69,6 @@ void menu_loop(win_t *win, rpg_t *rpg)
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
         rpg->menu->render_states);
         button_manager(win, rpg, &(rpg->menu->buttons));
-
-
-        sfRenderWindow_drawRectangleShape(win->win, rpg->shader_layer,
-            rpg->shaders->rain->states);
-        rpg->shaders->rain->shader_func(rpg->shaders->rain, rpg);
-
         sfRenderWindow_display(win->win);
     }
     settings_menu(win, rpg);
