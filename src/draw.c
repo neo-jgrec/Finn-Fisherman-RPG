@@ -50,6 +50,5 @@ void draw(win_t *win, rpg_t *rpg)
         rpg->menu->in_game_menu->bg, NULL);
         button_manager(win, rpg, (struct buttons *)&(rpg->menu->in_game_menu
             ->nav_buttons));
-    }
-    sfRenderWindow_display(win->win);
+    } sfRenderWindow_display(win->win);
 }

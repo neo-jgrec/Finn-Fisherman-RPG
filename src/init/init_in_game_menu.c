@@ -16,14 +16,10 @@ static const char *button_name_main[] = {
     "SAVE"
 };
 
-void replace_elements_in_game_menus(rpg_t *rpg)
+static void buttons_too(button_t *button, sfVector2f view_pos,
+sfVector2f view_size, rpg_t *rpg)
 {
-    size_t i = 0;
-    size_t padding = 100;
-    const sfView *view = sfRenderWindow_getView(rpg->win->win);
-    sfVector2f view_pos = sfView_getCenter(view);
-    sfVector2f view_size = sfView_getSize(view);
-    button_t *button = NULL;
+    size_t padding = 100, i = 0;
 
     TAILQ_FOREACH(button, &rpg->menu->in_game_menu->nav_buttons, next) {
         struct button_s *prev = TAILQ_PREV(button, nav_buttons, next);
@@ -39,6 +35,16 @@ void replace_elements_in_game_menus(rpg_t *rpg)
         button->pos.y = view_pos.y - view_size.y / 2 / 1.5;
         i++;
     }
+}
+
+void replace_elements_in_game_menus(rpg_t *rpg)
+{
+    const sfView *view = sfRenderWindow_getView(rpg->win->win);
+    sfVector2f view_pos = sfView_getCenter(view);
+    sfVector2f view_size = sfView_getSize(view);
+    button_t *button = NULL;
+
+    buttons_too(button, view_pos, view_size, rpg);
     sfRectangleShape_setPosition(rpg->menu->in_game_menu->bg, (sfVector2f)
     {view_pos.x - view_size.x / 2 / 1.5, view_pos.y - view_size.y / 2 / 1.5});
     sfRectangleShape_setSize(rpg->menu->in_game_menu->bg,
