@@ -31,6 +31,7 @@
         sprite_t jump_2;
         sprite_t roll;
         sprite_t healing;
+        sprite_t fishing;
     } pa_t;
 
     typedef struct monster_anim_s {

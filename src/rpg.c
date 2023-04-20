@@ -21,6 +21,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_menu(rpg);
     init_npc(rpg);
     init_song(rpg);
+    init_parall(rpg->player, rpg, 0);
     init_shaders(rpg);
 }
 
@@ -31,11 +32,8 @@ int rpg(void)
 
     init_rpg_parts(rpg);
     rpg->monsters = &monster;
-    add_monster(rpg, SKELETON, (VEC){500, 400});
-    add_monster(rpg, SHROOM, (VEC){1400, 400});
-    add_monster(rpg, EYE, (VEC){700, 400});
+    add_monster(rpg, SKELETON, (VEC){500, 500});
     init_fishing(rpg);
-    init_parallax(rpg->player, rpg, CAVE);
     scene_manager(rpg);
     return 0;
 }

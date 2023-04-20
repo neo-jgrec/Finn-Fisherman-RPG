@@ -19,7 +19,8 @@
         ATTACK,
         HEALING,
         HIT,
-        SHIELD
+        SHIELD,
+        FISHING
     } p_state_e;
 
     typedef enum id_entity_s {
@@ -60,9 +61,13 @@
         sprite_t health_hud;
         sprite_t potion_hud;
         sprite_t xp_hud;
+        sprite_t button_f;
+        int interaction_zone;
+        int on_fish_spot;
         sfText *lvl_hud;
         int health;
         int potion;
+        float fish_cd;
     } health_t;
 
     typedef struct attack_s {

@@ -70,8 +70,7 @@
         input_t *input;
         menu_t *menu;
         fishing_t *fishing;
-        parallax_t *font;
-        parallax_t *font_cpy;
+        parall_t *parall;
         npc_t *npc;
         quest_t *quests;
         music_t *music;
@@ -96,5 +95,9 @@
 
     int my_random(int min, int max);
     float get_dist(VEC pos_1, VEC pos_2);
+    void a_freestw(char **stw);
+    char **a_mkstw(char *str, char *sep);
+    sfFloatRect *add_colliders(sfFloatRect *colliders,
+        sfFloatRect rect, int *nb_col);
 
 #endif /* !_RPG_H__ */

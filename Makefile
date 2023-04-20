@@ -17,7 +17,10 @@ SRC 					:=	src/main_loop.c \
 							src/get_random.c \
 							src/scene_manager.c \
 							src/set_position.c \
-							src/dist.c
+							src/dist.c \
+							src/a_stw.c \
+							src/free_stw.c \
+							src/add_collider.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \
@@ -32,13 +35,14 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_menu.c \
 							src/init/init_fishing.c	\
 							src/init/init_npc.c	\
-							src/init/init_parallax.c \
 							src/init/init_monster_asset.c \
 							src/init/init_skeleton.c \
 							src/init/init_eye.c \
 							src/init/init_shroom.c	\
-							src/init/init_saves.c	\
-							src/init/init_song.c	\
+							src/init/init_saves.c \
+							src/init/init_fish_spot.c \
+							src/init/init_song.c \
+							src/init/init_parall.c \
 							src/init/init_shaders.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
@@ -59,11 +63,14 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/move_player.c \
 							src/player/on_ground.c \
 							src/player/draw_player_hud.c \
+							src/player/draw_button_hud.c \
 							src/player/manage_heal.c \
 							src/player/hit_player.c \
 							src/player/manage_attack.c \
 							src/player/check_monster_collision.c \
-							src/player/check_spikes_collision.c
+							src/player/check_spikes_collision.c \
+							src/player/check_fishing_spot.c \
+							src/player/manage_fishing.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
@@ -135,16 +142,8 @@ SRC 					+=	src/utils/is_rect_hover.c	\
 SRC 					+=	src/saves/create_save.c		\
 							src/saves/check.c
 
-SRC						+=	src/parallax/set_data/set_layer_speed.c	\
-							src/parallax/set_data/set_layer_fp.c	\
-							src/parallax/set_data/set_layer_sprite.c	\
-							src/parallax/set_data/set_cpy_pos.c
-
-SRC						+=	src/parallax/display/draw_forgrounds.c	\
-							src/parallax/display/draw_backgrounds.c
-
-SRC						+=	src/parallax/handle_parallax/handle_rparallax.c \
-							src/parallax/handle_parallax/handle_lparallax.c
+SRC						+=	src/parallax/draw_parall.c \
+							src/parallax/manage_parall.c
 
 MAIN 					= 	src/main.c
 

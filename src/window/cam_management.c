@@ -11,7 +11,7 @@ void cam_management(entity_t *player, win_t *win, UNUSED rpg_t *rpg)
 {
     sfView *view = sfView_createFromRect(
         (sfFloatRect){player->pos.x - win->size.x / 2,
-        player->pos.y - win->size.y / 2,
+        player->pos.y - win->size.y / 2 - 200,
         win->size.x, win->size.y});
     sfRenderWindow_setView(win->win, view);
     sfView_destroy(view);
