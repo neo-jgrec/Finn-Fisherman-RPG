@@ -17,6 +17,8 @@
     #define SP_ALCHEMIST alchemist->sprite_info.sprite_npc
     #define SP_CHEF chef->sprite_info.sprite_npc
     #define SP_PRIEST priest->sprite_info.sprite_npc
+    #define POS_PLAYER rpg->player->pos
+    #define POS_NPC npc->sprite_info.pos_npc
 
     #include "rpg.h"
 
@@ -67,6 +69,7 @@
     void verify_state_npc(entity_t *player, npc_t *npc);
     void draw_npc_lst(win_t *win, npc_t *npc);
     void manage_npc(rpg_t *rpg, npc_t *npc);
+    void npc_interraction(rpg_t *rpg);
     void animate_npc(npc_t *npc, win_t *win);
 
 #endif /* !NPC_ */

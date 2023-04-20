@@ -12,6 +12,10 @@
     }
     #define DIALOGUE (char*[]){quest->xml_npc, "DIALOGUE", NULL\
     }
+    #define DIALOGUE_FIN (char*[]){quest->xml_npc, "DIALOGUE_FINISH", NULL\
+    }
+    #define DIALOGUE_COMP (char*[]){quest->xml_npc, "DIALOGUE1", NULL\
+    }
     #define REQ_NAME (char*[]){quest->xml_npc, "REQ_NAME", NULL\
     }
     #define REQ_OBJ (char*[]){quest->xml_npc, "REQUIREMENT_OBJ", NULL\
@@ -21,8 +25,18 @@
 
     typedef struct struct_requirement {
         char *requirement;
-        int number;
+        int number_req;
+        int number_get;
     } s_req;
+
+    typedef struct s_dialogue {
+        char **dialogue;
+        char **dialogue_complete;
+        char **dialgue_finish;
+        bool is_talking;
+        size_t parser;
+        float clock_dialogue;
+    } dialogue_t;
 
     typedef struct quest_struct {
         char *name_npc;
@@ -30,7 +44,8 @@
         char *q_desc;
         int state;
         s_req requirement;
-        char *dialogue;
+        dialogue_t dialogue;
+
         struct quest_struct *next;
         struct quest_struct *prev;
     } quest_s;

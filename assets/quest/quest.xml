@@ -12,8 +12,7 @@
         <Q_DESC>Réussis à pêcher 10 fois</Q_DESC>
         <REQ_NAME>Peche</REQ_NAME>
         <REQUIREMENT_OBJ>10</REQUIREMENT_OBJ>
-        <DIALOGUE1>Félicitation je n'en attendais pas moins de toi !
-        </DIALOGUE1>
-        <DIALOGUE_FINISH>Merci d'avoir retrouvé ma chaussette</DIALOGUE_FINISH>
+        <DIALOGUE1>Félicitation je n'en attendais pas moins de toi !</DIALOGUE1>
+        <DIALOGUE_FINISH>Va aventurier, poursuis ta grande quête !</DIALOGUE_FINISH>
     </PNJ_MARTIN>
 </QUEST>

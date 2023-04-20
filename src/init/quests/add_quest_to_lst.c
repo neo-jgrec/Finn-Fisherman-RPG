@@ -32,6 +32,10 @@ static quest_s *get_quest(char *npc_name, rpg_t *rpg)
     quest->name_npc = my_strdup(npc_name);
     quest->xml_npc = my_strdup(quest_xml);
     quest->state = -1;
+    quest->requirement.number_get = 0;
+    quest->dialogue.parser = 0;
+    quest->dialogue.clock_dialogue = 0;
+    quest->dialogue.is_talking = false;
     get_xml_info_quest(quest);
     quest->next = NULL;
     quest->prev = rpg->quests->tail;
