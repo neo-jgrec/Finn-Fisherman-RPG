@@ -47,6 +47,7 @@
     #include "song.h"
     #include "quests.h"
     #include "destroy.h"
+    #include "shaders.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -71,6 +72,8 @@
         int music_volume;
         int sound_volume;
         char *save_path;
+        all_shaders_t *shaders;
+        sfRectangleShape *shader_layer;
     } rpg_t;
 
     int rpg(void);
