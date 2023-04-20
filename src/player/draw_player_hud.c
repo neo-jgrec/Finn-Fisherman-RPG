@@ -9,7 +9,7 @@
 
 static void draw_lvl_hud(entity_t *player, rpg_t *rpg)
 {
-    char str[2] = {0};
+    char str[3] = {0};
 
     str[0] = rpg->data->lvl / 10 + 48;
     str[1] = rpg->data->lvl % 10 + 48;

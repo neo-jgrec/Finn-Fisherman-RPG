@@ -46,6 +46,7 @@
     #include "npc.h"
     #include "song.h"
     #include "quests.h"
+    #include "destroy.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))

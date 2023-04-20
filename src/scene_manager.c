@@ -17,4 +17,5 @@ void scene_manager(rpg_t *rpg)
             case MENU: menu_loop(rpg->win, rpg);        break;
         }
     }
+    destroy_rpg(rpg);
 }

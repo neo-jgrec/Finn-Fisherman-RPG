@@ -7,10 +7,10 @@
 
 #include "rpg.h"
 
-void manage_npc(entity_t *player, win_t *win, npc_t *npc)
+void manage_npc(rpg_t *rpg, npc_t *npc)
 {
     if (!npc)
         return;
-    verify_state_npc(player, npc);
-    animate_npc(npc, win);
+    verify_state_npc(rpg->player, npc);
+    animate_npc(npc, rpg->win);
 }
