@@ -24,6 +24,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_parall(rpg->player, rpg, 0);
     init_shaders(rpg);
     init_monsters(rpg);
+    init_in_game_menu(rpg);
 }
 
 int rpg(void)

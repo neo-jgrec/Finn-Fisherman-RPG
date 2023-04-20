@@ -43,5 +43,8 @@ void draw(win_t *win, rpg_t *rpg)
     draw_player_hud(rpg->player, rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
     shader_switch(rpg);
+    if (rpg->menu->in_game_menu->panel_type != NONE_PANEL)
+        sfRenderWindow_drawRectangleShape(win->win,
+        rpg->menu->in_game_menu->bg, NULL);
     sfRenderWindow_display(win->win);
 }
