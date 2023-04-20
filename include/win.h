@@ -31,6 +31,7 @@
         sfEvent event;
         sfRenderWindow *win;
         sfClock *time;
+        sfClock *warudo;
         float deltaT;
         scene_t scene;
         sfFont *font;

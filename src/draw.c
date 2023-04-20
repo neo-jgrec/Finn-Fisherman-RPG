@@ -7,6 +7,26 @@
 
 #include "rpg.h"
 
+static void shader_switch(rpg_t *rpg)
+{
+    switch (rpg->weather) {
+        case RAIN:
+            rpg->shaders->rain->shader_func(rpg->shaders->rain, rpg,
+            100, rpg->shaders->water_drop);
+            sfRenderWindow_drawRectangleShape(rpg->win->win,
+            rpg->shader_layer, rpg->shaders->rain->states);
+            break;
+        case SNOW:
+            rpg->shaders->rain->shader_func(rpg->shaders->rain, rpg,
+            100, rpg->shaders->snow);
+            sfRenderWindow_drawRectangleShape(rpg->win->win, rpg->shader_layer,
+            rpg->shaders->rain->states);
+            break;
+        default:
+            break;
+    }
+}
+
 void draw(win_t *win, rpg_t *rpg)
 {
     sfRenderWindow_clear(win->win, sfBlack);
@@ -22,5 +42,6 @@ void draw(win_t *win, rpg_t *rpg)
     draw_player_hud(rpg->player, rpg);
     draw_forgrounds(win, rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
+    shader_switch(rpg);
     sfRenderWindow_display(win->win);
 }
