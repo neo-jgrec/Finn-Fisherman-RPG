@@ -17,9 +17,11 @@
     typedef struct puzzle_s {
         sfFloatRect *colliders;
         sfFloatRect *spikes;
+        sfFloatRect *fish_spot;
         sprite_t *tileset;
         int nb_colliders;
         int nb_spikes;
+        int nb_fish_spot;
         int **map;
         int **background;
         int **foreground;
@@ -34,5 +36,6 @@
     void draw_map(win_t *win, puzzle_t *puzzle, int **map);
     int init_map(char *path, puzzle_t *puzzle);
     int **map_parsing(const char *src);
+    void init_fish_spot(puzzle_t *puzzle, xml_parser_t *parser);
 
 #endif /* !PUZZLE_H_ */

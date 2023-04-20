@@ -50,6 +50,7 @@ int init_map(char *path, puzzle_t *puzzle)
     puzzle->foreground = map_parsing(foreground);
     puzzle->spawn = init_spawn(parser);
     init_map_2(parser, puzzle);
+    init_fish_spot(puzzle, parser);
     free_parser(parser);
     return 0;
 }

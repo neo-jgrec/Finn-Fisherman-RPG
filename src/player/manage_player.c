@@ -20,15 +20,21 @@ static void set_var(entity_t *player, rpg_t *rpg)
     }
 }
 
-void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
+static void check_spot(entity_t *player, rpg_t *rpg)
 {
+    check_fishing_spot(player, rpg->puzzle);
     check_spikes_collision(rpg, player, rpg->puzzle);
     check_monster_collision(rpg, player);
-    if (rpg->input->interact.press)
-        hit_player(rpg, 90, rpg->player);
+}
+
+void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
+{
+    check_spot(player, rpg);
     set_var(player, rpg);
     manage_heal(player, rpg);
     manage_attack(player, rpg);
+    if (manage_fishing(player, rpg))
+        return;
     if (player->state != HEALING && player->state != HIT &&
         player->state != ATTACK) {
         if (rpg->data->roll == 1)
