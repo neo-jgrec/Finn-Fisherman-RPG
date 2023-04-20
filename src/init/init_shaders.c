@@ -24,7 +24,6 @@ void init_shaders(rpg_t *rpg)
     rpg->shader_layer = sfRectangleShape_create();
     rpg->shaders->rain->shader = sfShader_createFromFile(NULL, NULL,
         "assets/shaders/rain.frag");
-    // set the shader u_texture uniform to the texture of the sprite
     sfShader_setTextureUniform(rpg->shaders->rain->shader, "u_texture",
         sfTexture_createFromFile("assets/loading/fish_0.jpg", NULL));
     sfShader_setFloatUniform(rpg->shaders->rain->shader, "u_velocity", 0.5);
