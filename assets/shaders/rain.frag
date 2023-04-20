@@ -2,6 +2,8 @@
 
 uniform vec2 u_resolution;
 uniform float u_time;
+uniform sampler2D u_texture;
+uniform float u_velocity;
 
 float random1d(float dt) {
     float c = 43758.5453;
@@ -9,46 +11,28 @@ float random1d(float dt) {
     return fract(sin(sn) * c);
 }
 
-/*
- *  Returns a random drop position for the given seed value
- */
 vec2 random_drop_pos(float val, vec2 screen_dim, vec2 velocity) {
     float max_x_move = velocity.x * abs(screen_dim.y / velocity.y);
     float x = -max_x_move * step(0.0, max_x_move) + (screen_dim.x + abs(max_x_move)) * random1d(val);
-    float y = (1.0 + 0.05 * random1d(1.234 * val)) * screen_dim.y;
 
-    return vec2(x, y);
+    return vec2(x, screen_dim.y * random1d(val + 1.0));
 }
 
-/*
- * Calculates the drop trail color at the given pixel position
- */
-vec3 trail_color(vec2 pixel, vec2 pos, vec2 velocity_dir, float width, float size) {
-    vec2 pixel_dir = pixel - pos;
-    float projected_dist = dot(pixel_dir, -velocity_dir);
-    float tanjential_dist_sq = dot(pixel_dir, pixel_dir) - pow(projected_dist, 2.0);
-    float width_sq = pow(width, 2.0);
-
-    float line = step(0.0, projected_dist) * (1.0 - smoothstep(width_sq / 2.0, width_sq, tanjential_dist_sq));
-    float dashed_line = line * step(0.5, cos(0.3 * projected_dist - PI / 3.0));
-    float fading_dashed_line = dashed_line * (1.0 - smoothstep(size / 5.0, size, projected_dist));
-
-    return vec3(fading_dashed_line);
+vec4 fish_color(vec2 pixel, vec2 pos, vec2 size) {
+    vec2 uv = (pixel - pos) / size;
+    if (uv.x >= 0.0 && uv.y >= 0.0 && uv.x <= 1.0 && uv.y <= 1.0) {
+        return texture2D(u_texture, uv);
+    }
+    return vec4(0.0);
 }
 
-/*
- * The main program
- */
 void main() {
     const float n_drops = 20.0;
-    float trail_width = 2.0;
-    float trail_size = 70.0;
-    float wave_size = 20.0;
     float fall_time = 0.7;
     float life_time = fall_time + 0.5;
-    vec2 velocity = vec2(0.5 * u_resolution.x, -0.9 * u_resolution.y) / fall_time;
-    vec2 velocity_dir = normalize(velocity);
-    vec3 pixel_color = vec3(0.0);
+    vec2 velocity = vec2(0.5 * u_resolution.x, -0.9 * u_resolution.y) / fall_time * u_velocity;
+    vec2 fish_size = vec2(70.0, 70.0); // adjust the fish size as needed
+    vec4 pixel_color = vec4(0.0);
 
     for (float i = 0.0; i < n_drops; ++i) {
         float time = u_time + life_time * (i + i / n_drops);
@@ -57,9 +41,8 @@ void main() {
 
         if (ellapsed_time < fall_time) {
             vec2 current_pos = initial_pos + ellapsed_time * velocity;
-            pixel_color += trail_color(gl_FragCoord.xy, current_pos, velocity_dir, trail_width, trail_size);
-        } else
-            vec2 final_pos = initial_pos + fall_time * velocity;
+            pixel_color += fish_color(gl_FragCoord.xy, current_pos, fish_size);
+        }
     }
-    gl_FragColor = vec4(pixel_color, max(max(pixel_color.r, pixel_color.g), pixel_color.b));
+    gl_FragColor = pixel_color;
 }
