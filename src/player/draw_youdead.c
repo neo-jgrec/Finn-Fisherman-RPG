@@ -12,8 +12,8 @@ void youdead(rpg_t *rpg, loading_t *loading, int a)
     win_t *win = rpg->win;
     const sfView *view = sfRenderWindow_getView(rpg->win->win);
 
-    if (a > 209)
-        a = 209;
+    if (a > 255)
+        a = 255;
     sfSprite_setPosition(loading->youdead.sp,
         sfView_getCenter(view));
     sfSprite_setColor(loading->youdead.sp,

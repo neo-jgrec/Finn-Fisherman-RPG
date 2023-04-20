@@ -12,7 +12,7 @@ static void new_anim_2(entity_t *player, asset_t *asset, p_state_e state)
     if (state == HEALING)
         set_animation(player, asset->pa.healing, 0, heal_anim);
     if (state == HIT) {
-        if (player->health.health)
+        if (player->health.health > 0)
             set_animation(player, asset->pa.damage, 0, return_to_idle);
         else
             set_animation(player, asset->pa.death, 0, death_anim);

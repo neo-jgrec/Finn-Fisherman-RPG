@@ -23,6 +23,7 @@ static void init_charge_2(health_t *health)
     health->button_f = init_sprite("assets/player/hud/button_F.png",
         (VEC){16, 16}, 1, 2);
     health->fish_cd = 0;
+    health->sign = 0;
 }
 
 static health_t init_charge(rpg_t *rpg)

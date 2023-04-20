@@ -43,7 +43,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_fish_spot.c \
 							src/init/init_song.c \
 							src/init/init_parall.c \
-							src/init/init_shaders.c
+							src/init/init_shaders.c \
+							src/init/init_sign.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -71,7 +72,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/check_spikes_collision.c \
 							src/player/check_fishing_spot.c \
 							src/player/manage_fishing.c \
-							src/player/draw_youdead.c
+							src/player/draw_youdead.c \
+							src/player/check_sign.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
@@ -144,6 +146,8 @@ SRC 					+=	src/saves/create_save.c		\
 
 SRC						+=	src/parallax/draw_parall.c \
 							src/parallax/manage_parall.c
+
+SRC						+=	src/free/free_puzzle.c
 
 MAIN 					= 	src/main.c
 

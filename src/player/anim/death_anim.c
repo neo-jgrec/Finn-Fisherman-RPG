@@ -21,7 +21,7 @@ void death_anim(rpg_t *rpg, entity_t *entity)
         rpg->player->health.cd = 0;
         while (DELTAT(rpg->win->time) < 3.5) {
             youdead(rpg, rpg->loading, a);
-            a += 3;
+            a += 4;
         }
 
     }
