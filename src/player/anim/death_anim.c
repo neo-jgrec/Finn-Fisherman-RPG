@@ -17,6 +17,7 @@ void death_anim(rpg_t *rpg, entity_t *entity)
         rpg->data->xp = 0;
         entity->pos = rpg->puzzle->spawn;
         rpg->player->health.cd = 0;
+        sfSleep(sfSeconds(4));
     }
     return;
 }
