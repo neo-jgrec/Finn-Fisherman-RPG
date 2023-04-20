@@ -53,6 +53,12 @@
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
 
+    typedef enum weather {
+        NONE_WEATHER,
+        RAIN,
+        SNOW
+    } weather_e;
+
     typedef struct rpg_s {
         win_t *win;
         puzzle_t *puzzle;
@@ -74,6 +80,7 @@
         char *save_path;
         all_shaders_t *shaders;
         sfRectangleShape *shader_layer;
+        weather_e weather;
     } rpg_t;
 
     int rpg(void);

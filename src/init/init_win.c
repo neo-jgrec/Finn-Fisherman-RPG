@@ -19,6 +19,7 @@ void init_win(rpg_t *rpg)
     sfRenderWindow_setFramerateLimit(win->win, 60);
     win->event = event;
     win->time = sfClock_create();
+    win->warudo = sfClock_create();
     win->deltaT = 0;
     win->scene = MENU;
     win->font = sfFont_createFromFile("assets/AwasetePowder.ttf");

@@ -10,16 +10,14 @@
 
     #include "rpg.h"
 
-typedef struct shaders_data_s
-{
+typedef struct shaders_data_s {
     sfShader *shader;
     sfRenderStates *states;
     void (*shader_func)(struct shaders_data_s *shader_data, rpg_t *rpg,
         float drop_freq, sfTexture *texture);
 } shaders_data_t;
 
-typedef struct all_shaders_s
-{
+typedef struct all_shaders_s {
     shaders_data_t *rain;
     sfTexture *water_drop;
     sfTexture *snow;
