@@ -45,6 +45,8 @@
     #include "parallax.h"
     #include "npc.h"
     #include "song.h"
+    #include "quests.h"
+    #include "destroy.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
@@ -64,6 +66,7 @@
         parallax_t *font;
         parallax_t *font_cpy;
         npc_t *npc;
+        quest_t *quests;
         music_t *music;
         int music_volume;
         int sound_volume;

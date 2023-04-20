@@ -35,7 +35,8 @@ npc_l *lst_alchemist)
     return (alchemist);
 }
 
-void init_alchemist(npc_l *lst_alchemist, char *name, sfVector2f pos)
+void init_alchemist(npc_l *lst_alchemist, char *name, sfVector2f pos,
+rpg_t *rpg)
 {
     npc_lt *alchemist = get_alchemist_info(name, pos, lst_alchemist);
 
@@ -49,4 +50,5 @@ void init_alchemist(npc_l *lst_alchemist, char *name, sfVector2f pos)
         lst_alchemist->tail = alchemist;
     }
     lst_alchemist->size++;
+    add_quest_to_lst(rpg, name);
 }
