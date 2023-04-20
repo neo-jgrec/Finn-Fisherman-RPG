@@ -27,7 +27,7 @@ static void manage_this_parall(entity_t *player,
 }
 
 static void manage_this_parall_y(entity_t *player,
-    parall_t *parall, win_t *win, int i)
+    parall_t *parall, int i)
 {
     parall->pos[i].y = player->pos.y - 175;
     if (player->pos.y > parall->y_spawn)
@@ -51,6 +51,6 @@ void manage_parall(entity_t *player, parall_t *parall, win_t *win)
             (player->state == RUN ||
             player->state == ROLL || !player->grounded))
             manage_this_parall(player, parall, win, i);
-        manage_this_parall_y(player, parall, win, i);
+        manage_this_parall_y(player, parall, i);
     }
 }

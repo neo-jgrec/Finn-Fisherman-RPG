@@ -25,11 +25,11 @@ int main_loop(win_t *win, rpg_t *rpg)
     if (win->deltaT > 0.1)
         win->deltaT = 0;
     sfClock_restart(win->time);
-    analyse_events(win, rpg);
+    analyse_events(rpg->win, rpg);
     manage_song(rpg);
     manage_player(win, rpg->player, rpg);
     manage_monster(win, rpg);
-    manage_npc(rpg->player, win, rpg->npc);
+    manage_npc(rpg, rpg->npc);
     cam_management(rpg->player, win, rpg);
     manage_parall(rpg->player, rpg->parall, win);
     draw(win, rpg);

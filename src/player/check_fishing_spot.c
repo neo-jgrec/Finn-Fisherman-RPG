@@ -7,8 +7,7 @@
 
 #include "rpg.h"
 
-void check_fishing_spot(rpg_t *rpg,
-    entity_t *player, puzzle_t *puzzle)
+void check_fishing_spot(entity_t *player, puzzle_t *puzzle)
 {
     sfFloatRect rect = {0};
     int i = 0;

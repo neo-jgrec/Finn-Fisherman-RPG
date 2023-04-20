@@ -35,8 +35,7 @@
 
     void check_spikes_collision(rpg_t *rpg, entity_t *player, puzzle_t *puzzle);
     void check_monster_collision(rpg_t *rpg, entity_t *player);
-    void check_fishing_spot(rpg_t *rpg,
-        entity_t *player, puzzle_t *puzzle);
+    void check_fishing_spot(entity_t *player, puzzle_t *puzzle);
     void hit_player(rpg_t *rpg, int damage, entity_t *entity);
     int manage_fishing(entity_t *player, rpg_t *rpg);
 

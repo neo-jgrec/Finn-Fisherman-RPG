@@ -42,13 +42,19 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_saves.c \
 							src/init/init_fish_spot.c \
 							src/init/init_song.c \
-							src/init/init_parall.c
+							src/init/init_parall.c \
+							src/init/init_shaders.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
 							src/init/npc/init_chef.c	\
 							src/init/npc/init_alchemist.c	\
 						    src/init/npc/init_npc_sprites.c
+
+SRC						+=  src/init/quests/add_quest_to_lst.c \
+							src/init/quests/get_xml_info_quest.c \
+							src/init/quests/init_quest.c \
+							src/init/quests/my_strupcase.c
 
 SRC						+=	src/player/manage_jump.c \
 							src/player/manage_roll.c \
@@ -78,8 +84,13 @@ SRC						+=	src/fishing/start_fishing_minigame.c \
 							src/fishing/make_keep_zone_move.c \
 							src/fishing/move_fish.c \
 							src/fishing/change_zone_color.c	\
-							src/fishing/end_fishing_game.c	\
-							src/fishing/free_fishing.c
+							src/fishing/end_fishing_game.c
+
+SRC						+=	src/destroy_rpg/destroy_rpg.c \
+							src/destroy_rpg/free_fishing.c \
+							src/destroy_rpg/free_window.c \
+							src/destroy_rpg/free_quest.c \
+							src/destroy_rpg/free_song.c
 
 SRC						+=	src/window/cam_management.c \
 							src/window/switch_size.c \
@@ -127,7 +138,8 @@ SRC						+=  src/npc/manage_npc.c \
 SRC 					+=	src/utils/is_rect_hover.c	\
 							src/utils/read_folder.c
 
-SRC 					+=	src/saves/create_save.c
+SRC 					+=	src/saves/create_save.c		\
+							src/saves/check.c
 
 SRC						+=	src/parallax/draw_parall.c \
 							src/parallax/manage_parall.c

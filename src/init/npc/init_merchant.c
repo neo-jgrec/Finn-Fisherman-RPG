@@ -36,7 +36,7 @@ npc_l *lst_merchant)
     return (merchant);
 }
 
-void init_merchant(npc_l *lst_merchant, char *name, sfVector2f pos)
+void init_merchant(npc_l *lst_merchant, char *name, sfVector2f pos, rpg_t *rpg)
 {
     npc_lt *merchant = get_merchant_info(name, pos, lst_merchant);
 
@@ -50,4 +50,5 @@ void init_merchant(npc_l *lst_merchant, char *name, sfVector2f pos)
         lst_merchant->tail = merchant;
     }
     lst_merchant->size++;
+    add_quest_to_lst(rpg, name);
 }
