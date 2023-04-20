@@ -14,6 +14,8 @@ static void check_for_map_change(rpg_t *rpg, int map)
         rpg->data->location = map - 1;
         free_puzzle(rpg->puzzle);
         init_puzzle(rpg);
+        free_monsters(rpg);
+        init_monsters(rpg);
     }
 }
 

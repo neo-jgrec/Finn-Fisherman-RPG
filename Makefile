@@ -44,7 +44,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_song.c \
 							src/init/init_parall.c \
 							src/init/init_shaders.c \
-							src/init/init_sign.c
+							src/init/init_sign.c \
+							src/init/init_monsters.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\
@@ -147,7 +148,9 @@ SRC 					+=	src/saves/create_save.c		\
 SRC						+=	src/parallax/draw_parall.c \
 							src/parallax/manage_parall.c
 
-SRC						+=	src/free/free_puzzle.c
+SRC						+=	src/free/free_puzzle.c \
+							src/free/free_entity.c \
+							src/free/free_monsters.c
 
 MAIN 					= 	src/main.c
 

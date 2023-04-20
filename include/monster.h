@@ -10,7 +10,9 @@
 
     #include "rpg.h"
 
+void init_monsters(rpg_t *rpg);
 void init_mas(asset_t *asset);
+void free_monsters(rpg_t *rpg);
 
 void manage_monster(win_t *win, rpg_t *rpg);
 
