@@ -38,7 +38,8 @@ SRC						+=	src/init/init_rpg.c \
 							src/init/init_eye.c \
 							src/init/init_shroom.c	\
 							src/init/init_saves.c	\
-							src/init/init_song.c
+							src/init/init_song.c	\
+							src/init/init_shaders.c
 
 SRC						+=  src/init/npc/init_merchant.c	\
 							src/init/npc/init_priest.c	\

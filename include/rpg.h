@@ -47,10 +47,17 @@
     #include "song.h"
     #include "quests.h"
     #include "destroy.h"
+    #include "shaders.h"
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
+
+    typedef enum weather {
+        NONE_WEATHER,
+        RAIN,
+        SNOW
+    } weather_e;
 
     typedef struct rpg_s {
         win_t *win;
@@ -71,6 +78,9 @@
         int music_volume;
         int sound_volume;
         char *save_path;
+        all_shaders_t *shaders;
+        sfRectangleShape *shader_layer;
+        weather_e weather;
     } rpg_t;
 
     int rpg(void);
