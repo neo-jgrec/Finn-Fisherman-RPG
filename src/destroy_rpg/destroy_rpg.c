@@ -13,5 +13,6 @@ void destroy_rpg(rpg_t *rpg)
         return;
     free_fishing(rpg);
     free_quest(rpg->quests);
+    free_songs(rpg);
     free_window(rpg->win);
 }

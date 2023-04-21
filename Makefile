@@ -94,7 +94,8 @@ SRC						+=	src/fishing/start_fishing_minigame.c 		\
 SRC						+=	src/destroy_rpg/destroy_rpg.c 				\
 							src/destroy_rpg/free_fishing.c 				\
 							src/destroy_rpg/free_window.c 				\
-							src/destroy_rpg/free_quest.c
+							src/destroy_rpg/free_quest.c				\
+							src/destroy_rpg/free_songs.c
 
 SRC						+=	src/window/cam_management.c 				\
 							src/window/switch_size.c 					\
