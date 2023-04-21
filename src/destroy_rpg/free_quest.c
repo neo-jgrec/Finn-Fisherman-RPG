@@ -12,7 +12,6 @@ static void free_quest_lst_elms(quest_t *quest)
     quest_s *temp = quest->tail;
 
     while (temp->prev){
-        free(temp->dialogue);
         free(temp->name_npc);
         free(temp->q_desc);
         free(temp->requirement.requirement);
@@ -20,7 +19,6 @@ static void free_quest_lst_elms(quest_t *quest)
         temp = temp->prev;
         free(temp->next);
     }
-    free(temp->dialogue);
     free(temp->name_npc);
     free(temp->q_desc);
     free(temp->requirement.requirement);

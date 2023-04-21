@@ -104,7 +104,7 @@
     * @param delim Selimiter (ex: '\\t')
     * @return char**
     */
-    char **my_strsplit(const char *str, const char delim);
+    char **my_strsplit(char const *str, char const *token);
 
     /**
     * @brief Reverse a string

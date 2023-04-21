@@ -30,5 +30,7 @@ void end_game(fishing_t *game, win_t *win, rpg_t *rpg)
         game->info->clock_keep_time = 0;
         game->info->game_start = 0;
         game->info->res_fishing = (out) ? -1 : 1;
+        if (!out)
+            add_res_to_quest(rpg->quests, "Peche");
     }
 }

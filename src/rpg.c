@@ -21,6 +21,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_npc(rpg);
     init_song(rpg);
     init_shaders(rpg);
+    init_in_game_menu(rpg);
 }
 
 int rpg(void)
