@@ -20,6 +20,8 @@
     }
     #define REQ_OBJ (char*[]){quest->xml_npc, "REQUIREMENT_OBJ", NULL\
     }
+    #define MAP (char*[]){quest->xml_npc, "MAP", NULL\
+    }
     #define PARSER quest->dialogue.parser
 
     #include "rpg.h"
@@ -44,6 +46,7 @@
         char *xml_npc;
         char *q_desc;
         int state;
+        int map;
         s_req requirement;
         dialogue_t dialogue;
         sfText *text;
