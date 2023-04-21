@@ -36,34 +36,35 @@ static void change_button_style(button_t *button, UNUSED rpg_t *rpg)
 {
     switch (button->state) {
         case IDLE_BUTTON:
+            sfText_setCharacterSize(rpg->menu->text, 30);
+            sfText_setStyle(rpg->menu->text, sfTextRegular);
+            sfText_setColor(rpg->menu->text, sfWhite);
             break;
         case HOVER_BUTTON:
+            sfText_setCharacterSize(rpg->menu->text, 35);
             break;
         case CLICKED_BUTTON:
+            sfText_setCharacterSize(rpg->menu->text, 35);
+            sfText_setStyle(rpg->menu->text, sfTextBold);
+            sfText_setColor(rpg->menu->text, sfRed);
             break;
     }
 }
 
 void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list)
 {
-    sfText *text = sfText_create();
     button_t *button = NULL;
 
     TAILQ_FOREACH(button, button_list, next) {
-        sfText_setStyle(text, sfTextRegular);
+        if (rpg->menu->in_game_menu->panel_type == SETTINGS_PANEL
+        && !my_strcmp(button->name, "<-"))
+            continue;
+        sfText_setStyle(rpg->menu->text, sfTextRegular);
         button_state(win->win, button, rpg);
         change_button_style(button, rpg);
-        sfText_setString(text, button->name);
-        sfText_setFont(text, rpg->menu->font);
-        sfText_setColor(text, sfWhite);
-        sfText_setPosition(text, button->pos);
-        sfText_setCharacterSize(text, 30);
-        if (button->state == HOVER_BUTTON)
-            sfText_setCharacterSize(text, 35);
-        if (button->state == CLICKED_BUTTON) {
-            sfText_setStyle(text, sfTextBold);
-            sfText_setColor(text, sfRed);
-        }
-        sfRenderWindow_drawText(win->win, text, NULL);
+        sfText_setString(rpg->menu->text, button->name);
+        sfText_setFont(rpg->menu->text, rpg->menu->font);
+        sfText_setPosition(rpg->menu->text, button->pos);
+        sfRenderWindow_drawText(win->win, rpg->menu->text, NULL);
     }
 }

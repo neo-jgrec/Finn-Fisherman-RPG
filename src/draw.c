@@ -8,6 +8,8 @@
 #include "rpg.h"
 
 void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list);
+void settings_menu(win_t *win, rpg_t *rpg);
+void saves_menu_in_game(win_t *win, rpg_t *rpg);
 
 static void shader_switch(rpg_t *rpg, int intensity)
 {
@@ -26,6 +28,26 @@ static void shader_switch(rpg_t *rpg, int intensity)
             break;
         default:
             break;
+    }
+}
+
+static void in_game_menu(win_t *win, rpg_t *rpg)
+{
+    if (rpg->menu->in_game_menu->panel_type != NONE_PANEL) {
+        sfRenderWindow_drawRectangleShape(win->win,
+        rpg->menu->in_game_menu->bg, NULL);
+        button_manager(win, rpg, (struct buttons *)&(rpg->menu->in_game_menu
+            ->nav_buttons));
+        switch (rpg->menu->in_game_menu->panel_type) {
+            case SETTINGS_PANEL:
+                settings_menu(win, rpg);
+                break;
+            case SAVE_PANEL:
+                saves_menu_in_game(win, rpg);
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -52,10 +74,7 @@ void draw(win_t *win, rpg_t *rpg)
     draw_items(rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
     shader_switch(rpg, 100);
-    if (rpg->menu->in_game_menu->panel_type != NONE_PANEL) {
-        sfRenderWindow_drawRectangleShape(win->win,
-        rpg->menu->in_game_menu->bg, NULL);
-        button_manager(win, rpg, (struct buttons *)&(rpg->menu->in_game_menu
-            ->nav_buttons));
-    } sfRenderWindow_display(win->win);
+    if (rpg->menu->in_game_menu->panel_type != NONE_PANEL)
+        in_game_menu(win, rpg);
+    sfRenderWindow_display(win->win);
 }
