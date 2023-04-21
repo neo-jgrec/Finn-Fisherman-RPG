@@ -140,10 +140,6 @@ SRC						+=  src/npc/manage_npc.c \
 							src/npc/verify_state_npc.c	\
 							src/npc/animate_npc.c \
 							src/npc/npc_interraction.c
-SRC						+=  src/npc/manage_npc.c 						\
-							src/npc/display_npc.c 						\
-							src/npc/verify_state_npc.c					\
-							src/npc/animate_npc.c
 
 SRC 					+=	src/utils/is_rect_hover.c					\
 							src/utils/read_folder.c
