@@ -22,7 +22,6 @@ static zone_t *init_zone(fishing_t *game)
     sfRectangleShape_setPosition(zone->zone, zone->pos_zone);
     sfRectangleShape_setOrigin(zone->zone, (sfVector2f){15, 50});
     sfRectangleShape_setFillColor(zone->zone, sfGreen);
-    zone->clock_zone = 0;
     zone->speed_zone = 0;
     return (zone);
 }
@@ -69,7 +68,6 @@ static game_info_t *init_game_info(void)
 
     if (!game)
         return (NULL);
-    game->clock_game = 0;
     game->clock_keep_time = 0;
     game->game_state = false;
     game->game_time = 0;

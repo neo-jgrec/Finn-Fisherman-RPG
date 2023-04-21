@@ -55,6 +55,5 @@ static void make_random_move(fishing_t *game, win_t *win)
 
 void make_fish_move(win_t *win, fishing_t *game)
 {
-    game->info->clock_game += win->deltaT;
     make_random_move(game, win);
 }
