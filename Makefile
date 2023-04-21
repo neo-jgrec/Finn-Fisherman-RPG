@@ -177,7 +177,8 @@ SRC						+=	src/song/pause/pause_loop_song.c
 SRC						+=	src/song/stop/stop_loop_song.c
 
 SRC 					+= 	src/in_game_menu/buttons_actions.c			\
-							src/in_game_menu/settings.c
+							src/in_game_menu/settings.c					\
+							src/in_game_menu/saves.c
 
 MAIN 					= 	src/main.c
 

@@ -16,3 +16,8 @@ void settings_button_action(rpg_t *rpg)
 {
     rpg->menu->in_game_menu->panel_type = SETTINGS_PANEL;
 }
+
+void save_button_action(rpg_t *rpg)
+{
+    rpg->menu->in_game_menu->panel_type = SAVE_PANEL;
+}

@@ -64,6 +64,7 @@ static void settings_menu(win_t *win, rpg_t *rpg)
 
 void menu_loop(win_t *win, rpg_t *rpg)
 {
+    rpg->menu->in_game_menu->panel_type = NONE_PANEL;
     if (rpg->menu->scene == MAIN_MENU) {
         sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 1.0);
         sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 1.0);
