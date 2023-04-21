@@ -12,7 +12,7 @@ Essaye donc de reussir a pecher 10 fois si tu y arrive !</DIALOGUE>
         <Q_DESC>Réussis à pêcher 10 fois</Q_DESC>
         <REQ_NAME>Peche</REQ_NAME>
         <REQUIREMENT_OBJ>10</REQUIREMENT_OBJ>
-        <DIALOGUE1>Félicitation je n'en attendais pas moins de toi !</DIALOGUE1>
-        <DIALOGUE_FINISH>Va aventurier, poursuis ta grande quête !</DIALOGUE_FINISH>
+        <DIALOGUE1>Felicitation je n'en attendais pas moins de toi !</DIALOGUE1>
+        <DIALOGUE_FINISH>Va aventurier, poursuis ta grande quete !</DIALOGUE_FINISH>
     </PNJ_MARTIN>
 </QUEST>

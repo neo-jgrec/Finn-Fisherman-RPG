@@ -9,31 +9,63 @@
 
 static void verify_pos_in_dialogue(char **dialogue, quest_s *quest)
 {
-    if (!dialogue[PARSER + 1]) {
+    if (!dialogue[PARSER]) {
         PARSER = 0;
-        sfText_setString(quest->text, dialogue[PARSER]);
         quest->dialogue.is_talking = false;
         return;
     }
-    sfText_setString(quest->text, dialogue[PARSER + 1]);
+    sfText_setString(quest->text, dialogue[PARSER]);
     quest->dialogue.parser++;
 }
 
 static void change_text(quest_s *quest)
 {
-    if (quest->state == 0 && quest->requirement.number_get <
-    quest->requirement.number_req)
+    if (quest->state == -1) {
         verify_pos_in_dialogue(quest->dialogue.dialogue, quest);
+        if (!quest->dialogue.is_talking)
+            quest->state = 0;
+        return;
+    } if (quest->state == 0 && quest->requirement.number_get <
+    quest->requirement.number_req) {
+        verify_pos_in_dialogue(quest->dialogue.dialogue, quest);
+        return;
+    } if (quest->state == 0 && quest->requirement.number_get >=
+    quest->requirement.number_req) {
+        verify_pos_in_dialogue(quest->dialogue.dialogue_complete, quest);
+        if (!quest->dialogue.is_talking)
+            quest->state = 1;
+        return;
+    } if (quest->state == 1) {
+        verify_pos_in_dialogue(quest->dialogue.dialogue_finish, quest);
+        return;
+    }
+}
+
+static bool set_beg(quest_s *quest)
+{
+    if (PARSER != 0)
+        return false;
+    if (quest->state == -1 || (quest->state == 0 &&
+    quest->requirement.number_get < quest->requirement.number_req))
+        sfText_setString(quest->text, quest->dialogue.dialogue[PARSER]);
     if (quest->state == 0 && quest->requirement.number_get >=
     quest->requirement.number_req)
-        verify_pos_in_dialogue(quest->dialogue.dialogue_complete, quest);
+        sfText_setString(quest->text,
+        quest->dialogue.dialogue_complete[PARSER]);
     if (quest->state == 1)
-        verify_pos_in_dialogue(quest->dialogue.dialogue_finish, quest);
+        sfText_setString(quest->text,
+        quest->dialogue.dialogue_finish[PARSER]);
+    PARSER++;
+    return true;
 }
 
 static void manage_quest(quest_s *quest, win_t *win)
 {
     quest->dialogue.clock_dialogue += win->deltaT;
+    if (set_beg(quest)) {
+        quest->dialogue.clock_dialogue = 0;
+        return;
+    }
     if (quest->dialogue.clock_dialogue > 3) {
         change_text(quest);
         quest->dialogue.clock_dialogue = 0;

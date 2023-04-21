@@ -14,7 +14,6 @@ static void init_dialogue(npc_lt *npc, quest_s *quest)
         sfText_setString(quest->text, quest->dialogue.dialogue[PARSER]);
         sfText_setPosition(quest->text, (sfVector2f){POS_NPC.x - 20,
         POS_NPC.y - 30});
-        quest->state = 0;
     }
 }
 
@@ -27,7 +26,7 @@ static void change_npc_dialogue_state(npc_lt *npc, quest_t *quest)
         if (temp->dialogue.is_talking)
             continue;
         diff = my_strcmp(npc->name, temp->name_npc);
-        if (diff == 0 && temp->state == -1) {
+        if (diff == 0 && temp->state == -1 && !temp->dialogue.is_talking) {
             init_dialogue(npc, temp);
             return;
         }
