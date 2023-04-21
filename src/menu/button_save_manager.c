@@ -57,6 +57,12 @@ static void change_button_style(button_t *button, rpg_t *rpg)
 void button_manager_save(win_t *win, rpg_t *rpg)
 {
     for (size_t i = 0; i < 3; i++) {
+        sfVector2u win_size = sfRenderWindow_getSize(win->win);
+        sfRectangleShape_setPosition(rpg->menu->saves[i]->button->shape,
+            (sfVector2f){win_size.x / 2 - 350, 200 + 185 * i});
+        sfRectangleShape_setSize(rpg->menu->saves[i]->button->shape,
+            (sfVector2f){700, 150});
+
         button_state(win->win, rpg->menu->saves[i]->button);
         change_button_style(rpg->menu->saves[i]->button, rpg);
         if (rpg->menu->saves[i]->button->state == HOVER_BUTTON

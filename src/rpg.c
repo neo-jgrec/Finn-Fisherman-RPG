@@ -23,6 +23,8 @@ static void init_rpg_parts(rpg_t *rpg)
     init_song(rpg);
     init_parall(rpg->player, rpg, 0);
     init_shaders(rpg);
+    init_monsters(rpg);
+    init_in_game_menu(rpg);
 }
 
 int rpg(void)
@@ -30,9 +32,8 @@ int rpg(void)
     entity_t *monster = NULL;
     rpg_t *rpg = init_rpg();
 
-    init_rpg_parts(rpg);
     rpg->monsters = &monster;
-    add_monster(rpg, 1, (VEC){500, 500});
+    init_rpg_parts(rpg);
     init_fishing(rpg);
     scene_manager(rpg);
     return 0;

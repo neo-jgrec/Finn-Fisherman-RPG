@@ -8,143 +8,147 @@
 PROJECT_NAME			=	my_rpg
 NAME					=	my_rpg
 
-SRC 					:=	src/main_loop.c \
-							src/rpg.c \
-							src/loading_screen.c \
-							src/check_input.c \
-							src/draw_map.c \
-							src/draw.c \
-							src/get_random.c \
-							src/scene_manager.c \
-							src/set_position.c \
-							src/dist.c \
-							src/a_stw.c \
-							src/free_stw.c \
+SRC 					:=	src/main_loop.c 							\
+							src/rpg.c 									\
+							src/loading_screen.c 						\
+							src/check_input.c 							\
+							src/draw_map.c 								\
+							src/draw.c 									\
+							src/get_random.c 							\
+							src/scene_manager.c 						\
+							src/set_position.c 							\
+							src/dist.c 									\
+							src/a_stw.c 								\
+							src/free_stw.c 								\
 							src/add_collider.c
 
-SRC						+=	src/init/init_rpg.c \
-							src/init/init_win.c \
-							src/init/init_puzzle.c \
-							src/init/init_asset.c \
-							src/init/init_player.c \
-							src/init/init_loading.c \
-							src/init/init_sprite.c \
-							src/init/init_input.c \
-							src/init/init_data.c \
-							src/init/init_map.c \
-							src/init/init_menu.c \
-							src/init/init_fishing.c	\
-							src/init/init_npc.c	\
-							src/init/init_monster_asset.c \
-							src/init/init_skeleton.c \
-							src/init/init_eye.c \
-							src/init/init_shroom.c	\
-							src/init/init_saves.c \
-							src/init/init_fish_spot.c \
-							src/init/init_song.c \
-							src/init/init_parall.c \
+SRC						+=	src/init/init_rpg.c 						\
+							src/init/init_win.c 						\
+							src/init/init_puzzle.c 						\
+							src/init/init_asset.c 						\
+							src/init/init_player.c 						\
+							src/init/init_loading.c 					\
+							src/init/init_sprite.c 						\
+							src/init/init_input.c 						\
+							src/init/init_data.c 						\
+							src/init/init_map.c 						\
+							src/init/init_menu.c 						\
+							src/init/init_fishing.c						\
+							src/init/init_npc.c							\
+							src/init/init_monster_asset.c 				\
+							src/init/init_skeleton.c 					\
+							src/init/init_eye.c 						\
+							src/init/init_shroom.c						\
+							src/init/init_saves.c 						\
+							src/init/init_fish_spot.c 					\
+							src/init/init_song.c 						\
+							src/init/init_parall.c 						\
 							src/init/init_shaders.c \
-							src/init/init_sign.c
+							src/init/init_sign.c \
+							src/init/init_monsters.c						\
+							src/init/init_in_game_menu.c
 
-SRC						+=  src/init/npc/init_merchant.c	\
-							src/init/npc/init_priest.c	\
-							src/init/npc/init_chef.c	\
-							src/init/npc/init_alchemist.c	\
+SRC						+=  src/init/npc/init_merchant.c				\
+							src/init/npc/init_priest.c					\
+							src/init/npc/init_chef.c					\
+							src/init/npc/init_alchemist.c				\
 						    src/init/npc/init_npc_sprites.c
 
-SRC						+=  src/init/quests/add_quest_to_lst.c \
-							src/init/quests/get_xml_info_quest.c \
-							src/init/quests/init_quest.c \
+SRC						+=  src/init/quests/add_quest_to_lst.c 			\
+							src/init/quests/get_xml_info_quest.c 		\
+							src/init/quests/init_quest.c 				\
 							src/init/quests/my_strupcase.c
 
-SRC						+=	src/player/manage_jump.c \
-							src/player/manage_roll.c \
-							src/player/check_collision.c \
-							src/player/manage_player.c \
-							src/player/move_player.c \
-							src/player/on_ground.c \
-							src/player/draw_player_hud.c \
-							src/player/draw_button_hud.c \
-							src/player/manage_heal.c \
-							src/player/hit_player.c \
-							src/player/manage_attack.c \
-							src/player/check_monster_collision.c \
-							src/player/check_spikes_collision.c \
-							src/player/check_fishing_spot.c \
+SRC						+=	src/player/manage_jump.c 					\
+							src/player/manage_roll.c 					\
+							src/player/check_collision.c 				\
+							src/player/manage_player.c 					\
+							src/player/move_player.c 					\
+							src/player/on_ground.c 						\
+							src/player/draw_player_hud.c 				\
+							src/player/draw_button_hud.c 				\
+							src/player/manage_heal.c 					\
+							src/player/hit_player.c 					\
+							src/player/manage_attack.c 					\
+							src/player/check_monster_collision.c 		\
+							src/player/check_spikes_collision.c 		\
+							src/player/check_fishing_spot.c 			\
 							src/player/manage_fishing.c \
 							src/player/draw_youdead.c \
 							src/player/check_sign.c
 
-SRC						+=	src/player/anim/set_anim.c \
-							src/player/anim/set_sprite.c \
-							src/player/anim/return_to_idle.c \
-							src/player/anim/heal_anim.c \
-							src/player/anim/death_anim.c \
-							src/player/anim/attack_anim.c \
+SRC						+=	src/player/anim/set_anim.c 					\
+							src/player/anim/set_sprite.c 				\
+							src/player/anim/return_to_idle.c 			\
+							src/player/anim/heal_anim.c 				\
+							src/player/anim/death_anim.c 				\
+							src/player/anim/attack_anim.c 				\
 							src/player/anim/flip_sprite.c
 
-SRC						+=	src/fishing/start_fishing_minigame.c \
-							src/fishing/make_keep_zone_move.c \
-							src/fishing/move_fish.c \
-							src/fishing/change_zone_color.c	\
+SRC						+=	src/fishing/start_fishing_minigame.c 		\
+							src/fishing/make_keep_zone_move.c 			\
+							src/fishing/move_fish.c 					\
+							src/fishing/change_zone_color.c				\
 							src/fishing/end_fishing_game.c
 
-SRC						+=	src/destroy_rpg/destroy_rpg.c \
-							src/destroy_rpg/free_fishing.c \
-							src/destroy_rpg/free_window.c \
+SRC						+=	src/destroy_rpg/destroy_rpg.c 				\
+							src/destroy_rpg/free_fishing.c 				\
+							src/destroy_rpg/free_window.c 				\
 							src/destroy_rpg/free_quest.c
 
-SRC						+=	src/window/cam_management.c \
-							src/window/switch_size.c \
+SRC						+=	src/window/cam_management.c 				\
+							src/window/switch_size.c 					\
 							src/window/switch_style.c
 
 SRC 					+= 	src/map_parser/map_parser.c
 
-SRC						+= 	src/menu/menu_loop.c		\
-							src/menu/buttons/manager.c	\
-							src/menu/buttons/functions.c \
-							src/menu/buttons/functions_settings.c \
-							src/menu/buttons/functions_res.c	\
-							src/menu/saves.c \
-							src/menu/button_save_manager.c	\
+SRC						+= 	src/menu/menu_loop.c						\
+							src/menu/buttons/manager.c					\
+							src/menu/buttons/functions.c 				\
+							src/menu/buttons/functions_settings.c 		\
+							src/menu/buttons/functions_res.c			\
+							src/menu/saves.c 							\
+							src/menu/button_save_manager.c				\
 							src/menu/buttons/saves_action.c
 
-SRC 					+=	xml_parser/edit_value.c \
-							xml_parser/free.c \
-							xml_parser/init.c \
-							xml_parser/node_parsing.c \
-							xml_parser/parser.c \
-							xml_parser/update_xml.c \
+SRC 					+=	xml_parser/edit_value.c 					\
+							xml_parser/free.c 							\
+							xml_parser/init.c 							\
+							xml_parser/node_parsing.c 					\
+							xml_parser/parser.c 						\
+							xml_parser/update_xml.c 					\
 							xml_parser/utils.c
 
-SRC						+=	src/monsters/add_monster.c \
-							src/monsters/draw_monsters.c \
-							src/monsters/manage_monster.c \
+SRC						+=	src/monsters/add_monster.c 					\
+							src/monsters/draw_monsters.c 				\
+							src/monsters/manage_monster.c 				\
 
-SRC						+=	src/monsters/skeleton/manage_skeleton.c \
+SRC						+=	src/monsters/skeleton/manage_skeleton.c 	\
 							src/monsters/skeleton/set_sprite_skeleton.c \
 
-SRC						+=	src/monsters/eye/manage_eye.c \
+SRC						+=	src/monsters/eye/manage_eye.c 				\
 							src/monsters/eye/set_sprite_eye.c
 
-SRC						+=	src/monsters/shroom/manage_shroom.c \
+SRC						+=	src/monsters/shroom/manage_shroom.c 		\
 							src/monsters/shroom/set_sprite_shroom.c
 
-SRC						+=  src/npc/manage_npc.c \
-							src/npc/display_npc.c \
-							src/npc/verify_state_npc.c	\
+SRC						+=  src/npc/manage_npc.c 						\
+							src/npc/display_npc.c 						\
+							src/npc/verify_state_npc.c					\
 							src/npc/animate_npc.c
 
-SRC 					+=	src/utils/is_rect_hover.c	\
+SRC 					+=	src/utils/is_rect_hover.c					\
 							src/utils/read_folder.c
 
-SRC 					+=	src/saves/create_save.c		\
+SRC 					+=	src/saves/create_save.c						\
 							src/saves/check.c
 
-SRC						+=	src/parallax/draw_parall.c \
+SRC						+=	src/parallax/draw_parall.c 					\
 							src/parallax/manage_parall.c
 
-SRC						+=	src/free/free_puzzle.c
+SRC						+=	src/free/free_puzzle.c \
+							src/free/free_entity.c \
+							src/free/free_monsters.c
 
 SRC						+=	src/song/play/play_loop_song.c	\
 							src/song/play/play_sound.c
