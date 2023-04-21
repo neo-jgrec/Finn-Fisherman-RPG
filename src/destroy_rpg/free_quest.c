@@ -13,14 +13,14 @@ static void free_quest_lst_elms(quest_t *quest)
 
     while (temp->prev){
         free(temp->name_npc);
-        free(temp->q_desc);
+        free(temp->desc.q_desc);
         free(temp->requirement.requirement);
         free(temp->xml_npc);
         temp = temp->prev;
         free(temp->next);
     }
     free(temp->name_npc);
-    free(temp->q_desc);
+    free(temp->desc.q_desc);
     free(temp->requirement.requirement);
     free(temp->xml_npc);
     free(temp);

@@ -24,7 +24,7 @@ void get_xml_info_quest(quest_s *quest)
     quest->dialogue.dialogue = my_strsplit(dialogue, "\n");
     quest->dialogue.dialogue_complete = my_strsplit(dialogue_comp, "\n");
     quest->dialogue.dialogue_finish = my_strsplit(dialogue_fin, "\n");
-    quest->q_desc = my_strdup(q_desc);
+    quest->desc.q_desc = my_strdup(q_desc);
     quest->requirement.number_req = my_atoi(nb_req);
     quest->map = my_atoi(map);
     quest->requirement.requirement = my_strdup(requirement);

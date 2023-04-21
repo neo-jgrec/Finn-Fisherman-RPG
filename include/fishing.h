@@ -29,7 +29,6 @@
 
     typedef struct keep_zone_s {
         float speed_zone;
-        float clock_zone;
         sfVector2f pos_zone;
         sfRectangleShape *zone;
     } zone_t;
@@ -43,7 +42,6 @@
 
     typedef struct fish_info_s {
         bool game_state;
-        float clock_game;
         float clock_keep_time;
         float game_start;
         int game_time;
