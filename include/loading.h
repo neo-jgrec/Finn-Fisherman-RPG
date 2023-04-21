@@ -13,6 +13,7 @@
     typedef struct rpg_s rpg_t;
 
     typedef struct loading_s {
+        sprite_t youdead;
         sprite_t *fishs;
         int nb_fish;
         int fish;
@@ -22,5 +23,6 @@
         int pourcentage, int next);
 
     void init_loading(rpg_t *rpg);
+    void youdead(rpg_t *rpg, loading_t *loading, int a);
 
 #endif /* !LOADING_H_ */

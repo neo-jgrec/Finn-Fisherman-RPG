@@ -38,5 +38,6 @@
     void check_fishing_spot(entity_t *player, puzzle_t *puzzle);
     void hit_player(rpg_t *rpg, int damage, entity_t *entity);
     int manage_fishing(entity_t *player, rpg_t *rpg);
+    void check_sign(entity_t *player, puzzle_t *puzzle, rpg_t *rpg);
 
 #endif /* !_PLAYER_H__ */

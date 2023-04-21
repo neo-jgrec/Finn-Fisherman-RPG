@@ -26,7 +26,7 @@ int main_loop(win_t *win, rpg_t *rpg)
         win->deltaT = 0;
     sfClock_restart(win->time);
     analyse_events(rpg->win, rpg);
-    manage_song(rpg);
+    play_loop_song(MAIN_MUSIC, rpg);
     manage_player(win, rpg->player, rpg);
     manage_monster(win, rpg);
     manage_npc(rpg, rpg->npc);
