@@ -12,25 +12,45 @@
     }
     #define DIALOGUE (char*[]){quest->xml_npc, "DIALOGUE", NULL\
     }
+    #define DIALOGUE_FIN (char*[]){quest->xml_npc, "DIALOGUE_FINISH", NULL\
+    }
+    #define DIALOGUE_COMP (char*[]){quest->xml_npc, "DIALOGUE1", NULL\
+    }
     #define REQ_NAME (char*[]){quest->xml_npc, "REQ_NAME", NULL\
     }
     #define REQ_OBJ (char*[]){quest->xml_npc, "REQUIREMENT_OBJ", NULL\
     }
+    #define MAP (char*[]){quest->xml_npc, "MAP", NULL\
+    }
+    #define PARSER quest->dialogue.parser
 
     #include "rpg.h"
 
     typedef struct struct_requirement {
         char *requirement;
-        int number;
+        int number_req;
+        int number_get;
     } s_req;
+
+    typedef struct s_dialogue {
+        char **dialogue;
+        char **dialogue_complete;
+        char **dialogue_finish;
+        bool is_talking;
+        size_t parser;
+        float clock_dialogue;
+    } dialogue_t;
 
     typedef struct quest_struct {
         char *name_npc;
         char *xml_npc;
         char *q_desc;
         int state;
+        int map;
         s_req requirement;
-        char *dialogue;
+        dialogue_t dialogue;
+        sfText *text;
+        sfFont *font;
         struct quest_struct *next;
         struct quest_struct *prev;
     } quest_s;
@@ -45,5 +65,8 @@
     void get_xml_info_quest(quest_s *quest);
     void add_quest_to_lst(rpg_t *rpg, char *npc_name);
     void init_quest(rpg_t *rpg);
+    void draw_text(rpg_t *rpg);
+    void display_npc_dialogue(quest_t *quest, rpg_t *rpg);
+    void add_res_to_quest(quest_t *quest, char *quest_type);
 
 #endif /* !QUESTS_ */

@@ -135,10 +135,11 @@ SRC						+=	src/monsters/eye/manage_eye.c 				\
 SRC						+=	src/monsters/shroom/manage_shroom.c 		\
 							src/monsters/shroom/set_sprite_shroom.c
 
-SRC						+=  src/npc/manage_npc.c 						\
-							src/npc/display_npc.c 						\
-							src/npc/verify_state_npc.c					\
-							src/npc/animate_npc.c
+SRC						+=  src/npc/manage_npc.c \
+							src/npc/display_npc.c \
+							src/npc/verify_state_npc.c	\
+							src/npc/animate_npc.c \
+							src/npc/npc_interraction.c
 
 SRC 					+=	src/utils/is_rect_hover.c					\
 							src/utils/read_folder.c
@@ -152,6 +153,10 @@ SRC						+=	src/parallax/draw_parall.c 					\
 SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
 							src/free/free_monsters.c
+
+SRC						+=	src/quests/manage_quest.c \
+							src/quests/draw_text.c \
+							src/quests/add_res_to_quest.c
 
 MAIN 					= 	src/main.c
 

@@ -11,6 +11,7 @@ void manage_npc(rpg_t *rpg, npc_t *npc)
 {
     if (!npc)
         return;
-    verify_state_npc(rpg->player, npc);
+    verify_state_npc(rpg->player, npc, rpg);
+    npc_interraction(rpg);
     animate_npc(npc, rpg->win);
 }
