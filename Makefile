@@ -97,16 +97,14 @@ SRC						+=	src/fishing/start_fishing_minigame.c 		\
 SRC						+=	src/destroy_rpg/destroy_rpg.c 				\
 							src/destroy_rpg/free_fishing.c 				\
 							src/destroy_rpg/free_window.c 				\
-							src/destroy_rpg/free_quest.c 				\
-							src/destroy_rpg/free_song.c
+							src/destroy_rpg/free_quest.c				\
+							src/destroy_rpg/free_songs.c
 
 SRC						+=	src/window/cam_management.c 				\
 							src/window/switch_size.c 					\
 							src/window/switch_style.c
 
 SRC 					+= 	src/map_parser/map_parser.c
-
-SRC						+=	src/song/manage_song.c
 
 SRC						+= 	src/menu/menu_loop.c						\
 							src/menu/buttons/manager.c					\
@@ -160,6 +158,13 @@ SRC						+=	src/free/free_puzzle.c \
 SRC						+=	src/quests/manage_quest.c \
 							src/quests/draw_text.c \
 							src/quests/add_res_to_quest.c
+
+SRC						+=	src/song/play/play_loop_song.c	\
+							src/song/play/play_sound.c
+
+SRC						+=	src/song/pause/pause_loop_song.c
+
+SRC						+=	src/song/stop/stop_loop_song.c
 
 MAIN 					= 	src/main.c
 
