@@ -64,7 +64,7 @@ UNUSED static const char *data_default_xml = "\
         sfVector2f pos;
         struct item_s *next;
     } item_e;
-    
+
     typedef struct data_s {
         xml_parser_t *parser;
         int location;
