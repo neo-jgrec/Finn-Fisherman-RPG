@@ -23,6 +23,7 @@
     #define MAP (char*[]){quest->xml_npc, "MAP", NULL\
     }
     #define PARSER quest->dialogue.parser
+    #define REQ quest->requirement
 
     #include "rpg.h"
 
@@ -41,12 +42,17 @@
         float clock_dialogue;
     } dialogue_t;
 
+    typedef struct quest_desc {
+        char *q_desc;
+        sfText *quest;
+    } desc_t;
+
     typedef struct quest_struct {
         char *name_npc;
         char *xml_npc;
-        char *q_desc;
         int state;
         int map;
+        desc_t desc;
         s_req requirement;
         dialogue_t dialogue;
         sfText *text;
@@ -62,6 +68,9 @@
     } quest_t;
 
     void my_strupcase(char **str);
+    size_t my_nbrlen(int nbr);
+    char *my_nbr_to_str(int nb);
+    char *get_quest_advancement(quest_s *quest);
     void get_xml_info_quest(quest_s *quest);
     void add_quest_to_lst(rpg_t *rpg, char *npc_name);
     void init_quest(rpg_t *rpg);

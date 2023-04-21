@@ -58,7 +58,10 @@ SRC						+=  src/init/npc/init_merchant.c				\
 SRC						+=  src/init/quests/add_quest_to_lst.c 			\
 							src/init/quests/get_xml_info_quest.c 		\
 							src/init/quests/init_quest.c 				\
-							src/init/quests/my_strupcase.c
+							src/init/quests/my_strupcase.c				\
+							src/init/quests/my_nbr_to_str.c				\
+							src/init/quests/get_quest_advancement.c		\
+							src/init/quests/my_nbrlen.c
 
 SRC						+=	src/player/manage_jump.c 					\
 							src/player/manage_roll.c 					\

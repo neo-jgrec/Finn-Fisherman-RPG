@@ -12,7 +12,7 @@ static void move_down(fishing_t *game, win_t *win)
     game->fish->clock_fish += win->deltaT;
 
     if (game->fish->clock_fish < game->fish->time_move_fish){
-        game->fish->pos_fish.y += game->fish->speed_fish;
+        game->fish->pos_fish.y += game->fish->speed_fish * 60;
         if (game->fish->pos_fish.y > game->font->pos_bot.y)
             game->fish->pos_fish.y = game->font->pos_bot.y;
     } else {
@@ -28,7 +28,7 @@ static void move_up(fishing_t *game, win_t *win)
     game->fish->clock_fish += win->deltaT;
 
     if (game->fish->clock_fish < game->fish->time_move_fish){
-        game->fish->pos_fish.y -= game->fish->speed_fish;
+        game->fish->pos_fish.y -= game->fish->speed_fish * 60;
         if (game->fish->pos_fish.y < game->font->pos_top.y)
             game->fish->pos_fish.y = game->font->pos_top.y;
     } else {
@@ -55,7 +55,5 @@ static void make_random_move(fishing_t *game, win_t *win)
 
 void make_fish_move(win_t *win, fishing_t *game)
 {
-    game->info->clock_game += win->deltaT;
-    if (game->info->clock_game > 0.02)
-        make_random_move(game, win);
+    make_random_move(game, win);
 }

@@ -17,13 +17,13 @@ static void init_dialogue(npc_lt *npc, quest_s *quest)
     }
 }
 
-static void change_npc_dialogue_state(npc_lt *npc, quest_t *quest)
+static void change_npc_dialogue_state(npc_lt *npc, quest_t *quest, int map)
 {
     quest_s *temp = quest->head;
     int diff = 0;
 
     for (; temp; temp = temp->next) {
-        if (temp->dialogue.is_talking)
+        if (temp->dialogue.is_talking || temp->map != map)
             continue;
         diff = my_strcmp(npc->name, temp->name_npc);
         if (diff == 0 && temp->state == -1 && !temp->dialogue.is_talking) {
@@ -42,9 +42,9 @@ static void verify_interract(npc_l *npc_lst, rpg_t *rpg)
     npc_lt *npc = npc_lst->head;
 
     for (; npc; npc = npc->next) {
-        if (POS_PLAYER.x < POS_NPC.x + 75 && POS_PLAYER.x - 75 < POS_NPC.x &&
+        if (POS_PLAYER.x < POS_NPC.x + 75 && POS_PLAYER.x > POS_NPC.x - 75 &&
         rpg->input->interact.press)
-            change_npc_dialogue_state(npc, rpg->quests);
+            change_npc_dialogue_state(npc, rpg->quests, rpg->data->location);
         display_npc_dialogue(rpg->quests, rpg);
     }
 }
