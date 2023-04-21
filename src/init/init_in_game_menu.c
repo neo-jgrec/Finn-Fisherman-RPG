@@ -8,6 +8,7 @@
 #include "rpg.h"
 
 void menu_button_action(rpg_t *rpg);
+void settings_button_action(rpg_t *rpg);
 
 static const char *button_name_main[] = {
     "MAIN MENU",
@@ -55,8 +56,8 @@ static void init_buttons(rpg_t *rpg)
         {TEXT_SIZE_LEN(button_name_main[2], 30), 30},
         {TEXT_SIZE_LEN(button_name_main[3], 30), 30},
         {TEXT_SIZE_LEN(button_name_main[4], 30), 30}};
-    void (*action_array[])(rpg_t *) = {&menu_button_action, NULL, NULL, NULL,
-        NULL};
+    void (*action_array[])(rpg_t *) = {&menu_button_action,
+    &settings_button_action, NULL, NULL, NULL};
 
     for (int i = 0; i < 5; i++) {
         button = malloc(sizeof(button_t));

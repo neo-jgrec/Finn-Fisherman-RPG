@@ -165,8 +165,8 @@ SRC						+=	src/item/add_item.c \
 							src/item/manage_items.c \
 							src/item/draw_items.c
 
-SRC						+=	src/quests/manage_quest.c \
-							src/quests/draw_text.c \
+SRC						+=	src/quests/manage_quest.c 					\
+							src/quests/draw_text.c 						\
 							src/quests/add_res_to_quest.c
 
 SRC						+=	src/song/play/play_loop_song.c	\
@@ -175,7 +175,9 @@ SRC						+=	src/song/play/play_loop_song.c	\
 SRC						+=	src/song/pause/pause_loop_song.c
 
 SRC						+=	src/song/stop/stop_loop_song.c
-SRC 					+= 	src/in_game_menu/buttons_actions.c
+
+SRC 					+= 	src/in_game_menu/buttons_actions.c			\
+							src/in_game_menu/settings.c
 
 MAIN 					= 	src/main.c
 
