@@ -11,8 +11,6 @@ int get_xml_int(xml_parser_t *parser, char **tags)
 {
     char *str = NULL;
 
-    if (parser == NULL)
-        return 0;
     str = get_value_by_tags(parser->root, tags);
     if (str == NULL)
         return 0;

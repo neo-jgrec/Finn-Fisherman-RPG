@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void hit_player(rpg_t *rpg, int damage, entity_t *entity)
+void hit_player(UNUSED rpg_t *rpg, int damage, entity_t *entity)
 {
     if (entity->state != HIT && entity->health.damage_cd > 0.3) {
         entity->health.cd = 0;

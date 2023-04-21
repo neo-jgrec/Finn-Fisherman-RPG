@@ -9,7 +9,7 @@
 
 static void player_got_a_hit(rpg_t *rpg, entity_t *player, entity_t *monster)
 {
-    int damage = rpg->data->player_stat.damage;
+    int damage = rpg->data->tot_stat.damage;
 
     if (player->attack.crit)
         damage *= 2;
@@ -19,7 +19,7 @@ static void player_got_a_hit(rpg_t *rpg, entity_t *player, entity_t *monster)
         return hit_player(rpg, damage, monster);
     if (player->attack.crit)
         return hit_player(rpg, damage, monster);
-    player->roll.cd = -1;
+    player->roll.cd = 0;
     monster->state = ATTACK;
 }
 

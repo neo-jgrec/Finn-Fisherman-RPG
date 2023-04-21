@@ -24,7 +24,7 @@ static void draw_health_hud(entity_t *player, rpg_t *rpg)
 {
     sfIntRect health_rect = {0, 0,
         (int)(player->health.health_hud.size.x *
-        player->health.health / rpg->data->player_stat.max_health), 4};
+        player->health.health / rpg->data->tot_stat.max_health), 4};
 
     sfSprite_setTextureRect(player->health.health_hud.sp, health_rect);
     sfSprite_setPosition(player->health.health_hud.sp,

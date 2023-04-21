@@ -1,6 +1,0 @@
-./Makefile:254: illegal token in column 27, giving up (hint: fix the file or remove it from the working set)
-./mars_lib/my_arraylib/Makefile:87: illegal token in column 27, giving up (hint: fix the file or remove it from the working set)
-./mars_lib/my_printf/Makefile:85: illegal token in column 27, giving up (hint: fix the file or remove it from the working set)
-./mars_lib/my_stdlib/Makefile:84: illegal token in column 27, giving up (hint: fix the file or remove it from the working set)
-./src/get_xml_int.c:13: MINOR:C-G7
-./src/init/init_data.c:34: MINOR:C-G7

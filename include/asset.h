@@ -51,6 +51,7 @@
         ma_t ma_shroom;
         ma_t ma_eye;
         sprite_t tileset;
+        sprite_t items;
     } asset_t;
 
     void init_asset(rpg_t *rpg);

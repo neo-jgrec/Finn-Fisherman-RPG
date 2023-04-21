@@ -66,6 +66,7 @@
         asset_t *asset;
         entity_t *player;
         entity_t **monsters;
+        item_e **items;
         loading_t *loading;
         input_t *input;
         menu_t *menu;

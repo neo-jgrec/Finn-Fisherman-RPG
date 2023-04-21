@@ -14,7 +14,7 @@ UNUSED static const char *data_default_xml = "\
 <GAME>\n\
     <SAVENAME>9667854</SAVENAME>\n\
     <LOCATION>0</LOCATION>\n\
-    <STARTED>0</STARTED><\n\
+    <STARTED>0</STARTED>\n\
     <STATS>\n\
         <POTION>\n\
             <MAX_POTION>2</MAX_POTION>\n\
@@ -24,38 +24,25 @@ UNUSED static const char *data_default_xml = "\
         <SPEED>400</SPEED>\n\
         <DAMAGE>50</DAMAGE>\n\
         <CRIT_CHANCE>30</CRIT_CHANCE>\n\
-        <JUMP>1</JUMP>\n\
-        <ROLL>1</ROLL>\n\
-        <FISHING>1</FISHING>\n\
-        <ATTACK>1</ATTACK>\n\
+        <JUMP>3</JUMP>\n\
         <LEVEL>1</LEVEL>\n\
         <EXP>0</EXP>\n\
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>\n\
+        <LVL_POINT>0</LVL_POINT>\n\
     </STATS>\n\
 </GAME>\n\
 ";
 
     typedef enum item_type_s {
+        SWORD,
         HELMET,
         ARMOR,
-        PANT,
+        GANTS,
         BOOTS,
-        RING_1,
-        RING_2,
-        NECKLACE
+        RING,
+        NECKLACE,
+        POTION
     } item_type_e;
-
-    typedef enum item_id_s {
-        EMPTY,
-        BOOTS_1,
-        BOOTS_2
-    } item_id_e;
-
-    typedef struct item_s {
-        item_type_e type;
-        item_id_e id;
-        int equiped;
-    } item_e;
 
     typedef struct player_stat_s {
         int max_potion;
@@ -64,19 +51,28 @@ UNUSED static const char *data_default_xml = "\
         int speed;
         int damage;
         int crit_chance;
+        int jump;
     } player_stat_t;
 
+    typedef struct item_s {
+        item_type_e type;
+        player_stat_t item_stat;
+        int sprite;
+        int in_inventory;
+        int equiped;
+        struct item_s *next;
+    } item_e;
     typedef struct data_s {
         xml_parser_t *parser;
         int location;
+        player_stat_t tot_stat;
         player_stat_t player_stat;
         player_stat_t item_stat;
-        int jump;
         int lvl;
         int xp;
         int xp_to_lvl_up;
         int lvl_point;
-        item_e *inventory;
+        item_e **inventory;
     } data_t;
 
     void init_data(rpg_t *rpg);
