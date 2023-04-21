@@ -20,6 +20,7 @@
     }
     #define REQ_OBJ (char*[]){quest->xml_npc, "REQUIREMENT_OBJ", NULL\
     }
+    #define PARSER quest->dialogue.parser
 
     #include "rpg.h"
 
@@ -32,7 +33,7 @@
     typedef struct s_dialogue {
         char **dialogue;
         char **dialogue_complete;
-        char **dialgue_finish;
+        char **dialogue_finish;
         bool is_talking;
         size_t parser;
         float clock_dialogue;
@@ -45,7 +46,8 @@
         int state;
         s_req requirement;
         dialogue_t dialogue;
-
+        sfText *text;
+        sfFont *font;
         struct quest_struct *next;
         struct quest_struct *prev;
     } quest_s;
@@ -60,5 +62,7 @@
     void get_xml_info_quest(quest_s *quest);
     void add_quest_to_lst(rpg_t *rpg, char *npc_name);
     void init_quest(rpg_t *rpg);
+    void draw_text(rpg_t *rpg);
+    void display_npc_dialogue(quest_t *quest, rpg_t *rpg);
 
 #endif /* !QUESTS_ */

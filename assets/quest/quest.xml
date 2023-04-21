@@ -1,14 +1,14 @@
 <QUEST>
     <PNJ_MARTIN>
         <DIALOGUE>Bonjour aventurier !
-        Bienvenue dans l'univer de ... Mince je ne me souviens plus.
-        Desire tu connaitre le secret pour gagner de la puissance ici ?
-        ...
-        ... Suspense ...
-        La pêche ! Et oui c'est mirraculeux n'est ce pas ?
-        Cependant pecher n'est pas si simple.
-        C'est pourquoi il faudra t'entrainer.
-        Essaye donc de reussir à pecher 10 fois si tu y arrive !</DIALOGUE>
+Bienvenue dans l'univer de ... Mince je ne me souviens plus.
+Desire tu connaitre le secret pour gagner de la puissance ici ?
+...
+... Suspense ...
+La peche ! Et oui c'est mirraculeux n'est ce pas ?
+Cependant pecher n'est pas si simple.
+C'est pourquoi il faudra t'entrainer.
+Essaye donc de reussir a pecher 10 fois si tu y arrive !</DIALOGUE>
         <Q_DESC>Réussis à pêcher 10 fois</Q_DESC>
         <REQ_NAME>Peche</REQ_NAME>
         <REQUIREMENT_OBJ>10</REQUIREMENT_OBJ>

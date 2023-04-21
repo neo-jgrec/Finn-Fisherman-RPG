@@ -145,6 +145,9 @@ SRC 					+=	src/saves/create_save.c		\
 SRC						+=	src/parallax/draw_parall.c \
 							src/parallax/manage_parall.c
 
+SRC						+=	src/quests/manage_quest.c \
+							src/quests/draw_text.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
