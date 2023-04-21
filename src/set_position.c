@@ -18,7 +18,7 @@ void set_position(win_t *win, entity_t *player, rpg_t *rpg)
         return;
     if (player->state != ROLL)
         move_player(player, (VEC){player->hor * win->deltaT *
-            (rpg->data->player_stat.speed),0});
+            (rpg->data->tot_stat.speed),0});
     else
         move_player(player,
             (VEC){player->roll.save_dir * win->deltaT * 800, 0});

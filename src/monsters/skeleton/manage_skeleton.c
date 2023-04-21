@@ -46,11 +46,6 @@ void set_var_skeleton(entity_t *monster, rpg_t *rpg)
     monster->roll.cd += rpg->win->deltaT;
     monster->time += rpg->win->deltaT;
     monster->grounded = on_ground(monster, rpg->puzzle);
-    if (monster->grounded) {
-        monster->jump.nb = rpg->data->jump;
-        if (monster->velocity > 0)
-            monster->velocity = 0;
-    }
     if (monster->state != ATTACK)
         monster_dir(monster, rpg);
     set_position_skeleton(rpg->win, monster, rpg);

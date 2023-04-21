@@ -7,13 +7,13 @@
 
 #include "rpg.h"
 
-void init_skeleton(rpg_t *rpg, entity_t *monster, VEC pos)
+void init_skeleton(rpg_t *rpg, entity_t *monster, monster_stat_t stat)
 {
     monster->dir = 1;
     monster->id = SKELETON;
     monster->state = IDLE;
     monster->prev_state = IDLE;
-    monster->pos = pos;
+    monster->pos = stat.pos;
     monster->rect = (sfFloatRect){0, 0, 64, 150};
     monster->time = 0;
     set_animation(monster, rpg->asset->ma_skeleton.idle, 1, NULL);
@@ -21,6 +21,8 @@ void init_skeleton(rpg_t *rpg, entity_t *monster, VEC pos)
     monster->roll = (roll_t){0};
     monster->attack = (attack_t){0, 0};
     monster->health = (health_t){0};
-    monster->health.health = 500;
+    monster->damage = stat.damage;
+    monster->loot = stat.loot;
+    monster->health.health = stat.life;
     monster->velocity = 0;
 }

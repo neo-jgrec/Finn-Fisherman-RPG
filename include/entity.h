@@ -94,6 +94,8 @@
         int grounded;
         float velocity;
         struct entity_s *next;
+        int damage;
+        int loot;
     } entity_t;
 
     void set_position(win_t *win, entity_t *player, rpg_t *rpg);

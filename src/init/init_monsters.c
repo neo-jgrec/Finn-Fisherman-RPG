@@ -11,18 +11,21 @@ static void init_a_monster(rpg_t *rpg, char *monster)
 {
     char **stw = a_mkstw(monster, ":");
     int len = 0;
-    VEC pos = {0};
+    monster_stat_t stat = {0};
     int type = 0;
 
     if (stw == NULL)
         return;
     for (; stw[len]; len++);
-    if (len != 3)
+    if (len != 6)
         return;
     type = my_atoi(stw[0]);
-    pos.x = my_atoi(stw[1]);
-    pos.y = my_atoi(stw[2]);
-    add_monster(rpg, type, pos);
+    stat.pos.x = my_atoi(stw[1]);
+    stat.pos.y = my_atoi(stw[2]);
+    stat.damage = my_atoi(stw[3]);
+    stat.life = my_atoi(stw[4]);
+    stat.loot = my_atoi(stw[5]);
+    add_monster(rpg, type, stat);
     a_freestw(stw);
 }
 
@@ -35,7 +38,7 @@ void init_monsters(rpg_t *rpg)
 
     if (monsters == NULL)
         return;
-    stw = a_mkstw(monsters, "\n");
+    stw = a_mkstw(monsters, "\n ");
     if (stw == NULL)
         return;
     for (int i = 0; stw[i]; i++)

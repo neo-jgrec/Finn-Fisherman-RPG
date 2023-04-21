@@ -57,9 +57,8 @@ void parse_saves(menu_t *menu)
 {
     char *saves[] = {"saves/save1.xml", "saves/save2.xml", "saves/save3.xml"};
     size_t i = 0;
-    menu->saves = malloc(sizeof(save_menu_t *) * 4);
-    char *tmp = malloc(sizeof(char) * 16);
 
+    menu->saves = malloc(sizeof(save_menu_t *) * 4);
     for (; i < 3; i++) {
         menu->saves[i] = malloc(sizeof(save_menu_t));
         menu->saves[i]->save_file = saves[i];
@@ -67,8 +66,7 @@ void parse_saves(menu_t *menu)
         if (!is_file_exist(saves[i]) || !are_tags_in_file(saves[i])) {
             menu->saves[i]->is_write = false;
             menu->saves[i]->name = NULL;
-            tmp = my_strremove(saves[i], ".xml");
-            create_default_save_file(saves[i], tmp);
+            create_default_save_file(saves[i], saves[i]);
         }
         add_stats(menu->saves[i], menu->saves[i]->parser, saves[i]);
     }

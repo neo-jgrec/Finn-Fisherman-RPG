@@ -46,6 +46,8 @@ void init_asset(rpg_t *rpg)
     asset->pa = init_pa();
     asset->tileset = init_sprite("assets/tileset/tiles.png",
         (VEC){16, 16}, 14, 4);
+    asset->items = init_sprite("assets/tileset/items.png",
+        (VEC){16, 16}, 8, 1);
     sfSprite_setOrigin(asset->tileset.sp, (VEC){0, 0});
     init_mas(asset);
     rpg->asset = asset;

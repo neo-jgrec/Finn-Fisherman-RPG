@@ -52,6 +52,7 @@
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
+    #define NB_MAP 2
 
     typedef enum weather {
         NONE_WEATHER,
@@ -66,6 +67,7 @@
         asset_t *asset;
         entity_t *player;
         entity_t **monsters;
+        item_e **items;
         loading_t *loading;
         input_t *input;
         menu_t *menu;
@@ -99,5 +101,6 @@
     char **a_mkstw(char *str, char *sep);
     sfFloatRect *add_colliders(sfFloatRect *colliders,
         sfFloatRect rect, int *nb_col);
+    int get_xml_int(xml_parser_t *parser, char **tags);
 
 #endif /* !_RPG_H__ */

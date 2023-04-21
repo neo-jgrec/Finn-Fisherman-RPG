@@ -20,7 +20,8 @@ SRC 					:=	src/main_loop.c 							\
 							src/dist.c 									\
 							src/a_stw.c 								\
 							src/free_stw.c 								\
-							src/add_collider.c
+							src/add_collider.c \
+							src/get_xml_int.c
 
 SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_win.c 						\
@@ -78,7 +79,9 @@ SRC						+=	src/player/manage_jump.c 					\
 							src/player/check_fishing_spot.c 			\
 							src/player/manage_fishing.c \
 							src/player/draw_youdead.c \
-							src/player/check_sign.c
+							src/player/check_sign.c \
+							src/player/set_stat.c \
+							src/player/check_items.c
 
 SRC						+=	src/player/anim/set_anim.c 					\
 							src/player/anim/set_sprite.c 				\
@@ -153,7 +156,12 @@ SRC						+=	src/parallax/draw_parall.c 					\
 
 SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
-							src/free/free_monsters.c
+							src/free/free_monsters.c \
+							src/free/free_items.c
+
+SRC						+=	src/item/add_item.c \
+							src/item/manage_items.c \
+							src/item/draw_items.c
 
 SRC						+=	src/quests/manage_quest.c \
 							src/quests/draw_text.c \
