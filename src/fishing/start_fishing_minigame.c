@@ -39,7 +39,7 @@ static void draw_sprites(win_t *win, fishing_t *game)
 }
 
 void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
-rpg_t *rpg)
+    rpg_t *rpg)
 {
     if (FISHING_GAME)
         return;

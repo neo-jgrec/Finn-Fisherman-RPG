@@ -49,6 +49,7 @@ void draw(win_t *win, rpg_t *rpg)
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     draw_map(win, rpg->puzzle, rpg->puzzle->foreground);
     draw_player_hud(rpg->player, rpg);
+    draw_items(rpg);
     play_fishing_game(win, rpg->fishing, rpg->player, rpg);
     shader_switch(rpg, 100);
     if (rpg->menu->in_game_menu->panel_type != NONE_PANEL) {

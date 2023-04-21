@@ -11,7 +11,7 @@ static void check_heal(entity_t *player, rpg_t *rpg)
 {
     if (player->state != HEALING &&
         player->health.save_heal != rpg->input->heal.press
-        && player->roll.cd > 0.1 && player->grounded &&
+        && player->roll.cd > 0.2 && player->grounded &&
         player->health.potion != 0) {
         player->health.potion -= 1;
         player->state = HEALING;

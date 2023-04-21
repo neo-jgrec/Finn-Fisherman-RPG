@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void add_monster(rpg_t *rpg, id_entity id, VEC pos)
+void add_monster(rpg_t *rpg, id_entity id, monster_stat_t stat)
 {
     entity_t **monsters = rpg->monsters;
     entity_t *monster = malloc(sizeof(entity_t));
@@ -15,11 +15,11 @@ void add_monster(rpg_t *rpg, id_entity id, VEC pos)
     if (monster == NULL)
         return;
     if (id == SKELETON)
-        init_skeleton(rpg, monster, pos);
+        init_skeleton(rpg, monster, stat);
     if (id == EYE)
-        init_eye(rpg, monster, pos);
+        init_eye(rpg, monster, stat);
     if (id == SHROOM)
-        init_shroom(rpg, monster, pos);
+        init_shroom(rpg, monster, stat);
     monster->next = *monsters;
     *monsters = monster;
 }

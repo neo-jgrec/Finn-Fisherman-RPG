@@ -55,6 +55,8 @@ static void init_player_2(entity_t *player)
     player->grounded = 0;
     player->dir = 1;
     player->velocity = 0;
+    player->damage = 0;
+    player->loot = 0;
 }
 
 void init_player(asset_t *asset, rpg_t *rpg)

@@ -21,11 +21,9 @@ static char *needed_tags[][4] = {
     {"STATS", "DAMAGE", NULL},
     {"STATS", "CRIT_CHANCE", NULL},
     {"STATS", "JUMP", NULL},
-    {"STATS", "ROLL", NULL},
-    {"STATS", "FISHING", NULL},
-    {"STATS", "ATTACK", NULL},
     {"STATS", "LEVEL", NULL},
     {"STATS", "EXP", NULL},
+    {"STATS", "LVL_POINT", NULL},
     {"STATS", "EXP_TO_NEXT_LEVEL", NULL}
 };
 
@@ -35,7 +33,7 @@ bool are_tags_in_file(char *filename)
     size_t i = 0;
 
     parse_xml(parser);
-    for (i = 0; i < 18; i++) {
+    for (i = 0; i < 16; i++) {
         if (!get_value_by_tags(parser->root, needed_tags[i]))
             return false;
     }
