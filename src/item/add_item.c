@@ -14,6 +14,7 @@ void add_item(rpg_t *rpg, int nb, VEC pos)
 
     if (item == NULL)
         return;
+    item->item_number = 5;
     item->equiped = 0;
     item->in_inventory = 0;
     item->item_stat = (player_stat_t){0};

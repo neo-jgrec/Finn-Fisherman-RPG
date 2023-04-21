@@ -21,7 +21,8 @@ SRC 					:=	src/main_loop.c 							\
 							src/a_stw.c 								\
 							src/free_stw.c 								\
 							src/add_collider.c \
-							src/get_xml_int.c
+							src/get_xml_int.c \
+							src/save_data.c
 
 SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_win.c 						\
@@ -46,8 +47,9 @@ SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_parall.c 						\
 							src/init/init_shaders.c \
 							src/init/init_sign.c \
-							src/init/init_monsters.c						\
-							src/init/init_in_game_menu.c
+							src/init/init_monsters.c					\
+							src/init/init_in_game_menu.c \
+							src/init/init_inventory.c
 
 SRC						+=  src/init/npc/init_merchant.c				\
 							src/init/npc/init_priest.c					\

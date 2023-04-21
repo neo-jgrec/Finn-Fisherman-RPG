@@ -21,7 +21,7 @@ static player_stat_t default_stat(data_t *data)
     pstat.max_potion = get_xml_int(data->parser,
         (char *[]){"STATS", "POTION", "MAX_POTION", NULL});
     pstat.heal_power = get_xml_int(data->parser,
-        (char *[]){"STATS", "POTION", "HEALT_POWER", NULL});
+        (char *[]){"STATS", "POTION", "HEALTH_POWER", NULL});
     pstat.jump = get_xml_int(data->parser,
         (char *[]){"STATS", "JUMP", NULL});
     return pstat;
@@ -42,6 +42,7 @@ static void default_data(data_t *data)
     data->lvl_point = get_xml_int(data->parser,
         (char *[]){"STATS", "LVL_POINT", NULL});
     data->player_stat = default_stat(data);
+    init_inventory_equiped(data);
 }
 
 void launch_game(rpg_t *rpg)
@@ -53,5 +54,6 @@ void launch_game(rpg_t *rpg)
     init_puzzle(rpg);
     init_parall(rpg->player, rpg, 0);
     init_monsters(rpg);
+    save_data(rpg);
     rpg->win->scene = GAME;
 }

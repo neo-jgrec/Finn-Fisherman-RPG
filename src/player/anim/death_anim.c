@@ -20,7 +20,7 @@ void death_anim(rpg_t *rpg, entity_t *entity)
         rpg->data->xp = 0;
         entity->pos = rpg->puzzle->spawn;
         rpg->player->health.cd = 0;
-        while (DELTAT(rpg->win->time) < 3.5) {
+        while (DELTAT(rpg->win->time) < 2.5) {
             play_sound(DEATH_SOUND, rpg);
             youdead(rpg, rpg->loading, a);
             a += 4;

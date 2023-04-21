@@ -30,6 +30,8 @@ UNUSED static const char *data_default_xml = "\
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>\n\
         <LVL_POINT>0</LVL_POINT>\n\
     </STATS>\n\
+    <EQUIPED></EQUIPED>\n\
+    <INVENTORY></INVENTORY>\n\
 </GAME>\n\
 ";
 
@@ -55,6 +57,7 @@ UNUSED static const char *data_default_xml = "\
     } player_stat_t;
 
     typedef struct item_s {
+        int item_number;
         item_type_e type;
         player_stat_t item_stat;
         int sprite;
@@ -84,5 +87,7 @@ UNUSED static const char *data_default_xml = "\
     void manage_items(rpg_t *rpg);
     void draw_items(rpg_t *rpg);
     void free_items(rpg_t *rpg);
+    void init_inventory_equiped(data_t *data);
+    void save_data(rpg_t *rpg);
 
 #endif /* !DATA_H_ */

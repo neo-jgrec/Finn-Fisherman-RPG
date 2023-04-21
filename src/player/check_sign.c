@@ -11,7 +11,7 @@ static void check_for_map_change(rpg_t *rpg, int map)
 {
     if (rpg->input->interact.press) {
         rpg->input->interact.press = 0;
-        rpg->data->location = map - 1;
+        rpg->data->location = map;
         if (rpg->data->location >= NB_MAP)
             rpg->data->location = 0;
         free_puzzle(rpg->puzzle);

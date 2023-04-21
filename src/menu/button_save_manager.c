@@ -70,7 +70,6 @@ void button_manager_save(win_t *win, rpg_t *rpg)
             rm_save(rpg->menu->saves[i]->save_file);
             rpg->menu->saves[i]->is_write = false;
             rpg->menu->saves[i]->name = NULL;
-            rpg->menu->saves[i]->button->name = NULL;
         }
     }
 }
