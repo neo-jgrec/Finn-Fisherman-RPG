@@ -29,9 +29,8 @@ static void shader_switch(rpg_t *rpg, int intensity)
     }
 }
 
-void draw(win_t *win, rpg_t *rpg)
+static void draw_some_elms(win_t *win, rpg_t *rpg)
 {
-    sfRenderWindow_clear(win->win, sfBlack);
     draw_parall(win, rpg->parall);
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
     draw_npc_lst(win, rpg->npc);
@@ -39,6 +38,13 @@ void draw(win_t *win, rpg_t *rpg)
     draw_monsters(rpg);
     set_sprite(rpg->player, rpg);
     sfRenderWindow_drawSprite(win->win, rpg->player->sp, NULL);
+    draw_text(rpg);
+}
+
+void draw(win_t *win, rpg_t *rpg)
+{
+    sfRenderWindow_clear(win->win, sfBlack);
+    draw_some_elms(win, rpg);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     draw_map(win, rpg->puzzle, rpg->puzzle->map);
     draw_map(win, rpg->puzzle, rpg->puzzle->foreground);
