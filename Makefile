@@ -76,7 +76,8 @@ SRC						+=	src/player/manage_jump.c \
 							src/player/manage_fishing.c \
 							src/player/draw_youdead.c \
 							src/player/check_sign.c \
-							src/player/set_stat.c
+							src/player/set_stat.c \
+							src/player/check_items.c
 
 SRC						+=	src/player/anim/set_anim.c \
 							src/player/anim/set_sprite.c \
@@ -152,7 +153,12 @@ SRC						+=	src/parallax/draw_parall.c \
 
 SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
-							src/free/free_monsters.c
+							src/free/free_monsters.c \
+							src/free/free_items.c
+
+SRC						+=	src/item/add_item.c \
+							src/item/manage_items.c \
+							src/item/draw_items.c
 
 MAIN 					= 	src/main.c
 

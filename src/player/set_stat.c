@@ -24,8 +24,9 @@ void set_stat(rpg_t *rpg, UNUSED entity_t *player)
     add_stats(&rpg->data->tot_stat, &rpg->data->player_stat);
     for (int i = 0; i < 3 * 9; i++) {
         if (rpg->data->inventory[i] != NULL &&
-            rpg->data->inventory[i]->equiped)
+            rpg->data->inventory[i]->equiped) {
             add_stats(&rpg->data->tot_stat,
                 &rpg->data->inventory[i]->item_stat);
+        }
     }
 }

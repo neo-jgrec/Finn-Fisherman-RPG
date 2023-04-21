@@ -52,6 +52,7 @@
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define VEC sfVector2f
+    #define NB_MAP 2
 
     typedef enum weather {
         NONE_WEATHER,

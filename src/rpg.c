@@ -26,9 +26,14 @@ static void init_rpg_parts(rpg_t *rpg)
 int rpg(void)
 {
     entity_t *monster = NULL;
+    item_e *item = NULL;
     rpg_t *rpg = init_rpg();
 
+    rpg->items = &item;
     rpg->monsters = &monster;
+    add_item(rpg, 0, (VEC){1000, 500});
+    add_item(rpg, 0, (VEC){1200, 500});
+    add_item(rpg, 0, (VEC){1400, 500});
     init_rpg_parts(rpg);
     init_fishing(rpg);
     scene_manager(rpg);

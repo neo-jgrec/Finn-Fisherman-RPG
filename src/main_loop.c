@@ -29,6 +29,7 @@ int main_loop(win_t *win, rpg_t *rpg)
     manage_song(rpg);
     manage_player(win, rpg->player, rpg);
     manage_monster(win, rpg);
+    manage_items(rpg);
     manage_npc(rpg, rpg->npc);
     cam_management(rpg->player, win, rpg);
     manage_parall(rpg->player, rpg->parall, win);

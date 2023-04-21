@@ -29,6 +29,7 @@ static void set_var(entity_t *player, rpg_t *rpg)
 static void check_spot(entity_t *player, rpg_t *rpg)
 {
     set_stat(rpg, player);
+    check_items(rpg);
     check_sign(player, rpg->puzzle, rpg);
     check_fishing_spot(player, rpg->puzzle);
     check_spikes_collision(rpg, player, rpg->puzzle);

@@ -40,5 +40,6 @@
     int manage_fishing(entity_t *player, rpg_t *rpg);
     void check_sign(entity_t *player, puzzle_t *puzzle, rpg_t *rpg);
     void set_stat(rpg_t *rpg, entity_t *player);
+    void check_items(rpg_t *rpg);
 
 #endif /* !_PLAYER_H__ */
