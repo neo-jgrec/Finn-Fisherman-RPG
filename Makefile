@@ -45,11 +45,11 @@ SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_fish_spot.c 					\
 							src/init/init_song.c 						\
 							src/init/init_parall.c 						\
-							src/init/init_shaders.c \
-							src/init/init_sign.c \
+							src/init/init_inventory.c					\
+							src/init/init_shaders.c 					\
+							src/init/init_sign.c 						\
 							src/init/init_monsters.c					\
-							src/init/init_in_game_menu.c \
-							src/init/init_inventory.c
+							src/init/init_in_game_menu.c
 
 SRC						+=  src/init/npc/init_merchant.c				\
 							src/init/npc/init_priest.c					\
@@ -175,6 +175,7 @@ SRC						+=	src/song/play/play_loop_song.c	\
 SRC						+=	src/song/pause/pause_loop_song.c
 
 SRC						+=	src/song/stop/stop_loop_song.c
+SRC 					+= 	src/in_game_menu/buttons_actions.c
 
 MAIN 					= 	src/main.c
 

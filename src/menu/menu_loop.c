@@ -24,6 +24,7 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
             win->event.key.code == sfKeyEscape)
             rpg->menu->scene = MAIN_MENU;
     }
+    sfRenderWindow_setView(win->win, sfRenderWindow_getDefaultView(win->win));
 }
 
 static void res_button_switch(rpg_t *rpg)
