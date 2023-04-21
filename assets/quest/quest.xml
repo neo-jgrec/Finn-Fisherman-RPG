@@ -2,17 +2,17 @@
     <PNJ_MARTIN>
         <MAP>0</MAP>
         <DIALOGUE>Bonjour aventurier !
-Bienvenue dans l'univer de ... Mince je ne me souviens plus.
+Bienvenue dans l'univers de ... Mince je ne me souviens plus.
 Desire tu connaitre le secret pour gagner de la puissance ici ?
 ...
 ... Suspense ...
 La peche ! Et oui c'est mirraculeux n'est ce pas ?
 Cependant pecher n'est pas si simple.
 C'est pourquoi il faudra t'entrainer.
-Essaye donc de reussir a pecher 10 fois si tu y arrive !</DIALOGUE>
-        <Q_DESC>Réussis à pêcher 10 fois</Q_DESC>
+Essaye donc de reussir a pecher 1 fois si tu y arrive !</DIALOGUE>
+        <Q_DESC>Réussis à pêcher 1 fois</Q_DESC>
         <REQ_NAME>Peche</REQ_NAME>
-        <REQUIREMENT_OBJ>10</REQUIREMENT_OBJ>
+        <REQUIREMENT_OBJ>1</REQUIREMENT_OBJ>
         <DIALOGUE1>Felicitation je n'en attendais pas moins de toi !</DIALOGUE1>
         <DIALOGUE_FINISH>Va aventurier, poursuis ta grande quete !</DIALOGUE_FINISH>
     </PNJ_MARTIN>

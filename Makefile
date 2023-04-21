@@ -155,7 +155,8 @@ SRC						+=	src/free/free_puzzle.c \
 							src/free/free_monsters.c
 
 SRC						+=	src/quests/manage_quest.c \
-							src/quests/draw_text.c
+							src/quests/draw_text.c \
+							src/quests/add_res_to_quest.c
 
 MAIN 					= 	src/main.c
 

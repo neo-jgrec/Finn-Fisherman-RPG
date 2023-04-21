@@ -13,7 +13,7 @@ static void init_text(quest_s *quest)
     quest->font = sfFont_createFromFile("assets/quest/quest_font.ttf");
     sfText_setFont(quest->text, quest->font);
     sfText_setColor(quest->text, sfWhite);
-    sfText_setCharacterSize(quest->text, 15);
+    sfText_setCharacterSize(quest->text, 20);
 }
 
 static char *get_quest_xml(char *npc_name)

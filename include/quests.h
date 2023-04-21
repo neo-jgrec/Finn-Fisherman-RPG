@@ -67,5 +67,6 @@
     void init_quest(rpg_t *rpg);
     void draw_text(rpg_t *rpg);
     void display_npc_dialogue(quest_t *quest, rpg_t *rpg);
+    void add_res_to_quest(quest_t *quest, char *quest_type);
 
 #endif /* !QUESTS_ */
