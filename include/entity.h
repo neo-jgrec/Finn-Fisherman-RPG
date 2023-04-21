@@ -68,6 +68,7 @@
         int health;
         int potion;
         float fish_cd;
+        int sign;
     } health_t;
 
     typedef struct attack_s {
@@ -96,5 +97,6 @@
     } entity_t;
 
     void set_position(win_t *win, entity_t *player, rpg_t *rpg);
+    void free_entity(entity_t *entity);
 
 #endif /* !ENTITY_H_ */

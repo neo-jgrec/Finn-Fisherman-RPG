@@ -18,11 +18,12 @@ static void manage_this_parall(entity_t *player,
     parall_t *parall, win_t *win, int i)
 {
     int dist = 0;
-    parall->pos[i].x += pow(i, 2) * 10 * player->hor * win->deltaT;
+    parall->pos[i].x += pow(parall->nb - i - 1, 2) *
+        10 * player->hor * win->deltaT;
     dist = parall->pos[i].x - player->pos.x;
     if (dist < 0)
         dist = -dist;
-    if (dist > parall->layers[i].size.x * 4)
+    if (dist > parall->layers[i].size.x * 5)
         parall->pos[i].x = player->pos.x;
 }
 

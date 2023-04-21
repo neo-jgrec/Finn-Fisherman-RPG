@@ -11,10 +11,11 @@ void loading_screen(rpg_t *rpg, loading_t *loading,
     int pourcentage, int next)
 {
     sprite_t sprite = loading->fishs[loading->fish];
+    const sfView *view = sfRenderWindow_getView(rpg->win->win);
 
     sfRenderWindow_clear(rpg->win->win, sfBlack);
     sfSprite_setPosition(sprite.sp,
-        (VEC){1920 / 2, 1080 / 2});
+        sfView_getCenter(view));
     sfSprite_setTextureRect(sprite.sp,
         (sfIntRect){0, 0, pourcentage * sprite.size.x / 100,
         sprite.size.y});

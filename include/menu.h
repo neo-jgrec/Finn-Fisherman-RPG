@@ -44,6 +44,21 @@ typedef struct save_menu_s {
     button_t *button;
 } save_menu_t;
 
+typedef enum panel_type {
+    NONE_PANEL,
+    SETTINGS_PANEL,
+    SAVE_PANEL,
+    INVENTORY_PANEL,
+    CHARACTERISTICS_PANEL
+} panel_type_t;
+
+typedef struct in_game_menu_s {
+    sfRectangleShape *bg;
+    sfText *text;
+    panel_type_t panel_type;
+    TAILQ_HEAD(nav_buttons, button_s) nav_buttons;
+} in_game_menu_t;
+
 typedef struct menu_s {
     sfText *text;
     sfFont *font;
@@ -56,11 +71,12 @@ typedef struct menu_s {
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(res_buttons, button_s) res_buttons;
+    in_game_menu_t *in_game_menu;
 } menu_t;
 
 void init_menu(rpg_t *rpg);
 bool is_rect_hover(sfVector2i mouse_pos, sfVector2f rect_pos,
 sfVector2f rect_size);
-
+void init_in_game_menu(rpg_t *rpg);
 
 #endif /* !MENU_H_ */

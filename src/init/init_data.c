@@ -22,6 +22,7 @@ void init_data(rpg_t *rpg)
 
     if (data == NULL)
         rpg->puzzle = NULL;
+    data->location = 0;
     data->player_stat = (player_stat_t){2, 75, 200, 400, 50, 50};
     data->item_stat = (player_stat_t){0};
     data->jump = 6;

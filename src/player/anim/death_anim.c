@@ -9,6 +9,8 @@
 
 void death_anim(rpg_t *rpg, entity_t *entity)
 {
+    int a = 0;
+
     entity->velocity = 0;
     if (entity->id == PLAYER) {
         entity->state = IDLE;
@@ -17,7 +19,11 @@ void death_anim(rpg_t *rpg, entity_t *entity)
         rpg->data->xp = 0;
         entity->pos = rpg->puzzle->spawn;
         rpg->player->health.cd = 0;
-        sfSleep(sfSeconds(4));
+        while (DELTAT(rpg->win->time) < 3.5) {
+            youdead(rpg, rpg->loading, a);
+            a += 4;
+        }
+
     }
     return;
 }
