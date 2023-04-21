@@ -20,7 +20,8 @@ SRC 					:=	src/main_loop.c \
 							src/dist.c \
 							src/a_stw.c \
 							src/free_stw.c \
-							src/add_collider.c
+							src/add_collider.c \
+							src/get_xml_int.c
 
 SRC						+=	src/init/init_rpg.c \
 							src/init/init_win.c \

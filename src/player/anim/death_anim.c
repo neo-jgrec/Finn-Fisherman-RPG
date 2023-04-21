@@ -23,7 +23,6 @@ void death_anim(rpg_t *rpg, entity_t *entity)
             youdead(rpg, rpg->loading, a);
             a += 4;
         }
-
     }
     return;
 }

@@ -67,13 +67,11 @@ UNUSED static const char *data_default_xml = "\
     } player_stat_t;
 
     typedef struct data_s {
+        xml_parser_t *parser;
         int location;
         player_stat_t player_stat;
         player_stat_t item_stat;
         int jump;
-        int roll;
-        int fishing;
-        int attack;
         int lvl;
         int xp;
         int xp_to_lvl_up;

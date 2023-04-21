@@ -7,17 +7,21 @@
 
 #include "rpg.h"
 
-static void new_anim_2(entity_t *player, asset_t *asset, p_state_e state)
+static void new_anim_2(rpg_t *rpg,
+    entity_t *player, asset_t *asset, p_state_e state)
 {
     if (state == HIT) {
         if (player->health.health)
             set_animation(player, asset->ma_shroom.damage, 0, return_to_idle);
-        else
+        else {
+            rpg->data->xp += player->loot;
             set_animation(player, asset->ma_shroom.death, 0, death_anim);
+        }
     }
 }
 
-static void new_anim(entity_t *player, asset_t *asset, p_state_e state)
+static void new_anim(rpg_t *rpg,
+    entity_t *player, asset_t *asset, p_state_e state)
 {
     if (state == IDLE)
         set_animation(player, asset->ma_shroom.idle, 1, NULL);
@@ -25,7 +29,7 @@ static void new_anim(entity_t *player, asset_t *asset, p_state_e state)
         set_animation(player, asset->ma_shroom.run, 1, NULL);
     if (state == ATTACK)
         set_animation(player, asset->ma_shroom.attack_1, 0, attack_anim);
-    new_anim_2(player, asset, state);
+    new_anim_2(rpg, player, asset, state);
 }
 
 static void base_anim(entity_t *player)
@@ -45,7 +49,7 @@ static void change_anim(entity_t *player, rpg_t *rpg)
         base_anim(player);
     if (player->prev_state != player->state) {
         player->time = 0;
-        new_anim(player, rpg->asset, player->state);
+        new_anim(rpg, player, rpg->asset, player->state);
     }
     player->prev_state = player->state;
 }

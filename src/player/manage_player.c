@@ -9,6 +9,12 @@
 
 static void set_var(entity_t *player, rpg_t *rpg)
 {
+    if (rpg->data->xp > rpg->data->xp_to_lvl_up) {
+        rpg->data->xp -= rpg->data->xp_to_lvl_up;
+        rpg->data->xp_to_lvl_up += 20;
+        rpg->data->lvl += 1;
+        rpg->data->lvl_point += 1;
+    }
     player->time += rpg->win->deltaT;
     if (player->state != ATTACK && player->state != ROLL)
         player->hor = rpg->input->right.press - rpg->input->left.press;
@@ -32,14 +38,13 @@ void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
     check_spot(player, rpg);
     set_var(player, rpg);
-    manage_heal(player, rpg);
-    manage_attack(player, rpg);
     if (manage_fishing(player, rpg))
         return;
+    manage_heal(player, rpg);
+    manage_attack(player, rpg);
     if (player->state != HEALING && player->state != HIT &&
         player->state != ATTACK) {
-        if (rpg->data->roll == 1)
-            manage_roll(player, rpg);
+        manage_roll(player, rpg);
         if (player->state != ROLL)
             manage_jump(player, rpg);
     }

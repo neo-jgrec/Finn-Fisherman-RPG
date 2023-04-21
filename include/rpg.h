@@ -99,5 +99,6 @@
     char **a_mkstw(char *str, char *sep);
     sfFloatRect *add_colliders(sfFloatRect *colliders,
         sfFloatRect rect, int *nb_col);
+    int get_xml_int(xml_parser_t *parser, char **tags);
 
 #endif /* !_RPG_H__ */

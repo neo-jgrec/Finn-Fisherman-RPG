@@ -59,6 +59,7 @@ static void draw_xp_hud(entity_t *player, rpg_t *rpg)
 
 void draw_player_hud(entity_t *player, rpg_t *rpg)
 {
+    draw_button_hud(player, rpg);
     if (player->health.cd > 0.5)
         return;
     sfSprite_setPosition(player->health.hud.sp,
@@ -68,5 +69,4 @@ void draw_player_hud(entity_t *player, rpg_t *rpg)
     draw_potion_hud(player, rpg);
     draw_xp_hud(player, rpg);
     draw_lvl_hud(player, rpg);
-    draw_button_hud(player, rpg);
 }
