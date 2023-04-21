@@ -10,13 +10,15 @@
 void menu_button_action(rpg_t *rpg);
 void settings_button_action(rpg_t *rpg);
 void save_button_action(rpg_t *rpg);
+void resume_button_action(rpg_t *rpg);
 
 static const char *button_name_main[] = {
     "MAIN MENU",
     "SETTINGS",
     "INVENTORY",
     "SKILLS",
-    "SAVE"
+    "SAVE",
+    "RESUME"
 };
 
 static void buttons_too(button_t *button, sfVector2f view_pos,
@@ -56,11 +58,13 @@ static void init_buttons(rpg_t *rpg)
         {TEXT_SIZE_LEN(button_name_main[1], 30), 30},
         {TEXT_SIZE_LEN(button_name_main[2], 30), 30},
         {TEXT_SIZE_LEN(button_name_main[3], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[4], 30), 30}};
+        {TEXT_SIZE_LEN(button_name_main[4], 30), 30},
+        {TEXT_SIZE_LEN(button_name_main[5], 30), 30}};
     void (*action_array[])(rpg_t *) = {&menu_button_action,
-    &settings_button_action, NULL, NULL, &save_button_action};
+    &settings_button_action, NULL, NULL, &save_button_action,
+    &resume_button_action};
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         button = malloc(sizeof(button_t));
         button->name = (char *)button_name_main[i];
         button->size = size_array[i];
@@ -74,8 +78,7 @@ void init_in_game_menu(rpg_t *rpg)
 {
     rpg->menu->in_game_menu = malloc(sizeof(in_game_menu_t));
     rpg->menu->in_game_menu->bg = sfRectangleShape_create();
-    sfRectangleShape_setFillColor(rpg->menu->in_game_menu->bg, (sfColor){0, 0,
-        0, 200});
+    sfRectangleShape_setFillColor(rpg->menu->in_game_menu->bg, sfBlack);
     rpg->menu->in_game_menu->panel_type = NONE_PANEL;
     rpg->menu->in_game_menu->text = sfText_create();
     init_buttons(rpg);
