@@ -11,24 +11,20 @@ static void move_zone_up(win_t * win, fishing_t *game)
 {
     game->zone->clock_zone += win->deltaT;
 
-    if (game->zone->clock_zone > 0.002){
-        game->zone->pos_zone.y -= game->zone->speed_zone;
-        if (game->zone->pos_zone.y < game->font->pos_top.y)
-            game->zone->pos_zone.y = game->font->pos_top.y;
-        game->zone->clock_zone = 0;
-    }
+    game->zone->pos_zone.y -= game->zone->speed_zone * 60;
+    if (game->zone->pos_zone.y < game->font->pos_top.y)
+        game->zone->pos_zone.y = game->font->pos_top.y;
+    game->zone->clock_zone = 0;
 }
 
 static void move_zone_down(win_t * win, fishing_t *game)
 {
     game->zone->clock_zone += win->deltaT;
 
-    if (game->zone->clock_zone > 0.002){
-        game->zone->pos_zone.y += game->zone->speed_zone;
-        if (game->zone->pos_zone.y > game->font->pos_bot.y)
-            game->zone->pos_zone.y = game->font->pos_bot.y;
-        game->zone->clock_zone = 0;
-    }
+    game->zone->pos_zone.y += game->zone->speed_zone * 60;
+    if (game->zone->pos_zone.y > game->font->pos_bot.y)
+        game->zone->pos_zone.y = game->font->pos_bot.y;
+    game->zone->clock_zone = 0;
 }
 
 void make_keep_zone_move(rpg_t *rpg, fishing_t *game)

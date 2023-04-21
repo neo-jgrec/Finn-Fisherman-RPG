@@ -7,11 +7,8 @@
 
 #include "rpg.h"
 
-static void calculate_game_info(fishing_t *game, entity_t *player)
+static void set_game_pos(fishing_t *game, entity_t *player)
 {
-    int speed = my_random(1, 2);
-    float f_part = 0;
-
     game->font->pos_font.x = player->pos.x + 200;
     game->font->pos_font.y = player->pos.y - 150;
     game->font->pos_bot.x = game->font->pos_font.x;
@@ -20,6 +17,14 @@ static void calculate_game_info(fishing_t *game, entity_t *player)
     game->font->pos_top.y = game->font->pos_font.y - 330;
     game->fish->pos_fish = game->font->pos_font;
     game->zone->pos_zone = game->font->pos_font;
+}
+
+static void calculate_game_info(fishing_t *game, entity_t *player, win_t *win)
+{
+    int speed = my_random(1, 2);
+    float f_part = 0;
+
+    set_game_pos(game, player);
     sfSprite_setPosition(game->font->font.sp, game->font->pos_font);
     sfSprite_setPosition(game->fish->fish.sp, game->fish->pos_fish);
     sfRectangleShape_setPosition(game->zone->zone, game->zone->pos_zone);
@@ -29,6 +34,8 @@ static void calculate_game_info(fishing_t *game, entity_t *player)
     f_part = (float)my_random(1, 25);
     game->fish->speed_fish += f_part / 100;
     game->zone->speed_zone = game->fish->speed_fish + 0.2;
+    game->fish->speed_fish *= win->deltaT;
+    game->zone->speed_zone *= win->deltaT;
 }
 
 static void draw_sprites(win_t *win, fishing_t *game)
@@ -46,7 +53,7 @@ rpg_t *rpg)
     if (player->health.fish_cd < 0 && player->state == FISHING)
         game->info->game_state = true;
     if (!game->info->game_state) {
-        calculate_game_info(game, player);
+        calculate_game_info(game, player, win);
         return;
     }
     if (game->info->game_start < 1){
