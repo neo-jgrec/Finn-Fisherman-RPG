@@ -1,6 +1,6 @@
 <GAME>
     <SAVENAME>saves/save1.xml</SAVENAME>
-    <LOCATION>1</LOCATION>
+    <LOCATION>0</LOCATION>
     <STARTED>0</STARTED>
     <STATS>
         <POTION>
@@ -11,10 +11,12 @@
         <SPEED>400</SPEED>
         <DAMAGE>50</DAMAGE>
         <CRIT_CHANCE>30</CRIT_CHANCE>
-        <JUMP>3</JUMP>
-        <LEVEL>1</LEVEL>
+        <JUMP>0</JUMP>
+        <LEVEL>99</LEVEL>
         <EXP>0</EXP>
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>
         <LVL_POINT>0</LVL_POINT>
     </STATS>
+    <EQUIPED>0:0</EQUIPED>
+    <INVENTORY>0</INVENTORY>
 </GAME>

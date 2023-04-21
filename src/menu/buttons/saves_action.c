@@ -42,6 +42,7 @@ static void default_data(data_t *data)
     data->lvl_point = get_xml_int(data->parser,
         (char *[]){"STATS", "LVL_POINT", NULL});
     data->player_stat = default_stat(data);
+    init_inventory_equiped(data);
 }
 
 void launch_game(rpg_t *rpg)

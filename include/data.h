@@ -30,6 +30,8 @@ UNUSED static const char *data_default_xml = "\
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>\n\
         <LVL_POINT>0</LVL_POINT>\n\
     </STATS>\n\
+    <EQUIPED></EQUIPED>\n\
+    <INVENTORY></INVENTORY>\n\
 </GAME>\n\
 ";
 
@@ -84,5 +86,6 @@ UNUSED static const char *data_default_xml = "\
     void manage_items(rpg_t *rpg);
     void draw_items(rpg_t *rpg);
     void free_items(rpg_t *rpg);
+    void init_inventory_equiped(data_t *data);
 
 #endif /* !DATA_H_ */
