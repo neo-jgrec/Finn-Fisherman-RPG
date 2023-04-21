@@ -14,6 +14,6 @@
     void free_quest(quest_t *quest);
     void free_fishing(rpg_t *rpg);
     void free_window(win_t *win);
-    void free_song(music_t *music);
+    void free_songs(rpg_t *rpg);
 
 #endif /* !DESTROY_ */

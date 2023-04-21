@@ -33,7 +33,7 @@ int main_loop(win_t *win, rpg_t *rpg)
     if (!rpg->menu->in_game_menu->panel_type) {
         win->deltaT = (DELTAT(win->time) > 0.1) ? 0 : DELTAT(win->time);
         sfClock_restart(win->time);
-        manage_song(rpg);
+        play_loop_song(MAIN_MUSIC, rpg);
         manage_player(win, rpg->player, rpg);
         manage_monster(win, rpg);
         manage_npc(rpg, rpg->npc);
