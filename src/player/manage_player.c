@@ -40,7 +40,7 @@ void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
     check_spot(player, rpg);
     set_var(player, rpg);
-    if (manage_fishing(player, rpg))
+    if (player->state == HIT || manage_fishing(player, rpg))
         return;
     manage_heal(player, rpg);
     manage_attack(player, rpg);

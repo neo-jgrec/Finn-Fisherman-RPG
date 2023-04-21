@@ -24,6 +24,7 @@ static item_e *init_item(int nb, int equiped)
 
     if (item == NULL)
         return NULL;
+    item->item_number = nb;
     item->equiped = equiped;
     item->in_inventory = 1;
     item->item_stat = (player_stat_t){0};

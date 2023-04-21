@@ -7,12 +7,21 @@
 
 #include "my_stdlib.h"
 
+static char *return_zero(char *str)
+{
+    str[0] = '0';
+    str[1] = '\0';
+    return str;
+}
+
 char *my_itoa(int nb)
 {
     int i = 0;
     int sign = 1;
     char *str = malloc(sizeof(char) * 12);
 
+    if (nb == 0)
+        return return_zero(str);
     if (nb < 0) {
         sign = -1;
         nb *= -1;

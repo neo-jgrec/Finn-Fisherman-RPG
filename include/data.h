@@ -57,6 +57,7 @@ UNUSED static const char *data_default_xml = "\
     } player_stat_t;
 
     typedef struct item_s {
+        int item_number;
         item_type_e type;
         player_stat_t item_stat;
         int sprite;
@@ -66,7 +67,7 @@ UNUSED static const char *data_default_xml = "\
         sfVector2f pos;
         struct item_s *next;
     } item_e;
-    
+
     typedef struct data_s {
         xml_parser_t *parser;
         int location;
@@ -87,5 +88,6 @@ UNUSED static const char *data_default_xml = "\
     void draw_items(rpg_t *rpg);
     void free_items(rpg_t *rpg);
     void init_inventory_equiped(data_t *data);
+    void save_data(rpg_t *rpg);
 
 #endif /* !DATA_H_ */
