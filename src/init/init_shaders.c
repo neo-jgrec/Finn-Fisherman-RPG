@@ -23,8 +23,9 @@ float drop_freq, sfTexture *texture)
     sfShader_setFloatUniform(rpg->shaders->rain->shader, "u_velocity", 0.5);
     sfRectangleShape_setFillColor(rpg->shader_layer, sfWhite);
     sfRectangleShape_setPosition(rpg->shader_layer,
-        (sfVector2f){(rpg->player->pos.x - rpg->win->size.x / 2),
-        (rpg->player->pos.y - rpg->win->size.y / 2)});
+        (sfVector2f){(sfView_getCenter(sfRenderWindow_getView(rpg->win->win)).x
+        - rpg->win->size.x / 2), (sfView_getCenter(sfRenderWindow_getView(
+        rpg->win->win)).y - rpg->win->size.y / 2)});
 }
 
 void init_shaders(rpg_t *rpg)

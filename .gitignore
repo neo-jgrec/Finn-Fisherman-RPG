@@ -5,3 +5,4 @@ report
 .vscode
 build
 *.a
+.idea

@@ -15,6 +15,7 @@ typedef struct monster_stat_s {
     int damage;
     int life;
     int loot;
+    char *drop_list;
 } monster_stat_t;
 
 void init_monsters(rpg_t *rpg);
@@ -39,5 +40,6 @@ void set_var_eye(entity_t *monster, rpg_t *rpg);
 void set_sprite_eye(entity_t *player, rpg_t *rpg);
 void set_var_shroom(entity_t *monster, rpg_t *rpg);
 void set_sprite_shroom(entity_t *player, rpg_t *rpg);
+void monster_drop(rpg_t *rpg, entity_t *entity);
 
 #endif /* !MONSTER_H_ */

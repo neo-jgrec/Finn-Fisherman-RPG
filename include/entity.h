@@ -96,6 +96,7 @@
         struct entity_s *next;
         int damage;
         int loot;
+        char *drop_list;
     } entity_t;
 
     void set_position(win_t *win, entity_t *player, rpg_t *rpg);

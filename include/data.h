@@ -93,5 +93,6 @@ UNUSED static const char *data_default_xml = "\
     void init_inventory_equiped(data_t *data);
     void save_data(rpg_t *rpg);
     void init_item_list(rpg_t *rpg);
+    void check_consomable(rpg_t *rpg);
 
 #endif /* !DATA_H_ */

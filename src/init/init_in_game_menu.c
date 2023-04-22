@@ -11,6 +11,8 @@ void menu_button_action(rpg_t *rpg);
 void settings_button_action(rpg_t *rpg);
 void save_button_action(rpg_t *rpg);
 void resume_button_action(rpg_t *rpg);
+void inventory_button_action(rpg_t *rpg);
+void skills_button_action(rpg_t *rpg);
 
 static const char *button_name_main[] = {
     "MAIN MENU",
@@ -54,23 +56,39 @@ static void init_buttons(rpg_t *rpg)
 {
     TAILQ_INIT(&rpg->menu->in_game_menu->nav_buttons);
     button_t *button = malloc(sizeof(button_t));
-    sfVector2f size_array[] = {{TEXT_SIZE_LEN(button_name_main[0], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[1], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[2], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[3], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[4], 30), 30},
-        {TEXT_SIZE_LEN(button_name_main[5], 30), 30}};
     void (*action_array[])(rpg_t *) = {&menu_button_action,
-    &settings_button_action, NULL, NULL, &save_button_action,
-    &resume_button_action};
+    &settings_button_action, &inventory_button_action,
+    &skills_button_action, &save_button_action, &resume_button_action};
 
-    for (int i = 0; i < 6; i++) {
-        button = malloc(sizeof(button_t));
+    for (size_t i = 0; i < 6; i++, button = malloc(sizeof(button_t))) {
         button->name = (char *)button_name_main[i];
-        button->size = size_array[i];
+        button->size = (sfVector2f){TEXT_SIZE_LEN(button_name_main[i], 30),
+            30};
         button->shape = sfRectangleShape_create();
         button->action = (void*)action_array[i];
+        button->state = IDLE_BUTTON;
         TAILQ_INSERT_TAIL(&rpg->menu->in_game_menu->nav_buttons, button, next);
+    }
+}
+
+static void init_skills_buttons(rpg_t *rpg)
+{
+    TAILQ_INIT(&rpg->menu->in_game_menu->skill_buttons);
+    button_t *button = malloc(sizeof(button_t));
+    char *names[] = {"[HEAL POWER]", "[MAX HEALTH]",
+    "[SPEED]", "[DAMAGE]", "[CRITICAL CHANCE]"};
+    sfVector2f pos[] = {{100, 300}, {100, 400}, {100, 500}, {100, 600},
+    {100, 700}, {100, 800}};
+
+    for (size_t i = 0; i < 5; i++, button = malloc(sizeof(button_t))) {
+        button->name = names[i];
+        button->size = (sfVector2f){TEXT_SIZE_LEN(names[i], 30), 30};
+        button->pos = pos[i];
+        button->shape = sfRectangleShape_create();
+        button->action = NULL;
+        button->state = IDLE_BUTTON;
+        TAILQ_INSERT_TAIL(&rpg->menu->in_game_menu->skill_buttons,
+            button, next);
     }
 }
 
@@ -82,4 +100,5 @@ void init_in_game_menu(rpg_t *rpg)
     rpg->menu->in_game_menu->panel_type = NONE_PANEL;
     rpg->menu->in_game_menu->text = sfText_create();
     init_buttons(rpg);
+    init_skills_buttons(rpg);
 }

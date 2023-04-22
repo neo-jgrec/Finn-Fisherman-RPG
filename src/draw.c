@@ -9,7 +9,9 @@
 
 void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list);
 void settings_menu(win_t *win, rpg_t *rpg);
+void draw_characteristics(win_t *win, rpg_t *rpg);
 void saves_menu_in_game(win_t *win, rpg_t *rpg);
+void draw_inventory(rpg_t *rpg);
 
 static void shader_switch(rpg_t *rpg, int intensity)
 {
@@ -34,20 +36,23 @@ static void shader_switch(rpg_t *rpg, int intensity)
 static void in_game_menu(win_t *win, rpg_t *rpg)
 {
     if (rpg->menu->in_game_menu->panel_type != NONE_PANEL) {
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "time",
+            DELTAT(rpg->win->time));
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 5.0);
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 0.2);
         sfRenderWindow_drawRectangleShape(win->win,
         rpg->menu->in_game_menu->bg, NULL);
         button_manager(win, rpg, (struct buttons *)&(rpg->menu->in_game_menu
             ->nav_buttons));
         switch (rpg->menu->in_game_menu->panel_type) {
-            case SETTINGS_PANEL:
-                settings_menu(win, rpg);
-                break;
-            case SAVE_PANEL:
-                saves_menu_in_game(win, rpg);
-                break;
-            default:
-                break;
+            case SETTINGS_PANEL: settings_menu(win, rpg);               break;
+            case SAVE_PANEL: saves_menu_in_game(win, rpg);              break;
+            case INVENTORY_PANEL: draw_inventory(rpg);                  break;
+            case CHARACTERISTICS_PANEL: draw_characteristics(win, rpg); break;
+            default:                                            break;
         }
+        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
+        rpg->menu->render_states);
     }
 }
 

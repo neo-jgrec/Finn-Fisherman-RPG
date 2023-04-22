@@ -70,7 +70,7 @@ void init_item_list(rpg_t *rpg)
     str = get_value_by_tags(parser->root, (char *[]){"ITEMS", NULL});
     if (str == NULL)
         return;
-    stw = a_mkstw(str, ",");
+    stw = a_mkstw(str, "\n ");
     if (stw == NULL)
         return;
     rpg->data->nb_item = 0;

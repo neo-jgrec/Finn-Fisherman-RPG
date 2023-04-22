@@ -26,3 +26,8 @@ void resume_button_action(rpg_t *rpg)
 {
     rpg->menu->in_game_menu->panel_type = NONE_PANEL;
 }
+
+void inventory_button_action(rpg_t *rpg)
+{
+    rpg->menu->in_game_menu->panel_type = INVENTORY_PANEL;
+}

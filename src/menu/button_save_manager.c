@@ -62,8 +62,9 @@ void button_manager_save(win_t *win, rpg_t *rpg)
             (sfVector2f){win_size.x / 2 - 350, 200 + 185 * i});
         sfRectangleShape_setSize(rpg->menu->saves[i]->button->shape,
             (sfVector2f){700, 150});
-
         button_state(win->win, rpg->menu->saves[i]->button);
+        if (rpg->menu->saves[i]->button->state == CLICKED_BUTTON)
+            rpg->menu->saves[i]->is_write = true;
         change_button_style(rpg->menu->saves[i]->button, rpg);
         if (rpg->menu->saves[i]->button->state == HOVER_BUTTON
             && sfKeyboard_isKeyPressed(sfKeyR)) {

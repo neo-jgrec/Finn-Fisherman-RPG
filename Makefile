@@ -135,6 +135,7 @@ SRC 					+=	xml_parser/edit_value.c 					\
 SRC						+=	src/monsters/add_monster.c 					\
 							src/monsters/draw_monsters.c 				\
 							src/monsters/manage_monster.c 				\
+							src/monsters/monster_drop.c
 
 SRC						+=	src/monsters/skeleton/manage_skeleton.c 	\
 							src/monsters/skeleton/set_sprite_skeleton.c \
@@ -164,12 +165,14 @@ SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
 							src/free/free_monsters.c \
 							src/free/free_items.c \
-							src/free/free_sprite_t.c
+							src/free/free_sprite_t.c \
+							src/free/free_button.c
 
 SRC						+=	src/item/add_item.c \
 							src/item/manage_items.c \
 							src/item/draw_items.c \
-							src/item/init_item_list.c
+							src/item/init_item_list.c \
+							src/item/check_if_consomable.c
 
 SRC						+=	src/quests/manage_quest.c 					\
 							src/quests/draw_text.c 						\
@@ -183,8 +186,11 @@ SRC						+=	src/song/pause/pause_loop_song.c
 SRC						+=	src/song/stop/stop_loop_song.c
 
 SRC 					+= 	src/in_game_menu/buttons_actions.c			\
+							src/in_game_menu/buttons_actions2.c			\
 							src/in_game_menu/settings.c					\
-							src/in_game_menu/saves.c
+							src/in_game_menu/saves.c					\
+							src/in_game_menu/inventory.c				\
+							src/in_game_menu/skills.c
 
 MAIN 					= 	src/main.c
 
