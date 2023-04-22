@@ -13,6 +13,7 @@ void save_button_action(rpg_t *rpg);
 void resume_button_action(rpg_t *rpg);
 void inventory_button_action(rpg_t *rpg);
 void skills_button_action(rpg_t *rpg);
+void how_to_play_button_action(rpg_t *rpg);
 
 static const char *button_name_main[] = {
     "MAIN MENU",
@@ -20,31 +21,16 @@ static const char *button_name_main[] = {
     "INVENTORY",
     "SKILLS",
     "SAVE",
-    "RESUME"
+    "RESUME",
+    "HOW TO PLAY"
 };
-
-static void buttons_too(button_t *button, sfVector2f view_pos,
-sfVector2f view_size, rpg_t *rpg)
-{
-    size_t padding = 100, i = 0;
-
-    TAILQ_FOREACH(button, &rpg->menu->in_game_menu->nav_buttons, next) {
-        struct button_s *prev = TAILQ_PREV(button, nav_buttons, next);
-        button->pos.x = ((prev) ? prev->pos.x + prev->size.x + padding :
-            view_pos.x - view_size.x / 2 + 10);
-        button->pos.y = view_pos.y - view_size.y / 2 + 10;
-        i++;
-    }
-}
 
 void replace_elements_in_game_menus(rpg_t *rpg)
 {
     const sfView *view = sfRenderWindow_getView(rpg->win->win);
     sfVector2f view_pos = sfView_getCenter(view);
     sfVector2f view_size = sfView_getSize(view);
-    button_t *button = NULL;
 
-    buttons_too(button, view_pos, view_size, rpg);
     sfRectangleShape_setSize(rpg->menu->in_game_menu->bg,
         (sfVector2f){view_size.x, view_size.y});
     sfRectangleShape_setPosition(rpg->menu->in_game_menu->bg,
@@ -58,12 +44,16 @@ static void init_buttons(rpg_t *rpg)
     button_t *button = malloc(sizeof(button_t));
     void (*action_array[])(rpg_t *) = {&menu_button_action,
     &settings_button_action, &inventory_button_action,
-    &skills_button_action, &save_button_action, &resume_button_action};
+    &skills_button_action, &save_button_action, &resume_button_action,
+    &how_to_play_button_action};
+    sfVector2f pos[] = {{10, 10}, {275, 10}, {540, 10}, {805, 10}, {1070, 10},
+    {1335, 10}, {10, sfRenderWindow_getSize(rpg->win->win).y - 40}};
 
-    for (size_t i = 0; i < 6; i++, button = malloc(sizeof(button_t))) {
+    for (size_t i = 0; i < 7; i++, button = malloc(sizeof(button_t))) {
         button->name = (char *)button_name_main[i];
         button->size = (sfVector2f){TEXT_SIZE_LEN(button_name_main[i], 30),
             30};
+        button->pos = pos[i];
         button->shape = sfRectangleShape_create();
         button->action = (void*)action_array[i];
         button->state = IDLE_BUTTON;

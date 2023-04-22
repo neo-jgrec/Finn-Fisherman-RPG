@@ -58,7 +58,8 @@ typedef enum panel_type {
     SETTINGS_PANEL,
     SAVE_PANEL,
     INVENTORY_PANEL,
-    CHARACTERISTICS_PANEL
+    CHARACTERISTICS_PANEL,
+    HOW_TO_PLAY_PANEL
 } panel_type_t;
 
 typedef struct in_game_menu_s {
