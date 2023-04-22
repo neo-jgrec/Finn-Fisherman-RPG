@@ -15,6 +15,9 @@ static void new_anim_2(rpg_t *rpg,
             set_animation(player, asset->ma_skeleton.damage, 0, return_to_idle);
         else {
             rpg->data->xp += player->loot;
+            add_info_text(rpg, sfGreen,
+                (VEC){rpg->player->pos.x, rpg->player->pos.y - 50},
+                    my_itoa(player->loot));
             set_animation(player, asset->ma_skeleton.death, 0, death_anim);
         }
     }

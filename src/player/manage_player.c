@@ -13,7 +13,9 @@ static void set_var(entity_t *player, rpg_t *rpg)
         rpg->data->xp -= rpg->data->xp_to_lvl_up;
         rpg->data->xp_to_lvl_up += 20;
         rpg->data->lvl += 1;
-        rpg->data->lvl_point += 1;
+        add_info_text(rpg, sfGreen,
+            (VEC){player->pos.x, player->pos.y - 50}, my_strdup("LVL UP"));
+        rpg->data->lvl_point += 5;
     }
     player->time += rpg->win->deltaT;
     if (player->state != ATTACK && player->state != ROLL)

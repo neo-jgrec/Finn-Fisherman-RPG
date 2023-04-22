@@ -16,5 +16,7 @@ void hit_player(UNUSED rpg_t *rpg, int damage, entity_t *entity)
         entity->health.health -= damage;
         if (entity->health.health < 0)
             entity->health.health = 0;
+        add_info_text(rpg, sfRed,
+        (VEC){entity->pos.x, entity->pos.y - 50}, my_itoa(-damage));
     }
 }
