@@ -43,7 +43,8 @@ UNUSED static const char *data_default_xml = "\
         BOOTS,
         RING,
         NECKLACE,
-        POTION
+        POTION,
+        FISH
     } item_type_e;
 
     typedef struct player_stat_s {

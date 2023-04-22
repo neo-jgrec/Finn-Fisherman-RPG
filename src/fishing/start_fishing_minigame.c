@@ -58,6 +58,8 @@ void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
     }
     if (game->info->game_start < 1){
         game->info->game_start += win->deltaT;
+        if (rpg->player->state != FISHING)
+            return end_game(game, rpg->win, rpg);
         draw_sprites(win, game);
         return;
     }
