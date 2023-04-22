@@ -58,6 +58,7 @@ void parse_saves(menu_t *menu)
 {
     char *saves[] = {"saves/save1.xml", "saves/save2.xml", "saves/save3.xml"};
     size_t i = 0;
+    char *save_name = NULL;
 
     menu->saves = malloc(sizeof(save_menu_t *) * 4);
     for (; i < 3; i++) {
@@ -67,7 +68,8 @@ void parse_saves(menu_t *menu)
         if (!is_file_exist(saves[i]) || !are_tags_in_file(saves[i])) {
             menu->saves[i]->is_write = false;
             menu->saves[i]->name = NULL;
-            create_default_save_file(saves[i], saves[i]);
+            save_name = my_strcat_inf(2, "Save ", my_itoa(i + 1));
+            create_default_save_file(saves[i], save_name);
         }
         add_stats(menu->saves[i], menu->saves[i]->parser, saves[i]);
     }
