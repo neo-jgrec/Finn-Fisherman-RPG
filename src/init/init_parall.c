@@ -31,40 +31,6 @@ static void init_parall_0(entity_t *player, parall_t *parall)
         parall->pos[i] = (VEC){player->pos.x, player->pos.y -150};
 }
 
-static void init_parall_1(entity_t *player, parall_t *parall)
-{
-    parall->layers = malloc(sizeof(sprite_t) * parall->nb);
-    parall->pos = malloc(sizeof(sfVector2f) * parall->nb);
-    if (parall->layers == NULL) {
-        parall->nb = 0;
-        return;
-    }
-    parall->layers[4] = init_sprite("assets/layers_2/0.png",
-        (VEC){544, 160}, 1, 5);
-    parall->layers[3] = init_sprite("assets/layers_2/1.png",
-        (VEC){544, 160}, 1, 5);
-    parall->layers[2] = init_sprite("assets/layers_2/2.png",
-        (VEC){544, 160}, 1, 5);
-    parall->layers[1] = init_sprite("assets/layers_2/3.png",
-        (VEC){272, 160}, 1, 5);
-    parall->layers[0] = init_sprite("assets/layers_2/4.png",
-        (VEC){272, 160}, 1, 5);
-    for (int i = 0; i < parall->nb; i++)
-        parall->pos[i] = (VEC){player->pos.x, player->pos.y -150};
-}
-
-static void init_parall_bis(entity_t *player, rpg_t *rpg)
-{
-    parall_t *parall = malloc(sizeof(parall_t));
-
-    if (parall == NULL)
-        return;
-    parall->y_spawn = player->pos.y;
-    parall->nb = 5;
-    init_parall_1(player, parall);
-    rpg->parall_2 = parall;
-}
-
 void init_parall(entity_t *player, rpg_t *rpg)
 {
     parall_t *parall = malloc(sizeof(parall_t));
@@ -75,5 +41,4 @@ void init_parall(entity_t *player, rpg_t *rpg)
     parall->nb = 6;
     init_parall_0(player, parall);
     rpg->parall = parall;
-    init_parall_bis(player, rpg);
 }
