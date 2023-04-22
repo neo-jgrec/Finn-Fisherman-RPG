@@ -25,8 +25,8 @@ static void add_stats(save_menu_t *save, xml_parser_t *parser, char *filename)
     parse_xml(parser);
     save->name = get_value_by_tags(parser->root,
     ((char *[]){"SAVENAME", NULL}));
-    save->is_write = (get_value_by_tags(parser->root,
-    ((char *[]){"STARTED", NULL}))[0] == '1') ? true : false;
+    save->is_write = (my_strcmp(get_value_by_tags(parser->root,
+    ((char *[]){"STARTED", NULL})), "1") == 0) ? true : false;
     save->button->name = filename;
 }
 

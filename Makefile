@@ -122,7 +122,8 @@ SRC						+= 	src/menu/menu_loop.c						\
 							src/menu/buttons/functions_res.c			\
 							src/menu/saves.c 							\
 							src/menu/button_save_manager.c				\
-							src/menu/buttons/saves_action.c
+							src/menu/buttons/saves_action.c				\
+							src/menu/start_screen.c
 
 SRC 					+=	xml_parser/edit_value.c 					\
 							xml_parser/free.c 							\
