@@ -50,6 +50,7 @@ static button_t *init_button(sfVector2f size, sfVector2f pos)
     sfRectangleShape_setPosition(button->shape, pos);
     button->name = NULL;
     button->action = (void*)&launch_game;
+    button->state = IDLE_BUTTON;
     return button;
 }
 

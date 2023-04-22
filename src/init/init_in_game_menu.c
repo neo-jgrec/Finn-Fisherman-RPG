@@ -64,13 +64,13 @@ static void init_buttons(rpg_t *rpg)
     void (*action_array[])(rpg_t *) = {&menu_button_action,
     &settings_button_action, &inventory_button_action,
     NULL, &save_button_action, &resume_button_action};
-
     for (int i = 0; i < 6; i++) {
         button = malloc(sizeof(button_t));
         button->name = (char *)button_name_main[i];
         button->size = size_array[i];
         button->shape = sfRectangleShape_create();
         button->action = (void*)action_array[i];
+        button->state = IDLE_BUTTON;
         TAILQ_INSERT_TAIL(&rpg->menu->in_game_menu->nav_buttons, button, next);
     }
 }
