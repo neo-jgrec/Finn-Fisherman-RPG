@@ -17,5 +17,7 @@ void init_quest(rpg_t *rpg)
     quests->head = NULL;
     quests->tail = NULL;
     quests->size = 0;
+    quests->clock_input = 0;
+    quests->draw = false;
     rpg->quests = quests;
 }
