@@ -36,12 +36,15 @@ static void change_button_style(button_t *button, UNUSED rpg_t *rpg)
 {
     switch (button->state) {
         case IDLE_BUTTON:
+            sfText_setStyle(rpg->menu->text, (NAV_BUTTONS_DETECTION)
+                ? sfTextUnderlined : sfTextRegular);
             sfText_setCharacterSize(rpg->menu->text, 30);
-            sfText_setStyle(rpg->menu->text, sfTextRegular);
             sfText_setColor(rpg->menu->text, sfWhite);
             break;
         case HOVER_BUTTON:
             sfText_setCharacterSize(rpg->menu->text, 35);
+            sfText_setStyle(rpg->menu->text, (NAV_BUTTONS_DETECTION)
+                ? sfTextUnderlined : sfTextRegular);
             break;
         case CLICKED_BUTTON:
             sfText_setCharacterSize(rpg->menu->text, 35);

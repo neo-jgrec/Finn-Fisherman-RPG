@@ -76,12 +76,11 @@ static void init_skills_buttons(rpg_t *rpg)
     TAILQ_INIT(&rpg->menu->in_game_menu->skill_buttons);
     button_t *button = malloc(sizeof(button_t));
     char *names[] = {"[HEAL POWER]", "[MAX HEALTH]",
-    "[SPEED]", "[DAMAGE]", "[CRITICAL CHANCE]",
-    "[JUMP]"};
+    "[SPEED]", "[DAMAGE]", "[CRITICAL CHANCE]"};
     sfVector2f pos[] = {{100, 300}, {100, 400}, {100, 500}, {100, 600},
     {100, 700}, {100, 800}};
 
-    for (size_t i = 0; i < 6; i++, button = malloc(sizeof(button_t))) {
+    for (size_t i = 0; i < 5; i++, button = malloc(sizeof(button_t))) {
         button->name = names[i];
         button->size = (sfVector2f){TEXT_SIZE_LEN(names[i], 30), 30};
         button->pos = pos[i];

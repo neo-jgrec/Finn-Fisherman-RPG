@@ -10,7 +10,7 @@
 void button_manager(win_t *win, rpg_t *rpg, struct buttons *button_list);
 
 static const char *names[] = {"[HEAL POWER]", "[MAX HEALTH]",
-"[SPEED]", "[DAMAGE]", "[CRITICAL CHANCE]", "[JUMP]"};
+"[SPEED]", "[DAMAGE]", "[CRITICAL CHANCE]"};
 
 static button_t *search_button(const char *name,
     struct buttons *button_list, int nb_cmp)

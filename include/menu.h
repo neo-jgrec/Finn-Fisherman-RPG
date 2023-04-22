@@ -26,6 +26,15 @@
     255, 255, 255, 200\
     }
 
+    #define NAV_BUTTONS_DETECTION (rpg->menu->in_game_menu\
+->panel_type == CHARACTERISTICS_PANEL && !my_strcmp(button->name,\
+"SKILLS")) || (rpg->menu->in_game_menu\
+->panel_type == INVENTORY_PANEL && !my_strcmp(button->name,\
+"INVENTORY")) || (rpg->menu->in_game_menu\
+->panel_type == SETTINGS_PANEL && !my_strcmp(button\
+->name, "SETTINGS")) || (rpg->menu->in_game_menu\
+->panel_type == SAVE_PANEL && !my_strcmp(button->name, "SAVE"))
+
 typedef enum main_menu_scene {
     MAIN_MENU,
     SETTINGS_MENU,
