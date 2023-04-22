@@ -73,6 +73,7 @@ void menu_loop(win_t *win, rpg_t *rpg)
         sfRenderWindow_clear(win->win, sfBlack);
         sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
         rpg->menu->render_states);
+        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->title, NULL);
         button_manager(win, rpg, &(rpg->menu->buttons));
         sfRenderWindow_display(win->win);
     }

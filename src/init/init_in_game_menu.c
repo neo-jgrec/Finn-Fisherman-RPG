@@ -91,4 +91,9 @@ void init_in_game_menu(rpg_t *rpg)
     rpg->menu->in_game_menu->text = sfText_create();
     init_buttons(rpg);
     init_skills_buttons(rpg);
+    rpg->menu->title = sfRectangleShape_create();
+    sfRectangleShape_setTexture(rpg->menu->title,
+        sfTexture_createFromFile("assets/title.png", NULL), sfTrue);
+    sfRectangleShape_setSize(rpg->menu->title, (sfVector2f){500, 500});
+    sfRectangleShape_setPosition(rpg->menu->title, (sfVector2f){725, 100});
 }

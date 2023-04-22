@@ -82,6 +82,7 @@ typedef struct menu_s {
     int save_reference;
     sfRectangleShape *how_to_play;
     sfRectangleShape *lore;
+    sfRectangleShape *title;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(res_buttons, button_s) res_buttons;
