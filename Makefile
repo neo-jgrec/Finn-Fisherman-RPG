@@ -192,6 +192,8 @@ SRC 					+= 	src/in_game_menu/buttons_actions.c			\
 							src/in_game_menu/skills.c					\
 							src/in_game_menu/how_to_play.c
 
+SRC						+=	src/checker2000/checker.c
+
 MAIN 					= 	src/main.c
 
 BUILD_DIR				=	build
