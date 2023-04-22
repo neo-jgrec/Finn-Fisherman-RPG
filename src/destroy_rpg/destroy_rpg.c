@@ -28,9 +28,8 @@ static void free_menus(rpg_t *rpg)
     sfText_destroy(rpg->menu->text);
     sfRectangleShape_destroy(rpg->menu->bg);
     sfShader_destroy(rpg->menu->bg_shader);
-    free(rpg->menu->in_game_menu);
-    free(rpg->menu->render_states);
-    free(rpg->menu);
+    sfRectangleShape_destroy(rpg->menu->how_to_play);
+    sfRectangleShape_destroy(rpg->menu->lore);
 }
 
 static void free_shaders(rpg_t *rpg)
@@ -41,6 +40,9 @@ static void free_shaders(rpg_t *rpg)
     sfTexture_destroy(rpg->shaders->snow);
     free(rpg->shaders->rain);
     free(rpg->shaders);
+    free(rpg->menu->in_game_menu);
+    free(rpg->menu->render_states);
+    free(rpg->menu);
 }
 
 void destroy_rpg(rpg_t *rpg)

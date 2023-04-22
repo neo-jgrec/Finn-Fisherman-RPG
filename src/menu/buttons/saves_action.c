@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+void start_screen(rpg_t *rpg);
 
 static player_stat_t default_stat(data_t *data)
 {
@@ -57,5 +58,6 @@ void launch_game(rpg_t *rpg)
     init_monsters(rpg);
     save_data(rpg);
     switch_weather(rpg);
+    start_screen(rpg);
     rpg->win->scene = GAME;
 }

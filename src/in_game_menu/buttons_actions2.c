@@ -11,3 +11,8 @@ void skills_button_action(rpg_t *rpg)
 {
     rpg->menu->in_game_menu->panel_type = CHARACTERISTICS_PANEL;
 }
+
+void how_to_play_button_action(rpg_t *rpg)
+{
+    rpg->menu->in_game_menu->panel_type = HOW_TO_PLAY_PANEL;
+}
