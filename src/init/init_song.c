@@ -43,7 +43,12 @@ void init_song(rpg_t *rpg)
         return;
     TAILQ_INIT(&rpg->music->musics);
     TAILQ_INIT(&rpg->music->sounds);
+    init_loop_songs(rpg->music, MENU_MUSIC);
     init_loop_songs(rpg->music, MAIN_MUSIC);
+    init_loop_songs(rpg->music, MAIN_MUSIC2);
     init_sounds(rpg->music, DEATH_SOUND);
     init_sounds(rpg->music, SWORD_SOUND);
+    init_sounds(rpg->music, JUMP_SOUND);
+    init_sounds(rpg->music, HEAL_SOUND);
+    init_sounds(rpg->music, ROLL_SOUND);
 }
