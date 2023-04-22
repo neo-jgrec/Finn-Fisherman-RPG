@@ -68,4 +68,5 @@ void draw_inventory(rpg_t *rpg)
         handle_actions(rpg, pos, i);
         sfRenderWindow_drawSprite(rpg->win->win, rpg->asset->items.sp, NULL);
     }
+    sfSprite_setColor(rpg->asset->items.sp, sfWhite);
 }
