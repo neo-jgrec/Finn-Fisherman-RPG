@@ -28,6 +28,8 @@ static void set_var(entity_t *player, rpg_t *rpg)
 
 static void check_spot(entity_t *player, rpg_t *rpg)
 {
+    if (player->pos.y > 10000)
+        hit_player(rpg, 10000, player);
     set_stat(rpg, player);
     check_items(rpg);
     check_sign(player, rpg->puzzle, rpg);

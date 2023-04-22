@@ -52,7 +52,6 @@ void launch_game(rpg_t *rpg)
     parse_xml(rpg->data->parser);
     default_data(rpg->data);
     init_puzzle(rpg);
-    init_parall(rpg->player, rpg, 0);
     init_monsters(rpg);
     save_data(rpg);
     rpg->win->scene = GAME;

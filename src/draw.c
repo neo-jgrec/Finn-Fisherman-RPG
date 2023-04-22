@@ -31,7 +31,8 @@ static void shader_switch(rpg_t *rpg, int intensity)
 
 static void draw_some_elms(win_t *win, rpg_t *rpg)
 {
-    draw_parall(win, rpg->parall);
+    draw_parall(win,
+        ((rpg->data->location % 2) ? rpg->parall : rpg->parall_2));
     draw_map(win, rpg->puzzle, rpg->puzzle->background);
     draw_npc_lst(win, rpg->npc);
     draw_map(win, rpg->puzzle, rpg->puzzle->death);

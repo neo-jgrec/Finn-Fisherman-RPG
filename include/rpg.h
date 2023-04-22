@@ -73,6 +73,7 @@
         menu_t *menu;
         fishing_t *fishing;
         parall_t *parall;
+        parall_t *parall_2;
         npc_t *npc;
         quest_t *quests;
         music_t *music;

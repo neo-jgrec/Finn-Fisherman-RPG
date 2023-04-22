@@ -57,5 +57,6 @@
     void init_asset(rpg_t *rpg);
     sprite_t init_sprite(char *path,
         sfVector2f size, int nb_frame, float scale);
+    void free_sprite_t(sprite_t sprite);
 
 #endif /* !ASSET_H_ */
