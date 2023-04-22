@@ -21,6 +21,7 @@ static void default_item(item_e *item, int nb, VEC pos)
     item->next = NULL;
     return;
 }
+
 void add_item(rpg_t *rpg, int nb, VEC pos)
 {
     data_t *data = rpg->data;
@@ -35,7 +36,6 @@ void add_item(rpg_t *rpg, int nb, VEC pos)
     item->item_stat = data->item_list[nb].item_stat;
     item->sprite = data->item_list[nb].sprite;
     item->type = data->item_list[nb].type;
-    //printf("%d %d\n", data->item_list[nb].type, nb);
     item->pos = pos;
     item->desc = data->item_list[nb].desc;
     item->next = *items;

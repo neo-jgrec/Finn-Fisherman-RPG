@@ -39,7 +39,7 @@ void end_game(fishing_t *game, win_t *win, rpg_t *rpg)
 {
     game->info->clock_keep_time += win->deltaT;
     sfBool out = fish_is_out_of_zone(game);
-    
+
     if (rpg->player->state != FISHING)
         out = sfTrue;
     if (out ||
