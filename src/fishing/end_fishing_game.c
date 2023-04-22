@@ -18,11 +18,16 @@ static bool fish_is_out_of_zone(fishing_t *game)
 
 static void fish_result(sfBool out, rpg_t *rpg)
 {
+    int list_item_drop[8] == {0, 1, 2, 3, 4, 5, 6, 7};
+
     if (!out) {
         add_res_to_quest(rpg->quests, "Peche");
         add_info_text(rpg, sfYellow,
             (VEC){rpg->player->pos.x, rpg->player->pos.y - 50},
                 my_strdup("CATCH"));
+        add_item(rpg, list_item_drop[my_random(0, 7)],
+            (VEC){rpg->player->pos.x - 50,
+            rpg->player->pos.y});
     } else {
         add_info_text(rpg, sfBlue,
         (VEC){rpg->player->pos.x, rpg->player->pos.y - 50},

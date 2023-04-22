@@ -41,7 +41,7 @@ static void change_text(quest_s *quest)
     }
 }
 
-static bool set_beg(quest_s *quest)
+static bool set_beg(quest_s *quest, rpg_t *rpg)
 {
     if (PARSER != 0)
         return false;
@@ -49,9 +49,12 @@ static bool set_beg(quest_s *quest)
     quest->requirement.number_get < quest->requirement.number_req))
         sfText_setString(quest->text, quest->dialogue.dialogue[PARSER]);
     if (quest->state == 0 && quest->requirement.number_get >=
-    quest->requirement.number_req)
+    quest->requirement.number_req) {
+        add_item(rpg, 0, (VEC){rpg->player->pos.x + 40,
+            rpg->player->pos.y - 50});
         sfText_setString(quest->text,
         quest->dialogue.dialogue_complete[PARSER]);
+    }
     if (quest->state == 1)
         sfText_setString(quest->text,
         quest->dialogue.dialogue_finish[PARSER]);
@@ -59,10 +62,10 @@ static bool set_beg(quest_s *quest)
     return true;
 }
 
-static void manage_quest(quest_s *quest, win_t *win)
+static void manage_quest(quest_s *quest, win_t *win, rpg_t *rpg)
 {
     quest->dialogue.clock_dialogue += win->deltaT;
-    if (set_beg(quest)) {
+    if (set_beg(quest, rpg)) {
         quest->dialogue.clock_dialogue = 0;
         return;
     }
@@ -78,6 +81,6 @@ void display_npc_dialogue(quest_t *quest, rpg_t *rpg)
 
     for (; temp; temp = temp->next) {
         if (temp->dialogue.is_talking)
-            manage_quest(temp, rpg->win);
+            manage_quest(temp, rpg->win, rpg);
     }
 }

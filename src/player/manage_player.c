@@ -52,7 +52,7 @@ void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
     manage_heal(player, rpg);
     manage_attack(player, rpg);
     if (player->state != HEALING && player->state != HIT &&
-        player->state != ATTACK) {
+        player->state != ATTACK && player->state != FISHING) {
         manage_roll(player, rpg);
         if (player->state != ROLL)
             manage_jump(player, rpg);
