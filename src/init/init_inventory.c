@@ -39,8 +39,10 @@ static item_e *init_item(data_t *data, int nb, int equiped)
 
     if (item == NULL)
         return NULL;
-    if (nb >= data->nb_item || nb < 0)
+    if (nb >= data->nb_item)
         return default_item(item, nb, equiped);
+    if (nb < 0)
+        return default_item(item, 0, equiped);
     item->item_number = nb;
     item->equiped = equiped;
     item->in_inventory = 1;
