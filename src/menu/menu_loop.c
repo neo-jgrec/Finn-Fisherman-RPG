@@ -66,6 +66,7 @@ void menu_loop(win_t *win, rpg_t *rpg)
 {
     rpg->menu->in_game_menu->panel_type = NONE_PANEL;
     if (rpg->menu->scene == MAIN_MENU) {
+        play_loop_song(MENU_MUSIC, rpg);
         sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 1.0);
         sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 1.0);
         event_manager(win, rpg);

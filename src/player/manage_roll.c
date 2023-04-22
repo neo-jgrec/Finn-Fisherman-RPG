@@ -24,6 +24,7 @@ void manage_roll(entity_t *player, rpg_t *rpg)
 
     set_roll_var(player, rpg, roll);
     if (roll->press_time < 0.12 && player->grounded && roll->cd > 0.1) {
+        play_sound(ROLL_SOUND, rpg);
         player->state = ROLL;
         roll->press_time = 10;
     }
