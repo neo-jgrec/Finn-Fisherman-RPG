@@ -10,10 +10,10 @@
 
 static void button_state(sfRenderWindow *win, button_t *button, rpg_t *rpg)
 {
+    if (sfRenderWindow_isOpen(win) == sfFalse) return;
     sfVector2f mouse_pos_view = sfRenderWindow_mapPixelToCoords(win,
         sfMouse_getPositionRenderWindow(win), sfRenderWindow_getView(win));
     sfVector2i mouse_pos = (sfVector2i) {mouse_pos_view.x, mouse_pos_view.y};
-
     if (button->state == CLICKED_BUTTON
     && !sfMouse_isButtonPressed(sfMouseLeft)) {
         button->state = IDLE_BUTTON;
