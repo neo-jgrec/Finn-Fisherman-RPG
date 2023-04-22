@@ -85,7 +85,17 @@ static const char *needed_files[] =
     "assets/Inter-Medium.ttf",
     "assets/lore.png",
     "assets/title.png",
-    "assets/youdied.png"
+    "assets/youdied.png",
+    "game_file/items.xml",
+    "assets/monsters/troll/Attack.png",
+    "assets/monsters/troll/Attack2.png",
+    "assets/monsters/troll/Attack3.png",
+    "assets/monsters/troll/Death.png",
+    "assets/monsters/troll/Idle.png",
+    "assets/monsters/troll/none_slash.png",
+    "assets/monsters/troll/TakeHit.png",
+    "assets/monsters/troll/troll_slash.png",
+    "assets/monsters/troll/walk.png"
 };
 
 static const char *needed_folders[] =
@@ -98,6 +108,7 @@ static const char *needed_folders[] =
     "assets/monsters/Eye",
     "assets/monsters/Mushroom",
     "assets/monsters/Skeleton",
+    "assets/monsters/troll",
     "assets/npc",
     "assets/player/hud",
     "assets/player",
@@ -106,7 +117,8 @@ static const char *needed_folders[] =
     "assets/songs",
     "assets/tileset",
     "assets",
-    "saves"
+    "saves",
+    "game_file"
 };
 
 static void check_file(char *file, int *result, char *filetype)
