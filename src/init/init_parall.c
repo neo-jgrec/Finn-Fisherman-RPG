@@ -37,7 +37,7 @@ void init_parall(entity_t *player, rpg_t *rpg)
 
     if (parall == NULL)
         return;
-    parall->y_spawn = player->pos.y;
+    parall->y_spawn = player->pos.y + 100;
     parall->nb = 6;
     init_parall_0(player, parall);
     rpg->parall = parall;

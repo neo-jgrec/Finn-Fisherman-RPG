@@ -16,9 +16,6 @@ static void init_rpg_parts(rpg_t *rpg)
     init_player(rpg->asset, rpg);
     init_data(rpg);
     init_item_list(rpg);
-    for (int i = 0; i < rpg->data->nb_item; i++) {
-        printf("%d %d %s\n", rpg->data->item_list[i].type, rpg->data->item_list[i].sprite, rpg->data->item_list[i].desc);
-    }
     init_input(rpg);
     init_fishing(rpg);
     init_menu(rpg);
