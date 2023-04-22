@@ -49,7 +49,8 @@ static void display_description(rpg_t *rpg, size_t i)
     sfText_destroy(text);
 }
 
-static void handle_actions(rpg_t *rpg, sfVector2f pos, size_t i)
+static void handle_actions(rpg_t *rpg, sfVector2f pos, size_t i,
+    sfIntRect texture_rect)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(rpg->win->win);
 
@@ -66,28 +67,32 @@ static void handle_actions(rpg_t *rpg, sfVector2f pos, size_t i)
             sfSprite_setColor(rpg->asset->items.sp, sfWhite);
         else
             sfSprite_setColor(rpg->asset->items.sp, (sfColor){0, 255, 0, 255});
-        if (sfKeyboard_isKeyPressed(sfKeyR))
-            rpg->data->inventory[i] = NULL;
-        if (sfKeyboard_isKeyPressed(sfKeyE))
-            equip_inv(rpg, i);
+        if (sfKeyboard_isKeyPressed(sfKeyR)) rpg->data->inventory[i] = NULL;
+        if (sfKeyboard_isKeyPressed(sfKeyE)) equip_inv(rpg, i);
     }
+    sfSprite_setTextureRect(rpg->asset->items.sp, texture_rect);
+    sfSprite_setPosition(rpg->asset->items.sp, pos);
 }
 
 void draw_inventory(rpg_t *rpg)
 {
     sfIntRect texture_rect;
     sfVector2f pos;
-
+    sfRectangleShape *rect = sfRectangleShape_create();
+    sfRectangleShape_setFillColor(rect, sfTransparent);
+    sfRectangleShape_setOutlineColor(rect, sfWhite);
+    sfRectangleShape_setOutlineThickness(rect, 2);
     event_manager(rpg);
     for (size_t i = 0; (3 * 7) > i; i++) {
+        pos = (sfVector2f){((i % 7) * 64 + 300), ((i / 7) * 64 + 300)};
+        sfRectangleShape_setSize(rect, (VEC){64, 64});
+        sfRectangleShape_setPosition(rect, (VEC){pos.x - 32, pos.y - 32});
+        sfRenderWindow_drawRectangleShape(rpg->win->win, rect, NULL);
         if (!rpg->data->inventory[i]) continue;
-        pos = (sfVector2f){((i % 8) * 64 + 300), ((i / 8) * 64 + 300)};
         texture_rect = (sfIntRect){(rpg->data->inventory[i]->sprite % 8) * 16,
             (rpg->data->inventory[i]->sprite / 8) * 16, 16, 16};
         sfSprite_setScale(rpg->asset->items.sp, (VEC){4, 4});
-        handle_actions(rpg, pos, i);
-        sfSprite_setTextureRect(rpg->asset->items.sp, texture_rect);
-        sfSprite_setPosition(rpg->asset->items.sp, pos);
+        handle_actions(rpg, pos, i, texture_rect);
         sfRenderWindow_drawSprite(rpg->win->win, rpg->asset->items.sp, NULL);
     }
     sfSprite_setColor(rpg->asset->items.sp, sfWhite);
