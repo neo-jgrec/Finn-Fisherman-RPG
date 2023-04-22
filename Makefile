@@ -186,7 +186,8 @@ SRC 					+= 	src/in_game_menu/buttons_actions.c			\
 							src/in_game_menu/buttons_actions2.c			\
 							src/in_game_menu/settings.c					\
 							src/in_game_menu/saves.c					\
-							src/in_game_menu/inventory.c
+							src/in_game_menu/inventory.c				\
+							src/in_game_menu/skills.c
 
 MAIN 					= 	src/main.c
 
