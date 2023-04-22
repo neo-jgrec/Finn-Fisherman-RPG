@@ -12,9 +12,14 @@
 
     // DEFINES
 
+    #define MENU_MUSIC "./assets/songs/menu.ogg"
     #define MAIN_MUSIC "./assets/songs/main_theme.ogg"
+    #define MAIN_MUSIC2 "./assets/songs/main_theme2.ogg"
     #define DEATH_SOUND "./assets/songs/death.ogg"
     #define SWORD_SOUND "./assets/songs/sword_hit.ogg"
+    #define JUMP_SOUND "./assets/songs/jump.ogg"
+    #define HEAL_SOUND "./assets/songs/heal.ogg"
+    #define ROLL_SOUND "./assets/songs/roll.ogg"
 
 typedef struct mus_struct {
     char *name;

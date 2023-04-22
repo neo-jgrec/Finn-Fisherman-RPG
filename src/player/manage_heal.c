@@ -15,6 +15,7 @@ static void check_heal(entity_t *player, rpg_t *rpg)
         player->health.potion != 0) {
         player->health.potion -= 1;
         player->state = HEALING;
+        play_sound(HEAL_SOUND, rpg);
     }
 }
 
