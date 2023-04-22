@@ -33,6 +33,7 @@
         sfClock *time;
         sfClock *warudo;
         float deltaT;
+        sfImage *icon;
         scene_t scene;
         sfFont *font;
         sfVector2u size;
