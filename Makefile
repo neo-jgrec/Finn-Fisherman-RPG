@@ -23,7 +23,10 @@ SRC 					:=	src/main_loop.c 							\
 							src/add_collider.c \
 							src/get_xml_int.c \
 							src/save_data.c \
-							src/switch_weather.c
+							src/switch_weather.c \
+							src/draw_info_text.c \
+							src/add_info_text.c \
+							src/manage_info_text.c
 
 SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_win.c 						\

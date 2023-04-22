@@ -65,9 +65,11 @@
         float cd;
         sfColor color;
         struct info_s *next;
+        sfVector2f pos;
     } info_t;
 
     typedef struct rpg_s {
+        sfText *info_text;
         win_t *win;
         puzzle_t *puzzle;
         data_t *data;
@@ -111,5 +113,10 @@
         sfFloatRect rect, int *nb_col);
     int get_xml_int(xml_parser_t *parser, char **tags);
     void switch_weather(rpg_t *rpg);
+
+    void draw_infos_text(rpg_t *rpg);
+    void add_info_text(rpg_t *rpg, sfColor color,
+        VEC pos, char *str);
+    void manage_info_text(rpg_t *rpg);
 
 #endif /* !_RPG_H__ */

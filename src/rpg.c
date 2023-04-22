@@ -6,6 +6,12 @@
 */
 
 #include "rpg.h"
+static void init_info_text(rpg_t *rpg)
+{
+    rpg->info_text = sfText_create();
+    sfText_setCharacterSize(rpg->info_text, 18);
+    sfText_setFont(rpg->info_text, rpg->win->font);
+}
 
 static void init_rpg_parts(rpg_t *rpg)
 {
@@ -38,6 +44,8 @@ int rpg(void)
     rpg->infos = &info;
     init_rpg_parts(rpg);
     init_fishing(rpg);
+    init_info_text(rpg);
+    add_info_text(rpg, sfRed, (VEC){500, 500}, my_itoa(50));
     scene_manager(rpg);
     return 0;
 }
