@@ -30,6 +30,7 @@ static void free_menus(rpg_t *rpg)
     sfShader_destroy(rpg->menu->bg_shader);
     sfRectangleShape_destroy(rpg->menu->how_to_play);
     sfRectangleShape_destroy(rpg->menu->lore);
+    sfRectangleShape_destroy(rpg->menu->title);
 }
 
 static void free_shaders(rpg_t *rpg)
