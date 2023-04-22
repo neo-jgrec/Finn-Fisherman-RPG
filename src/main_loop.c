@@ -46,6 +46,7 @@ int main_loop(win_t *win, rpg_t *rpg)
         manage_parall(rpg->player, rpg->parall, win);
     } else
         replace_elements_in_game_menus(rpg);
+    check_consomable(rpg);
     draw(win, rpg);
     return 0;
 }

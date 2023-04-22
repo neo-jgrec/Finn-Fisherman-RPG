@@ -17,7 +17,8 @@ void add_info_text(rpg_t *rpg, sfColor color,
         return;
     info->cd = 3;
     info->color = color;
-    info->pos = pos;
+    info->pos = (VEC){pos.x + my_random(0, 100) - 50,
+        pos.y + my_random(0, 100) - 50};
     info->str = str;
     info->next = *infos;
     *infos = info;

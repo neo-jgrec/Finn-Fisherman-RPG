@@ -17,6 +17,7 @@ static void free_info_text(info_t *to_free, rpg_t *rpg)
         node = node->next;
         if (node == to_free) {
             prev->next = to_free->next;
+            free(to_free->str);
             free(to_free);
             break;
         }

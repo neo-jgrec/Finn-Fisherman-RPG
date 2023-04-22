@@ -21,6 +21,8 @@ static void player_got_a_hit(rpg_t *rpg, entity_t *player, entity_t *monster)
         return hit_player(rpg, damage, monster);
     player->roll.cd = 0;
     monster->state = ATTACK;
+    add_info_text(rpg, sfRed,
+        (VEC){monster->pos.x, monster->pos.y - 50}, my_strdup("miss"));
 }
 
 static void player_attack(rpg_t *rpg, entity_t *player)

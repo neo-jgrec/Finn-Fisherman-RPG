@@ -12,11 +12,11 @@ static void new_anim_2(rpg_t *rpg,
 {
     if (state == HIT) {
         if (player->health.health)
-            set_animation(player, asset->ma_shroom.damage, 0, return_to_idle);
+            set_animation(player, asset->ma_troll.damage, 0, return_to_idle);
         else {
             rpg->data->xp += player->loot;
             monster_drop(rpg, player);
-            set_animation(player, asset->ma_shroom.death, 0, death_anim);
+            set_animation(player, asset->ma_troll.death, 0, death_anim);
         }
     }
 }
@@ -25,11 +25,11 @@ static void new_anim(rpg_t *rpg,
     entity_t *player, asset_t *asset, p_state_e state)
 {
     if (state == IDLE)
-        set_animation(player, asset->ma_shroom.idle, 1, NULL);
+        set_animation(player, asset->ma_troll.idle, 1, NULL);
     if (state == RUN)
-        set_animation(player, asset->ma_shroom.run, 1, NULL);
+        set_animation(player, asset->ma_troll.run, 1, NULL);
     if (state == ATTACK)
-        set_animation(player, asset->ma_shroom.attack_1, 0, attack_anim);
+        set_animation(player, asset->ma_troll.attack_1, 0, attack_anim);
     new_anim_2(rpg, player, asset, state);
 }
 
@@ -55,7 +55,7 @@ static void change_anim(entity_t *player, rpg_t *rpg)
     player->prev_state = player->state;
 }
 
-void set_sprite_shroom(entity_t *player, rpg_t *rpg)
+void set_sprite_troll(entity_t *player, rpg_t *rpg)
 {
     frame_t frame = player->frame;
     int time = 0;

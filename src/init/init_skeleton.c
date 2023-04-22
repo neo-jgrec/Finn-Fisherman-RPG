@@ -25,4 +25,5 @@ void init_skeleton(rpg_t *rpg, entity_t *monster, monster_stat_t stat)
     monster->loot = stat.loot;
     monster->health.health = stat.life;
     monster->velocity = 0;
+    monster->drop_list = stat.drop_list;
 }

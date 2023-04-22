@@ -17,7 +17,7 @@ static void init_a_monster(rpg_t *rpg, char *monster)
     if (stw == NULL)
         return;
     for (; stw[len]; len++);
-    if (len != 6)
+    if (len != 7)
         return;
     type = my_atoi(stw[0]);
     stat.pos.x = my_atoi(stw[1]);
@@ -25,6 +25,7 @@ static void init_a_monster(rpg_t *rpg, char *monster)
     stat.damage = my_atoi(stw[3]);
     stat.life = my_atoi(stw[4]);
     stat.loot = my_atoi(stw[5]);
+    stat.drop_list = my_strdup(stw[6]);
     add_monster(rpg, type, stat);
     a_freestw(stw);
 }

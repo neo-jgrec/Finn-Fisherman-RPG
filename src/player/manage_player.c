@@ -13,7 +13,9 @@ static void set_var(entity_t *player, rpg_t *rpg)
         rpg->data->xp -= rpg->data->xp_to_lvl_up;
         rpg->data->xp_to_lvl_up += 20;
         rpg->data->lvl += 1;
-        rpg->data->lvl_point += 1;
+        add_info_text(rpg, sfGreen,
+            (VEC){player->pos.x, player->pos.y - 50}, my_strdup("LVL UP"));
+        rpg->data->lvl_point += 5;
     }
     player->time += rpg->win->deltaT;
     if (player->state != ATTACK && player->state != ROLL)
@@ -44,12 +46,13 @@ void manage_player(win_t *win, entity_t *player, rpg_t *rpg)
 {
     check_spot(player, rpg);
     set_var(player, rpg);
-    if (player->state == HIT || manage_fishing(player, rpg))
+    if (player->state == HIT)
         return;
+    manage_fishing(player, rpg);
     manage_heal(player, rpg);
     manage_attack(player, rpg);
     if (player->state != HEALING && player->state != HIT &&
-        player->state != ATTACK) {
+        player->state != ATTACK && player->state != FISHING) {
         manage_roll(player, rpg);
         if (player->state != ROLL)
             manage_jump(player, rpg);

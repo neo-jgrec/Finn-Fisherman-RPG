@@ -37,7 +37,7 @@
     void check_monster_collision(rpg_t *rpg, entity_t *player);
     void check_fishing_spot(entity_t *player, puzzle_t *puzzle);
     void hit_player(rpg_t *rpg, int damage, entity_t *entity);
-    int manage_fishing(entity_t *player, rpg_t *rpg);
+    void manage_fishing(entity_t *player, rpg_t *rpg);
     void check_sign(entity_t *player, puzzle_t *puzzle, rpg_t *rpg);
     void set_stat(rpg_t *rpg, entity_t *player);
     void check_items(rpg_t *rpg);

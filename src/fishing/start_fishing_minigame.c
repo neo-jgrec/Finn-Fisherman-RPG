@@ -45,6 +45,15 @@ static void draw_sprites(win_t *win, fishing_t *game)
     sfRenderWindow_drawSprite(win->win, game->fish->fish.sp, NULL);
 }
 
+static void fishing_game(win_t *win, fishing_t *game, rpg_t *rpg)
+{
+    make_fish_move(win, game);
+    make_keep_zone_move(rpg, game);
+    change_zone_color(game);
+    draw_sprites(win, game);
+    end_game(game, win, rpg);
+}
+
 void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
     rpg_t *rpg)
 {
@@ -58,12 +67,10 @@ void play_fishing_game(win_t *win, fishing_t *game, entity_t *player,
     }
     if (game->info->game_start < 1){
         game->info->game_start += win->deltaT;
+        if (rpg->player->state != FISHING)
+            return end_game(game, rpg->win, rpg);
         draw_sprites(win, game);
         return;
     }
-    make_fish_move(win, game);
-    make_keep_zone_move(rpg, game);
-    change_zone_color(game);
-    draw_sprites(win, game);
-    end_game(game, win, rpg);
+    fishing_game(win, game, rpg);
 }

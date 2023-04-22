@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-int manage_fishing(entity_t *player, rpg_t *rpg)
+void manage_fishing(entity_t *player, rpg_t *rpg)
 {
     player->health.fish_cd -= rpg->win->deltaT;
     if (rpg->input->interact.press &&
@@ -18,7 +18,7 @@ int manage_fishing(entity_t *player, rpg_t *rpg)
         player->dir = 1;
         player->health.fish_cd = my_random(0, 100) / 10;
     }
-    if (player->state != FISHING)
-        return 0;
-    return 1;
+    if (player->state == FISHING && (rpg->input->left.press ||
+        rpg->input->right.press))
+        player->state = IDLE;
 }
