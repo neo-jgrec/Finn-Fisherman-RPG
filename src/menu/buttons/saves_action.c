@@ -52,7 +52,10 @@ void launch_game(rpg_t *rpg)
     parse_xml(rpg->data->parser);
     default_data(rpg->data);
     init_puzzle(rpg);
+    free_items(rpg);
+    free_monsters(rpg);
     init_monsters(rpg);
     save_data(rpg);
+    switch_weather(rpg);
     rpg->win->scene = GAME;
 }

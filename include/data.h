@@ -79,6 +79,8 @@ UNUSED static const char *data_default_xml = "\
         int xp_to_lvl_up;
         int lvl_point;
         item_e **inventory;
+        item_e *item_list;
+        int nb_item;
     } data_t;
 
     void init_data(rpg_t *rpg);
@@ -89,5 +91,6 @@ UNUSED static const char *data_default_xml = "\
     void free_items(rpg_t *rpg);
     void init_inventory_equiped(data_t *data);
     void save_data(rpg_t *rpg);
+    void init_item_list(rpg_t *rpg);
 
 #endif /* !DATA_H_ */

@@ -39,8 +39,7 @@ int main_loop(win_t *win, rpg_t *rpg)
         manage_items(rpg);
         manage_npc(rpg, rpg->npc);
         cam_management(rpg->player, win, rpg);
-        manage_parall(rpg->player,
-            ((rpg->data->location % 2) ? rpg->parall : rpg->parall_2), win);
+        manage_parall(rpg->player, rpg->parall, win);
     } else
         replace_elements_in_game_menus(rpg);
     draw(win, rpg);

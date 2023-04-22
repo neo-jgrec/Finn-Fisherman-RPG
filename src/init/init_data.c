@@ -30,6 +30,8 @@ static void default_data(data_t *data)
     data->xp_to_lvl_up = 100;
     data->lvl_point = 0;
     data->inventory = init_inventory();
+    data->item_list = NULL;
+    data->nb_item = 0;
 }
 
 static void get_data(data_t *data)
