@@ -32,6 +32,7 @@ void init_input(rpg_t *rpg)
     input->fish_up = init_key(sfKeyUp);
     input->fish_down = init_key(sfKeyDown);
     input->fish_game = init_key(sfKeyP);
+    input->quest = init_key(sfKeyQ);
     rpg->input = input;
     loading_screen(rpg, rpg->loading, 100, 0);
 }

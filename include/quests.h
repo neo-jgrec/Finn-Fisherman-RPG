@@ -62,6 +62,8 @@
     } quest_s;
 
     typedef struct quest_l {
+        float clock_input;
+        bool draw;
         size_t size;
         quest_s *head;
         quest_s *tail;

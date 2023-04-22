@@ -26,6 +26,7 @@
         kv_t fish_game;
         kv_t fish_up;
         kv_t fish_down;
+        kv_t quest;
     } input_t;
 
     void init_input(rpg_t *rpg);

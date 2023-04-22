@@ -24,6 +24,7 @@ static void event_manager(win_t *win, UNUSED rpg_t *rpg)
             win->event.key.code == sfKeyEscape)
             rpg->menu->scene = MAIN_MENU;
     }
+    sfRenderWindow_setView(win->win, sfRenderWindow_getDefaultView(win->win));
 }
 
 static void res_button_switch(rpg_t *rpg)
@@ -63,6 +64,7 @@ static void settings_menu(win_t *win, rpg_t *rpg)
 
 void menu_loop(win_t *win, rpg_t *rpg)
 {
+    rpg->menu->in_game_menu->panel_type = NONE_PANEL;
     if (rpg->menu->scene == MAIN_MENU) {
         sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 1.0);
         sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 1.0);
