@@ -35,6 +35,10 @@ static void shader_switch(rpg_t *rpg, int intensity)
 static void in_game_menu(win_t *win, rpg_t *rpg)
 {
     if (rpg->menu->in_game_menu->panel_type != NONE_PANEL) {
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "time",
+            DELTAT(rpg->win->time));
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "blur", 5.0);
+        sfShader_setFloatUniform(rpg->menu->bg_shader, "brightness", 0.2);
         sfRenderWindow_drawRectangleShape(win->win,
         rpg->menu->in_game_menu->bg, NULL);
         button_manager(win, rpg, (struct buttons *)&(rpg->menu->in_game_menu
@@ -45,6 +49,8 @@ static void in_game_menu(win_t *win, rpg_t *rpg)
             case INVENTORY_PANEL: draw_inventory(rpg);          break;
             default:                                            break;
         }
+        sfRenderWindow_drawRectangleShape(win->win, rpg->menu->bg,
+        rpg->menu->render_states);
     }
 }
 
