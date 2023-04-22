@@ -12,6 +12,7 @@ void settings_button_action(rpg_t *rpg);
 void save_button_action(rpg_t *rpg);
 void resume_button_action(rpg_t *rpg);
 void inventory_button_action(rpg_t *rpg);
+void skills_button_action(rpg_t *rpg);
 
 static const char *button_name_main[] = {
     "MAIN MENU",
@@ -63,7 +64,7 @@ static void init_buttons(rpg_t *rpg)
         {TEXT_SIZE_LEN(button_name_main[5], 30), 30}};
     void (*action_array[])(rpg_t *) = {&menu_button_action,
     &settings_button_action, &inventory_button_action,
-    NULL, &save_button_action, &resume_button_action};
+    &skills_button_action, &save_button_action, &resume_button_action};
     for (int i = 0; i < 6; i++) {
         button = malloc(sizeof(button_t));
         button->name = (char *)button_name_main[i];
@@ -72,6 +73,25 @@ static void init_buttons(rpg_t *rpg)
         button->action = (void*)action_array[i];
         button->state = IDLE_BUTTON;
         TAILQ_INSERT_TAIL(&rpg->menu->in_game_menu->nav_buttons, button, next);
+    }
+}
+
+static void init_skills_buttons(rpg_t *rpg)
+{
+    TAILQ_INIT(&rpg->menu->in_game_menu->skill_buttons);
+    button_t *button = malloc(sizeof(button_t));
+    char *names[] = {"<- HEAL POWER ->", "<- MAX HEALTH ->",
+    "<- SPEED ->", "<- DAMAGE ->", "<- CRITICAL CHANCE ->",
+    "<- JUMP ->"};
+
+    for (int i = 0; i < 6; i++) {
+        button = malloc(sizeof(button_t));
+        button->name = names[i];
+        button->size = (sfVector2f){TEXT_SIZE_LEN(names[i], 30), 30};
+        button->shape = sfRectangleShape_create();
+        button->action = NULL;
+        button->state = IDLE_BUTTON;
+        TAILQ_INSERT_TAIL(&rpg->menu->in_game_menu->skill_buttons, button, next);
     }
 }
 

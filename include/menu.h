@@ -57,6 +57,7 @@ typedef struct in_game_menu_s {
     sfText *text;
     panel_type_t panel_type;
     TAILQ_HEAD(nav_buttons, button_s) nav_buttons;
+    TAILQ_HEAD(skill_buttons, button_s) skill_buttons;
 } in_game_menu_t;
 
 typedef struct menu_s {
