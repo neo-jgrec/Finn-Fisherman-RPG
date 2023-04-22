@@ -7,22 +7,37 @@
 
 #include "rpg.h"
 
+static void free_info_text(info_t *to_free, rpg_t *rpg)
+{
+    info_t *node = *rpg->infos;
+    info_t *prev = NULL;
+
+    for (; node != NULL;) {   
+        prev = node;
+        node = node->next;
+        if (node == to_free) {
+            prev->next = to_free->next;
+            free(to_free);
+            break;
+        }
+    }
+}
+
 static void manage_delete_info_text(rpg_t *rpg)
 {
     info_t *node = *rpg->infos;
     info_t *prev = NULL;
-    int count = 0;
 
-    for (; node != NULL; node = node->next) {
-        if (node->cd < 0 && count != 0)
-            prev->next = node->next;
-        if (node->cd < 0 && count == 0)
-            *rpg->infos = node->next;
-        if (node->cd >= 0) {
-            count++;
-            prev = node;
-        }
+    for (; node != NULL; node = node->next) {   
+        prev = node;
     }
+    if (prev == NULL || prev->cd >= 0)
+        return;
+    if (prev == *rpg->infos)
+        *rpg->infos = prev->next;
+    else
+        free_info_text(prev, rpg);
+        
 }
 
 void manage_info_text(rpg_t *rpg)

@@ -45,7 +45,6 @@ int rpg(void)
     init_rpg_parts(rpg);
     init_fishing(rpg);
     init_info_text(rpg);
-    add_info_text(rpg, sfRed, (VEC){500, 500}, my_itoa(50));
     scene_manager(rpg);
     return 0;
 }
