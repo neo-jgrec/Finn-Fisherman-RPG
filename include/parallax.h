@@ -18,7 +18,7 @@ typedef struct parall_s{
 } parall_t;
 
     void draw_parall(win_t *win, parall_t *parall);
-    void init_parall(entity_t *player, rpg_t *rpg, int i);
+    void init_parall(entity_t *player, rpg_t *rpg);
     void manage_parall(entity_t *player, parall_t *parall, win_t *win);
 
 #endif /* !PARALLAX_H */

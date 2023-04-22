@@ -102,5 +102,6 @@
     sfFloatRect *add_colliders(sfFloatRect *colliders,
         sfFloatRect rect, int *nb_col);
     int get_xml_int(xml_parser_t *parser, char **tags);
+    void switch_weather(rpg_t *rpg);
 
 #endif /* !_RPG_H__ */

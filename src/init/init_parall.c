@@ -31,16 +31,14 @@ static void init_parall_0(entity_t *player, parall_t *parall)
         parall->pos[i] = (VEC){player->pos.x, player->pos.y -150};
 }
 
-void init_parall(entity_t *player, rpg_t *rpg, int i)
+void init_parall(entity_t *player, rpg_t *rpg)
 {
     parall_t *parall = malloc(sizeof(parall_t));
 
     if (parall == NULL)
         return;
-    parall->y_spawn = player->pos.y;
-    if (i == 0) {
-        parall->nb = 6;
-        init_parall_0(player, parall);
-    }
+    parall->y_spawn = player->pos.y + 100;
+    parall->nb = 6;
+    init_parall_0(player, parall);
     rpg->parall = parall;
 }

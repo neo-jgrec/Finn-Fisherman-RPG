@@ -15,6 +15,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_quest(rpg);
     init_player(rpg->asset, rpg);
     init_data(rpg);
+    init_item_list(rpg);
     init_input(rpg);
     init_fishing(rpg);
     init_menu(rpg);
@@ -22,6 +23,7 @@ static void init_rpg_parts(rpg_t *rpg)
     init_song(rpg);
     init_shaders(rpg);
     init_in_game_menu(rpg);
+    init_parall(rpg->player, rpg);
 }
 
 int rpg(void)

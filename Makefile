@@ -22,7 +22,8 @@ SRC 					:=	src/main_loop.c 							\
 							src/free_stw.c 								\
 							src/add_collider.c \
 							src/get_xml_int.c \
-							src/save_data.c
+							src/save_data.c \
+							src/switch_weather.c
 
 SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_win.c 						\
@@ -159,11 +160,13 @@ SRC						+=	src/parallax/draw_parall.c 					\
 SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
 							src/free/free_monsters.c \
-							src/free/free_items.c
+							src/free/free_items.c \
+							src/free/free_sprite_t.c
 
 SRC						+=	src/item/add_item.c \
 							src/item/manage_items.c \
-							src/item/draw_items.c
+							src/item/draw_items.c \
+							src/item/init_item_list.c
 
 SRC						+=	src/quests/manage_quest.c 					\
 							src/quests/draw_text.c 						\

@@ -19,6 +19,7 @@ static void check_for_map_change(rpg_t *rpg, int map)
         free_monsters(rpg);
         free_items(rpg);
         init_monsters(rpg);
+        switch_weather(rpg);
     }
 }
 

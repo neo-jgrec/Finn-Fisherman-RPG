@@ -73,6 +73,8 @@ void save_data(rpg_t *rpg)
     char *str = NULL;
     data_t *data = rpg->data;
 
+    if (ps == NULL)
+        return;
     if ((str = save_inventory(rpg->data, 1)) != NULL) {
         update_value_by_tags(ps->root, (char *[]){"EQUIPED", NULL}, str);
         free(str);
