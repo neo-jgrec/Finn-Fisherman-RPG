@@ -53,7 +53,9 @@ SRC						+=	src/init/init_rpg.c 						\
 							src/init/init_shaders.c 					\
 							src/init/init_sign.c 						\
 							src/init/init_monsters.c					\
-							src/init/init_in_game_menu.c
+							src/init/init_in_game_menu.c \
+							src/init/init_troll.c \
+							src/init/init_monster_asset_2.c
 
 SRC						+=  src/init/npc/init_merchant.c				\
 							src/init/npc/init_priest.c					\
@@ -145,6 +147,9 @@ SRC						+=	src/monsters/eye/manage_eye.c 				\
 
 SRC						+=	src/monsters/shroom/manage_shroom.c 		\
 							src/monsters/shroom/set_sprite_shroom.c
+
+SRC						+=	src/monsters/troll/manage_troll.c 		\
+							src/monsters/troll/set_sprite_troll.c
 
 SRC						+=  src/npc/manage_npc.c \
 							src/npc/display_npc.c \

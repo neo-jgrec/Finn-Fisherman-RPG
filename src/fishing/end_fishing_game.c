@@ -25,7 +25,7 @@ static void fish_result(sfBool out, rpg_t *rpg)
         add_info_text(rpg, sfYellow,
             (VEC){rpg->player->pos.x, rpg->player->pos.y - 50},
                 my_strdup("CATCH"));
-        add_item(rpg, 2,
+        add_item(rpg, list_item_drop[my_random(0, 7)],
             (VEC){rpg->player->pos.x - 50,
             rpg->player->pos.y});
     } else {

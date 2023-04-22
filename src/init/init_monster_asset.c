@@ -73,4 +73,5 @@ void init_mas(asset_t *asset)
     asset->ma_eye = init_ma_eye();
     asset->ma_skeleton = init_ma_skeleton();
     asset->ma_shroom = init_ma_shroom();
+    init_mas_2(asset);
 }

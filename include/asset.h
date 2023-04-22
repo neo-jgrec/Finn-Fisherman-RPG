@@ -50,6 +50,8 @@
         ma_t ma_skeleton;
         ma_t ma_shroom;
         ma_t ma_eye;
+        ma_t ma_ball;
+        ma_t ma_troll;
         sprite_t tileset;
         sprite_t items;
     } asset_t;

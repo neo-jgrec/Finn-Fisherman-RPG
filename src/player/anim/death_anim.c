@@ -11,6 +11,7 @@ static void player_death(rpg_t *rpg, entity_t *entity)
 {
     int a = 0;
 
+    stop_loop_song(MAIN_MUSIC2, rpg);
     stop_loop_song(MAIN_MUSIC, rpg);
     entity->state = IDLE;
     entity->health.health = rpg->data->tot_stat.max_health;
