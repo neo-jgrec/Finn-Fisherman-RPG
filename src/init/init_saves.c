@@ -27,7 +27,7 @@ static void add_stats(save_menu_t *save, xml_parser_t *parser, char *filename)
     ((char *[]){"SAVENAME", NULL}));
     save->is_write = (get_value_by_tags(parser->root,
     ((char *[]){"STARTED", NULL}))[0] == '1') ? true : false;
-    save->button->name = save->name;
+    save->button->name = filename;
 }
 
 static bool is_file_exist(const char *filename)
