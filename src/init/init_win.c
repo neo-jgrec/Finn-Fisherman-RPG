@@ -7,6 +7,13 @@
 
 #include "rpg.h"
 
+static void init_icon(win_t *win)
+{
+    win->icon = sfImage_createFromFile("assets/icon.png");
+    sfRenderWindow_setIcon(win->win, sfImage_getSize(win->icon).x,
+        sfImage_getSize(win->icon).y, sfImage_getPixelsPtr(win->icon));
+}
+
 void init_win(rpg_t *rpg)
 {
     win_t *win = malloc(sizeof(win_t));
@@ -27,5 +34,6 @@ void init_win(rpg_t *rpg)
     win->win_size = 0;
     win->win_style = 1;
     win->save_key = 0;
+    init_icon(win);
     rpg->win = win;
 }

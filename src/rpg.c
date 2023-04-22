@@ -30,13 +30,12 @@ int rpg(void)
 {
     entity_t *monster = NULL;
     item_e *item = NULL;
+    info_t *info = NULL;
     rpg_t *rpg = init_rpg();
 
     rpg->items = &item;
     rpg->monsters = &monster;
-    add_item(rpg, 0, (VEC){1000, 500});
-    add_item(rpg, 0, (VEC){1200, 500});
-    add_item(rpg, 0, (VEC){1400, 500});
+    rpg->infos = &info;
     init_rpg_parts(rpg);
     init_fishing(rpg);
     scene_manager(rpg);

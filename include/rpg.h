@@ -60,6 +60,13 @@
         SNOW
     } weather_e;
 
+    typedef struct info_s {
+        char *str;
+        float cd;
+        sfColor color;
+        struct info_s *next;
+    } info_t;
+
     typedef struct rpg_s {
         win_t *win;
         puzzle_t *puzzle;
@@ -67,6 +74,7 @@
         asset_t *asset;
         entity_t *player;
         entity_t **monsters;
+        info_t **infos;
         item_e **items;
         loading_t *loading;
         input_t *input;
