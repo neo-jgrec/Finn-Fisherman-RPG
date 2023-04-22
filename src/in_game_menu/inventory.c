@@ -19,6 +19,8 @@ static void event_manager(rpg_t *rpg)
 
 static void equip_inv(rpg_t *rpg, size_t i)
 {
+    rpg->data->inventory[i]->equiped = true;
+
     for (size_t j = 0; (3 * 7) > j; j++) {
         if (rpg->data->inventory[j] != NULL && rpg->data->inventory[j]->equiped
         && rpg->data->inventory[j]->type == rpg->data->inventory[i]->type) {
@@ -82,10 +84,10 @@ void draw_inventory(rpg_t *rpg)
         pos = (sfVector2f){((i % 8) * 64 + 300), ((i / 8) * 64 + 300)};
         texture_rect = (sfIntRect){(rpg->data->inventory[i]->sprite % 8) * 16,
             (rpg->data->inventory[i]->sprite / 8) * 16, 16, 16};
+        sfSprite_setScale(rpg->asset->items.sp, (VEC){4, 4});
         handle_actions(rpg, pos, i);
         sfSprite_setTextureRect(rpg->asset->items.sp, texture_rect);
         sfSprite_setPosition(rpg->asset->items.sp, pos);
-        sfSprite_setScale(rpg->asset->items.sp, (VEC){4, 4});
         sfRenderWindow_drawSprite(rpg->win->win, rpg->asset->items.sp, NULL);
     }
     sfSprite_setColor(rpg->asset->items.sp, sfWhite);
