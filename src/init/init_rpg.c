@@ -14,6 +14,7 @@ rpg_t *init_rpg(void)
     rpg->sound_volume = 20;
     rpg->music_volume = 20;
     rpg->weather = NONE_WEATHER;
+    rpg->save_path = NULL;
     if (rpg == NULL)
         return NULL;
     return rpg;

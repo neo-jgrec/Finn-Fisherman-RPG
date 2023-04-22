@@ -164,7 +164,8 @@ SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
 							src/free/free_monsters.c \
 							src/free/free_items.c \
-							src/free/free_sprite_t.c
+							src/free/free_sprite_t.c \
+							src/free/free_button.c
 
 SRC						+=	src/item/add_item.c \
 							src/item/manage_items.c \
