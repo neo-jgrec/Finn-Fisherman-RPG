@@ -164,7 +164,8 @@ SRC						+=	src/free/free_puzzle.c \
 							src/free/free_entity.c \
 							src/free/free_monsters.c \
 							src/free/free_items.c \
-							src/free/free_sprite_t.c
+							src/free/free_sprite_t.c \
+							src/free/free_button.c
 
 SRC						+=	src/item/add_item.c \
 							src/item/manage_items.c \
@@ -183,8 +184,11 @@ SRC						+=	src/song/pause/pause_loop_song.c
 SRC						+=	src/song/stop/stop_loop_song.c
 
 SRC 					+= 	src/in_game_menu/buttons_actions.c			\
+							src/in_game_menu/buttons_actions2.c			\
 							src/in_game_menu/settings.c					\
-							src/in_game_menu/saves.c
+							src/in_game_menu/saves.c					\
+							src/in_game_menu/inventory.c				\
+							src/in_game_menu/skills.c
 
 MAIN 					= 	src/main.c
 
