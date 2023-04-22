@@ -10,11 +10,11 @@
 
 void create_default_save_file(char *filename, char *save_name);
 
-static void rm_save(char *name)
+static void rm_save(char *name, size_t i)
 {
     FILE *file = fopen(name, "w");
 
-    create_default_save_file(name, name);
+    create_default_save_file(name, my_strcat_inf(2, "Save ", my_itoa(i + 1)));
     fclose(file);
 }
 
@@ -36,7 +36,7 @@ static void button_state(sfRenderWindow *win, button_t *button)
     button->state = IDLE_BUTTON;
 }
 
-static void change_button_style(button_t *button, rpg_t *rpg)
+static void change_button_style(button_t *button, rpg_t *rpg, size_t i)
 {
     switch (button->state) {
         case IDLE_BUTTON:
@@ -48,6 +48,7 @@ static void change_button_style(button_t *button, rpg_t *rpg)
             break;
         case CLICKED_BUTTON:
             sfRectangleShape_setOutlineColor(button->shape, sfRed);
+            rpg->menu->save_reference = i;
             rpg->menu->selected_save = button->name;
             button->action(rpg);
             break;
@@ -63,14 +64,11 @@ void button_manager_save(win_t *win, rpg_t *rpg)
         sfRectangleShape_setSize(rpg->menu->saves[i]->button->shape,
             (sfVector2f){700, 150});
         button_state(win->win, rpg->menu->saves[i]->button);
-        if (rpg->menu->saves[i]->button->state == CLICKED_BUTTON)
-            rpg->menu->saves[i]->is_write = true;
-        change_button_style(rpg->menu->saves[i]->button, rpg);
+        change_button_style(rpg->menu->saves[i]->button, rpg, i);
         if (rpg->menu->saves[i]->button->state == HOVER_BUTTON
             && sfKeyboard_isKeyPressed(sfKeyR)) {
-            rm_save(rpg->menu->saves[i]->save_file);
+            rm_save(rpg->menu->saves[i]->save_file, i);
             rpg->menu->saves[i]->is_write = false;
-            rpg->menu->saves[i]->name = NULL;
         }
     }
 }

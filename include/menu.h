@@ -58,7 +58,8 @@ typedef enum panel_type {
     SETTINGS_PANEL,
     SAVE_PANEL,
     INVENTORY_PANEL,
-    CHARACTERISTICS_PANEL
+    CHARACTERISTICS_PANEL,
+    HOW_TO_PLAY_PANEL
 } panel_type_t;
 
 typedef struct in_game_menu_s {
@@ -78,6 +79,9 @@ typedef struct menu_s {
     sfRenderStates *render_states;
     save_menu_t **saves;
     char *selected_save;
+    int save_reference;
+    sfRectangleShape *how_to_play;
+    sfRectangleShape *lore;
     TAILQ_HEAD(buttons, button_s) buttons;
     TAILQ_HEAD(settings_buttons, button_s) settings_buttons;
     TAILQ_HEAD(res_buttons, button_s) res_buttons;

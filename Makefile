@@ -124,7 +124,8 @@ SRC						+= 	src/menu/menu_loop.c						\
 							src/menu/buttons/functions_res.c			\
 							src/menu/saves.c 							\
 							src/menu/button_save_manager.c				\
-							src/menu/buttons/saves_action.c
+							src/menu/buttons/saves_action.c				\
+							src/menu/start_screen.c
 
 SRC 					+=	xml_parser/edit_value.c 					\
 							xml_parser/free.c 							\
@@ -195,7 +196,10 @@ SRC 					+= 	src/in_game_menu/buttons_actions.c			\
 							src/in_game_menu/settings.c					\
 							src/in_game_menu/saves.c					\
 							src/in_game_menu/inventory.c				\
-							src/in_game_menu/skills.c
+							src/in_game_menu/skills.c					\
+							src/in_game_menu/how_to_play.c
+
+SRC						+=	src/checker2000/checker.c
 
 MAIN 					= 	src/main.c
 
