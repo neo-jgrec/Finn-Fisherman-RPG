@@ -30,6 +30,8 @@ static void set_var(entity_t *player, rpg_t *rpg)
 
 static void check_spot(entity_t *player, rpg_t *rpg)
 {
+    if (player->health.health > rpg->data->tot_stat.max_health)
+        player->health.health = rpg->data->tot_stat.max_health;
     if (player->pos.y > 10000)
         hit_player(rpg, 10000, player);
     if (player->velocity > 1500)
