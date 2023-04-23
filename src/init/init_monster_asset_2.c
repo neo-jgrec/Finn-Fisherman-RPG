@@ -11,16 +11,15 @@ static ma_t init_ma_ball(void)
 {
     ma_t ma = {0};
 
-    ma.attack_1 = init_sprite("assets/monsters/Eye/Attack.png",
+    ma.attack_1 = init_sprite("assets/monsters/Mushroom/Projectile_sprite.png",
         (VEC){150, 150}, 8, 3);
-    ma.attack_1.cd = 0.07;
-    ma.death = init_sprite("assets/monsters/Eye/Death.png",
-        (VEC){150, 150}, 4, 3);
-    ma.idle = init_sprite("assets/monsters/Eye/Idle.png",
-        (VEC){150, 150}, 4, 3);
-    ma.damage = init_sprite("assets/monsters/Eye/Hit.png",
-        (VEC){150, 150}, 4, 3);
-    ma.damage.cd = 0.05;
+    ma.attack_2 = init_sprite("assets/monsters/Mushroom/Projectile_death.png",
+        (VEC){150, 150}, 8, 3);
+    ma.death = init_sprite("assets/monsters/troll/none_slash.png",
+        (VEC){200, 200}, 1, 5);
+    ma.idle = init_sprite("assets/monsters/troll/troll_slash.png",
+        (VEC){200, 200}, 2, 5);
+    ma.idle.cd = 2;
     return ma;
 }
 

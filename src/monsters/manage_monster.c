@@ -20,5 +20,7 @@ void manage_monster(UNUSED win_t *win, rpg_t *rpg)
             set_var_shroom(node, rpg);
         if (node->id == TROLL)
             set_var_troll(node, rpg);
+        if (node->id == BALL)
+            set_var_ball(node, rpg);
     }
 }

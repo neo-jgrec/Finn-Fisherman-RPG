@@ -22,6 +22,8 @@ void add_monster(rpg_t *rpg, id_entity id, monster_stat_t stat)
         init_shroom(rpg, monster, stat);
     if (id == TROLL)
         init_troll(rpg, monster, stat);
+    if (id == BALL)
+        init_ball(rpg, monster, stat);
     monster->next = *monsters;
     *monsters = monster;
 }
