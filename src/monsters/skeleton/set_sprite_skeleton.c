@@ -75,5 +75,5 @@ void set_sprite_skeleton(entity_t *player, rpg_t *rpg)
     sfSprite_setPosition(player->sp, player->pos);
     sfSprite_setTextureRect(player->sp, rect);
     if (!(player->health.health <= 0))
-        flip(player);
+        flip_monster(player, rpg->player);
 }

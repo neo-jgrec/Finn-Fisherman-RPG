@@ -28,8 +28,14 @@ static void new_anim(rpg_t *rpg,
         set_animation(player, asset->ma_troll.idle, 1, NULL);
     if (state == RUN)
         set_animation(player, asset->ma_troll.run, 1, NULL);
-    if (state == ATTACK)
-        set_animation(player, asset->ma_troll.attack_1, 0, attack_anim);
+    if (state == ATTACK) {
+        if (player->attack.crit == 0)
+            set_animation(player, asset->ma_troll.attack_1, 0, attack_anim);
+        if (player->attack.crit == 1)
+            set_animation(player, asset->ma_troll.attack_2, 0, attack_anim);
+        if (player->attack.crit == 2)
+            set_animation(player, asset->ma_troll.attack_3, 0, attack_anim);
+    }
     new_anim_2(rpg, player, asset, state);
 }
 
@@ -73,5 +79,5 @@ void set_sprite_troll(entity_t *player, rpg_t *rpg)
     sfSprite_setPosition(player->sp, player->pos);
     sfSprite_setTextureRect(player->sp, rect);
     if (!(player->health.health <= 0))
-        flip(player);
+        flip_monster(player, rpg->player);
 }

@@ -62,5 +62,9 @@ void attack_anim(rpg_t *rpg, entity_t *entity)
         skeleton_attack(rpg, entity);
     if (entity->id == EYE)
         eye_attack(rpg, entity);
+    if (entity->id == SHROOM)
+        shroom_attack(rpg, entity);
+    if (entity->id == TROLL)
+        troll_attack(rpg, entity);
     return_to_idle(rpg, entity);
 }

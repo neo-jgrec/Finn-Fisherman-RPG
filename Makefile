@@ -140,7 +140,8 @@ SRC 					+=	xml_parser/edit_value.c 					\
 SRC						+=	src/monsters/add_monster.c 					\
 							src/monsters/draw_monsters.c 				\
 							src/monsters/manage_monster.c 				\
-							src/monsters/monster_drop.c
+							src/monsters/monster_drop.c \
+							src/monsters/flip_monster.c
 
 SRC						+=	src/monsters/skeleton/manage_skeleton.c 	\
 							src/monsters/skeleton/set_sprite_skeleton.c \
@@ -154,7 +155,8 @@ SRC						+=	src/monsters/shroom/manage_shroom.c 		\
 							src/monsters/shroom/shroom_attack.c
 
 SRC						+=	src/monsters/troll/manage_troll.c 		\
-							src/monsters/troll/set_sprite_troll.c
+							src/monsters/troll/set_sprite_troll.c \
+							src/monsters/troll/troll_attack.c
 
 SRC						+=	src/monsters/ball/manage_ball.c 		\
 							src/monsters/ball/set_sprite_ball.c

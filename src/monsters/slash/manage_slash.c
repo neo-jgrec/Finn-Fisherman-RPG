@@ -13,9 +13,10 @@ static void set_position_slash(win_t *win,
     sfFloatRect rect = {0};
 
     move_player(player, (VEC){player->dir * win->deltaT *
-            250, 0});
-    if (sfFloatRect_intersects(&player->rect, &rpg->player->rect, &rect))
-        hit_player(rpg, player->damage / 10, rpg->player);
+            500, 0});
+    if (sfFloatRect_intersects(&player->rect, &rpg->player->rect, &rect) &&
+        rpg->player->state != ROLL)
+        hit_player(rpg, player->damage / 2, rpg->player);
 }
 
 void set_var_slash(entity_t *monster, rpg_t *rpg)

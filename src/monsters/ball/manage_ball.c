@@ -12,9 +12,8 @@ static void set_position_ball(win_t *win,
 {
     sfFloatRect rect = {0};
 
-    move_player(player, (VEC){0, player->hor * win->deltaT * 350});
     move_player(player, (VEC){player->dir * win->deltaT *
-            350, 0});
+            500, 0});
     if (sfFloatRect_intersects(&player->rect, &rpg->player->rect, &rect)) {
         hit_player(rpg, player->damage / 2, rpg->player);
         set_death(rpg, player);
