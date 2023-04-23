@@ -24,7 +24,7 @@ UNUSED static const char *data_default_xml = "\
         <SPEED>400</SPEED>\n\
         <DAMAGE>50</DAMAGE>\n\
         <CRIT_CHANCE>30</CRIT_CHANCE>\n\
-        <JUMP>3</JUMP>\n\
+        <JUMP>0</JUMP>\n\
         <LEVEL>1</LEVEL>\n\
         <EXP>0</EXP>\n\
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>\n\
