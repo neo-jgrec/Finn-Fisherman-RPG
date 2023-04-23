@@ -35,7 +35,7 @@ static void player_attack(rpg_t *rpg, entity_t *player)
         rect.left -= 80;
     for (entity_t *node = *monsters; node; node = node->next)
         if (sfFloatRect_intersects(&node->rect, &rect, &intersection) ==
-            sfTrue)
+            sfTrue && node->id != BALL && node->id != SLASH)
             player_got_a_hit(rpg, player, node);
 }
 

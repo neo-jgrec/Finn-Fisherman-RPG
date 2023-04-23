@@ -35,6 +35,8 @@ void init_troll(rpg_t *rpg,
     entity_t *monster, monster_stat_t stat);
 void init_ball(rpg_t *rpg,
     entity_t *monster, monster_stat_t stat);
+void init_slash(rpg_t *rpg,
+    entity_t *monster, monster_stat_t stat);
 
 void add_monster(rpg_t *rpg, id_entity id, monster_stat_t stat);
 void draw_monsters(rpg_t *rpg);
@@ -49,6 +51,9 @@ void set_var_troll(entity_t *monster, rpg_t *rpg);
 void set_sprite_troll(entity_t *player, rpg_t *rpg);
 void set_var_ball(entity_t *monster, rpg_t *rpg);
 void set_sprite_ball(entity_t *player, rpg_t *rpg);
+void set_var_slash(entity_t *monster, rpg_t *rpg);
+void set_sprite_slash(entity_t *player, rpg_t *rpg);
 void monster_drop(rpg_t *rpg, entity_t *entity);
+void set_death(rpg_t *rpg, entity_t *entity);
 
 #endif /* !MONSTER_H_ */

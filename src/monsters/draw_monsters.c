@@ -22,6 +22,8 @@ void draw_monsters(rpg_t *rpg)
             set_sprite_troll(node, rpg);
         if (node->id == BALL)
             set_sprite_ball(node, rpg);
+        if (node->id == SLASH)
+            set_sprite_slash(node, rpg);
         sfRenderWindow_drawSprite(rpg->win->win,
             node->sp, NULL);
     }

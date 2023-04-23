@@ -22,5 +22,7 @@ void manage_monster(UNUSED win_t *win, rpg_t *rpg)
             set_var_troll(node, rpg);
         if (node->id == BALL)
             set_var_ball(node, rpg);
+        if (node->id == SLASH)
+            set_var_slash(node, rpg);
     }
 }

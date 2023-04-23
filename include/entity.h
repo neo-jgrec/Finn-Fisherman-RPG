@@ -29,7 +29,8 @@
         EYE,
         SHROOM,
         TROLL,
-        BALL
+        BALL,
+        SLASH
     } id_entity;
 
     typedef struct frame_s {
