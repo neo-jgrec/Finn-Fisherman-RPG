@@ -84,4 +84,6 @@ void init_item_list(rpg_t *rpg)
     rpg->data->nb_item = 0;
     rpg->data->item_list = create_item_tab(rpg, stw);
     a_freestw(stw);
+    if (parser->root != NULL)
+        free_parser(parser);
 }
