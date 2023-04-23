@@ -14,9 +14,9 @@ void init_ball(rpg_t *rpg, entity_t *monster, monster_stat_t stat)
     monster->state = IDLE;
     monster->prev_state = IDLE;
     monster->pos = stat.pos;
-    monster->rect = (sfFloatRect){0, 0, 64, 150};
+    monster->rect = (sfFloatRect){0, 0, 50, 50};
     monster->time = 0;
-    set_animation(monster, rpg->asset->ma_shroom.idle, 1, NULL);
+    set_animation(monster, rpg->asset->ma_ball.attack_1, 0, set_death);
     monster->jump = (jump_t){0, 0, 2, 2};
     monster->roll = (roll_t){0};
     monster->attack = (attack_t){0, 0};

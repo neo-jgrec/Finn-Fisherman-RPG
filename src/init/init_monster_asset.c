@@ -35,6 +35,7 @@ static ma_t init_ma_eye(void)
 
     ma.attack_1 = init_sprite("assets/monsters/Eye/Attack.png",
         (VEC){150, 150}, 8, 3);
+    ma.attack_1.cd = 0.05;
     ma.attack_1.cd = 0.07;
     ma.death = init_sprite("assets/monsters/Eye/Death.png",
         (VEC){150, 150}, 4, 3);

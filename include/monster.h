@@ -55,5 +55,7 @@ void set_var_slash(entity_t *monster, rpg_t *rpg);
 void set_sprite_slash(entity_t *player, rpg_t *rpg);
 void monster_drop(rpg_t *rpg, entity_t *entity);
 void set_death(rpg_t *rpg, entity_t *entity);
+void eye_attack(rpg_t *rpg, entity_t *monster);
+void eye_attack(rpg_t *rpg, entity_t *monster);
 
 #endif /* !MONSTER_H_ */

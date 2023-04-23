@@ -49,7 +49,7 @@ static void skeleton_attack(rpg_t *rpg, entity_t *monster)
         rect.left -= 95;
     if (sfFloatRect_intersects(&rpg->player->rect,
         &rect, &intersection) == sfTrue) {
-        hit_player(rpg, 40, rpg->player);
+        hit_player(rpg, monster->damage, rpg->player);
         rpg->player->health.cd = 0;
     }
 }
@@ -60,5 +60,7 @@ void attack_anim(rpg_t *rpg, entity_t *entity)
         player_attack(rpg, entity);
     if (entity->id == SKELETON)
         skeleton_attack(rpg, entity);
+    if (entity->id == EYE)
+        eye_attack(rpg, entity);
     return_to_idle(rpg, entity);
 }

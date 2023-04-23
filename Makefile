@@ -146,10 +146,12 @@ SRC						+=	src/monsters/skeleton/manage_skeleton.c 	\
 							src/monsters/skeleton/set_sprite_skeleton.c \
 
 SRC						+=	src/monsters/eye/manage_eye.c 				\
-							src/monsters/eye/set_sprite_eye.c
+							src/monsters/eye/set_sprite_eye.c \
+							src/monsters/eye/eye_attack.c
 
 SRC						+=	src/monsters/shroom/manage_shroom.c 		\
-							src/monsters/shroom/set_sprite_shroom.c
+							src/monsters/shroom/set_sprite_shroom.c \
+							src/monsters/shroom/shroom_attack.c
 
 SRC						+=	src/monsters/troll/manage_troll.c 		\
 							src/monsters/troll/set_sprite_troll.c
