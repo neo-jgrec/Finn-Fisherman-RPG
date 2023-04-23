@@ -28,7 +28,8 @@
         SKELETON,
         EYE,
         SHROOM,
-        TROLL
+        TROLL,
+        BALL
     } id_entity;
 
     typedef struct frame_s {
