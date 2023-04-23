@@ -11,10 +11,9 @@ static void draw_item(rpg_t *rpg, item_e *item)
 {
     sfIntRect rect = {0};
 
-    rect.width = 16;
-    rect.height = 16;
-    rect.top = 16 * (int)(item->sprite / 8);
-    rect.left = 16 * (int)item->sprite % 8;
+    printf("%d\n", item->sprite);
+    rect = (sfIntRect){(item->sprite % 8) * 16,
+            (item->sprite / 8) * 16, 16, 16};
     sfSprite_setTextureRect(rpg->asset->items.sp, rect);
     sfSprite_setPosition(rpg->asset->items.sp, item->pos);
     sfSprite_setScale(rpg->asset->items.sp, (VEC){2, 2});

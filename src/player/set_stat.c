@@ -7,7 +7,25 @@
 
 #include "rpg.h"
 
-void add_stats(player_stat_t *dir, player_stat_t *add)
+static void set_limit(player_stat_t *stats)
+{
+    if (stats->crit_chance < 0)
+        stats->crit_chance = 0;
+    if (stats->damage < 0)
+        stats->damage = 0;
+    if (stats->heal_power < 0)
+        stats->heal_power = 0;
+    if (stats->jump < 0)
+        stats->jump = 0;
+    if (stats->max_health < 0)
+        stats->max_health = 0;
+    if (stats->max_potion < 0)
+        stats->max_potion = 0;
+    if (stats->speed < 0)
+        stats->speed = 0;
+}
+
+static void add_stats(player_stat_t *dir, player_stat_t *add)
 {
     dir->crit_chance += add->crit_chance;
     dir->damage += add->damage;
@@ -29,4 +47,5 @@ void set_stat(rpg_t *rpg, UNUSED entity_t *player)
                 &rpg->data->inventory[i]->item_stat);
         }
     }
+    set_limit(&rpg->data->tot_stat);
 }
