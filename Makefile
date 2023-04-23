@@ -211,7 +211,8 @@ SRC 					+= 	src/in_game_menu/buttons_actions.c			\
 							src/in_game_menu/saves.c					\
 							src/in_game_menu/inventory.c				\
 							src/in_game_menu/skills.c					\
-							src/in_game_menu/how_to_play.c
+							src/in_game_menu/how_to_play.c				\
+							src/in_game_menu/save_in_game.c
 
 SRC						+=	src/checker2000/checker.c
 
