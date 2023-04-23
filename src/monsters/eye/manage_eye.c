@@ -16,18 +16,18 @@ static void set_position_eye(win_t *win,
     float length = sqrt(dir.x * dir.x + dir.y * dir.y);
 
     if (player->state == ATTACK)
-        speed = 200;
+        speed = 300;
     dir.x = dir.x / length;
+    if (SIGN(dir.x) != -SIGN(player->dir))
+        dir.x = -dir.x;
     dir.y = dir.y / length;
-    if (((player->state == HIT || player->state == ATTACK) &&
-        player->grounded))
+    if (player->state == HIT)
         return;
     move_player(player, (VEC){0, win->deltaT * dir.y * -speed});
     check_collision(player, rpg->puzzle, 0);
     move_player(player, (VEC){win->deltaT * dir.x *
             -speed, 0});
     check_collision(player, rpg->puzzle, 1);
-
 }
 
 static void monster_dir(entity_t *monster, rpg_t *rpg)
@@ -35,12 +35,8 @@ static void monster_dir(entity_t *monster, rpg_t *rpg)
     float dist = monster->pos.x - rpg->player->pos.x;
 
     monster->hor = 0;
-    if (get_dist(monster->pos, rpg->player->pos) > 600)
-        return;
-    if (dist > 160)
-        monster->hor = -1;
-    if (dist < -160)
-        monster->hor = 1;
+
+    monster->hor = (dist < 0) ? 1 : -1;
     if (monster->state != HIT &&
         dist < 160 && dist > -160 && monster->roll.cd > 0.3)
         monster->state = ATTACK;

@@ -7,6 +7,13 @@
 
 #include "rpg.h"
 
+static void put_backslash(char *str)
+{
+    for (int i = 0; str[i]; i++)
+        if (str[i] == '|')
+            str[i] = '\n';
+}
+
 static player_stat_t init_item_stat(char **stw)
 {
     player_stat_t stat = {0};
@@ -33,6 +40,7 @@ static item_e create_item(char *str)
     if (len != 10)
         return item;
     item.desc = my_strdup(stw[9]);
+    put_backslash(item.desc);
     item.equiped = 0;
     item.in_inventory = 0;
     item.next = NULL;
@@ -70,7 +78,7 @@ void init_item_list(rpg_t *rpg)
     str = get_value_by_tags(parser->root, (char *[]){"ITEMS", NULL});
     if (str == NULL)
         return;
-    stw = a_mkstw(str, "\n ");
+    stw = a_mkstw(str, "\n");
     if (stw == NULL)
         return;
     rpg->data->nb_item = 0;

@@ -34,9 +34,16 @@ static void monster_dir(entity_t *monster, rpg_t *rpg)
     if (dist < -70)
         monster->hor = 1;
     if (monster->state != ATTACK &&
-        monster->state != HIT &&
-        dist < 70 && dist > -70 && monster->roll.cd > 0.3)
-        monster->state = ATTACK;
+        monster->state != HIT && monster->roll.cd > 0.3) {
+        if (dist < 70 && dist > -70) {
+            monster->attack.crit = 0;
+            monster->state = ATTACK;
+        }
+        if (dist > 350 || dist < -350) {
+            monster->attack.crit = 1;
+            monster->state = ATTACK;
+        }
+    }
 }
 
 void set_var_shroom(entity_t *monster, rpg_t *rpg)

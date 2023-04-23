@@ -28,8 +28,13 @@ static void new_anim(rpg_t *rpg,
         set_animation(player, asset->ma_shroom.idle, 1, NULL);
     if (state == RUN)
         set_animation(player, asset->ma_shroom.run, 1, NULL);
-    if (state == ATTACK)
-        set_animation(player, asset->ma_shroom.attack_1, 0, attack_anim);
+    if (state == ATTACK) {
+        if (player->attack.crit == 0)
+            set_animation(player, asset->ma_shroom.attack_1, 0, attack_anim);
+        if (player->attack.crit == 1) {
+            set_animation(player, asset->ma_shroom.attack_2, 0, attack_anim);
+        }
+    }
     new_anim_2(rpg, player, asset, state);
 }
 

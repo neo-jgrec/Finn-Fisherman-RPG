@@ -11,6 +11,11 @@ static void player_death(rpg_t *rpg, entity_t *entity)
 {
     int a = 0;
 
+    while (DELTAT(rpg->win->time) < 2.5) {
+        play_sound(DEATH_SOUND, rpg);
+        youdead(rpg, rpg->loading, a);
+        a += 4;
+    }
     stop_loop_song(MAIN_MUSIC2, rpg);
     stop_loop_song(MAIN_MUSIC, rpg);
     entity->state = IDLE;
@@ -19,11 +24,8 @@ static void player_death(rpg_t *rpg, entity_t *entity)
     rpg->data->xp = 0;
     entity->pos = rpg->puzzle->spawn;
     rpg->player->health.cd = 0;
-    while (DELTAT(rpg->win->time) < 2.5) {
-        play_sound(DEATH_SOUND, rpg);
-        youdead(rpg, rpg->loading, a);
-        a += 4;
-    }
+    free_monsters(rpg);
+    init_monsters(rpg);
 }
 
 void death_anim(rpg_t *rpg, entity_t *entity)

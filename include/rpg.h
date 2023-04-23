@@ -51,6 +51,7 @@
 
     #define SEC(time) ((float)(time) / 1000000)
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
+    #define SIGN(x) ((x < 0) ? -1 : 1)
     #define VEC sfVector2f
     #define NB_MAP 2
 
