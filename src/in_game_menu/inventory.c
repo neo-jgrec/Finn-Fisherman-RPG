@@ -30,7 +30,7 @@ static void equip_inv(rpg_t *rpg, size_t i)
     }
 }
 
-static void display_description(rpg_t *rpg, size_t i)
+static void display_description(rpg_t *rpg, size_t i, sfIntRect texture_rect)
 {
     sfText *text = sfText_create();
     sfVector2f text_pos = {sfRenderWindow_getSize(
@@ -40,6 +40,7 @@ static void display_description(rpg_t *rpg, size_t i)
     sfSprite_setColor(rpg->asset->items.sp, (sfColor){255, 255, 255, 255});
     sfSprite_setPosition(rpg->asset->items.sp, (sfVector2f)
         {text_pos.x - 32 + 16, text_pos.y - 32 - 16});
+    sfSprite_setTextureRect(rpg->asset->items.sp, texture_rect);
     sfRenderWindow_drawSprite(rpg->win->win, rpg->asset->items.sp, NULL);
     sfText_setPosition(text, text_pos);
     sfText_setString(text, rpg->data->inventory[i]->desc);
@@ -62,7 +63,7 @@ static void handle_actions(rpg_t *rpg, sfVector2f pos, size_t i,
         else
             sfSprite_setColor(rpg->asset->items.sp, (sfColor){0, 255, 0, 128});
     } else {
-        display_description(rpg, i);
+        display_description(rpg, i, texture_rect);
         if (!rpg->data->inventory[i]->equiped)
             sfSprite_setColor(rpg->asset->items.sp, sfWhite);
         else
