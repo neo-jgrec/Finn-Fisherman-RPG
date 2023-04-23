@@ -55,6 +55,7 @@ static void change_button_style(button_t *button, rpg_t *rpg, size_t i)
             rpg->menu->save_reference = i;
             rpg->menu->selected_save = button->name;
             button->action(rpg);
+            rpg->menu->in_game_menu->panel_type = NONE_PANEL;
             break;
     }
 }
