@@ -32,7 +32,7 @@ void manage_jump(entity_t *player, rpg_t *rpg)
         play_sound(JUMP_SOUND, rpg);
         if (jump->ground_time >= 0.12)
             player->jump.nb -= 1;
-        player->velocity = -800;
+        player->velocity = -850;
         jump->press_time = 10;
     }
 }

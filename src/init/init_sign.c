@@ -57,7 +57,7 @@ void init_sign(puzzle_t *puzzle, xml_parser_t *parser)
 
     if (sign == NULL)
         return;
-    stw = a_mkstw(sign, "\n");
+    stw = a_mkstw(sign, "\n ");
     for (int i = 0; stw[i]; i++)
         add_sign(puzzle, stw[i]);
     a_freestw(stw);
