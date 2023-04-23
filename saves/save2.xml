@@ -11,7 +11,7 @@
         <SPEED>400</SPEED>
         <DAMAGE>50</DAMAGE>
         <CRIT_CHANCE>30</CRIT_CHANCE>
-        <JUMP>3</JUMP>
+        <JUMP>0</JUMP>
         <LEVEL>1</LEVEL>
         <EXP>0</EXP>
         <EXP_TO_NEXT_LEVEL>100</EXP_TO_NEXT_LEVEL>

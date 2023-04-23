@@ -1,62 +1,62 @@
 <ITEM>
     <ITEMS>
 0:0:0:0:0:0:0:0:0:Kipu sword | a sword for poor peoples
-0:1:0:0:0:0:0:0:0:Paladin sword | a big sword also called "Graussépé" | speed -= 50 | damage += 50
-0:2:0:0:0:0:0:0:0:Stick Sword | A skinny sword | speed += 50 | damage -= 50
-0:3:0:0:0:0:0:0:0:Twisted sword | A lucky sword for not being broke | crit_chance += 15 | damage -= 50
-0:4:0:0:0:0:0:0:0:Pirate sword | A sword originally found in the water, you feel lighter with it | jump += 1 | crit_chance += 15 | speed += 20
-0:5:0:0:0:0:0:0:0:A normal sword | The sword of all knights (and fisherman) | damage += 75
-0:6:0:0:0:0:0:0:0:A bigger sword | A normal sword, but bigger, seems you need something to compensate | damage += 69 | crit_chance += 19 | speed -= 20
-0:7:0:0:0:0:0:0:0:The sword of the ultimate fisherman nor king | The sword to erradicate anything | damage += 10000 | speed -= 25 | jump += 10
-1:20:0:0:0:0:0:0:0:A Bowl | This helmet is a bowl with holes in it to see through | health += 20
-1:21:0:0:0:0:0:0:0:A golden bowl | It's a bowl with holes in it to see through but... There is gold on it ?!! | health += 20, crit_chance += 30
-1:22:0:0:0:0:0:0:0:A Normal Helmet | It's an helmet made for any knights, or should I say every fisherman | health += 30
-1:23:0:0:0:0:0:0:0:A boss helmet | How did you got that helmet ? |  health += 30, speed += 50, jump += 1
-1:36:0:0:0:0:0:0:0:Witch hat | For real witch in this world ? | jump += 1, speed += 50, health -= 20
-1:37:0:0:0:0:0:0:0:Wizard | You're a Wizard harry ! ... What am I saying ? | speed -= 100, jump += 2, health += 20
-1:38:0:0:0:0:0:0:0:Headband | With this you'll be ready to go to war | speed += 100, health += 100
-1:39:0:0:0:0:0:0:0:Marauder cap | What, another refference to harry potter ? | speed += 100, health -= 150, jump += 2
-1:40:0:0:0:0:0:0:0:Funny looking helmet | Can you see something with it ? | speed -= 50, health += 50, crit_chance += 20
-1:41:0:0:0:0:0:0:0:Talking helmet | his creator wanted to talk clearly while fighting | crit_chance += 30, health_power += 10
-1:42:0:0:0:0:0:0:0:Paladin Helmet | May meowgod be with you | crit_chance += 40, health += 20
-1:43:0:0:0:0:0:0:0:Iron Hat | Nobody know why this exist | health_power += 20, health -= 30
-1:44:0:0:0:0:0:0:0:Scary Helmet | ooooo, I'm scared | heath -= 50, speed -= 50, jump +=1, crit_chance -= 30
-1:45:0:0:0:0:0:0:0:Crown | MONEEEEY | crit_chance += 50, speed += 150, jump += 2
-2:24:0:0:0:0:0:0:0: A Terracota Chesplate | A chesplate not really usefull | Do nothing but looking cool (not really). crit_chance -= 20
-2:25:0:0:0:0:0:0:0:Normal Chestplate | An chestplate, what to say more ? | health += 50
-2:26:0:0:0:0:0:0:0:Chesplate but with big shoulders | we say's that the creator only wanted bigger shoulder and were not going to the gym | health += 100, speed -= 75, jump -= 1
-2:27:0:0:0:0:0:0:0:GOLDEEEN CHEEESPLAATE | I love money. We love money. | jump = 0, speed -= 200, health += 200, crit_chance += 50 
-3:28:0:0:0:0:0:0:0:Normal Gloves | You can freely move your fingers like a perverted japanese man | speed += 20
-3:29:0:0:0:0:0:0:0:Leather Gauntlets | Your hands are protected no one  can reach you ! (Except if they try to reach something else than the hands) | speed += 10, health += 20
-3:30:0:0:0:0:0:0:0:Mixed Gauntlets | It's a weird mix but still work I guess | speed += 10, health += 35
-3:31:0:0:0:0:0:0:0:The knight (Fisherman) Gauntlets | The gauntlets that really will help you ! | speed -= 30, health += 50, crit_chance += 10
-4:32:0:0:0:0:0:0:0:Leather Boots | Boots like they were wearing  a long time ago | speed += 10
-4:33:0:0:0:0:0:0:0:Iron Boots | Are we in Minekraft ? | speed -= 30, health += 30
-4:34:0:0:0:0:0:0:0:GOLDEN BOOOOTS | We still love money. | crit_chance += 50, speed -= 150, health += 100
-4:35:0:0:0:0:0:0:0:Cool boots | They are cooool~ | crit_chance += 1000
-5:16:0:0:0:0:0:0:0:Leather Ring | Looks good on your hand | crit_chance += 5
-5:17:0:0:0:0:0:0:0:Diamond Ring | It shines greatly | damage += 20
-5:18:0:0:0:0:0:0:0:Ruby Ring | Red like the life | health += 50
-5:20:0:0:0:0:0:0:0:Emerald Ring | Green like the chance | crit_chance += 30
-5:48:0:0:0:0:0:0:0:Power Ring | One ring to rule them all | crit_chance += 50 | damage += 75 | health -= 100
-5:49:0:0:0:0:0:0:0:Double Diamond Ring | Also called DDR, or SDRAM | damage += 75
-6:8:0:0:0:0:0:0:0:Diamond Necklace | It shines greatly | damage += 20
-6:9:0:0:0:0:0:0:0:Star Necklace | Make a wish ! | crit_chance += 50
-6:10:0:0:0:0:0:0:0:Tooth Necklace | You may want to stab enemies with it | damage += 25
-6:11:0:0:0:0:0:0:0:Relic Necklace | You do not really know where it come from but it look cool to you and monster are afraid | crit_chance += 30, jump -= 2
-6:46:0:0:0:0:0:0:0:Fisherman Necklace | This item is OP. | jump = 1000, speed += 150
-6:47:0:0:0:0:0:0:0:MiniStar Necklace | Jump to the stars | jump += 5
-7:12:0:0:0:0:0:0:0:Heal Potion | Heal you a little bit | heal = 50
-7:13:0:0:0:0:0:0:0:LARGE Heal Potion | Heal you a lot | heal = 100
-7:14:0:0:0:0:0:0:0:Milk | THE ULTIMATE POTION | heal = 10000
-7:15:0:0:0:0:0:0:0:Morphine | Alterate your stats. PS : You can die if you take too much Morphine | health -= 10, damage += 20
-8:50:0:0:0:0:0:0:0:Normal Fish | a fish. | heal = 75
-8:51:0:0:0:0:0:0:0:Nemo | Wait, you gonna eat Nemo ? | heal = 75
-8:52:0:0:0:0:0:0:0:Flat Fish | Weird looking fish | heal = 50
-8:53:0:0:0:0:0:0:0:Poulpito | A poulpito | heal = 100
-8:54:0:0:0:0:0:0:0:Normal Fish | a fish. | heal = 75
-8:55:0:0:0:0:0:0:0:Confetti Fish | A fish that party all night
-8:58:0:0:0:0:0:0:0:Sea Nail |  Please do not eat that... | heal = -5 
-8:57:0:0:0:0:0:0:0:Axolot | ARE YOU EATING AN AXOLOT | heal = 150
+0:1:0:0:0:-50:50:0:0:Paladin sword | a big sword also called "Graussépé" | speed -= 50 | damage += 50
+0:2:0:0:0:50:-50:0:0:Stick Sword | A skinny sword | speed += 50 | damage -= 50
+0:3:0:0:0:0:-50:15:0:Twisted sword | A lucky sword for not being broke | crit_chance += 15 | damage -= 50
+0:4:0:0:0:20:0:15:1:Pirate sword | A sword originally found in the water, you feel lighter with it | jump += 1 | crit_chance += 15 | speed += 20
+0:5:0:0:0:-20:69:19:0:A normal sword | The sword of all knights (and fisherman) | damage += 75
+0:6:0:0:0:-100:1000:19:0:A bigger sword | A normal sword, but bigger, seems you need something to compensate | damage += 69 | crit_chance += 19 | speed -= 20
+0:7:0:0:0:-50:0:1000:10:The sword of the ultimate fisherman nor king | The sword to erradicate anything | damage += 10000 | speed -= 25 | jump += 10
+1:20:0:0:20:0:0:0:0:A Bowl | This helmet is a bowl with holes in it to see through | health += 20
+1:21:0:0:20:0:0:30:0:A golden bowl | It's a bowl with holes in it to see through but... There is gold on it ?!! | health += 20, crit_chance += 30
+1:22:0:0:30:0:0:0:0:A Normal Helmet | It's an helmet made for any knights, or should I say every fisherman | health += 30
+1:23:0:0:30:50:0:0:1:A boss helmet | How did you got that helmet ? |  health += 30, speed += 50, jump += 1
+1:36:0:0:-20:50:0:0:1:Witch hat | For real witch in this world ? | jump += 1, speed += 50, health -= 20
+1:37:0:0:100:100:0:0:0:Wizard | You're a Wizard harry ! ... What am I saying ? | speed -= 100, jump += 2, health += 20
+1:38:0:0:100:100:0:0:0:Headband | With this you'll be ready to go to war | speed += 100, health += 100
+1:39:0:0:-150:100:0:0:2:Marauder cap | What, another refference to harry potter ? | speed += 100, health -= 150, jump += 2
+1:40:0:0:50:-50:0:20:0:Funny looking helmet | Can you see something with it ? | speed -= 50, health += 50, crit_chance += 20
+1:41:0:10:0:0:0:30:0:Talking helmet | his creator wanted to talk clearly while fighting | crit_chance += 30, health_power += 10
+1:42:0:0:20:0:0:40:0:Paladin Helmet | May meowgod be with you | crit_chance += 40, health += 20
+1:43:0:20:-50:0:0:0:0:Iron Hat | Nobody know why this exist | health_power += 20, health -= 30
+1:44:0:0:-50:-50:0:-30:1:Scary Helmet | ooooo, I'm scared | heath -= 50, speed -= 50, jump +=1, crit_chance -= 30
+1:45:0:0:0:150:0:50:2:Crown | MONEEEEY | crit_chance += 50, speed += 150, jump += 2
+2:24:0:0:0:0:0:-20:0: A Terracota Chesplate | A chesplate not really usefull | Do nothing but looking cool (not really). crit_chance -= 20
+2:25:0:0:50:0:0:0:0:Normal Chestplate | An chestplate, what to say more ? | health += 50
+2:26:0:0:100:-75:0:0:0:Chesplate but with big shoulders | we say's that the creator only wanted bigger shoulder and were not going to the gym | health += 100, speed -= 75, jump -= 1
+2:27:0:0:0:-100:200:50:0:GOLDEEEN CHEEESPLAATE | I love money. We love money. | jump = 0, speed -= 200, health += 200, crit_chance += 50 
+3:28:0:0:0:20:0:0:0:Normal Gloves | You can freely move your fingers like a perverted japanese man | speed += 20
+3:29:0:0:20:10:0:0:0:Leather Gauntlets | Your hands are protected no one  can reach you ! (Except if they try to reach something else than the hands) | speed += 10, health += 20
+3:30:0:0:35:10:0:0:0:Mixed Gauntlets | It's a weird mix but still work I guess | speed += 10, health += 35
+3:31:0:0:50:-30:0:10:0:The knight (Fisherman) Gauntlets | The gauntlets that really will help you ! | speed -= 30, health += 50, crit_chance += 10
+4:32:0:0:0:10:0:0:0:Leather Boots | Boots like they were wearing  a long time ago | speed += 10
+4:33:0:0:30:-30:0:0:0:Iron Boots | Are we in Minekraft ? | speed -= 30, health += 30
+4:34:0:0:150:-150:0:50:0:GOLDEN BOOOOTS | We still love money. | crit_chance += 50, speed -= 150, health += 100
+4:35:0:0:0:0:0:100:0:Cool boots | They are cooool~ | crit_chance += 1000
+5:16:0:0:0:0:0:5:0:Leather Ring | Looks good on your hand | crit_chance += 5
+5:17:0:0:0:0:20:0:0:Diamond Ring | It shines greatly | damage += 20
+5:18:0:0:50:0:0:0:0:Ruby Ring | Red like the life | health += 50
+5:19:0:0:0:0:0:30:0:Emerald Ring | Green like the chance | crit_chance += 30
+5:50:0:0:-100:0:75:50:0:Power Ring | One ring to rule them all | crit_chance += 50 | damage += 75 | health -= 100
+5:51:0:0:0:0:75:0:0:Double Diamond Ring | Also called DDR, or SDRAM | damage += 75
+6:8:0:0:0:0:20:0:0:Diamond Necklace | It shines greatly | damage += 20
+6:9:0:0:0:0:50:0:0:Star Necklace | Make a wish ! | crit_chance += 50
+6:10:0:0:0:0:25:0:0:Tooth Necklace | You may want to stab enemies with it | damage += 25
+6:11:0:0:0:0:0:30:-2:Relic Necklace | You do not really know where it come from but it look cool to you and monster are afraid | crit_chance += 30, jump -= 2
+6:48:0:0:0:150:0:0:1000:Fisherman Necklace | This item is OP. | jump = 1000, speed += 150
+6:49:0:0:0:0:0:0:5:MiniStar Necklace | Jump to the stars | jump += 5
+7:12:1:0:0:0:0:0:0:Heal Potion | Heal you a little bit | potion += 1
+7:13:2:0:0:0:0:0:0:LARGE Heal Potion | Heal you a lot | potion += 2
+7:14:3:0:0:0:0:0:0:Milk | THE ULTIMATE POTION | heal = potion += 3
+7:15:-1:100:1000:0:0:0:0:Morphine | Alterate your stats. PS : You can die if you take too much Morphine | health += 1000 | potion -= 1 | heal_power += 100
+8:56:0:0:0:0:0:0:0:Normal Fish | a fish. | heal = 75
+8:57:2:0:75:0:0:0:0:Nemo | Wait, you gonna eat Nemo ? | heal = 75 | potion += 2
+8:58:0:0:50:0:0:0:0:Flat Fish | Weird looking fish | heal = 50
+8:59:0:0:100:0:0:0:0:Poulpito | A poulpito | heal = 100
+8:60:0:0:75:0:0:0:0:Normal Fish | a fish. | heal = 75
+8:61:1:0:1:0:0:0:0:Confetti Fish | A fish that party all night | potion += 1
+8:62:0:0:-5:0:0:0:0:Sea Nail |  Please do not eat that... | heal = -5
+8:63:1:0:150:0:0:0:0:Axolot | ARE YOU EATING AN AXOLOT | heal = 150 | potion += 1
     </ITEMS>
 </ITEM>
