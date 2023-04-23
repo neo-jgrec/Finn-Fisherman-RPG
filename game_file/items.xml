@@ -5,8 +5,8 @@
 0:2:0:0:0:50:-50:0:0:Stick Sword | A skinny sword | speed += 50 | damage -= 50
 0:3:0:0:0:0:-50:15:0:Twisted sword | A lucky sword for not being broke | crit_chance += 15 | damage -= 50
 0:4:0:0:0:20:0:15:1:Pirate sword | A sword originally found in the water, you feel lighter with it | jump += 1 | crit_chance += 15 | speed += 20
-0:5:0:0:0:-20:69:19:0:A normal sword | The sword of all knights (and fisherman) | damage += 75
-0:6:0:0:0:-100:1000:19:0:A bigger sword | A normal sword, but bigger, seems you need something to compensate | damage += 69 | crit_chance += 19 | speed -= 20
+0:5:0:0:0:0:75:0:0:A normal sword | The sword of all knights (and fisherman) | damage += 75
+0:6:0:0:0:-100:69:19:0:A bigger sword | A normal sword, but bigger, seems you need something to compensate | damage += 69 | crit_chance += 19 | speed -= 20
 0:7:0:0:0:-50:0:1000:10:The sword of the ultimate fisherman nor king | The sword to erradicate anything | damage += 10000 | speed -= 25 | jump += 10
 1:20:0:0:20:0:0:0:0:A Bowl | This helmet is a bowl with holes in it to see through | health += 20
 1:21:0:0:20:0:0:30:0:A golden bowl | It's a bowl with holes in it to see through but... There is gold on it ?!! | health += 20, crit_chance += 30

@@ -50,7 +50,7 @@ static bool set_beg(quest_s *quest, rpg_t *rpg)
         sfText_setString(quest->text, quest->dialogue.dialogue[PARSER]);
     if (quest->state == 0 && quest->requirement.number_get >=
     quest->requirement.number_req) {
-        add_item(rpg, 0, (VEC){rpg->player->pos.x + 40,
+        add_item(rpg, 45, (VEC){rpg->player->pos.x + 40,
             rpg->player->pos.y - 50});
         sfText_setString(quest->text,
         quest->dialogue.dialogue_complete[PARSER]);
