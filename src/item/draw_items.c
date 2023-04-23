@@ -11,7 +11,6 @@ static void draw_item(rpg_t *rpg, item_e *item)
 {
     sfIntRect rect = {0};
 
-    printf("%d\n", item->sprite);
     rect = (sfIntRect){(item->sprite % 8) * 16,
             (item->sprite / 8) * 16, 16, 16};
     sfSprite_setTextureRect(rpg->asset->items.sp, rect);
