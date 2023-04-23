@@ -14,6 +14,8 @@ static void check_for_map_change(rpg_t *rpg, int map)
         rpg->data->location = map;
         if (rpg->data->location >= NB_MAP)
             rpg->data->location = 0;
+        save_data(rpg);
+        save_xml(rpg->data->parser, rpg->save_path);
         free_puzzle(rpg->puzzle);
         init_puzzle(rpg);
         free_monsters(rpg);

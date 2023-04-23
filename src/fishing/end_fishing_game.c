@@ -18,7 +18,7 @@ static bool fish_is_out_of_zone(fishing_t *game)
 
 static void fish_result(sfBool out, rpg_t *rpg)
 {
-    int list_item_drop[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+    int list_item_drop[8] = {50, 51, 52, 53, 54, 65, 56, 57};
 
     if (!out) {
         add_res_to_quest(rpg->quests, "Peche");

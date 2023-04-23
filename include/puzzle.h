@@ -14,9 +14,14 @@
     typedef struct entity_s entity_t;
     typedef struct sprite_s sprite_t;
 
-    UNUSED static char *map_list[2] = {
+    UNUSED static char *map_list[7] = {
+        "assets/map/map_0.xml",
         "assets/map/map_1.xml",
-        "assets/map/map_2.xml"
+        "assets/map/map_2.xml",
+        "assets/map/map_3.xml",
+        "assets/map/map_4.xml",
+        "assets/map/map_5.xml",
+        "assets/map/map_6.xml"
     };
 
     typedef struct sign_s {

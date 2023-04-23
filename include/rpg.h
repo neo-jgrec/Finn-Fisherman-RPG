@@ -53,7 +53,7 @@
     #define DELTAT(time) (SEC(sfClock_getElapsedTime(time).microseconds))
     #define SIGN(x) ((x < 0) ? -1 : 1)
     #define VEC sfVector2f
-    #define NB_MAP 2
+    #define NB_MAP 7
 
     typedef enum weather {
         NONE_WEATHER,
