@@ -100,3 +100,10 @@ Now, Enjoy ! :)
 You need the `MSVC Build tools` to be installed on your machine.
 Then download the archive from the realese, execute the executable and enjoy !
 
+## Game Footage
+
+![normalFootage](https://raw.githubusercontent.com/neo-jgrec/Finn-Fisherman-RPG/main/readme_images/normalGame.png)
+![fishing](https://raw.githubusercontent.com/neo-jgrec/Finn-Fisherman-RPG/main/readme_images/fishing.png)
+![dieSituation](https://raw.githubusercontent.com/neo-jgrec/Finn-Fisherman-RPG/main/readme_images/diePic.png)
+
+
